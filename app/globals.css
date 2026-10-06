@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-brand-dark: #1b2c4a;
+  --color-brand-secondary: #1b2c4a;
+  --color-paper: #ffffff;
+  --color-ink: #1b2c4a;
+  --color-glass: rgba(255, 255, 255, 0.08);
+  --color-glass-strong: rgba(255, 255, 255, 0.16);
+  --radius-card: 16px;
+  --radius-image: 8px;
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --color-hero-bg: #efefef;
+  --font-mono: var(--font-dm-mono), ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper font-sans text-[1rem] leading-relaxed text-ink antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer utilities {
+  .container-site {
+    @apply mx-auto w-full max-w-[1800px] px-5 sm:px-8 lg:px-12;
+  }
+
+  .section-y {
+    @apply py-16 md:py-24 lg:py-[120px];
+  }
+
+  .heading-display {
+    @apply font-sans font-medium uppercase leading-[1.05] tracking-[-0.02em];
+  }
+
+  .text-title-hero {
+    font-size: clamp(2.25rem, 5.5vw, 4.25rem);
+  }
+
+  .text-title-page {
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+  }
+
+  .text-title-section {
+    font-size: clamp(1.85rem, 4vw, 3rem);
+  }
+
+  .text-hero-editorial {
+    font-size: clamp(1.65rem, 7.5vw, 4.75rem);
+  }
+
+  @media (min-width: 768px) {
+    .text-hero-editorial {
+      font-size: clamp(2.25rem, 5.5vw, 4.75rem);
+    }
+  }
+
+  .motion-reveal {
+    @apply transition-[opacity,filter] duration-700 ease-out;
+  }
+
+  .motion-reveal-pending {
+    @apply opacity-0;
+    filter: blur(20px);
+  }
+
+  .motion-reveal-active {
+    @apply opacity-100;
+    filter: blur(0);
+  }
+
+  .bg-blurred-section {
+    @apply relative overflow-hidden;
+  }
+
+  .bg-blurred-section::before {
+    content: "";
+    @apply pointer-events-none absolute inset-0 -z-10 scale-110 bg-cover bg-center opacity-40;
+    filter: blur(20px);
+  }
+
+  .image-hover-shimmer {
+    @apply relative overflow-hidden;
+  }
+
+  .image-hover-shimmer::after {
+    content: "";
+    @apply pointer-events-none absolute inset-0 z-[1];
+    background: linear-gradient(
+      105deg,
+      transparent 38%,
+      rgba(255, 255, 255, 0.28) 50%,
+      transparent 62%
+    );
+    transform: translateX(-130%) skewX(-14deg);
+    transition: transform 850ms ease-out;
+  }
+
+  .image-hover-shimmer:hover::after {
+    transform: translateX(130%) skewX(-14deg);
+  }
+
+  .image-hover-shimmer-target {
+    @apply relative z-0 transition-[transform,filter] duration-700 ease-out;
+  }
+
+  .image-hover-shimmer:hover .image-hover-shimmer-target {
+    transform: scale(1.025);
+    filter: brightness(1.06);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .image-hover-shimmer::after {
+      display: none;
+    }
+
+    .image-hover-shimmer:hover .image-hover-shimmer-target {
+      transform: none;
+      filter: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .motion-reveal,
+    .motion-reveal-pending,
+    .motion-reveal-active {
+      @apply opacity-100 transition-none;
+      filter: none;
+    }
+  }
+}
