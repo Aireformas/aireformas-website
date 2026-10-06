@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CookieSettingsLink } from "@/components/consent/CookieSettingsLink";
 import { Logo } from "@/components/layout/Logo";
 import { footerNav } from "@/content/navigation";
 import { site } from "@/content/site";
@@ -58,9 +59,26 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <p className="mt-12 border-t border-white/[0.07] pt-6 text-xs text-white/40">
-          {site.copyright}
-        </p>
+        <div className="mt-12 flex flex-col gap-3 border-t border-white/[0.07] pt-6 text-xs text-white/40 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-4 sm:gap-y-2">
+          <p>{site.copyright}</p>
+          <p className="flex flex-wrap gap-x-3 gap-y-1">
+            <Link href="/legal/terminos" className="hover:text-white/65">
+              Términos
+            </Link>
+            <span aria-hidden>·</span>
+            <Link href="/legal/privacidad" className="hover:text-white/65">
+              Privacidad
+            </Link>
+            <span aria-hidden>·</span>
+            <Link href="/legal/cookies" className="hover:text-white/65">
+              Cookies
+            </Link>
+            <span aria-hidden>·</span>
+            <CookieSettingsLink className="hover:text-white/65">
+              Configurar cookies
+            </CookieSettingsLink>
+          </p>
+        </div>
       </Container>
     </footer>
   );
