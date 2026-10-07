@@ -1,7 +1,11 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import {
+  EditorialPageHeader,
+  type EditorialBreadcrumb,
+} from "@/components/shared/EditorialPageHeader";
 
 type PageHeroProps = {
   label: string;
@@ -9,7 +13,9 @@ type PageHeroProps = {
   description: string;
   image: { src: string; alt: string };
   cta?: { label: string; href: string };
-  layout?: "default" | "editorial";
+  secondaryCta?: { label: string; href: string };
+  layout?: "immersive" | "editorial";
+  breadcrumbs?: EditorialBreadcrumb[];
 };
 
 export function PageHero({
@@ -18,11 +24,13 @@ export function PageHero({
   description,
   image,
   cta,
-  layout = "default",
+  secondaryCta,
+  layout = "immersive",
+  breadcrumbs,
 }: PageHeroProps) {
   if (layout === "editorial") {
     return (
-      <section className="bg-paper pb-12 pt-6 text-ink md:pb-16 md:pt-8 lg:pb-20">
+      <section className="border-b border-ink/5 bg-paper pb-12 pt-6 text-ink md:pb-16 md:pt-8 lg:pb-20">
         <Container>
           <div className="grid gap-12 lg:grid-cols-12 lg:items-end lg:gap-14">
             <div className="max-w-xl lg:col-span-5">
@@ -33,9 +41,9 @@ export function PageHero({
               </p>
               {cta ? (
                 <div className="mt-8">
-                  <Button href={cta.href} variant="editorial">
+                  <Link href={cta.href} className="text-link-editorial">
                     {cta.label}
-                  </Button>
+                  </Link>
                 </div>
               ) : null}
             </div>
@@ -56,36 +64,14 @@ export function PageHero({
   }
 
   return (
-    <section className="relative flex min-h-[70vh] items-end overflow-hidden bg-stone text-white pt-16">
-      <Image
-        src={image.src}
-        alt={image.alt}
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-      />
-      <div className="absolute inset-0 bg-stone/25" aria-hidden />
-      <div
-        className="absolute inset-0 bg-gradient-to-t from-stone/90 via-stone/40 to-transparent"
-        aria-hidden
-      />
-      <Container className="relative z-10 py-20 md:py-28">
-        <SectionLabel className="text-white/70">{label}</SectionLabel>
-        <h1 className="heading-display text-title-page mt-8 max-w-3xl text-white">
-          {title}
-        </h1>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/85 md:text-lg">
-          {description}
-        </p>
-        {cta ? (
-          <div className="mt-8">
-            <Button href={cta.href} variant="editorial" className="border-white/40 text-white hover:border-white hover:text-white">
-              {cta.label}
-            </Button>
-          </div>
-        ) : null}
-      </Container>
-    </section>
+    <EditorialPageHeader
+      label={label}
+      title={title}
+      description={description}
+      image={image}
+      breadcrumbs={breadcrumbs}
+      cta={cta}
+      secondaryCta={secondaryCta}
+    />
   );
 }

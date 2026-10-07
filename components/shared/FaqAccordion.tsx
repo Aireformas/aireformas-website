@@ -17,7 +17,7 @@ export function FaqAccordion({ label, title, items }: FaqAccordionProps) {
   const [openId, setOpenId] = useState<string | null>(items[0]?.id ?? null);
 
   return (
-    <section className="section-y bg-paper text-ink">
+    <section className="section-y border-t border-ink/5 bg-paper text-ink">
       <Container>
         <SectionLabel variant="light">{label}</SectionLabel>
         <InView>

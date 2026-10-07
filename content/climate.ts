@@ -29,6 +29,10 @@ export const climateComfort = {
     "ACS",
     "Control inteligente",
   ] as const,
+  image: {
+    src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1600&q=85",
+    alt: "Salón con climatización discreta y luz natural",
+  },
 };
 
 export const climateServices = [

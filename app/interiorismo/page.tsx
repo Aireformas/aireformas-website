@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ContactCTA } from "@/components/contact/ContactCTA";
 import { InView } from "@/components/motion/InView";
-import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { PageHero } from "@/components/shared/PageHero";
 import { ImageGallery } from "@/components/shared/ImageGallery";
 import { ProcessSteps } from "@/components/shared/ProcessSteps";
+import {
+  PillarCrossLink,
+  PillarCrossLinks,
+} from "@/components/shared/PillarCrossLinks";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import {
@@ -27,17 +29,16 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbs = [
+  { name: "Inicio", href: "/" },
+  { name: "Interiorismo", href: "/interiorismo" },
+] as const;
+
 export default function InteriorismoPage() {
   return (
     <>
-      <Breadcrumbs
-        items={[
-          { name: "Inicio", href: "/" },
-          { name: "Interiorismo", href: "/interiorismo" },
-        ]}
-      />
       <PageHero
-        layout="editorial"
+        breadcrumbs={[...breadcrumbs]}
         label={interiorismoHero.label}
         title={interiorismoHero.title}
         description={interiorismoHero.description}
@@ -45,11 +46,11 @@ export default function InteriorismoPage() {
         cta={{ label: "Hablar de mi proyecto", href: "/contacto" }}
       />
 
-      <section className="section-y border-t border-ink/5 bg-paper text-ink">
+      <section className="section-y border-t border-ink/5 bg-paper-warm text-ink">
         <Container>
           <SectionLabel variant="light">ENFOQUE</SectionLabel>
           <InView>
-            <h2 className="heading-display text-title-section mt-6 max-w-3xl">
+            <h2 className="heading-display text-title-section mt-8 max-w-3xl">
               {editorialBlock.title}
             </h2>
           </InView>
@@ -67,7 +68,7 @@ export default function InteriorismoPage() {
         <Container>
           <SectionLabel variant="light">SERVICIOS</SectionLabel>
           <InView>
-            <h2 className="heading-display text-title-section mt-6 max-w-2xl">
+            <h2 className="heading-display text-title-section mt-8 max-w-2xl">
               Interiorismo integral
             </h2>
           </InView>
@@ -79,30 +80,19 @@ export default function InteriorismoPage() {
                 as="li"
                 className="list-none border-t border-ink/8 pt-6"
               >
-                <h3 className="heading-editorial text-2xl">
-                  {service.title}
-                </h3>
+                <h3 className="heading-editorial text-2xl">{service.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-ink/70">
                   {service.description}
                 </p>
               </InView>
             ))}
           </ul>
-          <p className="mt-10 text-sm text-ink/60">
-            Reforma y obra en{" "}
-            <Link href="/reformas" className="underline hover:text-ink">
-              Reformas
-            </Link>
+          <PillarCrossLinks>
+            Reforma y obra en <PillarCrossLink href="/reformas">Reformas</PillarCrossLink>
             . Carpintería en{" "}
-            <Link href="/mobiliario" className="underline hover:text-ink">
-              Mobiliario
-            </Link>
-            . Climatización en{" "}
-            <Link href="/climate" className="underline hover:text-ink">
-              Climate
-            </Link>
-            .
-          </p>
+            <PillarCrossLink href="/mobiliario">Mobiliario</PillarCrossLink>. Climatización en{" "}
+            <PillarCrossLink href="/climate">Climate</PillarCrossLink>.
+          </PillarCrossLinks>
         </Container>
       </section>
 

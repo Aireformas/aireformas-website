@@ -11,6 +11,10 @@ export const contactoHero = {
   title: "Hablar de mi proyecto",
   description:
     "Cuéntanos qué necesitas (vivienda, plazos y objetivos) y te respondemos con una primera orientación clara.",
+  image: {
+    src: "/images/hero-interior-2560.jpg",
+    alt: "Interior residencial integrado por aireformas en Madrid",
+  },
 };
 
 export const contactoFaq: FaqItem[] = [

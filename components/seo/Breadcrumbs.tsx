@@ -8,14 +8,28 @@ type BreadcrumbItem = {
 
 type BreadcrumbsProps = {
   items: BreadcrumbItem[];
+  embedded?: boolean;
 };
 
-export function Breadcrumbs({ items }: BreadcrumbsProps) {
+export function Breadcrumbs({ items, embedded = false }: BreadcrumbsProps) {
   return (
     <>
       <JsonLd data={breadcrumbJsonLd(items)} />
-      <nav aria-label="Breadcrumb" className="container-site pb-2 pt-20 lg:pt-24">
-        <ol className="flex flex-wrap items-center gap-2 text-xs text-ink/50">
+      <nav
+        aria-label="Breadcrumb"
+        className={
+          embedded
+            ? "mb-6 font-mono text-[10px] uppercase tracking-[0.2em]"
+            : "container-site pb-2 pt-20 lg:pt-24"
+        }
+      >
+        <ol
+          className={
+            embedded
+              ? "flex flex-wrap items-center gap-2 text-ink/45"
+              : "flex flex-wrap items-center gap-2 text-xs text-ink/50"
+          }
+        >
           {items.map((item, index) => {
             const isLast = index === items.length - 1;
             return (

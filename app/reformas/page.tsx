@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ContactCTA } from "@/components/contact/ContactCTA";
 import { InView } from "@/components/motion/InView";
-import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { faqPageJsonLd, JsonLd } from "@/components/seo/JsonLd";
 import { FaqAccordion } from "@/components/shared/FaqAccordion";
 import { ImageGallery } from "@/components/shared/ImageGallery";
 import { PageHero } from "@/components/shared/PageHero";
 import { ProcessSteps } from "@/components/shared/ProcessSteps";
+import {
+  PillarCrossLink,
+  PillarCrossLinks,
+} from "@/components/shared/PillarCrossLinks";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import {
@@ -29,6 +31,11 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbs = [
+  { name: "Inicio", href: "/" },
+  { name: "Reformas", href: "/reformas" },
+] as const;
+
 export default function ReformasPage() {
   return (
     <>
@@ -37,13 +44,8 @@ export default function ReformasPage() {
           reformasFaq.map((f) => ({ question: f.question, answer: f.answer })),
         )}
       />
-      <Breadcrumbs
-        items={[
-          { name: "Inicio", href: "/" },
-          { name: "Reformas", href: "/reformas" },
-        ]}
-      />
       <PageHero
+        breadcrumbs={[...breadcrumbs]}
         label={reformasHero.label}
         title={reformasHero.title}
         description={reformasHero.description}
@@ -51,11 +53,11 @@ export default function ReformasPage() {
         cta={{ label: reformasHero.cta, href: "/contacto" }}
       />
 
-      <section className="section-y bg-paper text-ink">
+      <section className="section-y bg-paper-warm text-ink">
         <Container>
           <SectionLabel variant="light">ALCANCE</SectionLabel>
           <InView>
-            <h2 className="heading-display text-title-section mt-6 max-w-3xl">
+            <h2 className="heading-display text-title-section mt-8 max-w-3xl">
               Obra coordinada con el diseño
             </h2>
           </InView>
@@ -63,9 +65,7 @@ export default function ReformasPage() {
             {reformasScope.map((item, index) => (
               <InView key={item.title} staggerIndex={index}>
                 <div className="border-t border-ink/8 pt-6">
-                  <h3 className="heading-editorial text-xl">
-                    {item.title}
-                  </h3>
+                  <h3 className="heading-editorial text-xl">{item.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-ink/70">
                     {item.description}
                   </p>
@@ -73,21 +73,12 @@ export default function ReformasPage() {
               </InView>
             ))}
           </div>
-          <p className="mt-10 text-sm text-ink/60">
+          <PillarCrossLinks>
             Climatización e instalaciones técnicas en{" "}
-            <Link href="/climate" className="underline hover:text-ink">
-              AIREFORMAS Climate
-            </Link>
-            . Mobiliario e interiorismo en{" "}
-            <Link href="/mobiliario" className="underline hover:text-ink">
-              Mobiliario
-            </Link>{" "}
-            e{" "}
-            <Link href="/interiorismo" className="underline hover:text-ink">
-              Interiorismo
-            </Link>
-            .
-          </p>
+            <PillarCrossLink href="/climate">AIREFORMAS Climate</PillarCrossLink>. Mobiliario e
+            interiorismo en <PillarCrossLink href="/mobiliario">Mobiliario</PillarCrossLink> e{" "}
+            <PillarCrossLink href="/interiorismo">Interiorismo</PillarCrossLink>.
+          </PillarCrossLinks>
         </Container>
       </section>
 
