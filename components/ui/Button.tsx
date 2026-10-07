@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
-type ButtonVariant = "primary" | "primary-light" | "ghost-light" | "editorial";
+type ButtonVariant = "primary" | "primary-light" | "ghost-light" | "editorial" | "accent";
 
 type ButtonBaseProps = {
   children: ReactNode;
@@ -32,6 +32,8 @@ const variantClasses: Record<ButtonVariant, string> = {
     "border-white/20 text-white/90 hover:border-white/60 bg-glass rounded-sm px-7 py-3.5 text-sm font-medium border backdrop-blur-md",
   editorial:
     "border-b border-ink/25 pb-0.5 text-[0.6875rem] font-medium uppercase tracking-[0.18em] text-ink hover:border-accent hover:text-accent rounded-none px-0 py-0 border-x-0 border-t-0",
+  accent:
+    "rounded-sm border border-accent bg-accent px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.12em] text-white hover:border-accent hover:bg-accent/90 hover:text-white",
 };
 
 function buttonClassName(variant: ButtonVariant, className?: string) {

@@ -13,8 +13,8 @@ export const mobiliarioHero = {
     "Diseñamos piezas que pertenecen a la arquitectura: carpintería, cocinas, vestidores, muebles TV y soluciones a medida para cada estancia.",
   cta: "Hablar de mi proyecto",
   image: {
-    src: "/images/hero-interior-2560.jpg",
-    alt: "Carpintería y mobiliario integrados en vivienda residencial",
+    src: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=2560&q=90",
+    alt: "Vestidor con carpintería a medida, iluminación integrada y acabados lacados",
   },
 };
 

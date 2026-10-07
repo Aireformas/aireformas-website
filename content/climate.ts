@@ -13,8 +13,8 @@ export const climateHero = {
     "Diseñamos climatización, agua caliente y control como parte del espacio: invisible en la arquitectura, precisa en el funcionamiento.",
   cta: "Hablar de mi proyecto",
   image: {
-    src: "/images/hero-interior-2560.jpg",
-    alt: "Confort térmico integrado en vivienda residencial",
+    src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=2560&q=90",
+    alt: "Salón residencial con climatización discreta, luz natural y confort térmico",
   },
 };
 

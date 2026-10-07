@@ -74,11 +74,7 @@ export function ContactForm() {
           className={`${fieldClassName} min-h-[8.5rem]`}
         />
       </label>
-      <Button
-        type="submit"
-        variant="primary"
-        className="mt-1 w-full border-accent bg-accent px-8 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-white hover:border-accent hover:bg-accent/90 hover:text-white sm:w-full"
-      >
+      <Button type="submit" variant="accent" className="mt-1 w-full px-8 py-4">
         Enviar solicitud
       </Button>
     </form>

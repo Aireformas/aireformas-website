@@ -13,8 +13,8 @@ export const reformasHero = {
     "Coordinamos obra, instalaciones y acabados como extensión del diseño: un único equipo, un único criterio desde el primer plano hasta la entrega.",
   cta: "Hablar de mi proyecto",
   image: {
-    src: "/images/hero-interior-2560.jpg",
-    alt: "Vivienda en reforma integral con diseño y acabados contemporáneos",
+    src: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=2560&q=90",
+    alt: "Salón en reforma integral con distribución abierta y acabados contemporáneos",
   },
 };
 
