@@ -27,12 +27,12 @@ export function ContactCTA({
       className={
         isDark
           ? "section-y bg-stone text-white"
-          : "section-y border-t border-ink/5 bg-paper text-ink"
+          : "section-y border-t border-ink/8 bg-paper-warm text-ink"
       }
     >
       <Container>
-        <div className="grid gap-14 lg:grid-cols-2 lg:items-start lg:gap-20">
-          <div>
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
+          <div className="lg:col-span-5">
             <SectionLabel variant={isDark ? "dark" : "light"}>{label}</SectionLabel>
             <InView>
               <h2 className="heading-display text-title-section mt-8">{title}</h2>
@@ -66,8 +66,8 @@ export function ContactCTA({
           <div
             className={
               isDark
-                ? "rounded-[var(--radius-card)] bg-paper p-6 text-ink sm:p-8"
-                : "border-t border-ink/10 pt-8 sm:border sm:border-ink/8 sm:p-8 sm:pt-8"
+                ? "lg:col-span-7 rounded-[var(--radius-card)] bg-paper p-6 text-ink shadow-[0_24px_64px_-32px_rgba(27,44,74,0.35)] sm:p-8 lg:p-10"
+                : "lg:col-span-7 rounded-[var(--radius-card)] border border-ink/10 border-t-2 border-t-accent bg-paper p-6 text-ink shadow-[0_28px_72px_-36px_rgba(27,44,74,0.28)] sm:p-8 lg:p-10"
             }
           >
             <ContactForm />

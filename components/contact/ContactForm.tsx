@@ -19,38 +19,66 @@ export function ContactForm() {
     );
   }
 
+  const fieldClassName =
+    "rounded-[var(--radius-image)] border border-ink/15 bg-paper-warm/80 px-4 py-3.5 text-ink outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-ink/35 focus:border-accent focus:bg-paper focus:ring-2 focus:ring-accent/15";
+
   return (
-    <form onSubmit={handleSubmit} className="grid gap-4">
+    <form onSubmit={handleSubmit} className="grid gap-5">
+      <div className="border-b border-ink/8 pb-5">
+        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/45">
+          Formulario
+        </p>
+        <h3 className="heading-editorial mt-3 text-2xl tracking-[0.1em] md:text-3xl">
+          Cuéntanos tu proyecto
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-ink/60">
+          Respuesta en 1–2 días laborables.
+        </p>
+      </div>
+
       <label className="grid gap-2 text-sm">
-        <span className="font-medium text-ink/80">Nombre</span>
+        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/55">
+          Nombre
+        </span>
         <input
           type="text"
           name="nombre"
           required
           autoComplete="name"
-          className="rounded-[var(--radius-image)] border border-ink/10 bg-paper px-4 py-3 outline-none ring-ink/15 focus:ring-2"
+          placeholder="Tu nombre"
+          className={fieldClassName}
         />
       </label>
       <label className="grid gap-2 text-sm">
-        <span className="font-medium text-ink/80">Teléfono</span>
+        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/55">
+          Teléfono
+        </span>
         <input
           type="tel"
           name="telefono"
           required
           autoComplete="tel"
-          className="rounded-[var(--radius-image)] border border-ink/10 bg-paper px-4 py-3 outline-none ring-ink/15 focus:ring-2"
+          placeholder="+34 …"
+          className={fieldClassName}
         />
       </label>
       <label className="grid gap-2 text-sm">
-        <span className="font-medium text-ink/80">Mensaje</span>
+        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/55">
+          Mensaje
+        </span>
         <textarea
           name="mensaje"
           required
-          rows={4}
-          className="resize-y rounded-[var(--radius-image)] border border-ink/10 bg-paper px-4 py-3 outline-none ring-ink/15 focus:ring-2"
+          rows={5}
+          placeholder="Vivienda, plazos y qué te gustaría lograr"
+          className={`${fieldClassName} min-h-[8.5rem]`}
         />
       </label>
-      <Button type="submit" className="mt-2 w-full sm:w-auto">
+      <Button
+        type="submit"
+        variant="primary"
+        className="mt-1 w-full border-accent bg-accent px-8 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-white hover:border-accent hover:bg-accent/90 hover:text-white sm:w-full"
+      >
         Enviar solicitud
       </Button>
     </form>
