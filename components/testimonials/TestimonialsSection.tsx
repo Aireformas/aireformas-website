@@ -2,13 +2,17 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { testimonials } from "@/content/home";
 import { CircleNavButton } from "@/components/ui/CircleNavButton";
+import type { Testimonial } from "@/lib/types";
 import { Container } from "@/components/ui/Container";
 import { InView } from "@/components/motion/InView";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 
-export function TestimonialsSection() {
+type TestimonialsSectionProps = {
+  testimonials: Testimonial[];
+};
+
+export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) {
   const [index, setIndex] = useState(0);
   const [offsetPx, setOffsetPx] = useState(0);
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -86,19 +90,19 @@ export function TestimonialsSection() {
                 style={{ width: offsetPx || "100%" }}
                 aria-hidden={item.id !== current.id}
               >
-                <div className="grid overflow-hidden rounded-[var(--radius-card)] border border-ink/8 bg-paper md:grid-cols-[minmax(0,42%)_1fr]">
-                  <div className="relative min-h-[240px] md:min-h-[360px]">
+                <div className="grid overflow-hidden md:grid-cols-[minmax(0,42%)_1fr] md:gap-10">
+                  <div className="image-editorial relative min-h-[240px] overflow-hidden md:min-h-[360px]">
                     <Image
                       src={item.image.src}
                       alt={item.image.alt}
                       fill
                       sizes="(max-width: 768px) 100vw, 40vw"
-                      className="object-cover"
+                      className="image-editorial-target object-cover"
                     />
                   </div>
-                  <div className="flex flex-col justify-center p-8 md:p-12">
+                  <div className="flex flex-col justify-center py-8 md:py-4">
                     <blockquote
-                      className="font-display text-3xl font-medium leading-snug tracking-tight md:text-4xl"
+                      className="heading-editorial text-2xl leading-snug md:text-3xl lg:text-4xl"
                       aria-live={item.id === current.id ? "polite" : "off"}
                     >
                       “{item.quote}”

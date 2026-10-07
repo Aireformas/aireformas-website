@@ -1,208 +1,303 @@
-import type {
-  GalleryItem,
-  ProcessStep,
-  ServiceCard,
-  Testimonial,
-  TrustStat,
-} from "@/lib/types";
+import type { GalleryItem, ProcessStep, ServiceCard } from "@/lib/types";
+import { site } from "@/content/site";
+import { projectCards } from "@/content/proyectos";
 
 export const homeMeta = {
-  title: "Reformas, armarios e interiorismo",
+  title: "Espacios pensados al detalle",
   description:
-    "Reformas integrales, armarios a medida e interiorismo con diseño, materiales de calidad y ejecución impecable en Madrid.",
+    "Diseñamos viviendas para ser vividas: interiorismo, reforma, mobiliario y climatización integrados en un único proyecto en Madrid y noroeste.",
 };
 
 export const homeHero = {
-  intro:
-    "En aireformas unimos interiorismo, armarios a medida y reformas integrales para crear hogares serenos, funcionales y con personalidad.",
-  titleLine1: "DONDE EL DISEÑO",
-  titleLine2: "ENCUENTRA TU HOGAR",
+  seoTitle:
+    "Estudio de interiorismo y reforma integral en Madrid | aireformas",
+  titleLine1: "ESPACIOS PENSADOS",
+  titleLine2: "AL DETALLE",
+  subtitle: site.shortTagline,
+  pillars: site.brandLine,
   scrollLabel: "Scroll",
+  primaryCta: { label: "Descubrir proyectos", href: "/proyectos" },
+  secondaryCta: { label: "Hablar de mi proyecto", href: "/contacto" },
+  heroImage: {
+    src: "/images/hero-interior-2560.jpg",
+    alt: "Vivienda integral: interiorismo, carpintería a medida, reforma y confort en un único espacio",
+  },
   stripImages: [
     {
-      src: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=520&h=780&q=92",
-      alt: "Salón luminoso con diseño contemporáneo",
+      src: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&h=1200&q=90",
+      alt: "Detalle de luz arquitectónica en interior moderno",
     },
     {
-      src: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=520&h=780&q=92",
-      alt: "Interior minimalista con luz natural",
+      src: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&h=1200&q=90",
+      alt: "Detalle de madera y proporción",
     },
     {
-      src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=520&h=780&q=92",
-      alt: "Vestidor a medida con madera clara",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=520&h=780&q=92",
-      alt: "Armario empotrado en dormitorio",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=520&h=780&q=92",
-      alt: "Detalle de salón con mobiliario",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=520&h=780&q=92",
-      alt: "Cocina abierta integrada al salón",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1615529328331-f8917597711f?auto=format&fit=crop&w=520&h=780&q=92",
-      alt: "Vestidor con percheros e iluminación",
+      src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&h=1200&q=90",
+      alt: "Textura de piedra y material",
     },
   ],
 };
 
-export const trustStats: TrustStat[] = [
-  { value: "15+", label: "Años de experiencia" },
-  { value: "320+", label: "Proyectos entregados" },
-  { value: "4–6", label: "Semanas en armarios a medida" },
-  { value: "100%", label: "Seguimiento personalizado" },
-];
+export const lightArchitectureSection = {
+  label: "01 LUZ",
+  verticalLabel: "UNA ARQUITECTURA DE LA LUZ",
+  title: "Material, proporción y silencio",
+  image: {
+    src: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=90",
+    alt: "Interior moderno con luz cálida y materiales naturales",
+  },
+};
 
-export const homeServices: ServiceCard[] = [
+export const homeProjectsSection = {
+  label: "02 PROYECTOS",
+  title: "Viviendas recientes",
+};
+
+export const homeFeaturedProjects = projectCards;
+
+export const philosophySection = {
+  label: "03 FILOSOFÍA",
+  verticalLabel: "NUESTRA HISTORIA",
+  title: "Nuestra forma de entender una vivienda",
+  paragraphs: [
+    "Un buen proyecto no termina en lo que ves.",
+    "Diseñamos el espacio, los materiales y el mobiliario, pero también aquello que no se ve: iluminación, climatización, instalaciones y tecnología.",
+    "Todo debe funcionar como un único sistema.",
+  ],
+  image: {
+    src: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=90",
+    alt: "Espacio residencial con madera, luz y proporción",
+  },
+};
+
+export const fourPillarsSection = {
+  label: "04 PILARES",
+  title: "Cuatro disciplinas, un proyecto",
+};
+
+export const homePillars: ServiceCard[] = [
   {
-    title: "Interiorismo",
+    title: "Interior design",
     description:
-      "Del concepto al espacio terminado: luz, color, textura y mobiliario.",
+      "Distribución, materiales, iluminación, cocinas, baños y carpintería.",
     href: "/interiorismo",
     image: {
       src: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80",
-      alt: "Detalle de interior con mobiliario y textiles",
+      alt: "Salón con diseño de interiores",
     },
   },
   {
-    title: "Armarios a medida",
+    title: "Renovation",
     description:
-      "Distribución interior, materiales y acabados pensados para tu día a día.",
-    href: "/servicios/armarios",
-    image: {
-      src: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80",
-      alt: "Armario empotrado con puertas correderas",
-    },
-  },
-  {
-    title: "Reformas integrales",
-    description: "Coordinación de oficios, plazos y acabados de alto nivel.",
-    href: null,
-    comingSoon: true,
+      "Proyecto, licencias, construcción, instalaciones y dirección de obra.",
+    href: "/reformas",
     image: {
       src: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80",
-      alt: "Reforma de vivienda con acabados modernos",
+      alt: "Vivienda en proceso de reforma",
     },
   },
   {
-    title: "Cocinas y baños",
-    description: "Espacios funcionales con diseño cuidado y materiales duraderos.",
-    href: null,
-    comingSoon: true,
+    title: "Furniture",
+    description:
+      "Mobiliario, piezas especiales, textiles e iluminación decorativa.",
+    href: "/mobiliario",
     image: {
-      src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
-      alt: "Cocina reformada con isla central",
+      src: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800&q=80",
+      alt: "Carpintería y mobiliario a medida",
+    },
+  },
+  {
+    title: "Climate",
+    description:
+      "Aerotermia, suelo radiante, conductos, ACS y control inteligente.",
+    href: "/climate",
+    image: {
+      src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80",
+      alt: "Confort térmico en salón residencial",
     },
   },
 ];
 
+export type TimelineStep = {
+  phase: string;
+  title: string;
+  image: GalleryItem["image"];
+};
+
+export const projectTimelineSection = {
+  label: "05 PROCESO VISUAL",
+  title: "Del espacio vacío a la casa terminada",
+};
+
+export const projectTimelineSteps: TimelineStep[] = [
+  {
+    phase: "Before",
+    title: "El espacio original",
+    image: {
+      src: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=700&q=80",
+      alt: "Estado previo de la vivienda",
+    },
+  },
+  {
+    phase: "Design",
+    title: "Plano y concepto",
+    image: {
+      src: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=700&q=80",
+      alt: "Concepto de diseño y materiales",
+    },
+  },
+  {
+    phase: "Build",
+    title: "Obra coordinada",
+    image: {
+      src: "https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=700&q=80",
+      alt: "Ejecución de obra",
+    },
+  },
+  {
+    phase: "Live",
+    title: "Vivienda terminada",
+    image: {
+      src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700&q=80",
+      alt: "Fotografía final del proyecto",
+    },
+  },
+];
+
+export type MaterialTile = {
+  id: string;
+  title: string;
+  caption: string;
+  image: GalleryItem["image"];
+};
+
+export const materialsSection = {
+  label: "06 MATERIALS",
+  title: "Materiales que definen el espacio",
+};
+
+export const materialTiles: MaterialTile[] = [
+  {
+    id: "stone",
+    title: "Stone",
+    caption: "Piedra, continuidad y peso visual.",
+    image: {
+      src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80",
+      alt: "Detalle de piedra en interior",
+    },
+  },
+  {
+    id: "wood",
+    title: "Wood",
+    caption: "Calidez, veta y carpintería.",
+    image: {
+      src: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80",
+      alt: "Detalle de madera",
+    },
+  },
+  {
+    id: "metal",
+    title: "Metal",
+    caption: "Perfiles, herrajes y línea.",
+    image: {
+      src: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=80",
+      alt: "Detalle metálico en mobiliario",
+    },
+  },
+  {
+    id: "textile",
+    title: "Textile",
+    caption: "Capas, tacto y acústica.",
+    image: {
+      src: "https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=600&q=80",
+      alt: "Textiles en salón",
+    },
+  },
+  {
+    id: "light",
+    title: "Light",
+    caption: "Escenas, sombra y confort.",
+    image: {
+      src: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=80",
+      alt: "Luz natural en estancia",
+    },
+  },
+];
+
+export const comfortSection = {
+  label: "07 COMFORT",
+  temperature: "22°C",
+  title: "Confort que se siente",
+  subline: "Tecnología que desaparece.",
+  tags: [
+    "Aerotermia",
+    "Suelo radiante",
+    "Climatización invisible",
+    "ACS",
+    "Control inteligente",
+  ],
+  link: { label: "AIREFORMAS Climate", href: "/climate" },
+  image: {
+    src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1600&q=85",
+    alt: "Salón con climatización discreta",
+  },
+};
+
+export const bespokeSection = {
+  label: "08 BESPOKE",
+  title: "Made for your space",
+  description:
+    "Diseñamos piezas que pertenecen a la arquitectura: armarios, vestidores, cocinas, muebles TV y baños.",
+  href: "/mobiliario",
+  cta: "Descubrir mobiliario",
+  image: {
+    src: "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=1200&q=85",
+    alt: "Vestidor a medida con iluminación integrada",
+  },
+};
+
 export const howWeWorkSection = {
-  label: "PROCESO",
-  title: "Cómo trabajamos contigo",
-  lead: "Cuatro momentos claros, un solo interlocutor. Del primer café en tu casa a las llaves entregadas.",
+  label: "09 EL PROCESO",
+  title: "De la primera visita a la entrega",
+  lead: "Seis fases claras con un solo interlocutor.",
 };
 
 export const howWeWorkSteps: ProcessStep[] = [
   {
     number: "01",
-    title: "Visita y escucha",
-    description:
-      "Conocemos tu espacio, necesidades y estilo de vida para definir prioridades.",
+    title: "Escuchamos",
+    description: "Necesidades, estilo de vida, vivienda e inversión.",
   },
   {
     number: "02",
-    title: "Diseño y presupuesto",
-    description:
-      "Propuesta clara con planos, materiales y plazos. Sin sorpresas.",
+    title: "Diseñamos",
+    description: "Distribución, materiales, iluminación y renders.",
   },
   {
     number: "03",
-    title: "Ejecución",
-    description:
-      "Coordinamos oficios y fabricación con control de calidad en cada fase.",
+    title: "Planificamos",
+    description: "Presupuesto, calendario, licencias y compras.",
   },
   {
     number: "04",
-    title: "Entrega",
-    description:
-      "Revisión final contigo y puesta a punto hasta el último detalle.",
-  },
-];
-
-export const featuredProjects: GalleryItem[] = [
-  {
-    image: {
-      src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900&q=80",
-      alt: "Vestidor con iluminación integrada",
-    },
-    caption: "Vestidor a medida",
+    title: "Construimos",
+    description: "Un único equipo coordina toda la ejecución.",
   },
   {
-    image: {
-      src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=80",
-      alt: "Salón con estantería y sofá",
-    },
-    caption: "Salón integral",
+    number: "05",
+    title: "Equipamos",
+    description: "Mobiliario, iluminación, textiles y tecnología.",
   },
   {
-    image: {
-      src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&q=80",
-      alt: "Dormitorio con armario empotrado",
-    },
-    caption: "Dormitorio principal",
-  },
-  {
-    image: {
-      src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80",
-      alt: "Cocina abierta al salón",
-    },
-    caption: "Cocina conectada",
-  },
-];
-
-export const testimonials: Testimonial[] = [
-  {
-    id: "1",
-    quote:
-      "El armario aprovecha cada centímetro y la instalación fue impecable. Se nota el cuidado en los acabados.",
-    author: "María G.",
-    role: "Cliente, Madrid",
-    image: {
-      src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80",
-      alt: "Detalle de armario terminado en vivienda",
-    },
-  },
-  {
-    id: "2",
-    quote:
-      "Nos ayudaron a unificar salón y cocina con un diseño muy personal. Comunicación clara en todo momento.",
-    author: "Carlos y Laura",
-    role: "Reforma integral",
-    image: {
-      src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80",
-      alt: "Espacio reformado con diseño de interiorismo",
-    },
-  },
-  {
-    id: "3",
-    quote:
-      "Profesionales, puntuales y con muy buen gusto. El resultado superó lo que teníamos en mente.",
-    author: "Elena R.",
-    role: "Proyecto de interiorismo",
-    image: {
-      src: "https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=600&q=80",
-      alt: "Rincón de lectura con iluminación cálida",
-    },
+    number: "06",
+    title: "Entregamos",
+    description: "Tu vivienda completamente terminada.",
   },
 ];
 
 export const contactSection = {
   label: "CONTACTO",
-  title: "Hablemos de tu próximo proyecto",
+  title: "Hablar de mi proyecto",
   description:
     "Cuéntanos qué necesitas y te respondemos con una primera orientación sin compromiso.",
 };

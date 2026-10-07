@@ -1,11 +1,52 @@
 export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://aireformas.com",
   name: "aireformas",
+  brandLine: "Interior Design · Renovation · Furniture · Climate",
+  tagline:
+    "Diseñamos viviendas para ser vividas. Interiorismo, reforma, mobiliario y climatización integrados en un único proyecto.",
+  shortTagline:
+    "Interiorismo, reforma, mobiliario y climatización en un único proyecto.",
+  entityDescription:
+    "aireformas diseña y ejecuta proyectos residenciales integrados: distribución, materiales, mobiliario, iluminación, climatización e instalaciones con un solo equipo.",
+  pillars: [
+    "Interior design",
+    "Renovation",
+    "Furniture",
+    "Climate",
+  ] as const,
+  knowsAbout: [
+    "Interiorismo residencial",
+    "Reforma integral de vivienda",
+    "Mobiliario y carpintería a medida",
+    "Climatización invisible",
+    "Aerotermia",
+    "Suelo radiante",
+    "Iluminación arquitectónica",
+  ] as const,
+  areaServed: [
+    "Madrid",
+    "Salamanca",
+    "Chamberí",
+    "Chamartín",
+    "Retiro",
+    "Moncloa",
+    "Aravaca",
+    "Pozuelo de Alarcón",
+    "Boadilla del Monte",
+    "Majadahonda",
+    "Las Rozas",
+    "La Moraleja",
+  ] as const,
   logo: {
     src: "/logo-airereformas-transparent.png",
     alt: "aireformas",
     width: 1024,
     height: 411,
+    white: {
+      src: "/logo-airereformas-white.png",
+      width: 1024,
+      height: 411,
+    },
     isotipo: {
       src: "/logo-isotipo@2x.png",
       width: 400,
@@ -17,12 +58,13 @@ export const site = {
       height: 187,
     },
   },
-  tagline: "Reformas, armarios a medida e interiorismo",
   phone: "+34 675 784 752",
   phoneHref: "tel:+34675784752",
   email: "studio@aireformas.com",
   emailHref: "mailto:studio@aireformas.com",
   whatsapp: "https://wa.me/34675784752",
   address: "Madrid y alrededores",
+  addressLocality: "Madrid",
+  addressCountry: "ES",
   copyright: `© ${new Date().getFullYear()} aireformas. Todos los derechos reservados.`,
 } as const;

@@ -21,11 +21,11 @@ export function FaqAccordion({ label, title, items }: FaqAccordionProps) {
       <Container>
         <SectionLabel variant="light">{label}</SectionLabel>
         <InView>
-          <h2 className="heading-display text-title-section mt-6 max-w-2xl">
+          <h2 className="heading-display text-title-section mt-8 max-w-2xl">
             {title}
           </h2>
         </InView>
-        <div className="mt-12 divide-y divide-ink/10 border-y border-ink/10">
+        <div className="mt-14 divide-y divide-ink/8 border-y border-ink/8">
           {items.map((item) => {
             const isOpen = openId === item.id;
             return (
@@ -36,9 +36,9 @@ export function FaqAccordion({ label, title, items }: FaqAccordionProps) {
                   aria-controls={`faq-panel-${item.id}`}
                   id={`faq-button-${item.id}`}
                   onClick={() => setOpenId(isOpen ? null : item.id)}
-                  className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                  className="flex w-full items-center justify-between gap-4 py-6 text-left"
                 >
-                  <span className="font-serif text-xl tracking-tight">
+                  <span className="heading-editorial text-xl md:text-2xl">
                     {item.question}
                   </span>
                   <span
