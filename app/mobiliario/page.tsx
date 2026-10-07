@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ContactCTA } from "@/components/contact/ContactCTA";
 import { InView } from "@/components/motion/InView";
-import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { faqPageJsonLd, JsonLd } from "@/components/seo/JsonLd";
 import { FaqAccordion } from "@/components/shared/FaqAccordion";
 import { ImageGallery } from "@/components/shared/ImageGallery";
 import { PageHero } from "@/components/shared/PageHero";
@@ -19,7 +19,6 @@ import {
   mobiliarioProcess,
   mobiliarioTypes,
 } from "@/content/mobiliario";
-import { faqPageJsonLd, JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
   title: mobiliarioMeta.title,
@@ -30,6 +29,11 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbs = [
+  { name: "Inicio", href: "/" },
+  { name: "Mobiliario", href: "/mobiliario" },
+] as const;
+
 export default function MobiliarioPage() {
   return (
     <>
@@ -38,13 +42,8 @@ export default function MobiliarioPage() {
           mobiliarioFaq.map((f) => ({ question: f.question, answer: f.answer })),
         )}
       />
-      <Breadcrumbs
-        items={[
-          { name: "Inicio", href: "/" },
-          { name: "Mobiliario", href: "/mobiliario" },
-        ]}
-      />
       <PageHero
+        breadcrumbs={[...breadcrumbs]}
         label={mobiliarioHero.label}
         title={mobiliarioHero.title}
         description={mobiliarioHero.description}
@@ -52,18 +51,18 @@ export default function MobiliarioPage() {
         cta={{ label: mobiliarioHero.cta, href: "/contacto" }}
       />
 
-      <section className="section-y bg-paper text-ink">
+      <section className="section-y bg-paper-warm text-ink">
         <Container>
           <SectionLabel variant="light">SOLUCIONES</SectionLabel>
           <InView>
-            <h2 className="heading-display text-title-section mt-6 max-w-3xl">
+            <h2 className="heading-display text-title-section mt-8 max-w-3xl">
               Carpintería para cada estancia
             </h2>
           </InView>
-          <div className="mt-12 grid gap-5 md:grid-cols-2">
+          <div className="mt-12 grid gap-10 md:grid-cols-2">
             {mobiliarioTypes.map((type, index) => (
               <InView key={type.title} staggerIndex={index}>
-                <article>
+                <article className={index % 2 === 1 ? "md:mt-12" : ""}>
                   <div className="image-editorial relative aspect-[16/10] overflow-hidden">
                     <Image
                       src={type.image.src}
@@ -74,9 +73,7 @@ export default function MobiliarioPage() {
                     />
                   </div>
                   <div className="mt-5">
-                    <h3 className="heading-editorial text-2xl">
-                      {type.title}
-                    </h3>
+                    <h3 className="heading-editorial text-2xl">{type.title}</h3>
                     <p className="mt-3 text-sm leading-relaxed text-ink/70">
                       {type.description}
                     </p>
@@ -92,7 +89,7 @@ export default function MobiliarioPage() {
         <Container>
           <SectionLabel variant="light">ENFOQUE</SectionLabel>
           <InView>
-            <h2 className="heading-display text-title-section mt-6 max-w-2xl">
+            <h2 className="heading-display text-title-section mt-8 max-w-2xl">
               Piezas que pertenecen al espacio
             </h2>
           </InView>
@@ -100,9 +97,7 @@ export default function MobiliarioPage() {
             {mobiliarioAdvantages.map((item, index) => (
               <InView key={item.title} staggerIndex={index}>
                 <div className="border-t border-ink/8 pt-6">
-                  <h3 className="heading-editorial text-xl">
-                    {item.title}
-                  </h3>
+                  <h3 className="heading-editorial text-xl">{item.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-ink/70">
                     {item.description}
                   </p>

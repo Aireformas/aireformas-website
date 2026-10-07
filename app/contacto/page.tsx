@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { ContactCTA } from "@/components/contact/ContactCTA";
-import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { faqPageJsonLd, JsonLd } from "@/components/seo/JsonLd";
 import { FaqAccordion } from "@/components/shared/FaqAccordion";
+import { PageHero } from "@/components/shared/PageHero";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import {
@@ -22,6 +22,11 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbs = [
+  { name: "Inicio", href: "/" },
+  { name: "Contacto", href: "/contacto" },
+] as const;
+
 export default function ContactoPage() {
   return (
     <>
@@ -30,33 +35,31 @@ export default function ContactoPage() {
           contactoFaq.map((f) => ({ question: f.question, answer: f.answer })),
         )}
       />
-      <Breadcrumbs
-        items={[
-          { name: "Inicio", href: "/" },
-          { name: "Contacto", href: "/contacto" },
-        ]}
+      <PageHero
+        breadcrumbs={[...breadcrumbs]}
+        label={contactoHero.label}
+        title={contactoHero.title}
+        description={contactoHero.description}
+        image={contactoHero.image}
+        cta={{ label: site.phone, href: site.phoneHref }}
+        secondaryCta={{ label: "Enviar email", href: site.emailHref }}
       />
-      <section className="bg-paper pb-6 pt-4 text-ink">
+
+      <section className="border-b border-ink/5 bg-paper-warm py-12 text-ink md:py-14">
         <Container>
-          <SectionLabel variant="light">{contactoHero.label}</SectionLabel>
-          <h1 className="heading-display text-title-page mt-8 max-w-3xl">
-            {contactoHero.title}
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink/70">
-            {contactoHero.description}
-          </p>
-          <ul className="mt-8 space-y-2 text-sm text-ink/80">
+          <SectionLabel variant="light">DATOS</SectionLabel>
+          <ul className="mt-8 space-y-3 text-sm text-ink/80 md:text-base">
             <li>
-              <a href={site.phoneHref} className="hover:underline">
+              <a href={site.phoneHref} className="text-link-editorial">
                 {site.phone}
               </a>
             </li>
             <li>
-              <a href={site.emailHref} className="hover:underline">
+              <a href={site.emailHref} className="text-link-editorial">
                 {site.email}
               </a>
             </li>
-            <li>{site.address}</li>
+            <li className="max-w-md leading-relaxed text-ink/70">{site.address}</li>
           </ul>
         </Container>
       </section>

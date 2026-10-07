@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { ContactCTA } from "@/components/contact/ContactCTA";
 import { InView } from "@/components/motion/InView";
-import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { PageHero } from "@/components/shared/PageHero";
 import { ProcessSteps } from "@/components/shared/ProcessSteps";
 import { TestimonialsSection } from "@/components/testimonials/TestimonialsSection";
@@ -27,29 +26,28 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbs = [
+  { name: "Inicio", href: "/" },
+  { name: "Estudio", href: "/estudio" },
+] as const;
+
 export default function EstudioPage() {
   return (
     <>
-      <Breadcrumbs
-        items={[
-          { name: "Inicio", href: "/" },
-          { name: "Estudio", href: "/estudio" },
-        ]}
-      />
       <PageHero
+        breadcrumbs={[...breadcrumbs]}
         label={estudioHero.label}
         title={estudioHero.title}
         description={estudioHero.description}
         image={estudioHero.image}
-        layout="editorial"
         cta={{ label: "Hablar de mi proyecto", href: "/contacto" }}
       />
 
-      <section className="section-y border-t border-ink/5 bg-paper text-ink">
+      <section className="section-y border-t border-ink/5 bg-paper-warm text-ink">
         <Container>
           <SectionLabel variant="light">VALORES</SectionLabel>
           <InView>
-            <h2 className="heading-display text-title-section mt-6 max-w-2xl">
+            <h2 className="heading-display text-title-section mt-8 max-w-2xl">
               Lo que guía cada proyecto
             </h2>
           </InView>
@@ -66,13 +64,13 @@ export default function EstudioPage() {
         </Container>
       </section>
 
-      <section className="border-t border-ink/5 bg-paper py-12 text-ink">
+      <section className="border-y border-ink/5 bg-paper py-14 text-ink md:py-16">
         <Container>
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {estudioTrustStats.map((stat) => (
               <div key={stat.label}>
                 <p className="font-serif text-4xl tracking-[0.06em]">{stat.value}</p>
-                <p className="mt-2 text-xs uppercase tracking-widest text-ink/55">
+                <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-ink/55">
                   {stat.label}
                 </p>
               </div>
@@ -81,11 +79,11 @@ export default function EstudioPage() {
         </Container>
       </section>
 
-      <section className="section-y border-t border-ink/5 bg-paper text-ink">
+      <section className="section-y bg-paper text-ink">
         <Container>
           <SectionLabel variant="light">ZONA</SectionLabel>
           <InView>
-            <h2 className="heading-display text-title-section mt-6 max-w-2xl">
+            <h2 className="heading-display text-title-section mt-8 max-w-2xl">
               Dónde trabajamos
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink/70">
@@ -96,7 +94,7 @@ export default function EstudioPage() {
             {site.areaServed.map((place) => (
               <li
                 key={place}
-                className="text-sm text-ink/60 after:content-[','] last:after:content-['']"
+                className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/55 after:content-[','] last:after:content-['']"
               >
                 {place}
               </li>

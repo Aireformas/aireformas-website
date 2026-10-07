@@ -53,7 +53,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
           <div>
             <SectionLabel variant="light">TESTIMONIOS</SectionLabel>
             <InView>
-              <h2 className="heading-display text-title-section mt-6 max-w-xl">
+              <h2 className="heading-display text-title-section mt-8 max-w-xl">
                 Lo que dicen quienes ya confiaron en nosotros
               </h2>
             </InView>

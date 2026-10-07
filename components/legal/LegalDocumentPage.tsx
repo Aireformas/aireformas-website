@@ -41,7 +41,7 @@ export function LegalDocumentPage({
         <div className="mt-12 space-y-10">
           {sections.map((section) => (
             <section key={section.heading}>
-              <h2 className="text-title-section font-medium uppercase tracking-wide">
+              <h2 className="heading-editorial text-xl uppercase tracking-[0.12em]">
                 {section.heading}
               </h2>
               <p className="mt-3 text-base leading-relaxed text-ink/75">{section.body}</p>
