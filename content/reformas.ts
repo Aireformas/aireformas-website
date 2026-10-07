@@ -13,9 +13,30 @@ export const reformasHero = {
     "Coordinamos obra, instalaciones y acabados como extensión del diseño: un único equipo, un único criterio desde el primer plano hasta la entrega.",
   cta: "Hablar de mi proyecto",
   image: {
-    src: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=2400&q=90",
-    alt: "Vivienda en reforma con acabados contemporáneos",
+    src: "/images/hero-interior-2560.jpg",
+    alt: "Vivienda en reforma integral con diseño y acabados contemporáneos",
   },
+};
+
+export const reformasEditorial = {
+  label: "ENFOQUE",
+  verticalLabel: "OBRA INTEGRADA",
+  title: "Un criterio desde el plano hasta la entrega",
+  paragraphs: [
+    "La reforma no es solo obra: es secuencia, oficios y decisiones que deben respetar el diseño acordado.",
+    "Coordinamos licencias, instalaciones y acabados con interiorismo y mobiliario para que la vivienda llegue terminada, no a medias.",
+    "Un solo interlocutor, calendario claro y calidad constructiva alineada con la arquitectura del espacio.",
+  ],
+  image: {
+    src: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=85",
+    alt: "Detalle de reforma residencial con materiales naturales",
+  },
+};
+
+export const reformasProcessSection = {
+  label: "PROCESO",
+  title: "Del espacio vacío a la casa terminada",
+  lead: "Seis fases enlazadas con diseño, mobiliario y climatización cuando el proyecto es integral.",
 };
 
 export const reformasScope = [

@@ -32,7 +32,7 @@ export function EditorialPageHeader({
   return (
     <>
       <section
-        className="relative h-[52vh] min-h-[22rem] max-h-[40rem] w-full overflow-hidden bg-paper md:h-[58vh]"
+        className="relative h-[70dvh] min-h-[32rem] max-h-[52rem] w-full overflow-hidden bg-paper"
         aria-label={label}
       >
         <Image

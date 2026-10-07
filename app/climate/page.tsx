@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import { ContactCTA } from "@/components/contact/ContactCTA";
 import { InView } from "@/components/motion/InView";
 import { faqPageJsonLd, JsonLd } from "@/components/seo/JsonLd";
 import { FaqAccordion } from "@/components/shared/FaqAccordion";
+import { EditorialComfortSection } from "@/components/shared/EditorialComfortSection";
+import { EditorialProcessSection } from "@/components/shared/EditorialProcessSection";
 import { PageHero } from "@/components/shared/PageHero";
-import { ProcessSteps } from "@/components/shared/ProcessSteps";
+import {
+  PillarCrossLink,
+  PillarCrossLinks,
+} from "@/components/shared/PillarCrossLinks";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import {
@@ -16,6 +19,7 @@ import {
   climateHero,
   climateMeta,
   climateProcess,
+  climateProcessSection,
   climateServices,
 } from "@/content/climate";
 
@@ -50,50 +54,18 @@ export default function ClimatePage() {
         cta={{ label: climateHero.cta, href: "/contacto" }}
       />
 
-      <section className="section-y border-t border-ink/5 bg-paper text-ink">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
-            <div className="image-editorial relative aspect-[4/3] overflow-hidden lg:col-span-7 lg:aspect-[5/4]">
-              <Image
-                src={climateComfort.image.src}
-                alt={climateComfort.image.alt}
-                fill
-                sizes="(max-width: 1024px) 100vw, 58vw"
-                className="image-editorial-target object-cover"
-              />
-            </div>
-            <div className="lg:col-span-5">
-              <SectionLabel variant="light">COMFORT</SectionLabel>
-              <InView>
-                <p className="mt-10 font-serif text-6xl tracking-[0.08em] md:text-7xl">
-                  {climateComfort.temperature}
-                </p>
-                <h2 className="heading-display text-title-section mt-6 max-w-md">
-                  {climateComfort.headline}
-                </h2>
-                <p className="mt-4 font-serif text-xl text-ink/65">
-                  {climateComfort.subline}
-                </p>
-              </InView>
-              <ul className="mt-8 flex flex-wrap gap-x-4 gap-y-2">
-                {climateComfort.tags.map((tag) => (
-                  <li
-                    key={tag}
-                    className="font-mono text-[9px] uppercase tracking-[0.22em] text-ink/45"
-                  >
-                    {tag}
-                  </li>
-                ))}
-              </ul>
-              <Link href="/contacto" className="text-link-editorial mt-10 inline-block">
-                Consultar climate →
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <EditorialComfortSection
+        label="COMFORT"
+        temperature={climateComfort.temperature}
+        title={climateComfort.headline}
+        subline={climateComfort.subline}
+        tags={climateComfort.tags}
+        image={climateComfort.image}
+        link={{ label: "Hablar de mi proyecto", href: "/contacto" }}
+        tone="warm"
+      />
 
-      <section className="section-y bg-paper-warm text-ink">
+      <section className="section-y bg-paper text-ink">
         <Container>
           <SectionLabel variant="light">SERVICIOS</SectionLabel>
           <InView>
@@ -113,14 +85,20 @@ export default function ClimatePage() {
               </InView>
             ))}
           </div>
+          <PillarCrossLinks>
+            Reforma e interiorismo en <PillarCrossLink href="/reformas">Reformas</PillarCrossLink> e{" "}
+            <PillarCrossLink href="/interiorismo">Interiorismo</PillarCrossLink>. Mobiliario en{" "}
+            <PillarCrossLink href="/mobiliario">Mobiliario</PillarCrossLink>.
+          </PillarCrossLinks>
         </Container>
       </section>
 
-      <ProcessSteps
-        label="PROCESO"
-        title="De la carga térmica al confort"
+      <EditorialProcessSection
+        label={climateProcessSection.label}
+        title={climateProcessSection.title}
+        lead={climateProcessSection.lead}
         steps={climateProcess}
-        variant="light"
+        tone="warm"
       />
 
       <FaqAccordion label="FAQ" title="Preguntas frecuentes" items={climateFaq} />

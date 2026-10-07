@@ -3,9 +3,10 @@ import { ContactCTA } from "@/components/contact/ContactCTA";
 import { InView } from "@/components/motion/InView";
 import { faqPageJsonLd, JsonLd } from "@/components/seo/JsonLd";
 import { FaqAccordion } from "@/components/shared/FaqAccordion";
+import { EditorialPhilosophySection } from "@/components/shared/EditorialPhilosophySection";
+import { EditorialProcessSection } from "@/components/shared/EditorialProcessSection";
 import { ImageGallery } from "@/components/shared/ImageGallery";
 import { PageHero } from "@/components/shared/PageHero";
-import { ProcessSteps } from "@/components/shared/ProcessSteps";
 import {
   PillarCrossLink,
   PillarCrossLinks,
@@ -14,11 +15,13 @@ import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import {
   reformasCta,
+  reformasEditorial,
   reformasFaq,
   reformasGallery,
   reformasHero,
   reformasMeta,
   reformasProcess,
+  reformasProcessSection,
   reformasScope,
 } from "@/content/reformas";
 
@@ -53,7 +56,16 @@ export default function ReformasPage() {
         cta={{ label: reformasHero.cta, href: "/contacto" }}
       />
 
-      <section className="section-y bg-paper-warm text-ink">
+      <EditorialPhilosophySection
+        label={reformasEditorial.label}
+        verticalLabel={reformasEditorial.verticalLabel}
+        title={reformasEditorial.title}
+        paragraphs={reformasEditorial.paragraphs}
+        image={reformasEditorial.image}
+        tone="warm"
+      />
+
+      <section className="section-y bg-paper text-ink">
         <Container>
           <SectionLabel variant="light">ALCANCE</SectionLabel>
           <InView>
@@ -82,11 +94,12 @@ export default function ReformasPage() {
         </Container>
       </section>
 
-      <ProcessSteps
-        label="PROCESO"
-        title="Del espacio vacío a la casa terminada"
+      <EditorialProcessSection
+        label={reformasProcessSection.label}
+        title={reformasProcessSection.title}
+        lead={reformasProcessSection.lead}
         steps={reformasProcess}
-        variant="light"
+        tone="warm"
       />
 
       <ImageGallery

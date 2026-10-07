@@ -13,9 +13,15 @@ export const climateHero = {
     "Diseñamos climatización, agua caliente y control como parte del espacio: invisible en la arquitectura, precisa en el funcionamiento.",
   cta: "Hablar de mi proyecto",
   image: {
-    src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=2400&q=90",
-    alt: "Salón con climatización discreta y luz natural",
+    src: "/images/hero-interior-2560.jpg",
+    alt: "Confort térmico integrado en vivienda residencial",
   },
+};
+
+export const climateProcessSection = {
+  label: "PROCESO",
+  title: "De la carga térmica al confort",
+  lead: "Ingeniería y ejecución coordinadas con reforma e interiorismo en un solo calendario.",
 };
 
 export const climateComfort = {

@@ -13,9 +13,30 @@ export const mobiliarioHero = {
     "Diseñamos piezas que pertenecen a la arquitectura: carpintería, cocinas, vestidores, muebles TV y soluciones a medida para cada estancia.",
   cta: "Hablar de mi proyecto",
   image: {
-    src: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=2000&q=80",
+    src: "/images/hero-interior-2560.jpg",
+    alt: "Carpintería y mobiliario integrados en vivienda residencial",
+  },
+};
+
+export const mobiliarioEditorial = {
+  label: "ENFOQUE",
+  verticalLabel: "A MEDIDA",
+  title: "Piezas que completan la arquitectura",
+  paragraphs: [
+    "Medimos, diseñamos y fabricamos carpintería que respeta proporción, luz y circulación de la vivienda.",
+    "Cocinas, vestidores y muebles especiales comparten materiales y criterio con el resto del proyecto.",
+    "Fabricación, transporte e instalación con un equipo que conoce la obra y el diseño acordado.",
+  ],
+  image: {
+    src: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=1200&q=85",
     alt: "Vestidor con carpintería a medida e iluminación integrada",
   },
+};
+
+export const mobiliarioProcessSection = {
+  label: "PROCESO",
+  title: "De la medición a la instalación",
+  lead: "Cuatro pasos con propuesta 3D, presupuesto cerrado y montaje en obra.",
 };
 
 export const mobiliarioTypes = [

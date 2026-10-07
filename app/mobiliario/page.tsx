@@ -1,22 +1,29 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { ContactCTA } from "@/components/contact/ContactCTA";
 import { InView } from "@/components/motion/InView";
 import { faqPageJsonLd, JsonLd } from "@/components/seo/JsonLd";
 import { FaqAccordion } from "@/components/shared/FaqAccordion";
+import { EditorialFeatureGrid } from "@/components/shared/EditorialFeatureGrid";
+import { EditorialPhilosophySection } from "@/components/shared/EditorialPhilosophySection";
+import { EditorialProcessSection } from "@/components/shared/EditorialProcessSection";
 import { ImageGallery } from "@/components/shared/ImageGallery";
 import { PageHero } from "@/components/shared/PageHero";
-import { ProcessSteps } from "@/components/shared/ProcessSteps";
+import {
+  PillarCrossLink,
+  PillarCrossLinks,
+} from "@/components/shared/PillarCrossLinks";
 import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import {
   mobiliarioAdvantages,
   mobiliarioCta,
+  mobiliarioEditorial,
   mobiliarioFaq,
   mobiliarioGallery,
   mobiliarioHero,
   mobiliarioMeta,
   mobiliarioProcess,
+  mobiliarioProcessSection,
   mobiliarioTypes,
 } from "@/content/mobiliario";
 
@@ -51,41 +58,23 @@ export default function MobiliarioPage() {
         cta={{ label: mobiliarioHero.cta, href: "/contacto" }}
       />
 
-      <section className="section-y bg-paper-warm text-ink">
-        <Container>
-          <SectionLabel variant="light">SOLUCIONES</SectionLabel>
-          <InView>
-            <h2 className="heading-display text-title-section mt-8 max-w-3xl">
-              Carpintería para cada estancia
-            </h2>
-          </InView>
-          <div className="mt-12 grid gap-10 md:grid-cols-2">
-            {mobiliarioTypes.map((type, index) => (
-              <InView key={type.title} staggerIndex={index}>
-                <article className={index % 2 === 1 ? "md:mt-12" : ""}>
-                  <div className="image-editorial relative aspect-[16/10] overflow-hidden">
-                    <Image
-                      src={type.image.src}
-                      alt={type.image.alt}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="image-editorial-target object-cover"
-                    />
-                  </div>
-                  <div className="mt-5">
-                    <h3 className="heading-editorial text-2xl">{type.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-ink/70">
-                      {type.description}
-                    </p>
-                  </div>
-                </article>
-              </InView>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <EditorialPhilosophySection
+        label={mobiliarioEditorial.label}
+        verticalLabel={mobiliarioEditorial.verticalLabel}
+        title={mobiliarioEditorial.title}
+        paragraphs={mobiliarioEditorial.paragraphs}
+        image={mobiliarioEditorial.image}
+        tone="warm"
+      />
 
-      <section className="section-y border-t border-ink/5 bg-paper text-ink">
+      <EditorialFeatureGrid
+        label="SOLUCIONES"
+        title="Carpintería para cada estancia"
+        items={mobiliarioTypes}
+        tone="paper"
+      />
+
+      <section className="section-y border-t border-ink/5 bg-paper-warm text-ink">
         <Container>
           <SectionLabel variant="light">ENFOQUE</SectionLabel>
           <InView>
@@ -105,14 +94,19 @@ export default function MobiliarioPage() {
               </InView>
             ))}
           </div>
+          <PillarCrossLinks>
+            Obra e interiorismo en <PillarCrossLink href="/reformas">Reformas</PillarCrossLink> e{" "}
+            <PillarCrossLink href="/interiorismo">Interiorismo</PillarCrossLink>. Climatización en{" "}
+            <PillarCrossLink href="/climate">Climate</PillarCrossLink>.
+          </PillarCrossLinks>
         </Container>
       </section>
 
-      <ProcessSteps
-        label="PROCESO"
-        title="De la medición a la instalación"
+      <EditorialProcessSection
+        label={mobiliarioProcessSection.label}
+        title={mobiliarioProcessSection.title}
+        lead={mobiliarioProcessSection.lead}
         steps={mobiliarioProcess}
-        variant="light"
       />
 
       <ImageGallery
