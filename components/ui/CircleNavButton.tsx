@@ -22,10 +22,10 @@ export function CircleNavButton({
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        "flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-[1.5px] backdrop-blur-[16px] transition-[border-color,opacity,transform] duration-300 active:scale-95 disabled:cursor-not-allowed disabled:opacity-40",
+        "flex h-10 w-10 shrink-0 items-center justify-center border transition-[border-color,opacity,transform] duration-300 active:scale-95 disabled:cursor-not-allowed disabled:opacity-40",
         theme === "light"
-          ? "border-white/20 bg-glass text-white hover:border-white"
-          : "border-ink/15 bg-paper/80 text-ink hover:border-ink/40",
+          ? "border-white/25 bg-transparent text-white hover:border-white"
+          : "border-ink/15 bg-transparent text-ink hover:border-ink/40",
       )}
     >
       <svg

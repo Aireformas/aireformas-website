@@ -14,26 +14,37 @@ type LogoSize = keyof typeof logoHeights;
 type LogoProps = {
   className?: string;
   size?: LogoSize;
+  variant?: "default" | "white";
   onNavigate?: () => void;
 };
 
 export function Logo({
   className,
   size = "header",
+  variant = "default",
   onNavigate,
 }: LogoProps) {
+  const asset =
+    variant === "white"
+      ? {
+          src: site.logo.white.src,
+          width: site.logo.white.width,
+          height: site.logo.white.height,
+        }
+      : { src: site.logo.src, width: site.logo.width, height: site.logo.height };
+
   return (
     <Link
       href="/"
-      className={cn("inline-flex shrink-0 items-center rounded-md", className)}
+      className={cn("inline-flex shrink-0 items-center", className)}
       onClick={onNavigate}
-      aria-label={`${site.name} — inicio`}
+      aria-label={`${site.name}, inicio`}
     >
       <Image
-        src={site.logo.src}
+        src={asset.src}
         alt={site.logo.alt}
-        width={site.logo.width}
-        height={site.logo.height}
+        width={asset.width}
+        height={asset.height}
         unoptimized
         className={logoHeights[size]}
         priority={size === "header" || size === "dock"}

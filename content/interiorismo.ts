@@ -1,16 +1,16 @@
 import type { GalleryItem, ProcessStep } from "@/lib/types";
 
 export const interiorismoMeta = {
-  title: "Interiorismo",
+  title: "Interiorismo residencial en Madrid",
   description:
-    "Diseño de interiores residencial, mobiliario a medida, iluminación y reformas. Espacios únicos y armónicos.",
+    "Distribución, materiales, iluminación, cocinas y baños. Proyectos de interiorismo residencial integrados con reforma y mobiliario en Madrid.",
 };
 
 export const interiorismoHero = {
   label: "INTERIORISMO",
-  title: "Del espacio vacío al interior personalizado",
+  title: "Espacios pensados para vivir",
   description:
-    "Diseñamos el espacio que necesitas y coordinamos equipos de profesionales para lograr un resultado único y armónico.",
+    "Diseñamos la distribución, la luz y los materiales de tu vivienda como un sistema coherente, conectado con obra, mobiliario y climatización cuando el proyecto lo requiere.",
   image: {
     src: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=2400&q=90",
     alt: "Salón con diseño de interiorismo y luz natural",
@@ -18,34 +18,34 @@ export const interiorismoHero = {
 };
 
 export const editorialBlock = {
-  title: "Luz, color, textura y sentido",
+  title: "Proporción, luz y material",
   paragraphs: [
-    "Realizamos proyectos adaptando tus ilusiones y nuestros conocimientos, tus recursos y nuestras técnicas, tus expectativas y nuestra experiencia.",
-    "Un buen diseño de interiores aporta una dimensión nueva al espacio: coherencia con el contexto, respeto al entorno y tecnología al servicio del confort.",
-    "Convertimos los espacios en lugares donde vivir mejor, con materiales de calidad y bajo impacto ambiental.",
+    "Cada estancia tiene una función clara y una relación con las demás. Trabajamos planos, paleta y detalle constructivo antes de elegir piezas.",
+    "La iluminación se diseña por capas: general, puntual y ambiental. Los materiales se eligen por tacto, mantenimiento y atemporalidad.",
+    "Cuando el alcance es integral, interiorismo, reforma y mobiliario avanzan con el mismo criterio: un solo equipo, un solo proyecto.",
   ],
 };
 
 export const interiorismoServices = [
   {
-    title: "Diseño residencial",
+    title: "Distribución",
     description:
-      "Distribución, paleta cromática, textiles y piezas clave para cada estancia.",
+      "Planos, circulaciones y aprovechamiento de luz natural en pisos y chalets.",
   },
   {
-    title: "Mobiliario a medida",
+    title: "Materiales",
     description:
-      "Estanterías, muebles TV, paneles y soluciones integradas en la arquitectura.",
+      "Piedra, madera, microcemento y revestimientos seleccionados para uso real.",
   },
   {
     title: "Iluminación",
     description:
-      "Plan de luz por capas: general, puntual y ambiental, con luminarias seleccionadas.",
+      "Plan de luz técnico y luminarias integradas en carpintería y arquitectura.",
   },
   {
-    title: "Reformas y ampliaciones",
+    title: "Cocinas y baños",
     description:
-      "Coordinación de obra y acabados para proyectos integrales de interior.",
+      "Estancias clave resueltas con diseño, instalaciones y mobiliario coordinados.",
   },
 ];
 
@@ -55,7 +55,7 @@ export const interiorismoGallery: GalleryItem[] = [
       src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=80",
       alt: "Salón después de proyecto de interiorismo",
     },
-    caption: "Salón · After",
+    caption: "Salón",
   },
   {
     image: {
@@ -67,7 +67,7 @@ export const interiorismoGallery: GalleryItem[] = [
   {
     image: {
       src: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=900&q=80",
-      alt: "Detalle decorativo con plantas y madera",
+      alt: "Detalle decorativo con madera y luz",
     },
     caption: "Detalle",
   },
@@ -76,35 +76,35 @@ export const interiorismoGallery: GalleryItem[] = [
       src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80",
       alt: "Cocina integrada con salón",
     },
-    caption: "Cocina abierta",
+    caption: "Cocina",
   },
 ];
 
 export const interiorismoProcess: ProcessStep[] = [
   {
     number: "01",
-    title: "Briefing",
-    description: "Estilo de vida, referencias y necesidades funcionales.",
+    title: "Escuchamos",
+    description: "Estilo de vida, referencias y necesidades de cada estancia.",
   },
   {
     number: "02",
-    title: "Concepto",
-    description: "Moodboard, planos y selección de materiales.",
+    title: "Diseñamos",
+    description: "Planos, materiales, iluminación y renders.",
   },
   {
     number: "03",
-    title: "Desarrollo",
-    description: "Detalle de mobiliario, iluminación y coordinación de oficios.",
+    title: "Desarrollamos",
+    description: "Detalle de mobiliario y coordinación con obra e instalaciones.",
   },
   {
     number: "04",
-    title: "Styling final",
-    description: "Puesta en escena y entrega del espacio listo para disfrutar.",
+    title: "Entregamos",
+    description: "Espacio terminado, con styling y puesta a punto final.",
   },
 ];
 
 export const interiorismoCta = {
-  title: "Solo tienes que ponerte en contacto con nosotros",
+  title: "Hablemos de tu interior",
   description:
-    "Te escuchamos y te proponemos el camino más claro para tu proyecto de interiorismo.",
+    "Cuéntanos la vivienda y el alcance. Te proponemos el camino más claro.",
 };

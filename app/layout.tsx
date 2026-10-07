@@ -1,13 +1,24 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Mono, Inter } from "next/font/google";
+import { Cormorant_Garamond, DM_Mono, Inter } from "next/font/google";
 import { CookieConsent } from "@/components/consent/CookieConsent";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import {
+  JsonLd,
+  organizationJsonLd,
+  webSiteJsonLd,
+} from "@/components/seo/JsonLd";
 import { site } from "@/content/site";
 import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
+const cormorant = Cormorant_Garamond({
+  variable: "--font-serif",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
 });
@@ -30,7 +41,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     title: site.name,
-    statusBarStyle: "black-translucent",
+    statusBarStyle: "default",
   },
   icons: {
     icon: [
@@ -59,8 +70,13 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es" className={`${inter.variable} ${dmMono.variable} h-full`}>
+    <html
+      lang="es"
+      className={`${inter.variable} ${cormorant.variable} ${dmMono.variable} h-full`}
+      data-scroll-behavior="smooth"
+    >
       <body className="flex min-h-full flex-col">
+        <JsonLd data={[organizationJsonLd(), webSiteJsonLd()]} />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

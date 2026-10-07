@@ -26,10 +26,10 @@ export function LegalDocumentPage({
   currentPath,
 }: LegalDocumentPageProps) {
   return (
-    <article className="bg-paper pb-20 pt-24 text-ink md:pb-28 md:pt-28">
+    <article className="bg-paper pb-20 pt-28 text-ink md:pb-28 md:pt-32">
       <Container className="max-w-2xl">
         <SectionLabel variant="light">{label}</SectionLabel>
-        <h1 className="heading-display text-title-page mt-6">{title}</h1>
+        <h1 className="heading-display text-title-page mt-8">{title}</h1>
         <p className="mt-6 text-lg leading-relaxed text-ink/70">{intro}</p>
         {showCookieSettings ? (
           <p className="mt-4">

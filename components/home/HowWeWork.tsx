@@ -7,16 +7,16 @@ export function HowWeWork() {
   return (
     <section className="section-y border-t border-ink/5 bg-paper text-ink">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-4 lg:pt-2">
             <SectionLabel variant="light">{howWeWorkSection.label}</SectionLabel>
             <InView>
-              <h2 className="heading-display text-title-section mt-6 max-w-sm">
+              <h2 className="heading-display text-title-section mt-8 max-w-sm">
                 {howWeWorkSection.title}
               </h2>
             </InView>
             <InView staggerIndex={1}>
-              <p className="mt-5 max-w-sm text-base leading-relaxed text-ink/65">
+              <p className="mt-6 max-w-sm text-sm leading-relaxed text-ink/55 md:text-base">
                 {howWeWorkSection.lead}
               </p>
             </InView>
@@ -28,28 +28,25 @@ export function HowWeWork() {
                 key={step.number}
                 staggerIndex={index}
                 as="li"
-                className="group relative list-none border-b border-ink/8 py-8 first:pt-0 last:border-b-0 last:pb-0 md:py-10"
+                className="group relative list-none border-b border-ink/8 py-10 first:pt-0 last:border-b-0 last:pb-0 md:py-12"
               >
-                <div className="flex gap-5 md:gap-8">
-                  <div className="w-16 shrink-0 md:w-20">
+                <div className="flex gap-6 md:gap-10">
+                  <div className="w-16 shrink-0 md:w-24">
                     <span
-                      className="block text-[3rem] font-medium leading-none tracking-[-0.04em] text-ink/[0.14] transition-colors duration-500 group-hover:text-ink/25 md:text-[4.25rem]"
+                      className="block font-serif text-[3.5rem] font-normal leading-none tracking-[0.04em] text-ink/[0.12] transition-colors duration-500 group-hover:text-ink/20 md:text-[5rem]"
                       aria-hidden
                     >
                       {step.number}
                     </span>
                   </div>
 
-                  <div className="min-w-0 flex-1 pt-1 md:max-w-lg">
-                    <h3 className="font-display text-xl font-semibold uppercase tracking-[-0.02em] md:text-2xl">
+                  <div className="min-w-0 flex-1 pt-2 md:max-w-lg md:pt-4">
+                    <h3 className="heading-editorial text-xl uppercase tracking-[0.14em] md:text-2xl">
                       {step.title}
                     </h3>
-                    <p className="mt-3 text-base leading-relaxed text-ink/70">
+                    <p className="mt-4 text-sm leading-relaxed text-ink/60 md:text-base">
                       {step.description}
                     </p>
-                    <span className="mt-4 inline-block font-mono text-[10px] uppercase tracking-[0.18em] text-ink/35 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      Paso {step.number}
-                    </span>
                   </div>
                 </div>
               </InView>

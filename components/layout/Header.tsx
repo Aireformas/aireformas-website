@@ -5,22 +5,40 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Logo } from "@/components/layout/Logo";
 import { mainNav } from "@/content/navigation";
+import { useScrolled } from "@/hooks/useScrolled";
 import { cn } from "@/lib/cn";
 
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const scrolled = useScrolled(24);
+  const solid = scrolled || open || pathname !== "/";
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/[0.07] bg-brand-secondary text-white">
-      <div className="container-site flex h-16 items-center justify-between gap-6 lg:h-[4.5rem]">
-        <Logo size="header" onNavigate={() => setOpen(false)} />
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 text-white transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+        solid
+          ? "border-b border-white/10 bg-accent/95 shadow-[0_8px_32px_rgba(27,44,74,0.28)] backdrop-blur-md"
+          : "border-b border-transparent bg-transparent shadow-none backdrop-blur-0",
+      )}
+    >
+      <div className="container-site flex h-16 items-center justify-between gap-4 lg:h-[4.5rem]">
+        <Logo
+          size="header"
+          variant="white"
+          onNavigate={() => setOpen(false)}
+          className={cn(
+            "transition-[filter] duration-500",
+            !solid && "drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)]",
+          )}
+        />
 
         <nav
-          className="hidden items-center gap-1 lg:flex"
+          className="hidden items-center gap-0.5 xl:flex"
           aria-label="Principal"
         >
-          {mainNav.slice(0, 3).map((item) => {
+          {mainNav.map((item) => {
             if (!item.href) return null;
             const active = pathname === item.href;
             return (
@@ -28,61 +46,36 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "rounded-full px-3.5 py-1.5 text-sm font-normal transition-colors duration-200",
+                  "px-2.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.16em] transition-colors duration-300 xl:px-3",
+                  !solid && "drop-shadow-[0_1px_6px_rgba(0,0,0,0.4)]",
                   active
-                    ? "bg-white/[0.08] text-white"
-                    : "text-white/50 hover:text-white/85",
+                    ? "text-white underline decoration-white/50 underline-offset-8"
+                    : "text-white/75 hover:text-white",
                 )}
               >
                 {item.label}
               </Link>
             );
           })}
-          <div className="group relative">
-            <button
-              type="button"
-              className="rounded-full px-3.5 py-1.5 text-sm font-normal text-white/50 transition-colors duration-200 hover:text-white/85"
-              aria-haspopup="true"
-            >
-              Más servicios
-            </button>
-            <div className="invisible absolute right-0 top-[calc(100%+0.5rem)] z-50 min-w-[240px] rounded-[var(--radius-card)] border border-white/10 bg-brand-secondary p-2 opacity-0 shadow-2xl transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-              <ul className="space-y-0.5">
-                {mainNav.slice(3).map((item) => (
-                  <li key={item.label}>
-                    {item.comingSoon || !item.href ? (
-                      <span className="flex items-center justify-between rounded-[var(--radius-image)] px-3 py-2.5 text-sm text-white/45">
-                        {item.label}
-                        <span className="font-mono text-[9px] uppercase tracking-widest text-white/35">
-                          Próximamente
-                        </span>
-                      </span>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        className="block rounded-[var(--radius-image)] px-3 py-2.5 text-sm text-white/85 transition-colors hover:bg-white/8"
-                      >
-                        {item.label}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
         </nav>
 
         <div className="flex items-center gap-3">
           <Link
-            href="#contacto"
-            className="hidden rounded-full border border-white/20 bg-white/95 px-4 py-2 text-sm font-medium text-ink transition-colors duration-200 hover:bg-white lg:inline-flex"
+            href="/contacto"
+            className={cn(
+              "hidden text-[11px] font-semibold uppercase tracking-[0.18em] text-white/90 transition-colors duration-300 hover:text-white lg:inline-flex",
+              !solid && "drop-shadow-[0_1px_6px_rgba(0,0,0,0.4)]",
+            )}
           >
-            Presupuesto
+            Hablar de mi proyecto
           </Link>
 
           <button
             type="button"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full text-white/70 transition-colors hover:text-white lg:hidden"
+            className={cn(
+              "inline-flex h-9 w-9 items-center justify-center text-white/85 transition-colors hover:text-white xl:hidden",
+              !solid && "drop-shadow-[0_1px_6px_rgba(0,0,0,0.4)]",
+            )}
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
@@ -110,43 +103,36 @@ export function Header() {
       {open ? (
         <nav
           id="mobile-nav"
-          className="border-t border-white/10 bg-brand-secondary lg:hidden"
+          className="border-t border-white/10 bg-accent xl:hidden"
           aria-label="Móvil"
         >
           <div className="container-site py-4">
             <ul className="space-y-0.5">
               {mainNav.map((item) => (
                 <li key={item.label}>
-                  {item.comingSoon || !item.href ? (
-                    <span className="flex items-center justify-between rounded-[var(--radius-image)] px-3 py-3 text-sm text-white/45">
-                      {item.label}
-                      <span className="font-mono text-[9px] uppercase tracking-widest">
-                        Próximamente
-                      </span>
-                    </span>
-                  ) : (
+                  {item.href ? (
                     <Link
                       href={item.href}
                       className={cn(
-                        "block rounded-[var(--radius-image)] px-3 py-3 text-sm font-medium transition-colors",
+                        "block px-1 py-3 text-xs uppercase tracking-[0.2em] transition-colors",
                         pathname === item.href
-                          ? "bg-white/12 text-white"
-                          : "text-white/75 hover:bg-white/6",
+                          ? "text-white"
+                          : "text-white/70 hover:text-white",
                       )}
                       onClick={() => setOpen(false)}
                     >
                       {item.label}
                     </Link>
-                  )}
+                  ) : null}
                 </li>
               ))}
               <li className="pt-3">
                 <Link
-                  href="#contacto"
-                  className="flex w-full items-center justify-center rounded-full bg-white py-3 text-sm font-semibold text-ink"
+                  href="/contacto"
+                  className="inline-block border-b border-white/40 pb-1 text-xs font-medium uppercase tracking-[0.18em] text-white"
                   onClick={() => setOpen(false)}
                 >
-                  Pide presupuesto
+                  Hablar de mi proyecto
                 </Link>
               </li>
             </ul>
