@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { Logo } from "@/components/layout/Logo";
 import { mainNav } from "@/content/navigation";
 import { cn } from "@/lib/cn";
@@ -41,7 +42,9 @@ export function Header() {
           })}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 md:gap-4">
+          <LanguageSwitcher className="hidden sm:flex" />
+
           <Link
             href="/contacto"
             className="hidden items-center justify-center rounded-full bg-slate-accent px-6 py-2.5 text-label-uppercase text-surface transition-colors hover:bg-slate-deep lg:inline-flex"
@@ -109,6 +112,9 @@ export function Header() {
               >
                 Hablar de mi proyecto
               </Link>
+            </li>
+            <li className="border-t border-outline-variant/20 pt-4 sm:hidden">
+              <LanguageSwitcher onNavigate={() => setOpen(false)} />
             </li>
           </ul>
         </nav>
