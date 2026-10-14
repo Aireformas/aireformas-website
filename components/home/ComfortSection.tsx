@@ -1,10 +1,11 @@
 import { comfortSection } from "@/content/home";
-import { EditorialComfortSection } from "@/components/shared/EditorialComfortSection";
+import { ThermalComfortSection } from "@/components/shared/ThermalComfortSection";
 
 export function ComfortSection() {
   return (
-    <EditorialComfortSection
-      label={comfortSection.label}
+    <ThermalComfortSection
+      id="climate"
+      label="07 / CONFORT TÉRMICO"
       temperature={comfortSection.temperature}
       title={comfortSection.title}
       subline={comfortSection.subline}

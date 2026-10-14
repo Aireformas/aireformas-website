@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
 import { ContactCTA } from "@/components/contact/ContactCTA";
-import { InView } from "@/components/motion/InView";
 import { faqPageJsonLd, JsonLd } from "@/components/seo/JsonLd";
 import { FaqAccordion } from "@/components/shared/FaqAccordion";
-import { EditorialPhilosophySection } from "@/components/shared/EditorialPhilosophySection";
-import { EditorialProcessSection } from "@/components/shared/EditorialProcessSection";
 import { ImageGallery } from "@/components/shared/ImageGallery";
 import { PageHero } from "@/components/shared/PageHero";
+import { PhilosophyBandSection } from "@/components/shared/PhilosophyBandSection";
+import { ProcessGridSection } from "@/components/shared/ProcessGridSection";
 import {
   PillarCrossLink,
   PillarCrossLinks,
 } from "@/components/shared/PillarCrossLinks";
-import { Container } from "@/components/ui/Container";
-import { SectionLabel } from "@/components/ui/SectionLabel";
+import { TopicGridSection } from "@/components/shared/TopicGridSection";
 import {
   reformasCta,
   reformasEditorial,
@@ -34,11 +32,6 @@ export const metadata: Metadata = {
   },
 };
 
-const breadcrumbs = [
-  { name: "Inicio", href: "/" },
-  { name: "Reformas", href: "/reformas" },
-] as const;
-
 export default function ReformasPage() {
   return (
     <>
@@ -48,7 +41,6 @@ export default function ReformasPage() {
         )}
       />
       <PageHero
-        breadcrumbs={[...breadcrumbs]}
         label={reformasHero.label}
         title={reformasHero.title}
         description={reformasHero.description}
@@ -56,58 +48,41 @@ export default function ReformasPage() {
         cta={{ label: reformasHero.cta, href: "/contacto" }}
       />
 
-      <EditorialPhilosophySection
+      <PhilosophyBandSection
         label={reformasEditorial.label}
-        verticalLabel={reformasEditorial.verticalLabel}
         title={reformasEditorial.title}
         paragraphs={reformasEditorial.paragraphs}
         image={reformasEditorial.image}
-        tone="warm"
+        headingId="reformas-philosophy"
       />
 
-      <section className="section-y bg-paper text-ink">
-        <Container>
-          <SectionLabel variant="light">ALCANCE</SectionLabel>
-          <InView>
-            <h2 className="heading-display text-title-section mt-8 max-w-3xl">
-              Obra coordinada con el diseño
-            </h2>
-          </InView>
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {reformasScope.map((item, index) => (
-              <InView key={item.title} staggerIndex={index}>
-                <div className="border-t border-ink/8 pt-6">
-                  <h3 className="heading-editorial text-xl">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-ink/70">
-                    {item.description}
-                  </p>
-                </div>
-              </InView>
-            ))}
-          </div>
+      <TopicGridSection
+        label="ALCANCE"
+        title="Obra coordinada con el diseño"
+        items={reformasScope}
+        tone="cream"
+        borderTop
+        columns={3}
+        footer={
           <PillarCrossLinks>
             Climatización e instalaciones técnicas en{" "}
             <PillarCrossLink href="/climate">AIREFORMAS Climate</PillarCrossLink>. Mobiliario e
             interiorismo en <PillarCrossLink href="/mobiliario">Mobiliario</PillarCrossLink> e{" "}
             <PillarCrossLink href="/interiorismo">Interiorismo</PillarCrossLink>.
           </PillarCrossLinks>
-        </Container>
-      </section>
+        }
+      />
 
-      <EditorialProcessSection
+      <ProcessGridSection
         label={reformasProcessSection.label}
         title={reformasProcessSection.title}
         lead={reformasProcessSection.lead}
         steps={reformasProcess}
-        tone="warm"
+        tone="sand"
+        borderTop
       />
 
-      <ImageGallery
-        label="RESULTADO"
-        title="Espacios terminados"
-        items={reformasGallery}
-        variant="light"
-      />
+      <ImageGallery label="RESULTADO" title="Espacios terminados" items={reformasGallery} />
 
       <FaqAccordion label="FAQ" title="Preguntas frecuentes" items={reformasFaq} />
 
@@ -115,7 +90,7 @@ export default function ReformasPage() {
         label="CONTACTO"
         title={reformasCta.title}
         description={reformasCta.description}
-        variant="light"
+        variant="landing"
       />
     </>
   );

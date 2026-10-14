@@ -1,21 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { InView } from "@/components/motion/InView";
-import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
-import { Container } from "@/components/ui/Container";
-import { SectionLabel } from "@/components/ui/SectionLabel";
-
-export type EditorialBreadcrumb = {
-  name: string;
-  href: string;
-};
 
 type EditorialPageHeaderProps = {
   label: string;
   title: string;
   description: string;
   image: { src: string; alt: string };
-  breadcrumbs?: EditorialBreadcrumb[];
   cta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
 };
@@ -25,55 +15,53 @@ export function EditorialPageHeader({
   title,
   description,
   image,
-  breadcrumbs,
   cta,
   secondaryCta,
 }: EditorialPageHeaderProps) {
   return (
-    <>
-      <section
-        className="relative h-[70dvh] min-h-[32rem] max-h-[52rem] w-full overflow-hidden bg-paper"
-        aria-label={label}
-      >
+    <section
+      className="relative flex min-h-[72vh] items-end justify-start overflow-hidden pb-space-2xl pt-28 px-margin-mobile md:min-h-[70vh] md:px-margin"
+      aria-label={label}
+    >
+      <div className="absolute inset-0 z-0">
         <Image
           src={image.src}
           alt={image.alt}
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover brightness-[0.88] contrast-[0.98]"
         />
-      </section>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/25" />
+      </div>
 
-      <section className="border-b border-ink/5 bg-paper py-14 text-ink md:py-16 lg:py-20">
-        <Container>
-          {breadcrumbs ? <Breadcrumbs items={breadcrumbs} embedded /> : null}
-          <InView>
-            <SectionLabel variant="light">{label}</SectionLabel>
-            <h1 className="text-hero-editorial mt-8 max-w-4xl text-ink">{title}</h1>
-            <p className="mt-6 max-w-lg text-sm leading-relaxed text-ink/65 md:text-base">
-              {description}
-            </p>
-            {cta || secondaryCta ? (
-              <div className="mt-10 flex flex-wrap items-center gap-8">
-                {cta ? (
-                  <Link href={cta.href} className="text-link-editorial">
-                    {cta.label}
-                  </Link>
-                ) : null}
-                {secondaryCta ? (
-                  <Link
-                    href={secondaryCta.href}
-                    className="border-b border-ink/30 pb-0.5 text-[0.6875rem] font-semibold uppercase tracking-[0.18em] text-ink/70 transition-colors hover:border-accent hover:text-accent"
-                  >
-                    {secondaryCta.label}
-                  </Link>
-                ) : null}
-              </div>
+      <div className="relative z-10 max-w-4xl text-surface">
+        <p className="mb-4 text-label-uppercase text-surface/80">{label}</p>
+        <h1 className="text-display-hero mb-6 leading-tight text-white">{title}</h1>
+        <p className="mb-10 max-w-2xl text-body-lg font-light text-surface/90">
+          {description}
+        </p>
+        {cta || secondaryCta ? (
+          <div className="flex flex-wrap items-center gap-4">
+            {cta ? (
+              <Link
+                href={cta.href}
+                className="rounded-full bg-slate-accent px-8 py-3.5 text-label-uppercase text-white transition-colors hover:bg-slate-deep"
+              >
+                {cta.label}
+              </Link>
             ) : null}
-          </InView>
-        </Container>
-      </section>
-    </>
+            {secondaryCta ? (
+              <Link
+                href={secondaryCta.href}
+                className="rounded-full border border-white/50 px-8 py-3.5 text-label-uppercase text-white backdrop-blur-sm transition-colors hover:bg-white/10"
+              >
+                {secondaryCta.label}
+              </Link>
+            ) : null}
+          </div>
+        ) : null}
+      </div>
+    </section>
   );
 }

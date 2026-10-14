@@ -3,90 +3,78 @@ import { CookieSettingsLink } from "@/components/consent/CookieSettingsLink";
 import { Logo } from "@/components/layout/Logo";
 import { footerNav } from "@/content/navigation";
 import { site } from "@/content/site";
-import { Container } from "@/components/ui/Container";
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-accent text-white">
-      <Container className="section-y !py-16 md:!py-20">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
+    <footer className="border-t border-white/10 bg-slate-deep text-white">
+      <div className="mx-auto flex max-w-7xl flex-col gap-10 px-margin-mobile py-space-2xl md:px-margin">
+        <div className="grid grid-cols-1 items-start gap-gutter border-b border-white/10 pb-8 md:grid-cols-12">
+          <div className="md:col-span-5">
             <Logo size="footer" variant="white" />
-            <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/60">
+            <p className="mt-6 max-w-sm text-body-sm font-light text-white/70">
               {site.shortTagline}
             </p>
-            <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.22em] text-white/40">
-              {site.brandLine}
+            <p className="mt-4 text-label-uppercase text-white/50">
+              {site.brandLine.toUpperCase()}
             </p>
           </div>
 
-          <div className="lg:col-span-4">
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/45">
+          <div className="md:col-span-4">
+            <span className="mb-4 block text-label-uppercase text-white/40">
               Navegación
-            </p>
-            <ul className="mt-5 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-x-5 sm:gap-y-2">
-              {footerNav.map((item) => (
-                <li key={item.label}>
-                  {item.href ? (
+            </span>
+            <ul className="grid grid-cols-2 gap-y-2.5 text-body-sm">
+              {footerNav.map((item) =>
+                item.href ? (
+                  <li key={item.label}>
                     <Link
                       href={item.href}
-                      className="text-sm text-white/65 transition-colors hover:text-white"
+                      className="text-white/80 transition-colors hover:text-white"
                     >
                       {item.label}
                     </Link>
-                  ) : null}
-                </li>
-              ))}
+                  </li>
+                ) : null,
+              )}
             </ul>
           </div>
 
-          <div className="lg:col-span-3">
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/45">
+          <div className="md:col-span-3">
+            <span className="mb-4 block text-label-uppercase text-white/40">
               Contacto
+            </span>
+            <p className="mb-1 text-body-sm text-white/80">
+              <a href={site.phoneHref} className="hover:text-white">
+                {site.phone}
+              </a>
             </p>
-            <ul className="mt-5 space-y-2 text-sm text-white/65">
-              <li>
-                <a
-                  href={site.phoneHref}
-                  className="transition-colors hover:text-white"
-                >
-                  {site.phone}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={site.emailHref}
-                  className="transition-colors hover:text-white"
-                >
-                  {site.email}
-                </a>
-              </li>
-              <li>{site.address}</li>
-            </ul>
+            <p className="mb-3 text-body-sm text-white/80">
+              <a href={site.emailHref} className="hover:text-white">
+                {site.email}
+              </a>
+            </p>
+            <p className="text-body-sm text-white/60">{site.address}</p>
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/40 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-4 sm:gap-y-2">
+        <div className="flex flex-col items-center justify-between gap-4 text-body-sm text-white/60 md:flex-row">
           <p>{site.copyright}</p>
-          <p className="flex flex-wrap gap-x-3 gap-y-1">
-            <Link href="/legal/terminos" className="hover:text-white/70">
+          <div className="flex flex-wrap items-center gap-x-6 text-label-uppercase text-white/70">
+            <Link href="/legal/terminos" className="hover:text-white">
               Términos
             </Link>
-            <span aria-hidden>·</span>
-            <Link href="/legal/privacidad" className="hover:text-white/70">
+            <Link href="/legal/privacidad" className="hover:text-white">
               Privacidad
             </Link>
-            <span aria-hidden>·</span>
-            <Link href="/legal/cookies" className="hover:text-white/70">
+            <Link href="/legal/cookies" className="hover:text-white">
               Cookies
             </Link>
-            <span aria-hidden>·</span>
-            <CookieSettingsLink className="hover:text-white/70">
+            <CookieSettingsLink className="hover:text-white">
               Configurar cookies
             </CookieSettingsLink>
-          </p>
+          </div>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }

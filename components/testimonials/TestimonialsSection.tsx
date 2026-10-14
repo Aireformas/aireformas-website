@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { CircleNavButton } from "@/components/ui/CircleNavButton";
 import type { Testimonial } from "@/lib/types";
-import { Container } from "@/components/ui/Container";
 import { InView } from "@/components/motion/InView";
-import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SectionIntro } from "@/components/shared/SectionIntro";
+import { sectionShellClass } from "@/lib/sectionSurface";
 
 type TestimonialsSectionProps = {
   testimonials: Testimonial[];
@@ -47,16 +47,14 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
   if (!current) return null;
 
   return (
-    <section className="section-y border-t border-ink/5 bg-paper text-ink">
-      <Container>
+    <section className={sectionShellClass("paper", { borderTop: true })}>
+      <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <SectionLabel variant="light">TESTIMONIOS</SectionLabel>
-            <InView>
-              <h2 className="heading-display text-title-section mt-8 max-w-xl">
-                Lo que dicen quienes ya confiaron en nosotros
-              </h2>
-            </InView>
+            <SectionIntro
+              label="TESTIMONIOS"
+              title="Lo que dicen quienes ya confiaron en nosotros"
+            />
           </div>
           <div className="hidden gap-3 md:flex">
             <CircleNavButton
@@ -91,27 +89,25 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
                 aria-hidden={item.id !== current.id}
               >
                 <div className="grid overflow-hidden md:grid-cols-[minmax(0,42%)_1fr] md:gap-10">
-                  <div className="image-editorial relative min-h-[240px] overflow-hidden md:min-h-[360px]">
+                  <div className="relative min-h-[240px] overflow-hidden rounded-editorial border border-outline/10 md:min-h-[360px]">
                     <Image
                       src={item.image.src}
                       alt={item.image.alt}
                       fill
                       sizes="(max-width: 768px) 100vw, 40vw"
-                      className="image-editorial-target object-cover"
+                      className="object-cover"
                     />
                   </div>
                   <div className="flex flex-col justify-center py-8 md:py-4">
                     <blockquote
-                      className="heading-editorial text-2xl leading-snug md:text-3xl lg:text-4xl"
+                      className="text-headline-md font-light leading-snug"
                       aria-live={item.id === current.id ? "polite" : "off"}
                     >
                       “{item.quote}”
                     </blockquote>
                     <footer className="mt-6">
-                      <p className="text-sm font-medium">{item.author}</p>
-                      <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink/50">
-                        {item.role}
-                      </p>
+                      <p className="text-body-md font-medium">{item.author}</p>
+                      <p className="text-label-uppercase text-warm-label">{item.role}</p>
                     </footer>
                   </div>
                 </div>
@@ -129,7 +125,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
                 aria-label={`Ir al testimonio ${dotIndex + 1}`}
                 onClick={() => setIndex(dotIndex)}
                 className={`h-2 w-2 rounded-full transition-colors ${
-                  dotIndex === index ? "bg-ink" : "bg-ink/20"
+                  dotIndex === index ? "bg-ink-primary" : "bg-outline/30"
                 }`}
               />
             ))}
@@ -149,7 +145,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
             />
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

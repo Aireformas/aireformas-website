@@ -3,9 +3,9 @@
 import { useState } from "react";
 import type { FaqItem } from "@/lib/types";
 import { cn } from "@/lib/cn";
-import { Container } from "@/components/ui/Container";
 import { InView } from "@/components/motion/InView";
-import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SectionIntro } from "@/components/shared/SectionIntro";
+import { sectionShellClass } from "@/lib/sectionSurface";
 
 type FaqAccordionProps = {
   label: string;
@@ -17,15 +17,10 @@ export function FaqAccordion({ label, title, items }: FaqAccordionProps) {
   const [openId, setOpenId] = useState<string | null>(items[0]?.id ?? null);
 
   return (
-    <section className="section-y border-t border-ink/5 bg-paper text-ink">
-      <Container>
-        <SectionLabel variant="light">{label}</SectionLabel>
-        <InView>
-          <h2 className="heading-display text-title-section mt-8 max-w-2xl">
-            {title}
-          </h2>
-        </InView>
-        <div className="mt-14 divide-y divide-ink/8 border-y border-ink/8">
+    <section className={sectionShellClass("paper", { borderTop: true })}>
+      <div className="mx-auto max-w-7xl">
+        <SectionIntro label={label} title={title} />
+        <div className="mt-12 divide-y divide-outline/20 border-y border-outline/20">
           {items.map((item) => {
             const isOpen = openId === item.id;
             return (
@@ -38,12 +33,10 @@ export function FaqAccordion({ label, title, items }: FaqAccordionProps) {
                   onClick={() => setOpenId(isOpen ? null : item.id)}
                   className="flex w-full items-center justify-between gap-4 py-6 text-left"
                 >
-                  <span className="heading-editorial text-xl md:text-2xl">
-                    {item.question}
-                  </span>
+                  <span className="text-headline-sm font-light">{item.question}</span>
                   <span
                     className={cn(
-                      "font-mono text-lg transition-transform duration-300",
+                      "text-xl transition-transform duration-300",
                       isOpen && "rotate-45",
                     )}
                     aria-hidden
@@ -61,7 +54,7 @@ export function FaqAccordion({ label, title, items }: FaqAccordionProps) {
                   )}
                 >
                   <div className="overflow-hidden">
-                    <p className="pb-5 text-sm leading-relaxed text-ink/70">
+                    <p className="pb-5 text-body-sm font-light text-on-surface-variant">
                       {item.answer}
                     </p>
                   </div>
@@ -70,7 +63,7 @@ export function FaqAccordion({ label, title, items }: FaqAccordionProps) {
             );
           })}
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

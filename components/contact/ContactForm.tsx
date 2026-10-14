@@ -1,10 +1,16 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Button } from "@/components/ui/Button";
+import { site } from "@/content/site";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
-export function ContactForm() {
+type ContactFormProps = {
+  variant?: "default" | "landing";
+};
+
+export function ContactForm({ variant = "default" }: ContactFormProps) {
   const [submitted, setSubmitted] = useState(false);
+  const isLanding = variant === "landing";
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -13,70 +19,111 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <p className="rounded-[var(--radius-card)] border border-ink/8 bg-paper p-6 text-sm text-ink/75">
+      <p className="rounded-editorial border border-outline/15 bg-cream-base p-6 text-body-sm text-on-surface-variant">
         Gracias por tu mensaje. Te contactaremos pronto.
       </p>
     );
   }
 
-  const fieldClassName =
-    "rounded-[var(--radius-image)] border border-ink/15 bg-paper-warm/80 px-4 py-3.5 text-ink outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-ink/35 focus:border-accent focus:bg-paper focus:ring-2 focus:ring-accent/15";
+  const fieldClassName = isLanding
+    ? "w-full rounded-lg border border-outline/30 bg-cream-base px-4 py-3.5 text-ink-primary text-body-md transition-colors focus:border-slate-deep focus:outline-none focus:ring-0"
+    : "w-full rounded-lg border border-outline/30 bg-paper px-4 py-3.5 text-ink-primary outline-none transition-[border-color] focus:border-accent focus:ring-2 focus:ring-accent/15";
+
+  const labelClassName = isLanding
+    ? "mb-2 block text-label-uppercase text-warm-label uppercase"
+    : "mb-2 block text-label-uppercase text-warm-label";
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-5">
-      <div className="border-b border-ink/8 pb-5">
-        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/45">
-          Formulario
-        </p>
-        <h3 className="heading-editorial mt-3 text-2xl tracking-[0.1em] md:text-3xl">
-          Cuéntanos tu proyecto
-        </h3>
-        <p className="mt-2 text-sm leading-relaxed text-ink/60">
-          Respuesta en 1–2 días laborables.
-        </p>
-      </div>
+    <form onSubmit={handleSubmit} className="space-y-6">
+      {isLanding ? (
+        <div className="mb-8">
+          <h3 className="text-headline-md mb-1 font-light text-ink-primary">
+            Cuéntanos tu proyecto
+          </h3>
+          <p className="text-body-sm font-light text-warm-label">
+            Respuesta en 1–2 días laborables.
+          </p>
+        </div>
+      ) : (
+        <div className="mb-6 border-b border-outline/15 pb-5">
+          <h3 className="text-headline-sm text-ink-primary">Cuéntanos tu proyecto</h3>
+          <p className="mt-2 text-body-sm text-on-surface-variant">
+            Respuesta en 1–2 días laborables.
+          </p>
+        </div>
+      )}
 
-      <label className="grid gap-2 text-sm">
-        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/55">
+      <div>
+        <label className={labelClassName} htmlFor="nombre">
           Nombre
-        </span>
+        </label>
         <input
+          id="nombre"
           type="text"
           name="nombre"
           required
           autoComplete="name"
-          placeholder="Tu nombre"
+          placeholder="Tu nombre completo"
           className={fieldClassName}
         />
-      </label>
-      <label className="grid gap-2 text-sm">
-        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/55">
+      </div>
+
+      <div>
+        <label className={labelClassName} htmlFor="telefono">
           Teléfono
-        </span>
+        </label>
         <input
+          id="telefono"
           type="tel"
           name="telefono"
           required
           autoComplete="tel"
-          placeholder="+34 …"
+          placeholder="+34"
           className={fieldClassName}
         />
-      </label>
-      <label className="grid gap-2 text-sm">
-        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/55">
+      </div>
+
+      <div>
+        <label className={labelClassName} htmlFor="mensaje">
           Mensaje
-        </span>
+        </label>
         <textarea
+          id="mensaje"
           name="mensaje"
           required
-          rows={5}
-          placeholder="Vivienda, plazos y qué te gustaría lograr"
-          className={`${fieldClassName} min-h-[8.5rem]`}
+          rows={4}
+          placeholder="Vivienda, ubicación y qué te gustaría lograr..."
+          className={fieldClassName}
         />
-      </label>
-      <Button type="submit" variant="accent" className="mt-1 w-full px-8 py-4">
+      </div>
+
+      <button
+        type="submit"
+        className={
+          isLanding
+            ? "w-full rounded-full bg-slate-deep py-4 text-label-uppercase text-white shadow-md transition-colors hover:bg-ink-primary"
+            : "w-full rounded-full bg-slate-accent py-3.5 text-label-uppercase text-white transition-colors hover:bg-slate-deep"
+        }
+      >
         Enviar solicitud
-      </Button>
+      </button>
+
+      {isLanding ? (
+        <div className="border-t border-outline/15 pt-6">
+          <p className="mb-3 text-center text-body-sm font-light text-warm-label">
+            O escríbenos por WhatsApp
+          </p>
+          <a
+            href={site.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-full items-center justify-center gap-2.5 rounded-full border border-[#25D366]/35 bg-[#25D366]/10 py-3.5 text-label-uppercase text-ink-primary transition-colors hover:bg-[#25D366]/15"
+          >
+            <WhatsAppIcon branded className="h-5 w-5" />
+            {site.phone}
+          </a>
+        </div>
+      ) : null}
     </form>
   );
 }

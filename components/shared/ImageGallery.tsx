@@ -1,14 +1,19 @@
 import Image from "next/image";
 import type { GalleryItem } from "@/lib/types";
 import { InView } from "@/components/motion/InView";
-import { Container } from "@/components/ui/Container";
-import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SectionIntro } from "@/components/shared/SectionIntro";
+import {
+  getSectionSurface,
+  sectionShellClass,
+  type SectionSurfaceTone,
+} from "@/lib/sectionSurface";
 
 type ImageGalleryProps = {
   label: string;
   title: string;
   items: GalleryItem[];
   variant?: "light" | "dark";
+  tone?: SectionSurfaceTone;
 };
 
 export function ImageGallery({
@@ -16,25 +21,21 @@ export function ImageGallery({
   title,
   items,
   variant = "light",
+  tone,
 }: ImageGalleryProps) {
-  const isDark = variant === "dark";
+  const resolvedTone =
+    tone ?? (variant === "dark" ? "taupeDark" : "warm");
+  const surface = getSectionSurface(resolvedTone);
 
   return (
-    <section
-      className={
-        isDark
-          ? "section-y bg-stone text-white"
-          : "section-y border-t border-ink/5 bg-paper text-ink"
-      }
-    >
-      <Container>
-        <SectionLabel variant={isDark ? "dark" : "light"}>{label}</SectionLabel>
-        <InView>
-          <h2 className="heading-display text-title-section mt-8 max-w-2xl">
-            {title}
-          </h2>
-        </InView>
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+    <section className={sectionShellClass(resolvedTone, { borderTop: true })}>
+      <div className="mx-auto max-w-7xl">
+        <SectionIntro
+          label={label}
+          title={title}
+          dark={surface.onBrand}
+        />
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {items.map((item, index) => (
             <InView key={item.image.src} staggerIndex={index}>
               <figure
@@ -42,17 +43,17 @@ export function ImageGallery({
                   index % 2 === 1 ? "lg:mt-10" : index === 2 ? "lg:mt-4" : ""
                 }
               >
-                <div className="image-editorial relative aspect-[4/5] overflow-hidden">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-editorial border border-outline/10">
                   <Image
                     src={item.image.src}
                     alt={item.image.alt}
                     fill
                     sizes="(max-width: 768px) 100vw, 25vw"
-                    className="image-editorial-target object-cover"
+                    className="object-cover"
                   />
                 </div>
                 {item.caption ? (
-                  <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-current/50">
+                  <figcaption className={`mt-3 text-label-uppercase ${surface.faint}`}>
                     {item.caption}
                   </figcaption>
                 ) : null}
@@ -60,7 +61,7 @@ export function ImageGallery({
             </InView>
           ))}
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

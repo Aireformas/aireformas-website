@@ -1,8 +1,8 @@
 import Image from "next/image";
 import type { ImageAsset } from "@/lib/types";
 import { InView } from "@/components/motion/InView";
-import { Container } from "@/components/ui/Container";
-import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SectionIntro } from "@/components/shared/SectionIntro";
+import { sectionShellClass } from "@/lib/sectionSurface";
 
 export type EditorialFeatureItem = {
   title: string;
@@ -23,18 +23,15 @@ export function EditorialFeatureGrid({
   items,
   tone = "warm",
 }: EditorialFeatureGridProps) {
-  const bg = tone === "warm" ? "bg-paper-warm" : "bg-paper";
+  const surfaceTone = tone === "warm" ? "warm" : "paper";
   const [primary, second, ...rest] = items;
 
   return (
-    <section className={`section-y border-t border-ink/5 ${bg} text-ink`}>
-      <Container>
-        <SectionLabel variant="light">{label}</SectionLabel>
-        <InView>
-          <h2 className="heading-display text-title-section mt-8 max-w-3xl">{title}</h2>
-        </InView>
+    <section className={sectionShellClass(surfaceTone, { borderTop: true })}>
+      <div className="mx-auto max-w-7xl">
+        <SectionIntro label={label} title={title} />
 
-        <div className="mt-16 grid gap-10 lg:mt-20 lg:grid-cols-12 lg:gap-8">
+        <div className="mt-14 grid gap-10 lg:mt-16 lg:grid-cols-12 lg:gap-8">
           {primary ? (
             <InView className="lg:col-span-7">
               <FeatureBlock item={primary} large />
@@ -57,7 +54,7 @@ export function EditorialFeatureGrid({
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }
@@ -72,7 +69,7 @@ function FeatureBlock({ item, large = false, compact = false }: FeatureBlockProp
   return (
     <article>
       <div
-        className={`image-editorial relative overflow-hidden ${
+        className={`relative overflow-hidden rounded-editorial border border-outline/10 ${
           large
             ? "aspect-[4/5] lg:aspect-[5/6]"
             : compact
@@ -91,34 +88,22 @@ function FeatureBlock({ item, large = false, compact = false }: FeatureBlockProp
                 ? "(max-width: 1024px) 45vw, 20vw"
                 : "(max-width: 1024px) 100vw, 40vw"
           }
-          className="image-editorial-target object-cover"
+          className="object-cover"
         />
       </div>
       <div className={compact ? "mt-3" : "mt-5"}>
-        <div className="flex items-start gap-3">
-          {!compact ? (
-            <p
-              className="mt-1 hidden shrink-0 font-serif text-[10px] uppercase tracking-[0.3em] text-ink/35 lg:block lg:[writing-mode:vertical-rl] lg:rotate-180"
-              aria-hidden
-            >
-              {item.title}
-            </p>
-          ) : null}
-          <div>
-            <h3
-              className={`heading-editorial tracking-[0.12em] uppercase ${
-                compact ? "text-lg" : "text-2xl md:text-3xl"
-              }`}
-            >
-              {item.title}
-            </h3>
-            {!compact ? (
-              <p className="mt-3 max-w-md text-sm leading-relaxed text-ink/60">
-                {item.description}
-              </p>
-            ) : null}
-          </div>
-        </div>
+        <h3
+          className={`font-light text-ink-primary ${
+            compact ? "text-headline-sm" : "text-headline-md"
+          }`}
+        >
+          {item.title}
+        </h3>
+        {!compact ? (
+          <p className="mt-3 max-w-md text-body-sm font-light text-on-surface-variant">
+            {item.description}
+          </p>
+        ) : null}
       </div>
     </article>
   );

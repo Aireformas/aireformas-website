@@ -14,8 +14,8 @@ export function SectionLabel({
   return (
     <span
       className={cn(
-        "inline-block font-mono text-[10px] uppercase tracking-[0.28em]",
-        variant === "dark" ? "text-white/70" : "text-ink/50",
+        "inline-block text-label-uppercase",
+        variant === "dark" ? "text-white/70" : "text-warm-label",
         className,
       )}
     >

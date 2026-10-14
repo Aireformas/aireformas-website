@@ -4,8 +4,8 @@
   "description": "Interiorismo, reforma, mobiliario y climatización integrados en un único proyecto.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#1b2c4a",
-  "theme_color": "#1b2c4a",
+  "background_color": "#5A7C93",
+  "theme_color": "#5A7C93",
   "lang": "es",
   "icons": [
     {

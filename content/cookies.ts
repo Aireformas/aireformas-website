@@ -60,7 +60,7 @@ export const cookiesPage = {
     },
     {
       heading: "Contacto",
-      body: "Para dudas sobre privacidad o cookies: studio@aireformas.com.",
+      body: "Para dudas sobre privacidad o cookies: info@aireformas.com.",
     },
   ],
 } as const;

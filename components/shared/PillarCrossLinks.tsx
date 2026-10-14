@@ -7,7 +7,9 @@ type PillarCrossLinksProps = {
 
 export function PillarCrossLinks({ children }: PillarCrossLinksProps) {
   return (
-    <p className="mt-10 max-w-2xl text-sm leading-relaxed text-ink/60">{children}</p>
+    <p className="mt-10 max-w-2xl text-body-md font-light text-on-surface-variant">
+      {children}
+    </p>
   );
 }
 
@@ -18,7 +20,10 @@ type PillarCrossLinkProps = {
 
 export function PillarCrossLink({ href, children }: PillarCrossLinkProps) {
   return (
-    <Link href={href} className="text-link-editorial text-ink/70">
+    <Link
+      href={href}
+      className="text-label-uppercase text-primary transition-colors hover:text-slate-deep"
+    >
       {children}
     </Link>
   );

@@ -3,7 +3,8 @@ import { ContactCTA } from "@/components/contact/ContactCTA";
 import { faqPageJsonLd, JsonLd } from "@/components/seo/JsonLd";
 import { FaqAccordion } from "@/components/shared/FaqAccordion";
 import { PageHero } from "@/components/shared/PageHero";
-import { Container } from "@/components/ui/Container";
+import { PageSection } from "@/components/shared/PageSection";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import {
   contactoFaq,
@@ -22,11 +23,6 @@ export const metadata: Metadata = {
   },
 };
 
-const breadcrumbs = [
-  { name: "Inicio", href: "/" },
-  { name: "Contacto", href: "/contacto" },
-] as const;
-
 export default function ContactoPage() {
   return (
     <>
@@ -36,7 +32,6 @@ export default function ContactoPage() {
         )}
       />
       <PageHero
-        breadcrumbs={[...breadcrumbs]}
         label={contactoHero.label}
         title={contactoHero.title}
         description={contactoHero.description}
@@ -45,24 +40,42 @@ export default function ContactoPage() {
         secondaryCta={{ label: "Enviar email", href: site.emailHref }}
       />
 
-      <section className="border-b border-ink/5 bg-paper-warm py-12 text-ink md:py-14">
-        <Container>
-          <SectionLabel variant="light">DATOS</SectionLabel>
-          <ul className="mt-8 space-y-3 text-sm text-ink/80 md:text-base">
-            <li>
-              <a href={site.phoneHref} className="text-link-editorial">
-                {site.phone}
-              </a>
-            </li>
-            <li>
-              <a href={site.emailHref} className="text-link-editorial">
-                {site.email}
-              </a>
-            </li>
-            <li className="max-w-md leading-relaxed text-ink/70">{site.address}</li>
-          </ul>
-        </Container>
-      </section>
+      <PageSection tone="sand" borderTop compact>
+        <SectionLabel variant="light">DATOS</SectionLabel>
+        <ul className="mt-6 space-y-4 text-body-md text-ink-primary">
+          <li>
+            <span className="mb-1 block text-label-uppercase text-warm-label">
+              Teléfono
+            </span>
+            <a href={site.phoneHref} className="text-link-editorial">
+              {site.phone}
+            </a>
+          </li>
+          <li>
+            <span className="mb-1 block text-label-uppercase text-warm-label">
+              WhatsApp
+            </span>
+            <a
+              href={site.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-link-editorial"
+            >
+              <WhatsAppIcon branded className="h-4 w-4" />
+              {site.phone}
+            </a>
+          </li>
+          <li>
+            <span className="mb-1 block text-label-uppercase text-warm-label">
+              Email
+            </span>
+            <a href={site.emailHref} className="text-link-editorial">
+              {site.email}
+            </a>
+          </li>
+          <li className="max-w-md font-light text-on-surface-variant">{site.address}</li>
+        </ul>
+      </PageSection>
 
       <FaqAccordion label="FAQ" title="Preguntas frecuentes" items={contactoFaq} />
 
@@ -70,7 +83,7 @@ export default function ContactoPage() {
         label={contactoSection.label}
         title={contactoSection.title}
         description={contactoSection.description}
-        variant="light"
+        variant="landing"
       />
     </>
   );

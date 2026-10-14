@@ -4,9 +4,9 @@ import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
 
 const logoHeights = {
-  dock: "h-7 w-auto max-w-[9.5rem] sm:h-8 sm:max-w-[10.5rem]",
-  header: "h-10 w-auto sm:h-11 md:h-12",
-  footer: "h-12 w-auto md:h-14",
+  dock: "h-8 w-auto max-w-[10rem] sm:h-9 sm:max-w-[11rem]",
+  header: "h-11 w-auto sm:h-12 md:h-[3.25rem]",
+  footer: "h-14 w-auto md:h-16",
 } as const;
 
 type LogoSize = keyof typeof logoHeights;

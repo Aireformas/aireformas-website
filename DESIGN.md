@@ -1,43 +1,34 @@
 # aireformas — Design System
 
-Boutique editorial. Quiet luxury. Photography first. UI almost invisible.
+Landing follows the Outfit + Material editorial template (cream / sand / slate / deep brown).
 
-## Palette
+## Palette (landing)
 
 | Token | Value | Use |
 |-------|-------|-----|
-| `--color-paper` | `#F5F2ED` | Page background |
-| `--color-paper-warm` | `#EDE8E0` | Alt sections, materials |
-| `--color-ink` | `#2C2824` | Body text |
-| `--color-ink-muted` | `#2C2824` @ 55–70% | Secondary copy |
-| `--color-accent` | `#1b2c4a` | Links active, navy accent only |
-| `--color-stone` | `#3D3834` | Dark editorial blocks |
-
-Navy is **accent only** — never full header/footer fills on light pages.
+| `cream-base` | `#F4F1EC` | Page background |
+| `sand-container` | `#E8E2D9` | Alt sections, form card |
+| `sand-panel` | `#B4A799` | Disciplines band |
+| `deep-brown` | `#5E5247` | Philosophy, bespoke |
+| `slate-accent` | `#5A7C93` | CTA, contact band |
+| `slate-deep` | `#3F5D73` | Footer, button hover |
+| `ink-primary` | `#2E2A26` | Body text |
+| `warm-label` | `#87786A` | Section labels |
+| `primary` | `#3E6076` | Nav active, links |
 
 ## Typography
 
-| Role | Font | Notes |
-|------|------|-------|
-| Display / headings | Cormorant Garamond (serif) | Wide tracking `0.12–0.18em`, weight 400–500 |
-| Body | Inter | 16px, relaxed leading |
-| Labels / nav | Inter or DM Mono | `10–11px`, tracking `0.2–0.28em`, uppercase |
+- **Outfit** (200–600): all UI type
+- **Material Symbols Outlined**: icons
+- Utilities: `text-label-uppercase`, `text-body-md`, `text-headline-lg`, `text-display-hero`, etc.
 
 ## Layout
 
-- Generous vertical rhythm: `section-y` ~140–160px on large screens
-- Asymmetric grids: offset columns, varied aspect ratios
-- Images: no heavy borders; radius max 4px
-- Hero CTAs: text links with thin underline — no pill buttons
-- Cards: avoid boxes; if border needed, `ink/5` max
+- Max width `max-w-7xl`, horizontal `px-margin-mobile` / `md:px-margin`
+- Section rhythm `py-space-2xl`
+- Images `rounded-editorial` (12px)
+- Header: frosted `bg-surface/85`, **color logo**; footer: `slate-deep`, **white logo**
 
-## Motion
+## Inner pages
 
-- Soft opacity/blur reveals (`InView`)
-- Image hover: subtle scale (~1.02), no shimmer glare
-- Respect `prefers-reduced-motion`
-
-## Brand voice (visual)
-
-Detalle. Material. Proporción. Luz. Confort.  
-Never shout “lujo / premium / exclusivo” in UI chrome.
+Legacy utilities (`section-y`, `heading-display`, `container-site`) remain for service/legal routes until migrated.

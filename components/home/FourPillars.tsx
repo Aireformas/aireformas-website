@@ -1,121 +1,73 @@
-import Image from "next/image";
 import Link from "next/link";
 import { fourPillarsSection, homePillars } from "@/content/home";
-import { Container } from "@/components/ui/Container";
-import { InView } from "@/components/motion/InView";
-import { SectionLabel } from "@/components/ui/SectionLabel";
+import { MaterialIcon } from "@/components/ui/MaterialIcon";
+
+const pillarMeta = [
+  { icon: "architecture", span: "md:col-span-7", card: "bg-cream-base/90" },
+  { icon: "home_work", span: "md:col-span-5", card: "bg-sand-container/90" },
+  { icon: "chair", span: "md:col-span-5", card: "bg-sand-container/90" },
+  { icon: "air", span: "md:col-span-7", card: "bg-cream-base/90" },
+] as const;
+
+const pillarLabels = [
+  "01 / ESTÉTICA & FUNCIÓN",
+  "02 / CONSTRUCCIÓN",
+  "03 / EBANISTERÍA",
+  "04 / TECNOLOGÍA INVISIBLE",
+] as const;
 
 export function FourPillars() {
-  const [primary, second, ...rest] = homePillars;
-
   return (
-    <section id="pilares" className="section-y bg-paper-warm text-ink">
-      <Container>
-        <SectionLabel variant="light">{fourPillarsSection.label}</SectionLabel>
-        <InView>
-          <h2 className="heading-display text-title-section mt-8 max-w-3xl">
-            {fourPillarsSection.title}
-          </h2>
-        </InView>
-
-        <div className="mt-16 grid gap-10 lg:mt-20 lg:grid-cols-12 lg:gap-8">
-          {primary ? (
-            <InView className="lg:col-span-7">
-              <PillarBlock pillar={primary} large />
-            </InView>
-          ) : null}
-
-          <div className="flex flex-col gap-10 lg:col-span-5 lg:gap-8 lg:pt-8">
-            {second ? (
-              <InView>
-                <PillarBlock pillar={second} />
-              </InView>
-            ) : null}
-
-            <div className="grid grid-cols-2 gap-4 lg:gap-5">
-              {rest.map((pillar, index) => (
-                <InView key={pillar.title} staggerIndex={index}>
-                  <PillarBlock pillar={pillar} compact />
-                </InView>
-              ))}
-            </div>
-          </div>
+    <section className="bg-sand-panel py-space-2xl text-ink-primary px-margin-mobile md:px-margin">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-space-xl max-w-2xl">
+          <span className="mb-2 block text-label-uppercase font-semibold text-deep-brown">
+            {fourPillarsSection.label}
+          </span>
+          <h2 className="text-headline-lg">{fourPillarsSection.title}</h2>
+          <p className="mt-3 text-body-md text-on-surface-variant">
+            {fourPillarsSection.lead}
+          </p>
         </div>
-      </Container>
+
+        <div className="grid grid-cols-1 gap-gutter md:grid-cols-12">
+          {homePillars.map((pillar, index) => {
+            const meta = pillarMeta[index];
+            if (!meta) return null;
+            return (
+              <div
+                key={pillar.title}
+                className={`${meta.span} flex flex-col justify-between rounded-editorial border border-white/30 p-8 backdrop-blur md:p-10 ${meta.card}`}
+              >
+                <div>
+                  <div className="mb-8 flex items-center justify-between">
+                    <span className="text-label-uppercase text-warm-label">
+                      {pillarLabels[index]}
+                    </span>
+                    <MaterialIcon name={meta.icon} className="text-2xl text-primary" />
+                  </div>
+                  <h3 className="text-headline-md mb-4 font-light">{pillar.title}</h3>
+                  <p className="mb-6 max-w-lg text-body-md text-on-surface-variant">
+                    {pillar.description}
+                  </p>
+                </div>
+                {pillar.href ? (
+                  <div className="flex items-center justify-between border-t border-outline/15 pt-6">
+                    <span className="text-body-sm text-outline">Descubrir</span>
+                    <Link
+                      href={pillar.href}
+                      className="inline-flex items-center space-x-1 text-label-uppercase text-primary transition-colors hover:text-slate-deep"
+                    >
+                      <span>Descubrir</span>
+                      <MaterialIcon name="arrow_forward" className="text-xs" />
+                    </Link>
+                  </div>
+                ) : null}
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </section>
-  );
-}
-
-type PillarBlockProps = {
-  pillar: (typeof homePillars)[number];
-  large?: boolean;
-  compact?: boolean;
-};
-
-function PillarBlock({ pillar, large = false, compact = false }: PillarBlockProps) {
-  const content = (
-    <article className="group">
-      <div
-        className={`image-editorial relative overflow-hidden ${
-          large
-            ? "aspect-[4/5] lg:aspect-[5/6]"
-            : compact
-              ? "aspect-square"
-              : "aspect-[4/3]"
-        }`}
-      >
-        <Image
-          src={pillar.image.src}
-          alt={pillar.image.alt}
-          fill
-          sizes={
-            large
-              ? "(max-width: 1024px) 100vw, 55vw"
-              : compact
-                ? "(max-width: 1024px) 45vw, 20vw"
-                : "(max-width: 1024px) 100vw, 40vw"
-          }
-          className="image-editorial-target object-cover"
-        />
-      </div>
-      <div className={compact ? "mt-3" : "mt-5"}>
-        <div className="flex items-start gap-3">
-          {!compact ? (
-            <p
-              className="mt-1 hidden shrink-0 font-serif text-[10px] uppercase tracking-[0.3em] text-ink/35 lg:block lg:[writing-mode:vertical-rl] lg:rotate-180"
-              aria-hidden
-            >
-              {pillar.title}
-            </p>
-          ) : null}
-          <div>
-            <h3
-              className={`heading-editorial tracking-[0.12em] uppercase ${
-                compact ? "text-lg" : "text-2xl md:text-3xl"
-              }`}
-            >
-              {pillar.title}
-            </h3>
-            {!compact ? (
-              <p className="mt-3 max-w-md text-sm leading-relaxed text-ink/60">
-                {pillar.description}
-              </p>
-            ) : null}
-            {pillar.href ? (
-              <span className="text-link-editorial mt-4 inline-block text-[0.65rem]">
-                Descubrir
-              </span>
-            ) : null}
-          </div>
-        </div>
-      </div>
-    </article>
-  );
-
-  if (!pillar.href) return content;
-  return (
-    <Link href={pillar.href} className="block">
-      {content}
-    </Link>
   );
 }

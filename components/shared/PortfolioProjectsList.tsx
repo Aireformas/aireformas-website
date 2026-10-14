@@ -15,20 +15,30 @@ type PortfolioProjectsListProps = {
   projects: PortfolioProject[];
   linkLabel?: string;
   pendingLabel?: string;
+  compact?: boolean;
 };
 
 export function PortfolioProjectsList({
   projects,
   linkLabel = "Ver proyecto",
   pendingLabel = "Ficha próximamente",
+  compact = false,
 }: PortfolioProjectsListProps) {
   return (
-    <div className="mt-16 space-y-24 md:mt-24 md:space-y-32">
+    <div
+      className={
+        compact
+          ? "mt-10 space-y-14 md:mt-12 md:space-y-16 lg:space-y-20"
+          : "mt-16 space-y-24 md:mt-24 md:space-y-32"
+      }
+    >
       {projects.map((project, index) => {
         const offset = index % 2 === 1;
         return (
           <InView key={project.slug} staggerIndex={index}>
-            <article className="grid gap-8 lg:grid-cols-12 lg:items-end">
+            <article
+              className={`grid lg:grid-cols-12 lg:items-end ${compact ? "gap-6" : "gap-8"}`}
+            >
               <div
                 className={`image-editorial relative aspect-[4/5] overflow-hidden sm:aspect-[16/10] lg:aspect-[16/9] ${
                   offset ? "lg:col-span-8 lg:col-start-5" : "lg:col-span-8"
@@ -51,7 +61,7 @@ export function PortfolioProjectsList({
                 }`}
               >
                 <p
-                  className="mt-1 hidden shrink-0 font-serif text-[11px] uppercase tracking-[0.32em] text-ink/35 lg:block lg:[writing-mode:vertical-rl] lg:rotate-180"
+                  className="mt-1 hidden shrink-0 font-sans text-[11px] tracking-[0.12em] text-ink/35 lg:block lg:[writing-mode:vertical-rl] lg:rotate-180"
                   aria-hidden
                 >
                   {project.location}

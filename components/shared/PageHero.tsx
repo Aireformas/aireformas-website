@@ -1,11 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Container } from "@/components/ui/Container";
-import { SectionLabel } from "@/components/ui/SectionLabel";
-import {
-  EditorialPageHeader,
-  type EditorialBreadcrumb,
-} from "@/components/shared/EditorialPageHeader";
+import { EditorialPageHeader } from "@/components/shared/EditorialPageHeader";
 
 type PageHeroProps = {
   label: string;
@@ -15,7 +10,6 @@ type PageHeroProps = {
   cta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   layout?: "immersive" | "editorial";
-  breadcrumbs?: EditorialBreadcrumb[];
 };
 
 export function PageHero({
@@ -26,39 +20,37 @@ export function PageHero({
   cta,
   secondaryCta,
   layout = "immersive",
-  breadcrumbs,
 }: PageHeroProps) {
   if (layout === "editorial") {
     return (
-      <section className="border-b border-ink/5 bg-paper pb-12 pt-6 text-ink md:pb-16 md:pt-8 lg:pb-20">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-end lg:gap-14">
-            <div className="max-w-xl lg:col-span-5">
-              <SectionLabel variant="light">{label}</SectionLabel>
-              <h1 className="heading-display text-title-page mt-8">{title}</h1>
-              <p className="mt-6 text-base leading-relaxed text-ink/60 md:text-lg">
-                {description}
-              </p>
-              {cta ? (
-                <div className="mt-8">
-                  <Link href={cta.href} className="text-link-editorial">
-                    {cta.label}
-                  </Link>
-                </div>
-              ) : null}
-            </div>
-            <div className="image-editorial relative aspect-[4/5] overflow-hidden lg:col-span-7 lg:aspect-[5/4]">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 58vw"
-                className="image-editorial-target object-cover"
-              />
-            </div>
+      <section className="bg-cream-base pb-space-2xl pt-28 px-margin-mobile md:px-margin">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-end gap-gutter lg:grid-cols-12">
+          <div className="max-w-xl lg:col-span-5">
+            <p className="mb-3 text-label-uppercase text-warm-label">{label}</p>
+            <h1 className="text-headline-lg text-ink-primary">{title}</h1>
+            <p className="mt-6 text-body-lg font-light text-on-surface-variant">
+              {description}
+            </p>
+            {cta ? (
+              <Link
+                href={cta.href}
+                className="mt-8 inline-flex rounded-full bg-slate-accent px-8 py-3.5 text-label-uppercase text-white transition-colors hover:bg-slate-deep"
+              >
+                {cta.label}
+              </Link>
+            ) : null}
           </div>
-        </Container>
+          <div className="overflow-hidden rounded-editorial border border-outline/10 lg:col-span-7">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              width={1400}
+              height={1050}
+              priority
+              className="aspect-[5/4] w-full object-cover"
+            />
+          </div>
+        </div>
       </section>
     );
   }
@@ -69,7 +61,6 @@ export function PageHero({
       title={title}
       description={description}
       image={image}
-      breadcrumbs={breadcrumbs}
       cta={cta}
       secondaryCta={secondaryCta}
     />

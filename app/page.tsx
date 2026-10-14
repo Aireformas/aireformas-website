@@ -5,7 +5,6 @@ import { ComfortSection } from "@/components/home/ComfortSection";
 import { FeaturedProjects } from "@/components/home/FeaturedProjects";
 import { FourPillars } from "@/components/home/FourPillars";
 import { Hero } from "@/components/home/Hero";
-import { HeroIntro } from "@/components/home/HeroIntro";
 import { HowWeWork } from "@/components/home/HowWeWork";
 import { LightArchitecture } from "@/components/home/LightArchitecture";
 import { MaterialsGrid } from "@/components/home/MaterialsGrid";
@@ -27,7 +26,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <HeroIntro />
       <LightArchitecture />
       <PhilosophySection />
       <FeaturedProjects />
@@ -41,7 +39,7 @@ export default function HomePage() {
         label={contactSection.label}
         title={contactSection.title}
         description={contactSection.description}
-        variant="light"
+        variant="landing"
       />
     </>
   );

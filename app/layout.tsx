@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, DM_Mono, Inter } from "next/font/google";
+import { Outfit } from "next/font/google";
 import { CookieConsent } from "@/components/consent/CookieConsent";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -11,22 +11,10 @@ import {
 import { site } from "@/content/site";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
-
-const cormorant = Cormorant_Garamond({
-  variable: "--font-serif",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
-
-const dmMono = DM_Mono({
-  variable: "--font-dm-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["200", "300", "400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -65,16 +53,22 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1b2c4a",
+  themeColor: "#5A7C93",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="es"
-      className={`${inter.variable} ${cormorant.variable} ${dmMono.variable} h-full`}
+      className={`${outfit.variable} scroll-smooth h-full`}
       data-scroll-behavior="smooth"
     >
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="flex min-h-full flex-col">
         <JsonLd data={[organizationJsonLd(), webSiteJsonLd()]} />
         <Header />

@@ -1,43 +1,45 @@
 import Image from "next/image";
 import Link from "next/link";
 import { bespokeSection } from "@/content/home";
-import { Container } from "@/components/ui/Container";
-import { InView } from "@/components/motion/InView";
-import { SectionLabel } from "@/components/ui/SectionLabel";
+import { MaterialIcon } from "@/components/ui/MaterialIcon";
 
 export function BespokeSection() {
   return (
-    <section className="section-y bg-paper text-ink">
-      <Container>
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
-          <div className="lg:col-span-4">
-            <SectionLabel variant="light">{bespokeSection.label}</SectionLabel>
-            <InView>
-              <h2 className="heading-display text-title-section mt-8 max-w-md">
-                {bespokeSection.title}
-              </h2>
-              <p className="mt-6 max-w-sm text-sm leading-relaxed text-ink/60 md:text-base">
-                {bespokeSection.description}
-              </p>
-              <Link
-                href={bespokeSection.href}
-                className="text-link-editorial mt-8 inline-block"
-              >
-                {bespokeSection.cta}
-              </Link>
-            </InView>
-          </div>
-          <div className="image-editorial relative aspect-[4/5] overflow-hidden lg:col-span-8 lg:aspect-[16/10]">
+    <section
+      className="bg-deep-brown py-space-2xl text-surface px-margin-mobile md:px-margin"
+      id="mobiliario"
+    >
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-gutter md:grid-cols-12">
+        <div className="md:col-span-5 md:pr-6">
+          <span className="mb-3 block text-label-uppercase text-tertiary-fixed">
+            {bespokeSection.label}
+          </span>
+          <h2 className="text-headline-lg mb-6 leading-tight text-white">
+            {bespokeSection.title}
+          </h2>
+          <p className="mb-8 text-body-lg font-light leading-relaxed text-surface/85">
+            {bespokeSection.description}
+          </p>
+          <Link
+            href={bespokeSection.href}
+            className="inline-flex items-center space-x-2 border-b border-tertiary-fixed pb-1 text-label-uppercase text-tertiary-fixed transition-colors hover:text-white"
+          >
+            <span>{bespokeSection.cta}</span>
+            <MaterialIcon name="arrow_forward" className="text-sm" />
+          </Link>
+        </div>
+        <div className="md:col-span-7">
+          <div className="overflow-hidden rounded-editorial border border-white/10 shadow-2xl">
             <Image
               src={bespokeSection.image.src}
               alt={bespokeSection.image.alt}
-              fill
-              sizes="(max-width: 1024px) 100vw, 66vw"
-              className="image-editorial-target object-cover"
+              width={1200}
+              height={900}
+              className="h-[520px] w-full object-cover"
             />
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

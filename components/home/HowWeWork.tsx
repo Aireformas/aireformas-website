@@ -1,13 +1,14 @@
 import { howWeWorkSection, howWeWorkSteps } from "@/content/home";
-import { EditorialProcessSection } from "@/components/shared/EditorialProcessSection";
+import { ProcessGridSection } from "@/components/shared/ProcessGridSection";
 
 export function HowWeWork() {
   return (
-    <EditorialProcessSection
+    <ProcessGridSection
       label={howWeWorkSection.label}
       title={howWeWorkSection.title}
       lead={howWeWorkSection.lead}
       steps={howWeWorkSteps}
+      borderBottom
     />
   );
 }

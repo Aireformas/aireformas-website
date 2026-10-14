@@ -1,49 +1,45 @@
 import Image from "next/image";
 import { materialTiles, materialsSection } from "@/content/home";
-import { Container } from "@/components/ui/Container";
-import { InView } from "@/components/motion/InView";
-import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SectionIntro } from "@/components/shared/SectionIntro";
 
 export function MaterialsGrid() {
   return (
-    <section className="section-y bg-paper-warm text-ink">
-      <Container>
-        <SectionLabel variant="light">{materialsSection.label}</SectionLabel>
-        <InView>
-          <h2 className="heading-display text-title-section mt-8 max-w-2xl">
-            {materialsSection.title}
-          </h2>
-        </InView>
-        <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-5 md:gap-5">
-          {materialTiles.map((tile, index) => (
-            <InView key={tile.id} staggerIndex={index}>
-              <div
-                className={`group ${
-                  index % 2 === 1 ? "md:mt-10" : index === 2 ? "md:mt-4" : ""
-                }`}
-              >
-                <div className="image-editorial relative aspect-[3/4] overflow-hidden">
-                  <Image
-                    src={tile.image.src}
-                    alt={tile.image.alt}
-                    fill
-                    sizes="(max-width: 768px) 50vw, 20vw"
-                    className="image-editorial-target object-cover"
-                  />
-                </div>
-                <div className="mt-4">
-                  <p className="heading-editorial text-lg tracking-[0.14em] uppercase">
-                    {tile.title}
-                  </p>
-                  <p className="mt-2 text-xs leading-relaxed text-ink/55 md:text-sm">
-                    {tile.caption}
-                  </p>
-                </div>
+    <section className="bg-sand-container py-space-2xl px-margin-mobile md:px-margin">
+      <div className="mx-auto max-w-7xl">
+        <SectionIntro
+          label={materialsSection.label}
+          title={materialsSection.title}
+          lead={materialsSection.lead}
+          className="max-w-2xl"
+        />
+
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+          {materialTiles.map((tile) => (
+            <div
+              key={tile.id}
+              className="flex flex-col justify-between rounded-editorial border border-outline/10 bg-cream-base p-5"
+            >
+              <div className="mb-4 h-48 overflow-hidden rounded-lg">
+                <Image
+                  src={tile.image.src}
+                  alt={tile.image.alt}
+                  width={600}
+                  height={480}
+                  className="h-full w-full object-cover"
+                />
               </div>
-            </InView>
+              <div>
+                <h4 className="text-headline-sm mb-1 font-light text-ink-primary">
+                  {tile.title}
+                </h4>
+                <p className="text-body-sm font-light text-on-surface-variant">
+                  {tile.caption}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

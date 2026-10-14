@@ -20,7 +20,7 @@ export const homeHero = {
   secondaryCta: { label: "Hablar de mi proyecto", href: "/contacto" },
   heroImage: {
     src: "/images/hero-interior-2560.jpg",
-    alt: "Vivienda integral: interiorismo, carpintería a medida, reforma y confort en un único espacio",
+    alt: "Salón con TV integrada y panel de climatización discreto en la pared; interiorismo, reforma y confort en un único espacio",
   },
   stripImages: [
     {
@@ -39,9 +39,11 @@ export const homeHero = {
 };
 
 export const lightArchitectureSection = {
-  label: "01 LUZ",
+  label: "01 / ARQUITECTURA DE LA LUZ",
   verticalLabel: "UNA ARQUITECTURA DE LA LUZ",
   title: "Material, proporción y silencio",
+  lead:
+    "Concebimos la arquitectura interior como una disciplina donde el vacío, la luz natural y los acabados orgánicos dialogan sin estridencias. Cada superficie responde a una función táctil y cada línea busca calmar la mirada.",
   image: {
     src: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=90",
     alt: "Interior moderno con luz cálida y materiales naturales",
@@ -71,8 +73,10 @@ export const philosophySection = {
 };
 
 export const fourPillarsSection = {
-  label: "04 PILARES",
+  label: "04 / DISCIPLINAS",
   title: "Cuatro disciplinas, un proyecto",
+  lead:
+    "Eliminamos la fricción entre arquitecto, interiorista, constructor y técnico de climatización fusionándolos en un solo estudio.",
 };
 
 export const homePillars: ServiceCard[] = [
@@ -125,8 +129,10 @@ export type TimelineStep = {
 };
 
 export const projectTimelineSection = {
-  label: "05 PROCESO VISUAL",
+  label: "05 / PROCESO VISUAL",
   title: "Del espacio vacío a la casa terminada",
+  lead:
+    "Acompañamos cada fase con rigor milimétrico, desde la primera demolición hasta el último textil planchado.",
 };
 
 export const projectTimelineSteps: TimelineStep[] = [
@@ -172,8 +178,10 @@ export type MaterialTile = {
 };
 
 export const materialsSection = {
-  label: "06 MATERIALS",
+  label: "06 / MATERIA PRIMA",
   title: "Materiales que definen el espacio",
+  lead:
+    "Seleccionamos texturas vivas que envejecen con dignidad y aportan serenidad cromática.",
 };
 
 export const materialTiles: MaterialTile[] = [
@@ -244,15 +252,15 @@ export const comfortSection = {
 };
 
 export const bespokeSection = {
-  label: "08 BESPOKE",
-  title: "Made for your space",
+  label: "08 / A MEDIDA",
+  title: "Piezas hechas para tu espacio",
   description:
-    "Diseñamos piezas que pertenecen a la arquitectura: armarios, vestidores, cocinas, muebles TV y baños.",
+    "Diseñamos carpintería que forma parte del proyecto: armarios, vestidores, cocinas, muebles TV y baños. Cada pieza se fabrica e instala con el mismo criterio de proporción, material y acabado que el resto de la vivienda.",
   href: "/mobiliario",
   cta: "Descubrir mobiliario",
   image: {
-    src: "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=1200&q=85",
-    alt: "Vestidor a medida con iluminación integrada",
+    src: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1600&q=90",
+    alt: "Vestidor a medida con madera, iluminación integrada y acabados de carpintería de autor",
   },
 };
 

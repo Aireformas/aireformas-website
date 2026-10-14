@@ -60,7 +60,7 @@ export default function OpenGraphImage() {
             fontSize: 14,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "#1b2c4a",
+            color: "#5A7C93",
             opacity: 0.85,
           }}
         >

@@ -1,7 +1,6 @@
+import Link from "next/link";
 import { ContactForm } from "@/components/contact/ContactForm";
-import { Container } from "@/components/ui/Container";
-import { InView } from "@/components/motion/InView";
-import { SectionLabel } from "@/components/ui/SectionLabel";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { site } from "@/content/site";
 
 type ContactCTAProps = {
@@ -9,7 +8,7 @@ type ContactCTAProps = {
   label: string;
   title: string;
   description: string;
-  variant?: "light" | "dark";
+  variant?: "light" | "dark" | "brand" | "landing";
 };
 
 export function ContactCTA({
@@ -19,6 +18,75 @@ export function ContactCTA({
   description,
   variant = "light",
 }: ContactCTAProps) {
+  const isLanding = variant === "landing" || variant === "brand";
+
+  if (isLanding) {
+    return (
+      <section
+        id={id}
+        className="bg-slate-accent py-space-2xl text-surface px-margin-mobile md:px-margin"
+      >
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-gutter lg:grid-cols-12">
+          <div className="text-white lg:col-span-5">
+            <span className="mb-3 block text-label-uppercase text-primary-fixed">
+              {label}
+            </span>
+            <h2 className="text-headline-lg mb-6 leading-tight text-white">
+              {title}
+            </h2>
+            <p className="mb-10 max-w-md text-body-lg font-light text-surface/90">
+              {description}
+            </p>
+            <div className="space-y-6 border-t border-white/20 pt-8">
+              <div>
+                <span className="mb-1 block text-label-uppercase text-surface/70">
+                  Teléfono
+                </span>
+                <a
+                  href={site.phoneHref}
+                  className="text-headline-sm font-light transition-colors hover:text-primary-fixed"
+                >
+                  {site.phone}
+                </a>
+              </div>
+              <div>
+                <span className="mb-1 block text-label-uppercase text-surface/70">
+                  Email
+                </span>
+                <a
+                  href={site.emailHref}
+                  className="text-headline-sm font-light transition-colors hover:text-primary-fixed"
+                >
+                  {site.email}
+                </a>
+              </div>
+              <div>
+                <span className="mb-1 block text-label-uppercase text-surface/70">
+                  WhatsApp
+                </span>
+                <a
+                  href={site.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-headline-sm font-light transition-colors hover:text-primary-fixed"
+                >
+                  <WhatsAppIcon branded className="h-5 w-5" />
+                  {site.phone}
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-7">
+            <div className="rounded-editorial bg-sand-container p-8 text-ink-primary shadow-2xl md:p-12">
+              <ContactForm variant="landing" />
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   const isDark = variant === "dark";
 
   return (
@@ -26,54 +94,24 @@ export function ContactCTA({
       id={id}
       className={
         isDark
-          ? "section-y bg-stone text-white"
-          : "section-y border-t border-ink/8 bg-paper-warm text-ink"
+          ? "bg-stone py-space-2xl text-white px-margin-mobile md:px-margin"
+          : "border-t border-outline/15 bg-sand-container py-space-2xl text-ink-primary px-margin-mobile md:px-margin"
       }
     >
-      <Container>
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
-          <div className="lg:col-span-5">
-            <SectionLabel variant={isDark ? "dark" : "light"}>{label}</SectionLabel>
-            <InView>
-              <h2 className="heading-display text-title-section mt-8">{title}</h2>
-            </InView>
-            <p className="mt-5 max-w-md text-sm leading-relaxed text-current/60">
-              {description}
-            </p>
-            <ul className="mt-8 space-y-2 text-sm text-current/70">
-              <li>
-                <a href={site.phoneHref} className="hover:text-accent">
-                  {site.phone}
-                </a>
-              </li>
-              <li>
-                <a href={site.emailHref} className="hover:text-accent">
-                  {site.email}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={site.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-accent"
-                >
-                  WhatsApp
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div
-            className={
-              isDark
-                ? "lg:col-span-7 rounded-[var(--radius-card)] bg-paper p-6 text-ink shadow-[0_24px_64px_-32px_rgba(27,44,74,0.35)] sm:p-8 lg:p-10"
-                : "lg:col-span-7 rounded-[var(--radius-card)] border border-ink/10 border-t-2 border-t-accent bg-paper p-6 text-ink shadow-[0_28px_72px_-36px_rgba(27,44,74,0.28)] sm:p-8 lg:p-10"
-            }
-          >
-            <ContactForm />
-          </div>
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-gutter lg:grid-cols-12">
+        <div className="lg:col-span-5">
+          <span className="mb-3 block text-label-uppercase text-warm-label">
+            {label}
+          </span>
+          <h2 className="text-headline-lg mb-5">{title}</h2>
+          <p className="max-w-md text-body-md text-on-surface-variant">
+            {description}
+          </p>
         </div>
-      </Container>
+        <div className="rounded-editorial border border-outline/10 bg-cream-base p-8 lg:col-span-7">
+          <ContactForm />
+        </div>
+      </div>
     </section>
   );
 }
