@@ -136,8 +136,8 @@ export const portfolioProjects: PortfolioProjectFull[] = [
     description:
       "310 m² de arquitectura pensada desde la conexión interior-exterior. Grandes cerramientos correderos empotrados en tabiquería para desdibujar la frontera con el jardín.",
     image: {
-      src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBOA8lMuVeEtMLWrh0sQKzilzt3e210LOaA4wW0itlYHX2jtoeR1wUU-4LoW56R_nsL-FRFnEDDAblj2wlY9tVB8P8TVD1JE3ITvih5ntwJuLREwrRL_iZIRvRPRlWzoSqmFX06Mk6ZZHoHuy2QvO-O0eNx_1EvMORkZY-XARz_d6lYRga86OS9B1LDM7esgmNiGWt4Iq7bDZHUD3qbYQwdZVG7qn0tn6zNx7Fph1FIwDMrx0hRvTMl",
-      alt: "Villa contemporánea en Las Rozas con fachada acristalada y jardín",
+      src: "/images/projects/villa-las-rozas.jpg",
+      alt: "Villa Las Rozas al anochecer: fachada de madera oscura, pérgola, jardín y piscina",
     },
     stats: [
       { label: "Superficie", value: "310 m²" },

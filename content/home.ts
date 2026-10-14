@@ -140,32 +140,32 @@ export const projectTimelineSteps: TimelineStep[] = [
     phase: "Before",
     title: "El espacio original",
     image: {
-      src: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=700&q=80",
-      alt: "Estado previo de la vivienda",
+      src: "/images/timeline/timeline-before.jpg",
+      alt: "Estancia vacía antes de la reforma, con parquet de espiga y ventana alta",
     },
   },
   {
     phase: "Design",
     title: "Plano y concepto",
     image: {
-      src: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=700&q=80",
-      alt: "Concepto de diseño y materiales",
+      src: "/images/timeline/timeline-design.jpg",
+      alt: "Plano, boceto y muestras de piedra, roble y lino del proyecto",
     },
   },
   {
     phase: "Build",
     title: "Obra coordinada",
     image: {
-      src: "https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=700&q=80",
-      alt: "Ejecución de obra",
+      src: "/images/timeline/timeline-build.jpg",
+      alt: "La misma estancia en obra, con suelo protegido e instalaciones vistas",
     },
   },
   {
     phase: "Live",
     title: "Vivienda terminada",
     image: {
-      src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700&q=80",
-      alt: "Fotografía final del proyecto",
+      src: "/images/timeline/timeline-live.jpg",
+      alt: "Vivienda terminada: mismo salón con sofá de lino, roble y luz de tarde",
     },
   },
 ];
