@@ -10,22 +10,25 @@ import {
   projectFilterOptions,
   proyectosPageIntro,
   type PortfolioProjectFull,
+  type ProjectCategory,
   type ProjectFilterId,
 } from "@/content/proyectos";
 import { cn } from "@/lib/cn";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
+import { PageIntro } from "@/components/shared/PageIntro";
 
-function projectMatchesFilter(
-  project: PortfolioProjectFull,
+function matchesFilter(
+  categories: readonly ProjectCategory[],
   filter: ProjectFilterId,
 ): boolean {
   if (filter === "all") return true;
-  return project.categories.includes(filter);
+  return categories.includes(filter);
 }
 
 function filterCount(filter: ProjectFilterId): number {
-  if (filter === "all") return portfolioProjects.length;
-  return portfolioProjects.filter((p) => projectMatchesFilter(p, filter)).length;
+  const featured = matchesFilter(featuredProject.categories, filter) ? 1 : 0;
+  const rest = portfolioProjects.filter((p) => matchesFilter(p.categories, filter)).length;
+  return featured + rest;
 }
 
 function ProjectInquiryLink({ href }: { href: string }) {
@@ -47,6 +50,11 @@ function LargeProjectCard({
   project: PortfolioProjectFull;
   reversed: boolean;
 }) {
+  const stats =
+    project.stats.length > 0 || !project.areaDisplay
+      ? project.stats
+      : [{ label: "Superficie", value: project.areaDisplay }];
+
   const imageBlock = (
     <div className={cn("group", reversed ? "md:col-span-8 md:order-2" : "md:col-span-8")}>
       <div className="relative aspect-[16/10] overflow-hidden rounded-editorial bg-sand-container">
@@ -79,9 +87,9 @@ function LargeProjectCard({
           {project.description}
         </p>
       </div>
-      {project.stats.length > 0 ? (
+      {stats.length > 0 ? (
         <div className="space-y-2 border-t border-outline-variant/30 pt-4">
-          {project.stats.map((stat) => (
+          {stats.map((stat) => (
             <div
               key={stat.label}
               className="flex justify-between text-body-sm"
@@ -150,32 +158,30 @@ export function ProyectosPageContent() {
   const [activeFilter, setActiveFilter] = useState<ProjectFilterId>("all");
 
   const filteredProjects = useMemo(
-    () => portfolioProjects.filter((p) => projectMatchesFilter(p, activeFilter)),
+    () => portfolioProjects.filter((p) => matchesFilter(p.categories, activeFilter)),
     [activeFilter],
   );
 
-  const largeProjects = filteredProjects.filter((p) => p.layout !== "compact");
-  const compactProjects = filteredProjects.filter((p) => p.layout === "compact");
+  const showFeatured = matchesFilter(featuredProject.categories, activeFilter);
+  const wideProjects = filteredProjects.filter((p) => p.layout !== "compact");
+  const narrowProjects = filteredProjects.filter((p) => p.layout === "compact");
+  const promoteLoneCompact = narrowProjects.length === 1;
+  const largeProjects = promoteLoneCompact ? [...wideProjects, ...narrowProjects] : wideProjects;
+  const compactProjects = promoteLoneCompact ? [] : narrowProjects;
+  const hasResults = showFeatured || filteredProjects.length > 0;
 
   return (
-    <div className="flex flex-col gap-0 bg-cream-base pt-28 md:pt-36">
-      <section className="mx-auto w-full max-w-7xl px-margin-mobile pb-space-lg pt-6 md:px-margin">
-        <div className="flex max-w-3xl flex-col gap-space-sm">
-          <div className="flex items-center gap-3">
-            <span className="h-2 w-2 rounded-full bg-primary" aria-hidden />
-            <span className="text-label-uppercase text-tertiary">
-              {proyectosPageIntro.label}
-            </span>
-          </div>
-          <h1 className="text-headline-lg tracking-tight text-ink-primary">
-            {proyectosPageIntro.title}
-          </h1>
-          <p className="mt-1 max-w-2xl text-body-lg font-light text-on-surface-variant">
-            {proyectosPageIntro.description}
-          </p>
-        </div>
-
-        <div className="custom-scroll flex items-center gap-2 overflow-x-auto border-b border-outline-variant/30 pb-2 pt-10">
+    <div className="flex flex-col gap-0 bg-cream-base">
+      <PageIntro
+        label={proyectosPageIntro.label}
+        title={proyectosPageIntro.title}
+        description={proyectosPageIntro.description}
+      >
+        <div
+          role="group"
+          aria-label="Filtrar proyectos"
+          className="custom-scroll flex items-center gap-2 overflow-x-auto border-b border-outline-variant/30 pb-2 pt-10"
+        >
           {projectFilterOptions.map((option) => {
             const isActive = activeFilter === option.id;
             const count = filterCount(option.id);
@@ -183,6 +189,7 @@ export function ProyectosPageContent() {
               <button
                 key={option.id}
                 type="button"
+                aria-pressed={isActive}
                 onClick={() => setActiveFilter(option.id)}
                 className={cn(
                   "whitespace-nowrap rounded-full px-5 py-2 text-label-uppercase transition-colors",
@@ -196,8 +203,9 @@ export function ProyectosPageContent() {
             );
           })}
         </div>
-      </section>
+      </PageIntro>
 
+      {showFeatured ? (
       <section className="mx-auto w-full max-w-7xl px-margin-mobile pb-space-2xl md:px-margin">
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-editorial bg-sand-container md:aspect-[21/9]">
           <Image
@@ -242,6 +250,7 @@ export function ProyectosPageContent() {
           </div>
         </div>
       </section>
+      ) : null}
 
       <section
         id="proyectos"
@@ -259,24 +268,36 @@ export function ProyectosPageContent() {
           <p className="max-w-sm text-body-sm text-outline">{portfolioGridIntro.lead}</p>
         </div>
 
-        {filteredProjects.length === 0 ? (
+        {!hasResults ? (
           <p className="text-body-md font-light text-on-surface-variant">
             No hay proyectos en esta categoría por ahora.
           </p>
+        ) : filteredProjects.length === 0 ? (
+          <p className="text-body-md font-light text-on-surface-variant">
+            En esta categoría solo está el proyecto destacado.
+          </p>
         ) : (
           <>
-            <div className="space-y-space-2xl">
-              {largeProjects.map((project) => (
-                <LargeProjectCard
-                  key={project.slug}
-                  project={project}
-                  reversed={project.layout === "large-right"}
-                />
-              ))}
-            </div>
+            {largeProjects.length > 0 ? (
+              <div className="space-y-space-2xl">
+                {largeProjects.map((project, index) => (
+                  <LargeProjectCard
+                    key={project.slug}
+                    project={project}
+                    reversed={index % 2 === 1}
+                  />
+                ))}
+              </div>
+            ) : null}
 
             {compactProjects.length > 0 ? (
-              <div className="grid grid-cols-1 gap-gutter pt-8 md:grid-cols-2">
+              <div
+                className={cn(
+                  "grid grid-cols-1 gap-gutter",
+                  largeProjects.length > 0 && "pt-8",
+                  compactProjects.length > 1 && "md:grid-cols-2",
+                )}
+              >
                 {compactProjects.map((project) => (
                   <CompactProjectCard key={project.slug} project={project} />
                 ))}

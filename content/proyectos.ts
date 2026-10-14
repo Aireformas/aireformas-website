@@ -7,7 +7,7 @@ export const proyectosMeta = {
 };
 
 export const proyectosPageIntro = {
-  label: "01 / PORTFOLIO ARQUITECTÓNICO",
+  label: "PORTFOLIO ARQUITECTÓNICO",
   title: "Viviendas diseñadas para ser vividas",
   description:
     "Selección de proyectos residenciales donde convergen arquitectura interior, reforma integral, mobiliario a medida y climatización invisible.",
@@ -45,14 +45,22 @@ export type ProjectStat = {
   value: string;
 };
 
-export const featuredProject = {
+export const featuredProject: {
+  badge: string;
+  title: string;
+  meta: string[];
+  cta: { label: string; href: string };
+  categories: ProjectCategory[];
+  image: GalleryItem["image"];
+} = {
   badge: "PROYECTO DESTACADO · 2024",
+  categories: ["unifamiliar", "singulares"],
   title: "Villa Mirasierra · Madrid",
   meta: ["340 m²", "Interiorismo & Arquitectura", "Climatización invisible", "Mobiliario a medida"],
   cta: { label: "Ver caso de estudio", href: "/contacto" },
   image: {
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBfVDqWaYShcT-IsBmzhbPOqBncpqKCEmVj3OErlVJebi0EzTEKlzpoUhZFKSNJBQrx1RIklTyopLabg7N1-04MDNFPyMD5UzEd6PdYfrLjbqWQoMWuILBptZQ2M3yP5D8R_ELHebY63_NSIYIAl9LSd0AxTYwYnm4K0F_K02wlWYSmq5L6V7k3PrkGm4SZklf1y5zJGLP5qEbwX2ZkuDzygBxN7Lw-Iov5UuyhzLGZEEbK5jcvs3g3",
-    alt: "Villa moderna en Mirasierra, Madrid, al atardecer con iluminación arquitectónica cálida",
+    src: "/images/projects/villa-mirasierra-2560.jpg",
+    alt: "Villa moderna de dos plantas en Mirasierra, Madrid, al anochecer con pérgola de acero, roble y olivos iluminados",
   },
 };
 
@@ -148,8 +156,8 @@ export const portfolioProjects: PortfolioProjectFull[] = [
     description:
       "Reforma integral de ático con terraza perimetral, cocina escultórica oculta y climatización zonalizada sin rejillas a la vista.",
     image: {
-      src: "https://lh3.googleusercontent.com/aida-public/AB6AXuCDq2Oz_2p64mbBtfLGAwREkU08q8cuH6ySu8m8VXRY2u7zySQRLvQ2HUJ4-yK5Uh5NkFyQkZ6z8cHER-6tudlGMN8lftubdau_Twc1U9i5YMwVRzr1eJ_icgTqG9YQ6pvNy_FJoNQ3K00WngugQuGtMKjDAlQZbSlGSvv9omvk-qO16fyVW7FFaDNN60834EblT6KzVda4-3V_OWrhucBsvzejQBQWCQykeBQaMAGiP6nEsOr6p8Q6",
-      alt: "Ático en Chamberí con cocina de roble claro y luz de tarde",
+      src: "/images/projects/atico-chamberi.jpg",
+      alt: "Ático en Chamberí con cocina de roble y isla de piedra, terraza perimetral y vistas a los tejados de Madrid",
     },
     layout: "compact",
     categories: ["aticos", "reformas-integrales"],
