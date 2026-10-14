@@ -13,8 +13,8 @@ export const climateHero = {
     "Diseñamos climatización, agua caliente y control como parte del espacio: invisible en la arquitectura, precisa en el funcionamiento.",
   cta: "Hablar de mi proyecto",
   image: {
-    src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=2560&q=90",
-    alt: "Salón residencial con climatización discreta, luz natural y confort térmico",
+    src: "/images/climate/climate-hero.jpg",
+    alt: "Salón con rejilla lineal en el techo, suelo de madera y panel de clima a 22°C",
   },
 };
 
@@ -36,8 +36,8 @@ export const climateComfort = {
     "Control inteligente",
   ] as const,
   image: {
-    src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1600&q=85",
-    alt: "Salón con climatización discreta y luz natural",
+    src: "/images/climate/climate-comfort.jpg",
+    alt: "Interior con rejilla lineal, termostato a 22°C y unidad de aerotermia en el jardín",
   },
 };
 
