@@ -52,8 +52,7 @@ export function FourPillars() {
                   </p>
                 </div>
                 {pillar.href ? (
-                  <div className="flex items-center justify-between border-t border-outline/15 pt-6">
-                    <span className="text-body-sm text-outline">Descubrir</span>
+                  <div className="flex items-center justify-end border-t border-outline/15 pt-6">
                     <Link
                       href={pillar.href}
                       className="inline-flex items-center space-x-1 text-label-uppercase text-primary transition-colors hover:text-slate-deep"
