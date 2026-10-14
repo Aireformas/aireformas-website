@@ -190,8 +190,8 @@ export const materialTiles: MaterialTile[] = [
     title: "Stone",
     caption: "Piedra, continuidad y peso visual.",
     image: {
-      src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80",
-      alt: "Detalle de piedra en interior",
+      src: "/images/materials/material-stone.jpg",
+      alt: "Piedra natural continua, textura y peso visual",
     },
   },
   {
@@ -199,8 +199,8 @@ export const materialTiles: MaterialTile[] = [
     title: "Wood",
     caption: "Calidez, veta y carpintería.",
     image: {
-      src: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80",
-      alt: "Detalle de madera",
+      src: "/images/materials/material-wood.jpg",
+      alt: "Veta de madera y detalle de carpintería",
     },
   },
   {
@@ -208,8 +208,8 @@ export const materialTiles: MaterialTile[] = [
     title: "Metal",
     caption: "Perfiles, herrajes y línea.",
     image: {
-      src: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=80",
-      alt: "Detalle metálico en mobiliario",
+      src: "/images/materials/material-metal.jpg",
+      alt: "Perfiles metálicos y herrajes lineales",
     },
   },
   {
@@ -217,8 +217,8 @@ export const materialTiles: MaterialTile[] = [
     title: "Textile",
     caption: "Capas, tacto y acústica.",
     image: {
-      src: "https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=600&q=80",
-      alt: "Textiles en salón",
+      src: "/images/materials/material-textile.jpg",
+      alt: "Capas de lino y lana, tacto y textura",
     },
   },
   {
@@ -226,8 +226,8 @@ export const materialTiles: MaterialTile[] = [
     title: "Light",
     caption: "Escenas, sombra y confort.",
     image: {
-      src: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=80",
-      alt: "Luz natural en estancia",
+      src: "/images/materials/material-light.jpg",
+      alt: "Luz natural, sombra y confort en el interior",
     },
   },
 ];
