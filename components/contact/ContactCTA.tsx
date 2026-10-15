@@ -1,7 +1,8 @@
-import Link from "next/link";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
+import { chrome } from "@/content/chrome";
 import { site } from "@/content/site";
+import { getLocale } from "@/lib/locale.server";
 
 type ContactCTAProps = {
   id?: string;
@@ -11,13 +12,14 @@ type ContactCTAProps = {
   variant?: "light" | "dark" | "brand" | "landing";
 };
 
-export function ContactCTA({
+export async function ContactCTA({
   id = "contacto",
   label,
   title,
   description,
   variant = "light",
 }: ContactCTAProps) {
+  const ui = chrome[await getLocale()];
   const isLanding = variant === "landing" || variant === "brand";
 
   if (isLanding) {
@@ -40,7 +42,7 @@ export function ContactCTA({
             <div className="space-y-6 border-t border-white/20 pt-8">
               <div>
                 <span className="mb-1 block text-label-uppercase text-surface/70">
-                  Teléfono
+                  {ui.phone}
                 </span>
                 <a
                   href={site.phoneHref}
@@ -51,7 +53,7 @@ export function ContactCTA({
               </div>
               <div>
                 <span className="mb-1 block text-label-uppercase text-surface/70">
-                  Email
+                  {ui.email}
                 </span>
                 <a
                   href={site.emailHref}

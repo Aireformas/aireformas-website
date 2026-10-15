@@ -6,27 +6,30 @@ import { ProcessGridSection } from "@/components/shared/ProcessGridSection";
 import { PageSection } from "@/components/shared/PageSection";
 import { SectionIntro } from "@/components/shared/SectionIntro";
 import { TestimonialsSection } from "@/components/testimonials/TestimonialsSection";
-import { site } from "@/content/site";
-import {
-  estudioCta,
-  estudioHero,
-  estudioMeta,
-  estudioProcess,
-  estudioTestimonials,
-  estudioTrustStats,
-  estudioValues,
-} from "@/content/estudio";
+import { chrome } from "@/content/chrome";
+import { estudioCopy } from "@/content/estudio";
+import { site, siteCopy } from "@/content/site";
+import { getLocale } from "@/lib/locale.server";
 
-export const metadata: Metadata = {
-  title: estudioMeta.title,
-  description: estudioMeta.description,
-  openGraph: {
-    title: estudioMeta.title,
-    description: estudioMeta.description,
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const meta = estudioCopy[await getLocale()].meta;
+  return {
+    title: meta.title,
+    description: meta.description,
+    openGraph: { title: meta.title, description: meta.description },
+  };
+}
 
-export default function EstudioPage() {
+export default async function EstudioPage() {
+  const locale = await getLocale();
+  const copy = estudioCopy[locale];
+  const ui = chrome[locale];
+  const estudioHero = copy.hero;
+  const estudioValues = copy.values.items;
+  const estudioTrustStats = copy.stats;
+  const estudioProcess = copy.process.steps;
+  const estudioTestimonials = copy.testimonials;
+  const estudioCta = copy.cta;
   return (
     <>
       <PageHero
@@ -34,11 +37,11 @@ export default function EstudioPage() {
         title={estudioHero.title}
         description={estudioHero.description}
         image={estudioHero.image}
-        cta={{ label: "Hablar de mi proyecto", href: "/contacto" }}
+        cta={{ label: ui.talk, href: "/contacto" }}
       />
 
       <PageSection tone="sand" borderTop>
-        <SectionIntro label="VALORES" title="Lo que guía cada proyecto" />
+        <SectionIntro label={copy.values.label} title={copy.values.title} />
         <ul className="flex flex-wrap gap-x-6 gap-y-3">
           {estudioValues.map((value) => (
             <li key={value} className="text-label-uppercase text-warm-label">
@@ -60,10 +63,10 @@ export default function EstudioPage() {
       </PageSection>
 
       <PageSection tone="cream">
-        <SectionIntro label="ZONA" title="Dónde trabajamos" />
+        <SectionIntro label={copy.zone.label} title={copy.zone.title} />
         <InView>
           <p className="-mt-6 max-w-2xl text-body-md font-light text-on-surface-variant">
-            {site.entityDescription}
+            {siteCopy[locale].entityDescription}
           </p>
         </InView>
         <ul className="mt-8 flex flex-wrap gap-2">
@@ -79,8 +82,8 @@ export default function EstudioPage() {
       </PageSection>
 
       <ProcessGridSection
-        label="PROCESO"
-        title="Nuestra forma de trabajar"
+        label={copy.process.label}
+        title={copy.process.title}
         steps={estudioProcess}
         tone="sand"
         borderTop
@@ -89,7 +92,7 @@ export default function EstudioPage() {
       <TestimonialsSection testimonials={estudioTestimonials} />
 
       <ContactCTA
-        label="CONTACTO"
+        label={ui.contact}
         title={estudioCta.title}
         description={estudioCta.description}
         variant="landing"

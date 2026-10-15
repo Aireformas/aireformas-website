@@ -6,24 +6,28 @@ import { PageHero } from "@/components/shared/PageHero";
 import { PageSection } from "@/components/shared/PageSection";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import {
-  contactoFaq,
-  contactoHero,
-  contactoMeta,
-  contactoSection,
-} from "@/content/contacto";
-import { site } from "@/content/site";
+import { chrome } from "@/content/chrome";
+import { contactoCopy } from "@/content/contacto";
+import { site, siteCopy } from "@/content/site";
+import { getLocale } from "@/lib/locale.server";
 
-export const metadata: Metadata = {
-  title: contactoMeta.title,
-  description: contactoMeta.description,
-  openGraph: {
-    title: contactoMeta.title,
-    description: contactoMeta.description,
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const meta = contactoCopy[await getLocale()].meta;
+  return {
+    title: meta.title,
+    description: meta.description,
+    openGraph: { title: meta.title, description: meta.description },
+  };
+}
 
-export default function ContactoPage() {
+export default async function ContactoPage() {
+  const locale = await getLocale();
+  const copy = contactoCopy[locale];
+  const ui = chrome[locale];
+  const contactoFaq = copy.faq;
+  const contactoHero = copy.hero;
+  const contactoSection = copy.section;
+  const place = siteCopy[locale];
   return (
     <>
       <JsonLd
@@ -37,15 +41,15 @@ export default function ContactoPage() {
         description={contactoHero.description}
         image={contactoHero.image}
         cta={{ label: site.phone, href: site.phoneHref }}
-        secondaryCta={{ label: "Enviar email", href: site.emailHref }}
+        secondaryCta={{ label: ui.sendEmail, href: site.emailHref }}
       />
 
       <PageSection tone="sand" borderTop compact>
-        <SectionLabel variant="light">DATOS</SectionLabel>
+        <SectionLabel variant="light">{ui.data}</SectionLabel>
         <ul className="mt-6 space-y-4 text-body-md text-ink-primary">
           <li>
             <span className="mb-1 block text-label-uppercase text-warm-label">
-              Teléfono
+              {ui.phone}
             </span>
             <a href={site.phoneHref} className="text-link-editorial">
               {site.phone}
@@ -53,7 +57,7 @@ export default function ContactoPage() {
           </li>
           <li>
             <span className="mb-1 block text-label-uppercase text-warm-label">
-              WhatsApp
+              {ui.whatsapp}
             </span>
             <a
               href={site.whatsapp}
@@ -67,17 +71,17 @@ export default function ContactoPage() {
           </li>
           <li>
             <span className="mb-1 block text-label-uppercase text-warm-label">
-              Email
+              {ui.email}
             </span>
             <a href={site.emailHref} className="text-link-editorial">
               {site.email}
             </a>
           </li>
-          <li className="max-w-md font-light text-on-surface-variant">{site.address}</li>
+          <li className="max-w-md font-light text-on-surface-variant">{place.address}</li>
         </ul>
       </PageSection>
 
-      <FaqAccordion label="FAQ" title="Preguntas frecuentes" items={contactoFaq} />
+      <FaqAccordion label={ui.faqLabel} title={ui.faqTitle} items={contactoFaq} />
 
       <ContactCTA
         label={contactoSection.label}

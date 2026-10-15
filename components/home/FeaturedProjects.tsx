@@ -1,12 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  homeFeaturedProjects,
-  homeProjectsSection,
-} from "@/content/home";
+import { chrome } from "@/content/chrome";
+import { homeCopy } from "@/content/home";
+import { proyectosCopy, toProjectCards } from "@/content/proyectos";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
+import { getLocale } from "@/lib/locale.server";
 
-export function FeaturedProjects() {
+export async function FeaturedProjects() {
+  const locale = await getLocale();
+  const homeProjectsSection = homeCopy[locale].projects;
+  const homeFeaturedProjects = toProjectCards(proyectosCopy[locale].projects);
+  const ui = chrome[locale];
   return (
     <section
       className="bg-cream-base py-space-2xl px-margin-mobile md:px-margin"
@@ -16,7 +20,7 @@ export function FeaturedProjects() {
         <div className="mb-space-lg flex flex-col justify-between border-b border-outline/15 pb-6 md:flex-row md:items-end">
           <div>
             <span className="mb-2 block text-label-uppercase text-warm-label">
-              03 / PROYECTOS SELECCIONADOS
+              {homeProjectsSection.label}
             </span>
             <h2 className="text-headline-lg text-ink-primary">
               {homeProjectsSection.title}
@@ -26,7 +30,7 @@ export function FeaturedProjects() {
             href="/proyectos"
             className="mt-4 inline-flex items-center space-x-2 text-label-uppercase text-primary transition-colors hover:text-slate-deep md:mt-0"
           >
-            <span>Ver todos</span>
+            <span>{ui.viewAll}</span>
             <MaterialIcon name="arrow_forward" className="text-sm" />
           </Link>
         </div>

@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useId, useState } from "react";
-import { cookieBanner, cookiePreferences } from "@/content/cookies";
+import { useLocale } from "@/components/locale/LocaleProvider";
+import { cookiesCopy } from "@/content/cookies";
 import {
   COOKIE_SETTINGS_EVENT,
   type CookieConsentChoice,
@@ -53,6 +54,9 @@ function Toggle({
 }
 
 export function CookieConsent() {
+  const cookies = cookiesCopy[useLocale()];
+  const cookieBanner = cookies.banner;
+  const cookiePreferences = cookies.preferences;
   const titleId = useId();
   const [panel, setPanel] = useState<Panel>(null);
   const [analytics, setAnalytics] = useState(false);

@@ -1,8 +1,11 @@
 import Image from "next/image";
-import { materialTiles, materialsSection } from "@/content/home";
+import { homeCopy } from "@/content/home";
 import { SectionIntro } from "@/components/shared/SectionIntro";
+import { getLocale } from "@/lib/locale.server";
 
-export function MaterialsGrid() {
+export async function MaterialsGrid() {
+  const materialsSection = homeCopy[await getLocale()].materials;
+  const materialTiles = materialsSection.tiles;
   return (
     <section className="bg-sand-container py-space-2xl px-margin-mobile md:px-margin">
       <div className="mx-auto max-w-7xl">

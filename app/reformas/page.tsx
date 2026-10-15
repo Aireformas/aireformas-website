@@ -11,28 +11,29 @@ import {
   PillarCrossLinks,
 } from "@/components/shared/PillarCrossLinks";
 import { TopicGridSection } from "@/components/shared/TopicGridSection";
-import {
-  reformasCta,
-  reformasEditorial,
-  reformasFaq,
-  reformasGallery,
-  reformasHero,
-  reformasMeta,
-  reformasProcess,
-  reformasProcessSection,
-  reformasScope,
-} from "@/content/reformas";
+import { chrome } from "@/content/chrome";
+import { reformasCopy } from "@/content/reformas";
+import { getLocale } from "@/lib/locale.server";
 
-export const metadata: Metadata = {
-  title: reformasMeta.title,
-  description: reformasMeta.description,
-  openGraph: {
-    title: reformasMeta.title,
-    description: reformasMeta.description,
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const meta = reformasCopy[await getLocale()].meta;
+  return {
+    title: meta.title,
+    description: meta.description,
+    openGraph: { title: meta.title, description: meta.description },
+  };
+}
 
-export default function ReformasPage() {
+export default async function ReformasPage() {
+  const copy = reformasCopy[await getLocale()];
+  const ui = chrome[await getLocale()];
+  const reformasEditorial = copy.editorial;
+  const reformasFaq = copy.faq;
+  const reformasGallery = copy.gallery.items;
+  const reformasHero = copy.hero;
+  const reformasProcess = copy.process.steps;
+  const reformasProcessSection = copy.process;
+  const reformasScope = copy.scope.items;
   return (
     <>
       <JsonLd
@@ -57,18 +58,19 @@ export default function ReformasPage() {
       />
 
       <TopicGridSection
-        label="ALCANCE"
-        title="Obra coordinada con el diseño"
+        label={copy.scope.label}
+        title={copy.scope.title}
         items={reformasScope}
         tone="cream"
         borderTop
         columns={3}
         footer={
           <PillarCrossLinks>
-            Climatización e instalaciones técnicas en{" "}
-            <PillarCrossLink href="/climate">AIREFORMAS Climate</PillarCrossLink>. Mobiliario e
-            interiorismo en <PillarCrossLink href="/mobiliario">Mobiliario</PillarCrossLink> e{" "}
-            <PillarCrossLink href="/interiorismo">Interiorismo</PillarCrossLink>.
+            {copy.scope.crossLead}{" "}
+            <PillarCrossLink href="/climate">{copy.scope.climate}</PillarCrossLink>
+            {copy.scope.crossMid} <PillarCrossLink href="/mobiliario">{copy.scope.mobiliario}</PillarCrossLink>{" "}
+            {copy.scope.crossAnd}{" "}
+            <PillarCrossLink href="/interiorismo">{copy.scope.interiorismo}</PillarCrossLink>.
           </PillarCrossLinks>
         }
       />
@@ -82,14 +84,14 @@ export default function ReformasPage() {
         borderTop
       />
 
-      <ImageGallery label="RESULTADO" title="Espacios terminados" items={reformasGallery} />
+      <ImageGallery label={copy.gallery.label} title={copy.gallery.title} items={reformasGallery} />
 
-      <FaqAccordion label="FAQ" title="Preguntas frecuentes" items={reformasFaq} />
+      <FaqAccordion label={ui.faqLabel} title={ui.faqTitle} items={reformasFaq} />
 
       <ContactCTA
-        label="CONTACTO"
-        title={reformasCta.title}
-        description={reformasCta.description}
+        label={ui.contact}
+        title={copy.cta.title}
+        description={copy.cta.description}
         variant="landing"
       />
     </>

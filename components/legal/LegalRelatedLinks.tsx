@@ -1,16 +1,18 @@
 import Link from "next/link";
-
-const links = [
-  { href: "/legal/terminos", label: "Términos y condiciones" },
-  { href: "/legal/privacidad", label: "Política de privacidad" },
-  { href: "/legal/cookies", label: "Política de cookies" },
-] as const;
+import { chrome } from "@/content/chrome";
+import { getLocale } from "@/lib/locale.server";
 
 type LegalRelatedLinksProps = {
   currentPath: string;
 };
 
-export function LegalRelatedLinks({ currentPath }: LegalRelatedLinksProps) {
+export async function LegalRelatedLinks({ currentPath }: LegalRelatedLinksProps) {
+  const ui = chrome[await getLocale()];
+  const links = [
+    { href: "/legal/terminos", label: ui.termsFull },
+    { href: "/legal/privacidad", label: ui.privacyFull },
+    { href: "/legal/cookies", label: ui.cookiesFull },
+  ];
   const items = links.filter((link) => link.href !== currentPath);
   if (items.length === 0) {
     return null;
@@ -18,11 +20,11 @@ export function LegalRelatedLinks({ currentPath }: LegalRelatedLinksProps) {
 
   return (
     <nav
-      aria-label="Documentos legales relacionados"
+      aria-label={ui.legalNav}
       className="mt-14 border-t border-ink/10 pt-8"
     >
       <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink/45">
-        También te puede interesar
+        {ui.legalAlso}
       </p>
       <ul className="mt-3 flex flex-col gap-2 text-sm">
         {items.map((link) => (

@@ -1,6 +1,8 @@
 import Link from "next/link";
-import { fourPillarsSection, homePillars } from "@/content/home";
+import { chrome } from "@/content/chrome";
+import { homeCopy } from "@/content/home";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
+import { getLocale } from "@/lib/locale.server";
 
 const pillarMeta = [
   { icon: "architecture", span: "md:col-span-7", card: "bg-cream-base/90" },
@@ -9,14 +11,11 @@ const pillarMeta = [
   { icon: "air", span: "md:col-span-7", card: "bg-cream-base/90" },
 ] as const;
 
-const pillarLabels = [
-  "01 / ESTÉTICA & FUNCIÓN",
-  "02 / CONSTRUCCIÓN",
-  "03 / EBANISTERÍA",
-  "04 / TECNOLOGÍA INVISIBLE",
-] as const;
-
-export function FourPillars() {
+export async function FourPillars() {
+  const locale = await getLocale();
+  const fourPillarsSection = homeCopy[locale].pillars;
+  const homePillars = fourPillarsSection.items;
+  const ui = chrome[locale];
   return (
     <section className="bg-sand-panel py-space-2xl text-ink-primary px-margin-mobile md:px-margin">
       <div className="mx-auto max-w-7xl">
@@ -42,7 +41,7 @@ export function FourPillars() {
                 <div>
                   <div className="mb-8 flex items-center justify-between">
                     <span className="text-label-uppercase text-warm-label">
-                      {pillarLabels[index]}
+                      {pillar.eyebrow}
                     </span>
                     <MaterialIcon name={meta.icon} className="text-2xl text-primary" />
                   </div>
@@ -57,7 +56,7 @@ export function FourPillars() {
                       href={pillar.href}
                       className="inline-flex items-center space-x-1 text-label-uppercase text-primary transition-colors hover:text-slate-deep"
                     >
-                      <span>Descubrir</span>
+                      <span>{ui.discover}</span>
                       <MaterialIcon name="arrow_forward" className="text-xs" />
                     </Link>
                   </div>

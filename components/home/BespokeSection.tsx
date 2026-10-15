@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { bespokeSection } from "@/content/home";
+import { homeCopy } from "@/content/home";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
+import { getLocale } from "@/lib/locale.server";
 
-export function BespokeSection() {
+export async function BespokeSection() {
+  const bespokeSection = homeCopy[await getLocale()].bespoke;
   return (
     <section
       className="bg-deep-brown py-space-2xl text-surface px-margin-mobile md:px-margin"

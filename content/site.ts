@@ -1,3 +1,5 @@
+import { defineCopy } from "@/lib/i18n";
+
 export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://aireformas.com",
   name: "aireformas",
@@ -58,3 +60,35 @@ export const site = {
   addressCountry: "ES",
   copyright: `© ${new Date().getFullYear()} aireformas. Todos los derechos reservados.`,
 } as const;
+
+const year = new Date().getFullYear();
+
+export const siteCopy = defineCopy({
+  es: {
+    tagline: site.tagline,
+    shortTagline: site.shortTagline,
+    entityDescription: site.entityDescription,
+    address: site.address,
+    copyright: `© ${year} aireformas. Todos los derechos reservados.`,
+    knowsAbout: [...site.knowsAbout],
+  },
+  en: {
+    tagline:
+      "We design homes to be lived in. Interior design, renovation, furniture and climate integrated in a single project.",
+    shortTagline:
+      "Interior design, renovation, furniture and climate in a single project.",
+    entityDescription:
+      "aireformas designs and delivers integrated residential projects: layout, materials, furniture, lighting, climate and building services with one team.",
+    address: "Madrid and surrounding areas",
+    copyright: `© ${year} aireformas. All rights reserved.`,
+    knowsAbout: [
+      "Residential interior design",
+      "Full home renovation",
+      "Bespoke furniture and joinery",
+      "Invisible climate control",
+      "Air-source heat pumps",
+      "Underfloor heating",
+      "Architectural lighting",
+    ],
+  },
+});

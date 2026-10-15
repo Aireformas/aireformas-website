@@ -1,12 +1,16 @@
-import { comfortSection } from "@/content/home";
+import { homeCopy } from "@/content/home";
 import { ThermalComfortSection } from "@/components/shared/ThermalComfortSection";
+import { getLocale } from "@/lib/locale.server";
 
-export function ComfortSection() {
+export async function ComfortSection() {
+  const comfortSection = homeCopy[await getLocale()].comfort;
+
   return (
     <ThermalComfortSection
       id="climate"
-      label="07 / CONFORT TÉRMICO"
+      label={comfortSection.label}
       temperature={comfortSection.temperature}
+      temperatureNote={comfortSection.temperatureNote}
       title={comfortSection.title}
       subline={comfortSection.subline}
       tags={comfortSection.tags}

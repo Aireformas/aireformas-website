@@ -1,4 +1,5 @@
-import { site } from "@/content/site";
+import { site, siteCopy } from "@/content/site";
+import type { SiteLocale } from "@/lib/i18n";
 
 type JsonLdProps = {
   data: Record<string, unknown> | Record<string, unknown>[];
@@ -14,14 +15,15 @@ export function JsonLd({ data }: JsonLdProps) {
   );
 }
 
-export function organizationJsonLd(): Record<string, unknown> {
+export function organizationJsonLd(locale: SiteLocale): Record<string, unknown> {
+  const copy = siteCopy[locale];
   return {
     "@context": "https://schema.org",
     "@type": ["Organization", "HomeAndConstructionBusiness"],
     "@id": `${site.url}/#organization`,
     name: site.name,
     url: site.url,
-    description: site.entityDescription,
+    description: copy.entityDescription,
     telephone: site.phone,
     email: site.email,
     logo: `${site.url}${site.logo.src}`,
@@ -29,7 +31,7 @@ export function organizationJsonLd(): Record<string, unknown> {
       "@type": "Place",
       name,
     })),
-    knowsAbout: [...site.knowsAbout],
+    knowsAbout: copy.knowsAbout,
     address: {
       "@type": "PostalAddress",
       addressLocality: site.addressLocality,
@@ -38,16 +40,16 @@ export function organizationJsonLd(): Record<string, unknown> {
   };
 }
 
-export function webSiteJsonLd(): Record<string, unknown> {
+export function webSiteJsonLd(locale: SiteLocale): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${site.url}/#website`,
     name: site.name,
     url: site.url,
-    description: site.tagline,
+    description: siteCopy[locale].tagline,
     publisher: { "@id": `${site.url}/#organization` },
-    inLanguage: "es-ES",
+    inLanguage: locale === "en" ? "en-GB" : "es-ES",
   };
 }
 

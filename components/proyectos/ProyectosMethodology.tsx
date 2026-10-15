@@ -1,8 +1,12 @@
-import { methodologyPillars, methodologySection } from "@/content/proyectos";
+import { proyectosCopy } from "@/content/proyectos";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
 import { SectionIntro } from "@/components/shared/SectionIntro";
+import { getLocale } from "@/lib/locale.server";
 
-export function ProyectosMethodology() {
+export async function ProyectosMethodology() {
+  const methodology = proyectosCopy[await getLocale()].methodology;
+  const methodologySection = methodology;
+  const methodologyPillars = methodology.pillars;
   return (
     <section className="bg-sand-container py-space-2xl px-margin-mobile md:px-margin">
       <div className="mx-auto max-w-7xl space-y-space-xl">

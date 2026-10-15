@@ -1,11 +1,11 @@
 import Image from "next/image";
-import {
-  projectTimelineSection,
-  projectTimelineSteps,
-} from "@/content/home";
+import { homeCopy } from "@/content/home";
 import { SectionIntro } from "@/components/shared/SectionIntro";
+import { getLocale } from "@/lib/locale.server";
 
-export function ProjectTimeline() {
+export async function ProjectTimeline() {
+  const projectTimelineSection = homeCopy[await getLocale()].timeline;
+  const projectTimelineSteps = projectTimelineSection.steps;
   return (
     <section className="bg-cream-base py-space-2xl px-margin-mobile md:px-margin">
       <div className="mx-auto max-w-7xl">

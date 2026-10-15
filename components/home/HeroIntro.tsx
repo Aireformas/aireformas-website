@@ -1,10 +1,12 @@
 import Link from "next/link";
-import { homeHero } from "@/content/home";
+import { homeCopy } from "@/content/home";
 import { Container } from "@/components/ui/Container";
 import { InView } from "@/components/motion/InView";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { getLocale } from "@/lib/locale.server";
 
-export function HeroIntro() {
+export async function HeroIntro() {
+  const homeHero = homeCopy[await getLocale()].hero;
   return (
     <section className="section-y-compact bg-brand-taupe-light text-ink">
       <Container>

@@ -1,44 +1,43 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { Logo } from "@/components/layout/Logo";
+import { useLocale } from "@/components/locale/LocaleProvider";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
-import {
-  headerCta,
-  headerNav,
-  isNavGroup,
-  type SiteLocale,
-} from "@/content/navigation";
+import { chrome } from "@/content/chrome";
+import { headerCta, headerNav, isNavGroup } from "@/content/navigation";
 import { cn } from "@/lib/cn";
-
-const LOCALE_KEY = "aireformas-locale";
-
-function localeFromDevice(): SiteLocale {
-  const language = navigator.language.toLowerCase();
-  return language.startsWith("en") ? "en" : "es";
-}
+import {
+  isSiteLocale,
+  LOCALE_STORAGE_KEY,
+  writeLocaleCookie,
+  type SiteLocale,
+} from "@/lib/i18n";
 
 export function Header() {
   const pathname = usePathname();
+  const router = useRouter();
+  const locale = useLocale();
+  const ui = chrome[locale];
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [locale, setLocale] = useState<SiteLocale>("es");
 
   useEffect(() => {
-    const stored = window.localStorage.getItem(LOCALE_KEY);
-    const next: SiteLocale =
-      stored === "es" || stored === "en" ? stored : localeFromDevice();
-    setLocale(next);
-    document.documentElement.lang = next;
-  }, []);
+    const stored = window.localStorage.getItem(LOCALE_STORAGE_KEY);
+    if (!isSiteLocale(stored) || stored === locale) return;
+    writeLocaleCookie(stored);
+    router.refresh();
+  }, [locale, router]);
 
   function chooseLocale(next: SiteLocale) {
-    setLocale(next);
-    window.localStorage.setItem(LOCALE_KEY, next);
+    if (next === locale) return;
+    window.localStorage.setItem(LOCALE_STORAGE_KEY, next);
+    writeLocaleCookie(next);
     document.documentElement.lang = next;
+    router.refresh();
   }
 
   function closeMenus() {
@@ -51,7 +50,7 @@ export function Header() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-margin-mobile md:px-margin">
         <Logo size="header" variant="default" onNavigate={closeMenus} />
 
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Principal">
+        <nav className="hidden items-center gap-7 lg:flex" aria-label={ui.mainNav}>
           {headerNav.map((entry) => {
             if (isNavGroup(entry)) {
               const active = entry.items.some((item) => pathname === item.href);
@@ -129,7 +128,7 @@ export function Header() {
             className="inline-flex h-10 w-10 items-center justify-center text-ink-primary lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
-            aria-label={open ? "Cerrar menú" : "Abrir menú"}
+            aria-label={open ? ui.closeMenu : ui.openMenu}
             onClick={() => setOpen((value) => !value)}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden>
@@ -155,7 +154,7 @@ export function Header() {
         <nav
           id="mobile-nav"
           className="border-t border-outline-variant/30 bg-surface lg:hidden"
-          aria-label="Móvil"
+          aria-label={ui.mobileNav}
         >
           <ul className="space-y-1 px-margin-mobile py-4">
             {headerNav.map((entry) => {

@@ -1,7 +1,11 @@
 import Image from "next/image";
-import { homeHero, lightArchitectureSection } from "@/content/home";
+import { homeCopy } from "@/content/home";
+import { getLocale } from "@/lib/locale.server";
 
-export function LightArchitecture() {
+export async function LightArchitecture() {
+  const copy = homeCopy[await getLocale()];
+  const homeHero = copy.hero;
+  const lightArchitectureSection = copy.light;
   const sideImages = homeHero.stripImages.slice(1, 3);
 
   return (

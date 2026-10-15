@@ -1,6 +1,8 @@
 import { CookieSettingsLink } from "@/components/consent/CookieSettingsLink";
 import { LegalRelatedLinks } from "@/components/legal/LegalRelatedLinks";
 import { PageIntro } from "@/components/shared/PageIntro";
+import { chrome } from "@/content/chrome";
+import { getLocale } from "@/lib/locale.server";
 
 type LegalSection = {
   heading: string;
@@ -16,7 +18,7 @@ type LegalDocumentPageProps = {
   currentPath?: string;
 };
 
-export function LegalDocumentPage({
+export async function LegalDocumentPage({
   label,
   title,
   intro,
@@ -24,13 +26,15 @@ export function LegalDocumentPage({
   showCookieSettings = false,
   currentPath,
 }: LegalDocumentPageProps) {
+  const ui = chrome[await getLocale()];
+
   return (
     <article className="bg-cream-base pb-space-2xl text-ink-primary">
       <PageIntro label={label} title={title} description={intro}>
         {showCookieSettings ? (
           <p className="mt-6">
             <CookieSettingsLink className="text-label-uppercase text-primary underline underline-offset-4 hover:text-slate-deep">
-              Configurar cookies
+              {ui.cookieSettings}
             </CookieSettingsLink>
           </p>
         ) : null}

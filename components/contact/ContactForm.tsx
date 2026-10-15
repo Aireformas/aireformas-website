@@ -1,14 +1,17 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { site } from "@/content/site";
+import { useLocale } from "@/components/locale/LocaleProvider";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
+import { chrome } from "@/content/chrome";
+import { site } from "@/content/site";
 
 type ContactFormProps = {
   variant?: "default" | "landing";
 };
 
 export function ContactForm({ variant = "default" }: ContactFormProps) {
+  const form = chrome[useLocale()].form;
   const [submitted, setSubmitted] = useState(false);
   const isLanding = variant === "landing";
 
@@ -20,7 +23,7 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
   if (submitted) {
     return (
       <p className="rounded-editorial border border-outline/15 bg-cream-base p-6 text-body-sm text-on-surface-variant">
-        Gracias por tu mensaje. Te contactaremos pronto.
+        {form.thanks}
       </p>
     );
   }
@@ -38,24 +41,24 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
       {isLanding ? (
         <div className="mb-8">
           <h3 className="text-headline-md mb-1 font-light text-ink-primary">
-            Cuéntanos tu proyecto
+            {form.title}
           </h3>
           <p className="text-body-sm font-light text-warm-label">
-            Respuesta en 1–2 días laborables.
+            {form.response}
           </p>
         </div>
       ) : (
         <div className="mb-6 border-b border-outline/15 pb-5">
-          <h3 className="text-headline-sm text-ink-primary">Cuéntanos tu proyecto</h3>
+          <h3 className="text-headline-sm text-ink-primary">{form.title}</h3>
           <p className="mt-2 text-body-sm text-on-surface-variant">
-            Respuesta en 1–2 días laborables.
+            {form.response}
           </p>
         </div>
       )}
 
       <div>
         <label className={labelClassName} htmlFor="nombre">
-          Nombre
+          {form.name}
         </label>
         <input
           id="nombre"
@@ -63,14 +66,14 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
           name="nombre"
           required
           autoComplete="name"
-          placeholder="Tu nombre completo"
+          placeholder={form.namePlaceholder}
           className={fieldClassName}
         />
       </div>
 
       <div>
         <label className={labelClassName} htmlFor="telefono">
-          Teléfono
+          {form.phone}
         </label>
         <input
           id="telefono"
@@ -85,14 +88,14 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
 
       <div>
         <label className={labelClassName} htmlFor="mensaje">
-          Mensaje
+          {form.message}
         </label>
         <textarea
           id="mensaje"
           name="mensaje"
           required
           rows={4}
-          placeholder="Vivienda, ubicación y qué te gustaría lograr..."
+          placeholder={form.messagePlaceholder}
           className={fieldClassName}
         />
       </div>
@@ -105,13 +108,13 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
             : "w-full rounded-full bg-slate-accent py-3.5 text-label-uppercase text-white transition-colors hover:bg-slate-deep"
         }
       >
-        Enviar solicitud
+        {form.submit}
       </button>
 
       {isLanding ? (
         <div className="border-t border-outline/15 pt-6">
           <p className="mb-3 text-center text-body-sm font-light text-warm-label">
-            O escríbenos por WhatsApp
+            {form.orWhatsapp}
           </p>
           <a
             href={site.whatsapp}

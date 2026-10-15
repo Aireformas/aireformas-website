@@ -1,10 +1,13 @@
-import { philosophySection } from "@/content/home";
+import { homeCopy } from "@/content/home";
 import { PhilosophyBandSection } from "@/components/shared/PhilosophyBandSection";
+import { getLocale } from "@/lib/locale.server";
 
-export function PhilosophySection() {
+export async function PhilosophySection() {
+  const philosophySection = homeCopy[await getLocale()].philosophy;
+
   return (
     <PhilosophyBandSection
-      label="02 / FILOSOFÍA"
+      label={philosophySection.label}
       title={philosophySection.title}
       paragraphs={philosophySection.paragraphs}
       image={philosophySection.image}

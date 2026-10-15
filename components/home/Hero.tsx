@@ -1,12 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-import { homeHero } from "@/content/home";
+import { chrome } from "@/content/chrome";
+import { homeCopy } from "@/content/home";
+import { getLocale } from "@/lib/locale.server";
 
-export function Hero() {
+export async function Hero() {
+  const locale = await getLocale();
+  const homeHero = homeCopy[locale].hero;
+  const ui = chrome[locale];
   return (
     <section
       className="relative flex min-h-screen items-end justify-start overflow-hidden pb-space-2xl pt-28 px-margin-mobile md:px-margin"
-      aria-label="Portada"
+      aria-label={ui.cover}
     >
       <div className="absolute inset-0 z-0">
         <Image

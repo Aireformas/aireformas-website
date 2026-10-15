@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useLocale } from "@/components/locale/LocaleProvider";
 import { CircleNavButton } from "@/components/ui/CircleNavButton";
+import { chrome } from "@/content/chrome";
 import type { Testimonial } from "@/lib/types";
 import { InView } from "@/components/motion/InView";
 import { SectionIntro } from "@/components/shared/SectionIntro";
@@ -13,6 +15,7 @@ type TestimonialsSectionProps = {
 };
 
 export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) {
+  const ui = chrome[useLocale()];
   const [index, setIndex] = useState(0);
   const [offsetPx, setOffsetPx] = useState(0);
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -52,21 +55,21 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <SectionIntro
-              label="TESTIMONIOS"
-              title="Lo que dicen quienes ya confiaron en nosotros"
+              label={ui.testimonialsLabel}
+              title={ui.testimonialsTitle}
             />
           </div>
           <div className="hidden gap-3 md:flex">
             <CircleNavButton
               direction="prev"
               onClick={goPrev}
-              label="Testimonio anterior"
+              label={ui.testimonialPrev}
               theme="dark"
             />
             <CircleNavButton
               direction="next"
               onClick={goNext}
-              label="Testimonio siguiente"
+              label={ui.testimonialNext}
               theme="dark"
             />
           </div>
@@ -122,7 +125,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
               <button
                 key={item.id}
                 type="button"
-                aria-label={`Ir al testimonio ${dotIndex + 1}`}
+                aria-label={`${ui.testimonialGo} ${dotIndex + 1}`}
                 onClick={() => setIndex(dotIndex)}
                 className={`h-2 w-2 rounded-full transition-colors ${
                   dotIndex === index ? "bg-ink-primary" : "bg-outline/30"
@@ -134,13 +137,13 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
             <CircleNavButton
               direction="prev"
               onClick={goPrev}
-              label="Testimonio anterior"
+              label={ui.testimonialPrev}
               theme="dark"
             />
             <CircleNavButton
               direction="next"
               onClick={goNext}
-              label="Testimonio siguiente"
+              label={ui.testimonialNext}
               theme="dark"
             />
           </div>

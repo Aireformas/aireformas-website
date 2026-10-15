@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
 import { LegalDocumentPage } from "@/components/legal/LegalDocumentPage";
-import { termsPage, termsPageMeta } from "@/content/legal";
+import { legalCopy } from "@/content/legal";
+import { getLocale } from "@/lib/locale.server";
 
-export const metadata: Metadata = {
-  title: termsPageMeta.title,
-  description: termsPageMeta.description,
-  robots: { index: true, follow: true },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const meta = legalCopy[await getLocale()].terms.meta;
+  return {
+    title: meta.title,
+    description: meta.description,
+    robots: { index: true, follow: true },
+  };
+}
 
-export default function TermsPage() {
+export default async function TermsPage() {
+  const termsPage = legalCopy[await getLocale()].terms.page;
   return (
     <LegalDocumentPage
       label={termsPage.label}

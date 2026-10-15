@@ -3,12 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { useLocale } from "@/components/locale/LocaleProvider";
+import { chrome } from "@/content/chrome";
 import {
-  featuredProject,
-  portfolioGridIntro,
-  portfolioProjects,
-  projectFilterOptions,
-  proyectosPageIntro,
+  proyectosCopy,
   type PortfolioProjectFull,
   type ProjectCategory,
   type ProjectFilterId,
@@ -25,19 +23,23 @@ function matchesFilter(
   return categories.includes(filter);
 }
 
-function filterCount(filter: ProjectFilterId): number {
-  const featured = matchesFilter(featuredProject.categories, filter) ? 1 : 0;
-  const rest = portfolioProjects.filter((p) => matchesFilter(p.categories, filter)).length;
+function filterCount(
+  filter: ProjectFilterId,
+  featuredCategories: readonly ProjectCategory[],
+  projects: readonly PortfolioProjectFull[],
+): number {
+  const featured = matchesFilter(featuredCategories, filter) ? 1 : 0;
+  const rest = projects.filter((project) => matchesFilter(project.categories, filter)).length;
   return featured + rest;
 }
 
-function ProjectInquiryLink({ href }: { href: string }) {
+function ProjectInquiryLink({ href, label }: { href: string; label: string }) {
   return (
     <Link
       href={href}
       className="group inline-flex items-center gap-2 border-b border-primary/40 pb-1 text-label-uppercase text-primary transition-colors hover:text-ink-primary"
     >
-      <span>Consultar memoria del proyecto</span>
+      <span>{label}</span>
       <MaterialIcon name="north_east" className="text-xs" />
     </Link>
   );
@@ -46,14 +48,18 @@ function ProjectInquiryLink({ href }: { href: string }) {
 function LargeProjectCard({
   project,
   reversed,
+  inquiryLabel,
+  areaLabel,
 }: {
   project: PortfolioProjectFull;
   reversed: boolean;
+  inquiryLabel: string;
+  areaLabel: string;
 }) {
   const stats =
     project.stats.length > 0 || !project.areaDisplay
       ? project.stats
-      : [{ label: "Superficie", value: project.areaDisplay }];
+      : [{ label: areaLabel, value: project.areaDisplay }];
 
   const imageBlock = (
     <div className={cn("group", reversed ? "md:col-span-8 md:order-2" : "md:col-span-8")}>
@@ -101,7 +107,7 @@ function LargeProjectCard({
         </div>
       ) : null}
       <div>
-        <ProjectInquiryLink href={project.inquiryHref ?? "/contacto"} />
+        <ProjectInquiryLink href={project.inquiryHref ?? "/contacto"} label={inquiryLabel} />
       </div>
     </div>
   );
@@ -155,11 +161,19 @@ function CompactProjectCard({ project }: { project: PortfolioProjectFull }) {
 }
 
 export function ProyectosPageContent() {
+  const locale = useLocale();
+  const copy = proyectosCopy[locale];
+  const ui = chrome[locale].projects;
+  const featuredProject = copy.featured;
+  const portfolioProjects = copy.projects;
+  const projectFilterOptions = copy.filters;
+  const proyectosPageIntro = copy.intro;
+  const portfolioGridIntro = copy.grid;
   const [activeFilter, setActiveFilter] = useState<ProjectFilterId>("all");
 
   const filteredProjects = useMemo(
-    () => portfolioProjects.filter((p) => matchesFilter(p.categories, activeFilter)),
-    [activeFilter],
+    () => portfolioProjects.filter((project) => matchesFilter(project.categories, activeFilter)),
+    [portfolioProjects, activeFilter],
   );
 
   const showFeatured = matchesFilter(featuredProject.categories, activeFilter);
@@ -179,12 +193,12 @@ export function ProyectosPageContent() {
       >
         <div
           role="group"
-          aria-label="Filtrar proyectos"
+          aria-label={ui.filter}
           className="custom-scroll flex items-center gap-2 overflow-x-auto border-b border-outline-variant/30 pb-2 pt-10"
         >
           {projectFilterOptions.map((option) => {
             const isActive = activeFilter === option.id;
-            const count = filterCount(option.id);
+            const count = filterCount(option.id, featuredProject.categories, portfolioProjects);
             return (
               <button
                 key={option.id}
@@ -270,11 +284,11 @@ export function ProyectosPageContent() {
 
         {!hasResults ? (
           <p className="text-body-md font-light text-on-surface-variant">
-            No hay proyectos en esta categoría por ahora.
+            {ui.empty}
           </p>
         ) : filteredProjects.length === 0 ? (
           <p className="text-body-md font-light text-on-surface-variant">
-            En esta categoría solo está el proyecto destacado.
+            {ui.featuredOnly}
           </p>
         ) : (
           <>
@@ -285,6 +299,8 @@ export function ProyectosPageContent() {
                     key={project.slug}
                     project={project}
                     reversed={index % 2 === 1}
+                    inquiryLabel={ui.inquiry}
+                    areaLabel={ui.area}
                   />
                 ))}
               </div>

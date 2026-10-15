@@ -10,19 +10,24 @@ import { LightArchitecture } from "@/components/home/LightArchitecture";
 import { MaterialsGrid } from "@/components/home/MaterialsGrid";
 import { PhilosophySection } from "@/components/home/PhilosophySection";
 import { ProjectTimeline } from "@/components/home/ProjectTimeline";
-import { contactSection, homeMeta } from "@/content/home";
+import { homeCopy } from "@/content/home";
 import { site } from "@/content/site";
+import { getLocale } from "@/lib/locale.server";
 
-export const metadata: Metadata = {
-  title: homeMeta.title,
-  description: homeMeta.description,
-  openGraph: {
-    title: `${homeMeta.title} | ${site.name}`,
+export async function generateMetadata(): Promise<Metadata> {
+  const homeMeta = homeCopy[await getLocale()].meta;
+  return {
+    title: homeMeta.title,
     description: homeMeta.description,
-  },
-};
+    openGraph: {
+      title: `${homeMeta.title} | ${site.name}`,
+      description: homeMeta.description,
+    },
+  };
+}
 
-export default function HomePage() {
+export default async function HomePage() {
+  const contactSection = homeCopy[await getLocale()].contact;
   return (
     <>
       <Hero />

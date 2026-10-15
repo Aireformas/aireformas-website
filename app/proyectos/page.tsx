@@ -2,18 +2,20 @@ import type { Metadata } from "next";
 import { ContactCTA } from "@/components/contact/ContactCTA";
 import { ProyectosMethodology } from "@/components/proyectos/ProyectosMethodology";
 import { ProyectosPageContent } from "@/components/proyectos/ProyectosPageContent";
-import { proyectosCta, proyectosMeta } from "@/content/proyectos";
+import { proyectosCopy } from "@/content/proyectos";
+import { getLocale } from "@/lib/locale.server";
 
-export const metadata: Metadata = {
-  title: proyectosMeta.title,
-  description: proyectosMeta.description,
-  openGraph: {
-    title: proyectosMeta.title,
-    description: proyectosMeta.description,
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const meta = proyectosCopy[await getLocale()].meta;
+  return {
+    title: meta.title,
+    description: meta.description,
+    openGraph: { title: meta.title, description: meta.description },
+  };
+}
 
-export default function ProyectosPage() {
+export default async function ProyectosPage() {
+  const proyectosCta = proyectosCopy[await getLocale()].cta;
   return (
     <>
       <ProyectosPageContent />

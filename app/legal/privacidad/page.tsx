@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
 import { LegalDocumentPage } from "@/components/legal/LegalDocumentPage";
-import { privacyPage, privacyPageMeta } from "@/content/legal";
+import { legalCopy } from "@/content/legal";
+import { getLocale } from "@/lib/locale.server";
 
-export const metadata: Metadata = {
-  title: privacyPageMeta.title,
-  description: privacyPageMeta.description,
-  robots: { index: true, follow: true },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const meta = legalCopy[await getLocale()].privacy.meta;
+  return {
+    title: meta.title,
+    description: meta.description,
+    robots: { index: true, follow: true },
+  };
+}
 
-export default function PrivacyPolicyPage() {
+export default async function PrivacyPolicyPage() {
+  const privacyPage = legalCopy[await getLocale()].privacy.page;
   return (
     <LegalDocumentPage
       label={privacyPage.label}

@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useLocale } from "@/components/locale/LocaleProvider";
+import { chrome } from "@/content/chrome";
 import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
 
@@ -24,6 +28,7 @@ export function Logo({
   variant = "default",
   onNavigate,
 }: LogoProps) {
+  const ui = chrome[useLocale()];
   const asset =
     variant === "white"
       ? {
@@ -38,7 +43,7 @@ export function Logo({
       href="/"
       className={cn("inline-flex shrink-0 items-center", className)}
       onClick={onNavigate}
-      aria-label={`${site.name}, inicio`}
+      aria-label={`${site.name}, ${ui.home}`}
     >
       <Image
         src={asset.src}
