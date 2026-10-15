@@ -237,10 +237,29 @@ export const homeCopy = defineCopy({
         "Diseñamos carpintería que forma parte del proyecto: armarios, vestidores, cocinas, muebles TV y baños. Cada pieza se fabrica e instala con el mismo criterio de proporción, material y acabado que el resto de la vivienda.",
       href: "/mobiliario",
       cta: "Descubrir mobiliario",
-      image: {
-        src: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1600&q=90",
-        alt: "Vestidor a medida con madera, iluminación integrada y acabados de carpintería de autor",
-      },
+      teasers: [
+        {
+          category: "Salón",
+          image: {
+            src: "/images/distributions/67_SALON_jotajotape_NEXT.jpg",
+            alt: "Salón con mueble TV modular en roble y estantería de cubos",
+          },
+        },
+        {
+          category: "Juvenil",
+          image: {
+            src: "/images/distributions/31_jotajotape-habitacion-juvenil.jpg",
+            alt: "Habitación juvenil con librería, cama y escritorio",
+          },
+        },
+        {
+          category: "Vestidor",
+          image: {
+            src: "/images/distributions/73_ARMARIO_jotajotape_NEXT.jpg",
+            alt: "Vestidor walk-in con puertas de cristal e iluminación integrada",
+          },
+        },
+      ],
     },
     process: {
       label: "09 EL PROCESO",
@@ -481,10 +500,29 @@ export const homeCopy = defineCopy({
         "We design joinery that belongs to the project: wardrobes, dressing rooms, kitchens, TV units and bathrooms. Each piece is made and installed with the same sense of proportion, material and finish as the rest of the home.",
       href: "/mobiliario",
       cta: "Discover furniture",
-      image: {
-        src: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1600&q=90",
-        alt: "Bespoke dressing room with wood, integrated lighting and crafted joinery",
-      },
+      teasers: [
+        {
+          category: "Living room",
+          image: {
+            src: "/images/distributions/67_SALON_jotajotape_NEXT.jpg",
+            alt: "Living room with modular oak TV unit and cubby shelving",
+          },
+        },
+        {
+          category: "Teen",
+          image: {
+            src: "/images/distributions/31_jotajotape-habitacion-juvenil.jpg",
+            alt: "Teen room with library, bed and desk",
+          },
+        },
+        {
+          category: "Dressing room",
+          image: {
+            src: "/images/distributions/73_ARMARIO_jotajotape_NEXT.jpg",
+            alt: "Walk-in dressing room with glass doors and integrated lighting",
+          },
+        },
+      ],
     },
     process: {
       label: "09 THE PROCESS",

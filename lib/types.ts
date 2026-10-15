@@ -48,3 +48,15 @@ export type GalleryItem = {
   image: ImageAsset;
   caption?: string;
 };
+
+export type DistributionAspect = "panorama" | "portrait";
+
+export type DistributionItem = {
+  id: string;
+  number: string;
+  category: string;
+  title: string;
+  caption: string;
+  aspect: DistributionAspect;
+  image: ImageAsset;
+};

@@ -3,9 +3,12 @@ import Link from "next/link";
 import { homeCopy } from "@/content/home";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
 import { getLocale } from "@/lib/locale.server";
+import { cn } from "@/lib/cn";
 
 export async function BespokeSection() {
   const bespokeSection = homeCopy[await getLocale()].bespoke;
+  const [hero, mid, lower] = bespokeSection.teasers;
+
   return (
     <section
       className="bg-deep-brown py-space-2xl text-surface px-margin-mobile md:px-margin"
@@ -30,18 +33,58 @@ export async function BespokeSection() {
             <MaterialIcon name="arrow_forward" className="text-sm" />
           </Link>
         </div>
+
         <div className="md:col-span-7">
-          <div className="overflow-hidden rounded-editorial border border-white/10 shadow-2xl">
-            <Image
-              src={bespokeSection.image.src}
-              alt={bespokeSection.image.alt}
-              width={1200}
-              height={900}
-              className="h-[520px] w-full object-cover"
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-12 md:grid-rows-2 md:gap-4">
+            <TeaserCard
+              category={hero.category}
+              image={hero.image}
+              priority
+              className="col-span-2 aspect-16/10 md:col-span-7 md:row-span-2 md:aspect-auto md:min-h-110"
+            />
+            <TeaserCard
+              category={mid.category}
+              image={mid.image}
+              className="aspect-4/5 md:col-span-5 md:aspect-auto"
+            />
+            <TeaserCard
+              category={lower.category}
+              image={lower.image}
+              className="aspect-4/5 md:col-span-5 md:mt-0 md:aspect-auto"
             />
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+type TeaserCardProps = {
+  category: string;
+  image: { src: string; alt: string };
+  className?: string;
+  priority?: boolean;
+};
+
+function TeaserCard({ category, image, className, priority }: TeaserCardProps) {
+  return (
+    <figure
+      className={cn(
+        "group relative overflow-hidden rounded-editorial border border-white/10 shadow-2xl",
+        className,
+      )}
+    >
+      <Image
+        src={image.src}
+        alt={image.alt}
+        fill
+        sizes="(max-width: 768px) 100vw, 40vw"
+        priority={priority}
+        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+      />
+      <figcaption className="absolute bottom-3 left-3 rounded-full bg-deep-brown/75 px-3 py-1 text-label-uppercase text-surface backdrop-blur-sm">
+        {category}
+      </figcaption>
+    </figure>
   );
 }

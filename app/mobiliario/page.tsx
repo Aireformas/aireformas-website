@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ContactCTA } from "@/components/contact/ContactCTA";
 import { faqPageJsonLd, JsonLd } from "@/components/seo/JsonLd";
 import { FaqAccordion } from "@/components/shared/FaqAccordion";
+import { DistributionShowcase } from "@/components/shared/DistributionShowcase";
 import { EditorialFeatureGrid } from "@/components/shared/EditorialFeatureGrid";
 import { ImageGallery } from "@/components/shared/ImageGallery";
 import { PageHero } from "@/components/shared/PageHero";
@@ -64,6 +65,15 @@ export default async function MobiliarioPage() {
         title={copy.solutions.title}
         items={mobiliarioTypes}
         tone="paper"
+      />
+
+      <DistributionShowcase
+        label={copy.distributions.label}
+        title={copy.distributions.title}
+        lead={copy.distributions.lead}
+        hint={copy.distributions.hint}
+        items={copy.distributions.items}
+        tone="warm"
       />
 
       <TopicGridSection

@@ -6,6 +6,7 @@ type SectionIntroProps = {
   lead?: string;
   className?: string;
   titleClassName?: string;
+  titleId?: string;
   dark?: boolean;
 };
 
@@ -15,6 +16,7 @@ export function SectionIntro({
   lead,
   className,
   titleClassName,
+  titleId,
   dark = false,
 }: SectionIntroProps) {
   return (
@@ -28,6 +30,7 @@ export function SectionIntro({
         {label}
       </span>
       <h2
+        id={titleId}
         className={cn(
           "text-headline-lg",
           dark ? "text-white" : "text-ink-primary",
