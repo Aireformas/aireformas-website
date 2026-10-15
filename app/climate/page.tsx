@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
+import { ClimateHero } from "@/components/climate/ClimateHero";
+import { ClimateServices } from "@/components/climate/ClimateServices";
 import { ContactCTA } from "@/components/contact/ContactCTA";
 import { faqPageJsonLd, JsonLd } from "@/components/seo/JsonLd";
 import { FaqAccordion } from "@/components/shared/FaqAccordion";
-import { PageHero } from "@/components/shared/PageHero";
 import { ProcessGridSection } from "@/components/shared/ProcessGridSection";
 import {
   PillarCrossLink,
   PillarCrossLinks,
 } from "@/components/shared/PillarCrossLinks";
-import { ThermalComfortSection } from "@/components/shared/ThermalComfortSection";
-import { TopicGridSection } from "@/components/shared/TopicGridSection";
 import {
-  climateComfort,
   climateCta,
   climateFaq,
   climateHero,
@@ -19,6 +17,7 @@ import {
   climateProcess,
   climateProcessSection,
   climateServices,
+  climateServicesIntro,
 } from "@/content/climate";
 
 export const metadata: Metadata = {
@@ -38,31 +37,22 @@ export default function ClimatePage() {
           climateFaq.map((f) => ({ question: f.question, answer: f.answer })),
         )}
       />
-      <PageHero
+      <ClimateHero
         label={climateHero.label}
         title={climateHero.title}
+        headline={climateHero.headline}
         description={climateHero.description}
+        support={climateHero.support}
         image={climateHero.image}
         cta={{ label: climateHero.cta, href: "/contacto" }}
+        services={climateServices}
       />
 
-      <ThermalComfortSection
-        label="COMFORT"
-        temperature={climateComfort.temperature}
-        title={climateComfort.headline}
-        subline={climateComfort.subline}
-        tags={climateComfort.tags}
-        image={climateComfort.image}
-        link={{ label: "Hablar de mi proyecto", href: "/contacto" }}
-      />
-
-      <TopicGridSection
-        label="SERVICIOS"
-        title="Ingeniería integrada en el proyecto"
+      <ClimateServices
+        label={climateServicesIntro.label}
+        title={climateServicesIntro.title}
+        lead={climateServicesIntro.lead}
         items={climateServices}
-        tone="cream"
-        borderTop
-        columns={3}
         footer={
           <PillarCrossLinks>
             Reforma e interiorismo en <PillarCrossLink href="/reformas">Reformas</PillarCrossLink> e{" "}

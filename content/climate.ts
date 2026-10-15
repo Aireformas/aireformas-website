@@ -1,78 +1,135 @@
-import type { FaqItem, ProcessStep } from "@/lib/types";
+import type { FaqItem, ImageAsset, ProcessStep } from "@/lib/types";
 
 export const climateMeta = {
   title: "Climatización invisible y aerotermia",
   description:
-    "AIREFORMAS Climate: aerotermia, suelo radiante, conductos, rejillas arquitectónicas, ACS y control inteligente integrados en el proyecto de vivienda en Madrid.",
+    "AIREFORMAS Climate: aerotermia, bombas de calor y VRV, ventilación con recuperación, suelo radiante, conductos, ACS y control inteligente integrados en el proyecto de vivienda en Madrid.",
 };
 
 export const climateHero = {
-  label: "AIREFORMAS CLIMATE",
-  title: "Confort que se siente. Tecnología que desaparece.",
-  description:
+  label: "Confort",
+  title: "Climate",
+  headline: "Tecnología que se siente",
+  description: "Confort constante todo el año.",
+  support:
     "Diseñamos climatización, agua caliente y control como parte del espacio: invisible en la arquitectura, precisa en el funcionamiento.",
   cta: "Hablar de mi proyecto",
   image: {
     src: "/images/climate/climate-hero.jpg",
-    alt: "Salón con rejilla lineal en el techo, suelo de madera y panel de clima a 22°C",
+    alt: "Salón con rejilla lineal en el techo y unidad de aerotermia en el jardín, vista a través del ventanal",
   },
 };
 
+export type ClimateService = {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  image: ImageAsset;
+};
+
+export const climateServicesIntro = {
+  label: "Servicios",
+  title: "Ingeniería y diseño integrados al proyecto",
+  lead: "Soluciones de climatización pensadas desde el inicio, coordinadas con la arquitectura y el interiorismo para un resultado eficiente, estético y duradero.",
+};
+
+export const climateServices: readonly ClimateService[] = [
+  {
+    id: "bombas-de-calor",
+    title: "Bombas de calor y VRV",
+    description:
+      "Sistemas de alta eficiencia para calefacción y refrigeración, con regulación independiente por zonas.",
+    icon: "heat_pump",
+    image: {
+      src: "/images/climate/climate-vrv.jpg",
+      alt: "Consola de bomba de calor blanca junto a un ventanal en un interior de yeso y roble",
+    },
+  },
+  {
+    id: "ventilacion",
+    title: "Ventilación y recuperación",
+    description:
+      "Renovación continua del aire interior con recuperación energética, mejorando la calidad ambiental y reduciendo el consumo.",
+    icon: "air",
+    image: {
+      src: "/images/climate/climate-ventilacion.jpg",
+      alt: "Equipo de recuperación de calor con tres conductos metálicos en un cuarto técnico",
+    },
+  },
+  {
+    id: "aerotermia",
+    title: "Aerotermia",
+    description:
+      "Tecnología eficiente para producir calefacción, refrigeración y agua caliente sanitaria con la energía del aire exterior.",
+    icon: "sunny",
+    image: {
+      src: "/images/climate/climate-aerotermia.jpg",
+      alt: "Unidad exterior de aerotermia en la terraza de una vivienda de hormigón y vidrio",
+    },
+  },
+  {
+    id: "suelo-radiante",
+    title: "Suelo radiante",
+    description:
+      "Climatización uniforme mediante circuitos integrados en el pavimento, con el máximo confort térmico y sin rejillas visibles.",
+    icon: "waves",
+    image: {
+      src: "/images/climate/climate-suelo.jpg",
+      alt: "Circuitos de suelo radiante sobre aislamiento negro, con colector junto a un pilar de hormigón",
+    },
+  },
+  {
+    id: "climatizacion-invisible",
+    title: "Climatización invisible",
+    description:
+      "Integración de los sistemas en techos, paredes y elementos arquitectónicos, sin alterar la estética interior.",
+    icon: "visibility",
+    image: {
+      src: "/images/climate/climate-invisible.jpg",
+      alt: "Corte de techo con conducto de suministro y plenum de retorno sobre un salón terminado",
+    },
+  },
+  {
+    id: "acs",
+    title: "ACS",
+    description:
+      "Producción y distribución de agua caliente sanitaria dimensionada al uso real de cada vivienda.",
+    icon: "water_drop",
+    image: {
+      src: "/images/climate/climate-acs.jpg",
+      alt: "Acumulador de agua caliente integrado en un armario de roble, con vaso de expansión y tuberías",
+    },
+  },
+  {
+    id: "conductos",
+    title: "Conductos y rejillas",
+    description:
+      "Rejillas lineales y retornos arquitectónicos alineados con techos y carpintería, para una distribución del aire eficiente y discreta.",
+    icon: "hvac",
+    image: {
+      src: "/images/climate/climate-conductos.jpg",
+      alt: "Salón y cocina con rejillas lineales en el techo y un conducto circular alineado con la arquitectura",
+    },
+  },
+  {
+    id: "control",
+    title: "Control inteligente",
+    description:
+      "Gestión de temperatura, zonas, horarios y consumo para un confort personalizado, sin complicar el día a día.",
+    icon: "thermostat",
+    image: {
+      src: "/images/climate/climate-control.jpg",
+      alt: "Panel de clima en la pared mostrando 22 grados, con el salón desenfocado al fondo",
+    },
+  },
+];
+
 export const climateProcessSection = {
-  label: "PROCESO",
+  label: "Proceso",
   title: "De la carga térmica al confort",
   lead: "Ingeniería y ejecución coordinadas con reforma e interiorismo en un solo calendario.",
 };
-
-export const climateComfort = {
-  temperature: "22°C",
-  headline: "Confort que se siente",
-  subline: "Tecnología que desaparece.",
-  tags: [
-    "Aerotermia",
-    "Suelo radiante",
-    "Climatización invisible",
-    "ACS",
-    "Control inteligente",
-  ] as const,
-  image: {
-    src: "/images/climate/climate-comfort.jpg",
-    alt: "Interior con rejilla lineal, termostato a 22°C y unidad de aerotermia en el jardín",
-  },
-};
-
-export const climateServices = [
-  {
-    title: "Aerotermia",
-    description:
-      "Producción eficiente de frío y calor integrada en el proyecto de reforma o vivienda nueva.",
-  },
-  {
-    title: "Suelo radiante",
-    description:
-      "Confort homogéneo sin rejillas visibles. Compatible con pavimentos de diseño.",
-  },
-  {
-    title: "Conductos y rejillas",
-    description:
-      "Rejillas lineales y retornos arquitectónicos alineados con techos y carpintería.",
-  },
-  {
-    title: "ACS",
-    description:
-      "Agua caliente sanitaria dimensionada con el uso real de la vivienda.",
-  },
-  {
-    title: "Domótica y control",
-    description:
-      "Zonas, horarios y escenas que simplifican el día a día sin complicar la interfaz.",
-  },
-  {
-    title: "Integración en obra",
-    description:
-      "Instalaciones coordinadas con albañilería, falsos techos y mobiliario.",
-  },
-];
 
 export const climateProcess: ProcessStep[] = [
   {
@@ -102,13 +159,19 @@ export const climateFaq: FaqItem[] = [
     id: "invisible",
     question: "¿Qué significa climatización invisible?",
     answer:
-      "Significa que rejillas, retornos y equipos se resuelven en el proyecto arquitectónico: líneas limpias, menos elementos visibles y confort constante.",
+      "Rejillas, retornos y equipos se resuelven en el proyecto arquitectónico: líneas limpias, menos elementos visibles y confort constante.",
   },
   {
     id: "aerotermia-reforma",
     question: "¿Se puede instalar aerotermia en una reforma?",
     answer:
-      "Sí, en muchos casos. Evaluamos la vivienda, espacio técnico y envolvente para proponer la solución más adecuada.",
+      "Sí, en muchos casos. Evaluamos la vivienda, el espacio técnico y la envolvente para proponer la solución más adecuada.",
+  },
+  {
+    id: "ventilacion",
+    question: "¿La ventilación con recuperación sustituye a la climatización?",
+    answer:
+      "No. Renueva el aire y recupera energía. La carga térmica la cubren aerotermia, VRV o suelo radiante. Se diseñan juntos.",
   },
   {
     id: "suelo-radiante",
@@ -120,7 +183,7 @@ export const climateFaq: FaqItem[] = [
     id: "solo-clima",
     question: "¿Trabajáis climatización sin reforma completa?",
     answer:
-      "Nuestro enfoque es integral. Climate brilla cuando se diseña junto al resto del proyecto; consultamos casos puntuales según alcance.",
+      "El enfoque es integral. Climate funciona mejor cuando se diseña junto al resto del proyecto; consultamos casos puntuales según alcance.",
   },
   {
     id: "zona",
