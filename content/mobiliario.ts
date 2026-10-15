@@ -34,8 +34,8 @@ export const mobiliarioCopy = defineCopy({
         "Fabricación, transporte e instalación con un equipo que conoce la obra y el diseño acordado.",
       ],
       image: {
-        src: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=1200&q=85",
-        alt: "Vestidor con carpintería a medida e iluminación integrada",
+        src: "/images/distributions/67_SALON_jotajotape_NEXT.jpg",
+        alt: "Salón con mueble TV modular y estantería que completan la arquitectura del espacio",
       },
     },
     solutions: {
@@ -231,10 +231,34 @@ export const mobiliarioCopy = defineCopy({
       label: "GALERÍA",
       title: "Detalle de carpintería",
       items: [
-        { image: { src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80", alt: "Vestidor con cajoneras a medida" } },
-        { image: { src: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800&q=80", alt: "Armario con puertas lacadas" } },
-        { image: { src: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=800&q=80", alt: "Dormitorio con armario empotrado" } },
-        { image: { src: "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=800&q=80", alt: "Perchero y estanterías en vestidor" } },
+        {
+          caption: "Interior batiente",
+          image: {
+            src: "/images/distributions/21_BATIENTES_jotajotape_NEXT.jpg",
+            alt: "Armario batiente abierto con interior de madera, barras y cajones",
+          },
+        },
+        {
+          caption: "Corredera lacada",
+          image: {
+            src: "/images/distributions/40_jotajotape_NEXT.jpg",
+            alt: "Armario corredero lacado con panel espejo y sección abierta",
+          },
+        },
+        {
+          caption: "Vestidor cristal",
+          image: {
+            src: "/images/distributions/73_ARMARIO_jotajotape_NEXT.jpg",
+            alt: "Vestidor walk-in con puertas de cristal, tocador y librería",
+          },
+        },
+        {
+          caption: "Módulos abiertos",
+          image: {
+            src: "/images/distributions/57_jotajotape_NEXT.jpg",
+            alt: "Vestidor abierto con baldas de roble, barras e iluminación LED",
+          },
+        },
       ] satisfies GalleryItem[],
     },
     faq: [
@@ -275,8 +299,8 @@ export const mobiliarioCopy = defineCopy({
         "Making, delivery and installation by a team that knows the site and the agreed design.",
       ],
       image: {
-        src: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=1200&q=85",
-        alt: "Dressing room with bespoke joinery and integrated lighting",
+        src: "/images/distributions/67_SALON_jotajotape_NEXT.jpg",
+        alt: "Living room with modular TV unit and shelving that complete the architecture of the space",
       },
     },
     solutions: {
@@ -472,10 +496,34 @@ export const mobiliarioCopy = defineCopy({
       label: "GALLERY",
       title: "Joinery detail",
       items: [
-        { image: { src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80", alt: "Dressing room with bespoke drawers" } },
-        { image: { src: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800&q=80", alt: "Wardrobe with lacquered doors" } },
-        { image: { src: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=800&q=80", alt: "Bedroom with a built-in wardrobe" } },
-        { image: { src: "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=800&q=80", alt: "Rail and shelves in a dressing room" } },
+        {
+          caption: "Hinged interior",
+          image: {
+            src: "/images/distributions/21_BATIENTES_jotajotape_NEXT.jpg",
+            alt: "Open hinged wardrobe with wood interior, rails and drawers",
+          },
+        },
+        {
+          caption: "Lacquered sliding",
+          image: {
+            src: "/images/distributions/40_jotajotape_NEXT.jpg",
+            alt: "Lacquered sliding wardrobe with mirror panel and open section",
+          },
+        },
+        {
+          caption: "Glass walk-in",
+          image: {
+            src: "/images/distributions/73_ARMARIO_jotajotape_NEXT.jpg",
+            alt: "Walk-in dressing room with glass doors, vanity and bookcase",
+          },
+        },
+        {
+          caption: "Open modules",
+          image: {
+            src: "/images/distributions/57_jotajotape_NEXT.jpg",
+            alt: "Open dressing room with oak shelves, rails and LED lighting",
+          },
+        },
       ] satisfies GalleryItem[],
     },
     faq: [
