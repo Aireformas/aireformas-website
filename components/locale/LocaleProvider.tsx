@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, type ReactNode } from "react";
-import { LOCALE_STORAGE_KEY, type SiteLocale } from "@/lib/i18n";
+import type { SiteLocale } from "@/lib/i18n";
 
 const LocaleContext = createContext<SiteLocale>("es");
 
@@ -13,7 +13,6 @@ type LocaleProviderProps = {
 export function LocaleProvider({ locale, children }: LocaleProviderProps) {
   useEffect(() => {
     document.documentElement.lang = locale;
-    window.localStorage.setItem(LOCALE_STORAGE_KEY, locale);
   }, [locale]);
 
   return <LocaleContext.Provider value={locale}>{children}</LocaleContext.Provider>;

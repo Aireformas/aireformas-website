@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { Logo } from "@/components/layout/Logo";
 import { useLocale } from "@/components/locale/LocaleProvider";
@@ -13,6 +13,7 @@ import { cn } from "@/lib/cn";
 import {
   isSiteLocale,
   LOCALE_STORAGE_KEY,
+  readLocaleCookie,
   writeLocaleCookie,
   type SiteLocale,
 } from "@/lib/i18n";
@@ -24,12 +25,27 @@ export function Header() {
   const ui = chrome[locale];
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const localeSynced = useRef(false);
 
   useEffect(() => {
+    if (localeSynced.current) return;
+    localeSynced.current = true;
+
+    const cookieLocale = readLocaleCookie();
+    if (cookieLocale) {
+      window.localStorage.setItem(LOCALE_STORAGE_KEY, cookieLocale);
+      return;
+    }
+
     const stored = window.localStorage.getItem(LOCALE_STORAGE_KEY);
-    if (!isSiteLocale(stored) || stored === locale) return;
-    writeLocaleCookie(stored);
-    router.refresh();
+    if (isSiteLocale(stored) && stored !== locale) {
+      writeLocaleCookie(stored);
+      router.refresh();
+      return;
+    }
+
+    window.localStorage.setItem(LOCALE_STORAGE_KEY, locale);
+    writeLocaleCookie(locale);
   }, [locale, router]);
 
   function chooseLocale(next: SiteLocale) {
