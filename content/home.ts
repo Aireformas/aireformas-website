@@ -86,7 +86,7 @@ export const homeCopy = defineCopy({
       items: [
         {
           eyebrow: "01 / ESTÉTICA & FUNCIÓN",
-          title: "Interior design",
+          title: "Interiorismo",
           description: "Distribución, materiales, iluminación, cocinas, baños y carpintería.",
           href: "/interiorismo",
           image: {
@@ -96,7 +96,7 @@ export const homeCopy = defineCopy({
         },
         {
           eyebrow: "02 / CONSTRUCCIÓN",
-          title: "Renovation",
+          title: "Reforma",
           description: "Proyecto, licencias, construcción, instalaciones y dirección de obra.",
           href: "/reformas",
           image: {
@@ -106,7 +106,7 @@ export const homeCopy = defineCopy({
         },
         {
           eyebrow: "03 / EBANISTERÍA",
-          title: "Furniture",
+          title: "Mobiliario",
           description: "Mobiliario, piezas especiales, textiles e iluminación decorativa.",
           href: "/mobiliario",
           image: {
@@ -116,7 +116,7 @@ export const homeCopy = defineCopy({
         },
         {
           eyebrow: "04 / TECNOLOGÍA INVISIBLE",
-          title: "Climate",
+          title: "Climatización",
           description: "Aerotermia, suelo radiante, conductos, ACS y control inteligente.",
           href: "/climate",
           image: {
