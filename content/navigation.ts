@@ -19,7 +19,6 @@ export function isNavGroup(entry: HeaderNavEntry): entry is HeaderNavGroup {
 }
 
 export const headerNav: HeaderNavEntry[] = [
-  { href: "/proyectos", label: { es: "Proyectos", en: "Projects" } },
   {
     label: { es: "Servicios", en: "Services" },
     items: [
@@ -29,7 +28,7 @@ export const headerNav: HeaderNavEntry[] = [
       { href: "/climate", label: { es: "Climate", en: "Climate" } },
     ],
   },
-  { href: "/estudio", label: { es: "Estudio", en: "Studio" } },
+  { href: "/proyectos", label: { es: "Proyectos", en: "Projects" } },
   { href: "/contacto", label: { es: "Contacto", en: "Contact" } },
 ];
 
