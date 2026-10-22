@@ -9,8 +9,8 @@ import { cn } from "@/lib/cn";
 
 const logoHeights = {
   dock: "h-8 w-auto max-w-[10rem] sm:h-9 sm:max-w-[11rem]",
-  header: "h-11 w-auto sm:h-12 md:h-[3.25rem]",
-  footer: "h-14 w-auto md:h-16",
+  header: "h-12 w-auto sm:h-[3.25rem] md:h-14",
+  footer: "h-16 w-auto md:h-[4.25rem]",
 } as const;
 
 type LogoSize = keyof typeof logoHeights;
