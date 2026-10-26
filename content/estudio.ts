@@ -115,6 +115,35 @@ export const estudioCopy = defineCopy({
     zone: {
       label: "ZONA",
       title: "Dónde trabajamos",
+      lead: "Proyectos integrados en Madrid capital y el noroeste metropolitano: distribución, materiales, mobiliario, iluminación, climatización e instalaciones con un solo equipo.",
+      highlight: "Madrid",
+      groups: [
+        {
+          id: "capital",
+          eyebrow: "Capital",
+          title: "Barrios donde más trabajamos",
+          places: [
+            "Salamanca",
+            "Chamberí",
+            "Chamartín",
+            "Retiro",
+            "Moncloa",
+            "Aravaca",
+          ],
+        },
+        {
+          id: "noroeste",
+          eyebrow: "Noroeste",
+          title: "Municipios del área metropolitana",
+          places: [
+            "Pozuelo de Alarcón",
+            "Boadilla del Monte",
+            "Majadahonda",
+            "Las Rozas",
+            "La Moraleja",
+          ],
+        },
+      ],
     },
     process: {
       label: "PROCESO",
@@ -269,6 +298,35 @@ export const estudioCopy = defineCopy({
     zone: {
       label: "AREA",
       title: "Where we work",
+      lead: "Integrated projects in Madrid city and the northwest metropolitan area: layout, materials, furniture, lighting, climate and services with one team.",
+      highlight: "Madrid",
+      groups: [
+        {
+          id: "capital",
+          eyebrow: "City",
+          title: "Neighbourhoods we work in most",
+          places: [
+            "Salamanca",
+            "Chamberí",
+            "Chamartín",
+            "Retiro",
+            "Moncloa",
+            "Aravaca",
+          ],
+        },
+        {
+          id: "noroeste",
+          eyebrow: "Northwest",
+          title: "Metropolitan municipalities",
+          places: [
+            "Pozuelo de Alarcón",
+            "Boadilla del Monte",
+            "Majadahonda",
+            "Las Rozas",
+            "La Moraleja",
+          ],
+        },
+      ],
     },
     process: {
       label: "PROCESS",
