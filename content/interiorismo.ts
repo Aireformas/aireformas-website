@@ -17,8 +17,8 @@ export const interiorismoCopy = defineCopy({
         "Cada proyecto comienza escuchando al cliente. Moodboards, materiales, luz, mobiliario y renders 3D antes de ejecutar.",
       cta: "Hablar de mi proyecto",
       image: {
-        src: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=2400&q=90",
-        alt: "Salón con diseño de interiorismo y luz natural",
+        src: "/images/interiorismo/interiorismo-hero.jpg",
+        alt: "Salón residencial de interiorismo con materiales naturales, luz cálida y atmósfera doméstica",
       },
       chips: [
         { id: "concepto", title: "Concepto y estilo de vida", icon: "home" },
@@ -124,8 +124,8 @@ export const interiorismoCopy = defineCopy({
         "Every project begins by listening to the client. Moodboards, materials, light, furniture and 3D renders before we build.",
       cta: "Start a project",
       image: {
-        src: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=2400&q=90",
-        alt: "Living room with interior design and daylight",
+        src: "/images/interiorismo/interiorismo-hero.jpg",
+        alt: "Residential living room with natural materials, warm light and a domestic atmosphere",
       },
       chips: [
         { id: "concepto", title: "Concept and way of living", icon: "home" },

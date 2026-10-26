@@ -163,21 +163,30 @@ export const estudioCopy = defineCopy({
         quote: "El armario aprovecha cada centímetro y la instalación fue impecable. Se nota el cuidado en los acabados.",
         author: "María G.",
         role: "Cliente, Madrid",
-        image: { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80", alt: "Detalle de armario terminado en vivienda" },
+        image: {
+          src: "/images/testimonials/testimonio-armario.jpg",
+          alt: "Interior de armario a medida en roble con iluminación LED y acabados precisos",
+        },
       },
       {
         id: "2",
         quote: "Nos ayudaron a unificar salón y cocina con un diseño muy personal. Comunicación clara en todo momento.",
         author: "Carlos y Laura",
         role: "Reforma integral",
-        image: { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80", alt: "Espacio reformado con diseño de interiorismo" },
+        image: {
+          src: "/images/testimonials/testimonio-salon-cocina.jpg",
+          alt: "Salón y cocina unificados en planta abierta con carpintería en roble",
+        },
       },
       {
         id: "3",
         quote: "Profesionales, puntuales y con muy buen gusto. El resultado superó lo que teníamos en mente.",
         author: "Elena R.",
         role: "Proyecto de interiorismo",
-        image: { src: "https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=600&q=80", alt: "Rincón de lectura con iluminación cálida" },
+        image: {
+          src: "/images/testimonials/testimonio-interiorismo.jpg",
+          alt: "Salón de interiorismo terminado con materiales naturales e iluminación cálida",
+        },
       },
     ] satisfies Testimonial[],
     cta: {
@@ -346,21 +355,30 @@ export const estudioCopy = defineCopy({
         quote: "The wardrobe uses every centimetre and the installation was impeccable. You can see the care in the finishes.",
         author: "María G.",
         role: "Client, Madrid",
-        image: { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80", alt: "Detail of a finished wardrobe in a home" },
+        image: {
+          src: "/images/testimonials/testimonio-armario.jpg",
+          alt: "Interior of a bespoke oak wardrobe with LED lighting and precise finishes",
+        },
       },
       {
         id: "2",
         quote: "They helped us unite living room and kitchen with a very personal design. Clear communication throughout.",
         author: "Carlos y Laura",
         role: "Full renovation",
-        image: { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80", alt: "Renovated space with interior design" },
+        image: {
+          src: "/images/testimonials/testimonio-salon-cocina.jpg",
+          alt: "Open-plan living room and kitchen unified with oak joinery",
+        },
       },
       {
         id: "3",
         quote: "Professional, punctual and with very good taste. The result went beyond what we had in mind.",
         author: "Elena R.",
         role: "Interior project",
-        image: { src: "https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=600&q=80", alt: "Reading corner with warm lighting" },
+        image: {
+          src: "/images/testimonials/testimonio-interiorismo.jpg",
+          alt: "Finished living room with natural materials and warm lighting",
+        },
       },
     ] satisfies Testimonial[],
     cta: {
