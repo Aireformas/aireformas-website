@@ -9,8 +9,13 @@ import { cn } from "@/lib/cn";
 
 const logoHeights = {
   dock: "h-8 w-auto max-w-[10rem] sm:h-9 sm:max-w-[11rem]",
-  header: "h-12 w-auto sm:h-[3.25rem] md:h-14",
+  header: "h-[3.25rem] w-auto sm:h-14 md:h-16",
   footer: "h-16 w-auto md:h-[4.25rem]",
+} as const;
+
+const logoShadow = {
+  default: "drop-shadow-[0_1px_2px_rgba(46,42,38,0.18)]",
+  white: "drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]",
 } as const;
 
 type LogoSize = keyof typeof logoHeights;
@@ -51,7 +56,10 @@ export function Logo({
         width={asset.width}
         height={asset.height}
         unoptimized
-        className={logoHeights[size]}
+        className={cn(
+          logoHeights[size],
+          size === "header" && logoShadow[variant],
+        )}
         priority={size === "header" || size === "dock"}
       />
     </Link>

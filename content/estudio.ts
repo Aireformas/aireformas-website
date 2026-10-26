@@ -6,22 +6,95 @@ export const estudioCopy = defineCopy({
     meta: {
       title: "Estudio",
       description:
-        "Cómo diseñamos viviendas completas en Madrid: interiorismo, reforma, mobiliario y climatización con un solo equipo.",
+        "Diseñamos espacios. Creamos experiencias. Diseño, técnica y ejecución en equilibrio para viviendas, oficinas y locales en Madrid.",
     },
     hero: {
       label: "ESTUDIO",
-      title: "Diseñamos viviendas para ser vividas",
-      description:
-        "Un buen proyecto no termina en lo que ves. Trabajamos distribución, materiales y mobiliario, y también lo que no se ve: iluminación, climatización, instalaciones y tecnología.",
+      title: "Diseñamos espacios. Creamos experiencias.",
+      description: "Diseño, técnica y ejecución en equilibrio.",
       image: {
         src: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=2400&q=90",
-        alt: "Espacio residencial diseñado por aireformas",
+        alt: "Espacio interior con luz natural y materiales naturales",
       },
     },
-    values: {
-      label: "VALORES",
-      title: "Lo que guía cada proyecto",
-      items: ["Detalle", "Material", "Proporción", "Luz", "Confort", "Funcionalidad", "Atemporalidad"],
+    editorial: {
+      label: "MANIFIESTO",
+      title: "Cada espacio tiene una identidad",
+      paragraphs: [
+        "Cada espacio tiene una identidad. Nuestro trabajo consiste en descubrirla, interpretarla y transformarla en un proyecto único.",
+        "En AIREFORMAS entendemos el diseño como el equilibrio entre estética, funcionalidad y bienestar. Cada proyecto nace de escuchar, comprender las necesidades de quienes lo habitan o utilizan y transformar sus ideas en soluciones reales, coherentes y duraderas.",
+        "Nos guían la atención al detalle, la proporción, la luz, la armonía de los materiales y la calidad de los acabados. Buscamos una arquitectura interior atemporal, donde cada elemento tenga una razón de ser y contribuya al confort y a la experiencia del espacio.",
+        "Trabajamos en viviendas, oficinas y locales comerciales, adaptando cada propuesta a su uso, su identidad y sus objetivos. Desde la distribución y la elección de materiales hasta el mobiliario, las instalaciones y la climatización, concebimos cada proyecto como un conjunto.",
+        "Combinamos sensibilidad por el diseño, conocimiento técnico y capacidad de ejecución, siempre con una visión realista de la inversión y las prioridades de cada cliente.",
+        "Porque un buen proyecto no solo debe verse bien. Debe funcionar, sentirse bien y permanecer en el tiempo.",
+      ],
+      image: {
+        src: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=90",
+        alt: "Interior con madera, luz cálida y proporción calmada",
+      },
+    },
+    principles: {
+      label: "PRINCIPIOS",
+      title: "Los seis principios del estudio",
+      items: [
+        {
+          title: "01 · Detalle",
+          description: "Encuentros, terminaciones y precisión en cada solución.",
+        },
+        {
+          title: "02 · Proporción",
+          description: "Equilibrio entre volúmenes, medidas, distribución y circulación.",
+        },
+        {
+          title: "03 · Luz",
+          description: "Iluminación natural y artificial al servicio del ambiente y el bienestar.",
+        },
+        {
+          title: "04 · Materialidad",
+          description: "Texturas, colores y materiales seleccionados por calidad y durabilidad.",
+        },
+        {
+          title: "05 · Confort y funcionalidad",
+          description: "Ergonomía, instalaciones, eficiencia y facilidad de uso.",
+        },
+        {
+          title: "06 · Atemporalidad",
+          description: "Lenguaje sobrio y duradero más allá de tendencias pasajeras.",
+        },
+      ],
+    },
+    scopes: {
+      label: "ÁMBITOS",
+      title: "Dónde actuamos",
+      items: [
+        {
+          title: "Viviendas",
+          description:
+            "Reformas e interiorismo de viviendas con integración de distribución, acabados, mobiliario, iluminación e instalaciones para una vida cotidiana más cómoda.",
+          image: {
+            src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=85",
+            alt: "Interior residencial con cocina integrada y luz natural",
+          },
+        },
+        {
+          title: "Oficinas y espacios de trabajo",
+          description:
+            "Adecuación de oficinas y entornos profesionales: imagen corporativa, ergonomía, acústica, iluminación, climatización, distribución y bienestar.",
+          image: {
+            src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=85",
+            alt: "Espacio de trabajo con luz natural y distribución abierta",
+          },
+        },
+        {
+          title: "Locales y espacios comerciales",
+          description:
+            "Reforma y adaptación de locales: identidad de marca, experiencia del cliente, recorridos, exhibición, funcionalidad, instalaciones y soluciones constructivas adaptadas a la actividad.",
+          image: {
+            src: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=85",
+            alt: "Local comercial con recorrido de atención y acabados contemporáneos",
+          },
+        },
+      ],
     },
     stats: [
       { value: "15+", label: "Años de experiencia" },
@@ -37,12 +110,12 @@ export const estudioCopy = defineCopy({
       label: "PROCESO",
       title: "Nuestra forma de trabajar",
       steps: [
-        { number: "01", title: "Escuchamos", description: "Necesidades, estilo de vida, vivienda e inversión." },
+        { number: "01", title: "Escuchamos", description: "Necesidades, estilo de vida, espacio e inversión." },
         { number: "02", title: "Diseñamos", description: "Distribución, materiales, iluminación y renders." },
         { number: "03", title: "Planificamos", description: "Presupuesto, calendario, licencias y compras." },
         { number: "04", title: "Construimos", description: "Un único equipo coordina toda la ejecución." },
         { number: "05", title: "Equipamos", description: "Mobiliario, iluminación, textiles y tecnología." },
-        { number: "06", title: "Entregamos", description: "Tu vivienda completamente terminada." },
+        { number: "06", title: "Entregamos", description: "Espacio completamente terminado." },
       ] satisfies ProcessStep[],
     },
     testimonials: [
@@ -70,29 +143,102 @@ export const estudioCopy = defineCopy({
     ] satisfies Testimonial[],
     cta: {
       title: "Conocemos tu proyecto",
-      description: "Pisos y chalets de 90 a 500 m² en Madrid y noroeste. Cuéntanos el tuyo.",
+      description: "Viviendas, oficinas y locales en Madrid y noroeste. Cuéntanos el tuyo.",
     },
   },
   en: {
     meta: {
       title: "Studio",
       description:
-        "How we design complete homes in Madrid: interiors, renovation, furniture and climate with one team.",
+        "We design spaces. We create experiences. Design, technique and delivery in balance for homes, offices and retail in Madrid.",
     },
     hero: {
       label: "STUDIO",
-      title: "We design homes to be lived in",
-      description:
-        "A good project does not end with what you see. We work on layout, materials and furniture, and also on what stays unseen: lighting, climate, services and technology.",
+      title: "We design spaces. We create experiences.",
+      description: "Design, technique and delivery in balance.",
       image: {
         src: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=2400&q=90",
-        alt: "Residential space designed by aireformas",
+        alt: "Interior space with natural light and natural materials",
       },
     },
-    values: {
-      label: "VALUES",
-      title: "What guides every project",
-      items: ["Detail", "Material", "Proportion", "Light", "Comfort", "Function", "Longevity"],
+    editorial: {
+      label: "MANIFESTO",
+      title: "Every space has an identity",
+      paragraphs: [
+        "Every space has an identity. Our work is to discover it, interpret it and turn it into a unique project.",
+        "At AIREFORMAS we understand design as the balance between aesthetics, function and wellbeing. Every project begins by listening, understanding the needs of those who live in or use the space, and turning their ideas into real, coherent and lasting solutions.",
+        "We are guided by attention to detail, proportion, light, the harmony of materials and the quality of finishes. We seek a timeless interior architecture, where every element has a reason to be and contributes to comfort and the experience of the space.",
+        "We work on homes, offices and commercial premises, adapting each proposal to its use, identity and goals. From layout and material selection to furniture, services and climate, we conceive every project as a whole.",
+        "We combine design sensitivity, technical knowledge and delivery capacity, always with a realistic view of investment and each client's priorities.",
+        "Because a good project must not only look right. It must work, feel right and last over time.",
+      ],
+      image: {
+        src: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=90",
+        alt: "Interior with wood, warm light and calm proportion",
+      },
+    },
+    principles: {
+      label: "PRINCIPLES",
+      title: "The six principles of the studio",
+      items: [
+        {
+          title: "01 · Detail",
+          description: "Junctions, terminations and precision in every solution.",
+        },
+        {
+          title: "02 · Proportion",
+          description: "Balance between volumes, measures, layout and circulation.",
+        },
+        {
+          title: "03 · Light",
+          description: "Natural and artificial lighting in service of atmosphere and wellbeing.",
+        },
+        {
+          title: "04 · Materiality",
+          description: "Textures, colours and materials chosen for quality and durability.",
+        },
+        {
+          title: "05 · Comfort and function",
+          description: "Ergonomics, services, efficiency and ease of use.",
+        },
+        {
+          title: "06 · Timelessness",
+          description: "A sober, lasting language beyond passing trends.",
+        },
+      ],
+    },
+    scopes: {
+      label: "SCOPES",
+      title: "Where we work",
+      items: [
+        {
+          title: "Homes",
+          description:
+            "Home renovation and interiors with integrated layout, finishes, furniture, lighting and services for everyday comfort.",
+          image: {
+            src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=85",
+            alt: "Residential interior with an open kitchen and natural light",
+          },
+        },
+        {
+          title: "Offices and workplaces",
+          description:
+            "Fit-out of offices and professional environments: corporate image, ergonomics, acoustics, lighting, climate, layout and wellbeing.",
+          image: {
+            src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=85",
+            alt: "Workplace with natural light and an open layout",
+          },
+        },
+        {
+          title: "Retail and commercial spaces",
+          description:
+            "Renovation and adaptation of premises: brand identity, customer experience, circulation, display, function, services and construction solutions suited to the activity.",
+          image: {
+            src: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=85",
+            alt: "Retail space with a customer journey and contemporary finishes",
+          },
+        },
+      ],
     },
     stats: [
       { value: "15+", label: "Years of experience" },
@@ -108,12 +254,12 @@ export const estudioCopy = defineCopy({
       label: "PROCESS",
       title: "How we work",
       steps: [
-        { number: "01", title: "We listen", description: "Needs, way of living, the home and the investment." },
+        { number: "01", title: "We listen", description: "Needs, way of living, the space and the investment." },
         { number: "02", title: "We design", description: "Layout, materials, lighting and renders." },
         { number: "03", title: "We plan", description: "Budget, schedule, permits and procurement." },
         { number: "04", title: "We build", description: "One team coordinates the whole build." },
         { number: "05", title: "We furnish", description: "Furniture, lighting, textiles and technology." },
-        { number: "06", title: "We hand over", description: "Your home, completely finished." },
+        { number: "06", title: "We hand over", description: "A completely finished space." },
       ] satisfies ProcessStep[],
     },
     testimonials: [
@@ -141,7 +287,7 @@ export const estudioCopy = defineCopy({
     ] satisfies Testimonial[],
     cta: {
       title: "Tell us about your project",
-      description: "Apartments and houses from 90 to 500 m² in Madrid and the northwest. Tell us about yours.",
+      description: "Homes, offices and retail in Madrid and the northwest. Tell us about yours.",
     },
   },
 });

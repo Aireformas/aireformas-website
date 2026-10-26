@@ -5,11 +5,11 @@ export const site = {
   name: "aireformas",
   brandLine: "Interior Design · Renovation · Furniture · Climate",
   tagline:
-    "Diseñamos viviendas para ser vividas. Interiorismo, reforma, mobiliario y climatización integrados en un único proyecto.",
+    "Diseñamos espacios. Creamos experiencias. Interiorismo, reforma, mobiliario y climatización integrados en un único proyecto.",
   shortTagline:
     "Interiorismo, reforma, mobiliario y climatización en un único proyecto.",
   entityDescription:
-    "aireformas diseña y ejecuta proyectos residenciales integrados: distribución, materiales, mobiliario, iluminación, climatización e instalaciones con un solo equipo.",
+    "aireformas diseña y ejecuta proyectos integrados para viviendas, oficinas y locales: distribución, materiales, mobiliario, iluminación, climatización e instalaciones con un solo equipo.",
   pillars: [
     "Interior design",
     "Renovation",
@@ -74,11 +74,11 @@ export const siteCopy = defineCopy({
   },
   en: {
     tagline:
-      "We design homes to be lived in. Interior design, renovation, furniture and climate integrated in a single project.",
+      "We design spaces. We create experiences. Interior design, renovation, furniture and climate integrated in a single project.",
     shortTagline:
       "Interior design, renovation, furniture and climate in a single project.",
     entityDescription:
-      "aireformas designs and delivers integrated residential projects: layout, materials, furniture, lighting, climate and building services with one team.",
+      "aireformas designs and delivers integrated projects for homes, offices and retail: layout, materials, furniture, lighting, climate and building services with one team.",
     address: "Madrid and surrounding areas",
     copyright: `© ${year} aireformas. All rights reserved.`,
     knowsAbout: [

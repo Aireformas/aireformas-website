@@ -21,20 +21,20 @@ export function PhilosophyBandSection({
       className="border-t border-white/10 bg-deep-brown py-space-2xl text-surface px-margin-mobile md:px-margin"
       aria-labelledby={headingId}
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-gutter md:grid-cols-12">
-        <div className="md:col-span-6">
-          <div className="overflow-hidden rounded-editorial border border-white/10 shadow-2xl">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-stretch gap-gutter md:grid-cols-12">
+        <div className="md:col-span-5 lg:col-span-6">
+          <div className="relative h-full min-h-[22rem] overflow-hidden rounded-editorial border border-white/10 shadow-2xl md:min-h-[36rem]">
             <Image
               src={image.src}
               alt={image.alt}
-              width={1200}
-              height={1500}
-              className="h-[600px] w-full object-cover"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
             />
           </div>
         </div>
 
-        <div className="flex flex-col justify-center md:col-span-6 md:pl-8">
+        <div className="flex flex-col justify-center md:col-span-7 md:pl-8 lg:col-span-6">
           <span className="mb-4 block text-label-uppercase text-tertiary-fixed">
             {label}
           </span>
@@ -44,7 +44,7 @@ export function PhilosophyBandSection({
           >
             {title}
           </h2>
-          <div className="space-y-6 text-body-lg font-light text-surface/90">
+          <div className="space-y-5 text-body-md font-light text-surface/90 md:space-y-6 md:text-body-lg">
             {paragraphs.map((paragraph, index) => (
               <p
                 key={paragraph.slice(0, 32)}

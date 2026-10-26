@@ -19,6 +19,7 @@ export function isNavGroup(entry: HeaderNavEntry): entry is HeaderNavGroup {
 }
 
 export const headerNav: HeaderNavEntry[] = [
+  { href: "/estudio", label: { es: "Estudio", en: "Studio" } },
   {
     label: { es: "Servicios", en: "Services" },
     items: [
@@ -39,22 +40,24 @@ export const headerCta: Localized = {
 
 export const footerNav: Record<SiteLocale, { label: string; href: string }[]> = {
   es: [
-    { label: "Proyectos", href: "/proyectos" },
+    { label: "Estudio", href: "/estudio" },
     { label: "Interiorismo", href: "/interiorismo" },
     { label: "Reformas", href: "/reformas" },
     { label: "Mobiliario", href: "/mobiliario" },
     { label: "Climate", href: "/climate" },
-    { label: "Estudio", href: "/estudio" },
+    { label: "Proyectos", href: "/proyectos" },
     { label: "Contacto", href: "/contacto" },
+    { label: "Preguntas frecuentes", href: "/preguntas-frecuentes" },
   ],
   en: [
-    { label: "Projects", href: "/proyectos" },
+    { label: "Studio", href: "/estudio" },
     { label: "Interiors", href: "/interiorismo" },
     { label: "Renovation", href: "/reformas" },
     { label: "Furniture", href: "/mobiliario" },
     { label: "Climate", href: "/climate" },
-    { label: "Studio", href: "/estudio" },
+    { label: "Projects", href: "/proyectos" },
     { label: "Contact", href: "/contacto" },
+    { label: "FAQ", href: "/preguntas-frecuentes" },
   ],
 };
 

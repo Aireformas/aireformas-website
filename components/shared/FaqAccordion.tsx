@@ -8,19 +8,31 @@ import { SectionIntro } from "@/components/shared/SectionIntro";
 import { sectionShellClass } from "@/lib/sectionSurface";
 
 type FaqAccordionProps = {
-  label: string;
-  title: string;
+  label?: string;
+  title?: string;
   items: FaqItem[];
+  hideIntro?: boolean;
 };
 
-export function FaqAccordion({ label, title, items }: FaqAccordionProps) {
+export function FaqAccordion({
+  label,
+  title,
+  items,
+  hideIntro = false,
+}: FaqAccordionProps) {
   const [openId, setOpenId] = useState<string | null>(items[0]?.id ?? null);
+  const showIntro = !hideIntro && Boolean(label && title);
 
   return (
     <section className={sectionShellClass("paper", { borderTop: true })}>
       <div className="mx-auto max-w-7xl">
-        <SectionIntro label={label} title={title} />
-        <div className="mt-12 divide-y divide-outline/20 border-y border-outline/20">
+        {showIntro ? <SectionIntro label={label!} title={title!} /> : null}
+        <div
+          className={cn(
+            "divide-y divide-outline/20 border-y border-outline/20",
+            showIntro ? "mt-12" : "mt-0",
+          )}
+        >
           {items.map((item) => {
             const isOpen = openId === item.id;
             return (

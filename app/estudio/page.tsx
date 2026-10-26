@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { ContactCTA } from "@/components/contact/ContactCTA";
 import { InView } from "@/components/motion/InView";
+import { EditorialFeatureGrid } from "@/components/shared/EditorialFeatureGrid";
 import { PageHero } from "@/components/shared/PageHero";
+import { PhilosophyBandSection } from "@/components/shared/PhilosophyBandSection";
 import { ProcessGridSection } from "@/components/shared/ProcessGridSection";
 import { PageSection } from "@/components/shared/PageSection";
 import { SectionIntro } from "@/components/shared/SectionIntro";
+import { TopicGridSection } from "@/components/shared/TopicGridSection";
 import { TestimonialsSection } from "@/components/testimonials/TestimonialsSection";
 import { chrome } from "@/content/chrome";
 import { estudioCopy } from "@/content/estudio";
@@ -24,43 +27,40 @@ export default async function EstudioPage() {
   const locale = await getLocale();
   const copy = estudioCopy[locale];
   const ui = chrome[locale];
-  const estudioHero = copy.hero;
-  const estudioValues = copy.values.items;
-  const estudioTrustStats = copy.stats;
-  const estudioProcess = copy.process.steps;
-  const estudioTestimonials = copy.testimonials;
-  const estudioCta = copy.cta;
+
   return (
     <>
       <PageHero
-        label={estudioHero.label}
-        title={estudioHero.title}
-        description={estudioHero.description}
-        image={estudioHero.image}
+        label={copy.hero.label}
+        title={copy.hero.title}
+        description={copy.hero.description}
+        image={copy.hero.image}
         cta={{ label: ui.talk, href: "/contacto" }}
       />
 
-      <PageSection tone="sand" borderTop>
-        <SectionIntro label={copy.values.label} title={copy.values.title} />
-        <ul className="flex flex-wrap gap-x-6 gap-y-3">
-          {estudioValues.map((value) => (
-            <li key={value} className="text-label-uppercase text-warm-label">
-              {value}
-            </li>
-          ))}
-        </ul>
-      </PageSection>
+      <PhilosophyBandSection
+        label={copy.editorial.label}
+        title={copy.editorial.title}
+        paragraphs={copy.editorial.paragraphs}
+        image={copy.editorial.image}
+        headingId="estudio-manifiesto"
+      />
 
-      <PageSection tone="cream" compact className="border-y border-outline/10">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-          {estudioTrustStats.map((stat) => (
-            <div key={stat.label}>
-              <p className="text-headline-lg font-light">{stat.value}</p>
-              <p className="text-label-uppercase mt-2 text-warm-label">{stat.label}</p>
-            </div>
-          ))}
-        </div>
-      </PageSection>
+      <TopicGridSection
+        label={copy.principles.label}
+        title={copy.principles.title}
+        items={copy.principles.items}
+        tone="cream"
+        columns={3}
+        borderTop
+      />
+
+      <EditorialFeatureGrid
+        label={copy.scopes.label}
+        title={copy.scopes.title}
+        items={copy.scopes.items}
+        tone="warm"
+      />
 
       <PageSection tone="cream">
         <SectionIntro label={copy.zone.label} title={copy.zone.title} />
@@ -84,17 +84,17 @@ export default async function EstudioPage() {
       <ProcessGridSection
         label={copy.process.label}
         title={copy.process.title}
-        steps={estudioProcess}
+        steps={copy.process.steps}
         tone="sand"
         borderTop
       />
 
-      <TestimonialsSection testimonials={estudioTestimonials} />
+      <TestimonialsSection testimonials={copy.testimonials} />
 
       <ContactCTA
         label={ui.contact}
-        title={estudioCta.title}
-        description={estudioCta.description}
+        title={copy.cta.title}
+        description={copy.cta.description}
         variant="landing"
       />
     </>

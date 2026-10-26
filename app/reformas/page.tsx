@@ -27,40 +27,34 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ReformasPage() {
   const copy = reformasCopy[await getLocale()];
   const ui = chrome[await getLocale()];
-  const reformasEditorial = copy.editorial;
-  const reformasFaq = copy.faq;
-  const reformasGallery = copy.gallery.items;
-  const reformasHero = copy.hero;
-  const reformasProcess = copy.process.steps;
-  const reformasProcessSection = copy.process;
-  const reformasScope = copy.scope.items;
+
   return (
     <>
       <JsonLd
         data={faqPageJsonLd(
-          reformasFaq.map((f) => ({ question: f.question, answer: f.answer })),
+          copy.faq.map((f) => ({ question: f.question, answer: f.answer })),
         )}
       />
       <PageHero
-        label={reformasHero.label}
-        title={reformasHero.title}
-        description={reformasHero.description}
-        image={reformasHero.image}
-        cta={{ label: reformasHero.cta, href: "/contacto" }}
+        label={copy.hero.label}
+        title={copy.hero.title}
+        description={copy.hero.description}
+        image={copy.hero.image}
+        cta={{ label: copy.hero.cta, href: "/contacto" }}
       />
 
       <PhilosophyBandSection
-        label={reformasEditorial.label}
-        title={reformasEditorial.title}
-        paragraphs={reformasEditorial.paragraphs}
-        image={reformasEditorial.image}
+        label={copy.editorial.label}
+        title={copy.editorial.title}
+        paragraphs={copy.editorial.paragraphs}
+        image={copy.editorial.image}
         headingId="reformas-philosophy"
       />
 
       <TopicGridSection
         label={copy.scope.label}
         title={copy.scope.title}
-        items={reformasScope}
+        items={copy.scope.items}
         tone="cream"
         borderTop
         columns={3}
@@ -68,25 +62,46 @@ export default async function ReformasPage() {
           <PillarCrossLinks>
             {copy.scope.crossLead}{" "}
             <PillarCrossLink href="/climate">{copy.scope.climate}</PillarCrossLink>
-            {copy.scope.crossMid} <PillarCrossLink href="/mobiliario">{copy.scope.mobiliario}</PillarCrossLink>{" "}
+            {copy.scope.crossMid}{" "}
+            <PillarCrossLink href="/mobiliario">{copy.scope.mobiliario}</PillarCrossLink>{" "}
             {copy.scope.crossAnd}{" "}
             <PillarCrossLink href="/interiorismo">{copy.scope.interiorismo}</PillarCrossLink>.
           </PillarCrossLinks>
         }
       />
 
-      <ProcessGridSection
-        label={reformasProcessSection.label}
-        title={reformasProcessSection.title}
-        lead={reformasProcessSection.lead}
-        steps={reformasProcess}
+      <TopicGridSection
+        label={copy.professional.label}
+        title={copy.professional.title}
+        lead={copy.professional.lead}
+        items={copy.professional.items}
         tone="sand"
+        borderTop
+        columns={2}
+        footer={
+          <PillarCrossLinks>
+            {copy.professional.crossLead}{" "}
+            <PillarCrossLink href="/mobiliario">
+              {copy.professional.mobiliario}
+            </PillarCrossLink>
+            {copy.professional.crossMid}{" "}
+            <PillarCrossLink href="/climate">{copy.professional.climate}</PillarCrossLink>.
+          </PillarCrossLinks>
+        }
+      />
+
+      <ProcessGridSection
+        label={copy.process.label}
+        title={copy.process.title}
+        lead={copy.process.lead}
+        steps={copy.process.steps}
+        tone="cream"
         borderTop
       />
 
-      <ImageGallery label={copy.gallery.label} title={copy.gallery.title} items={reformasGallery} />
+      <ImageGallery label={copy.gallery.label} title={copy.gallery.title} items={copy.gallery.items} />
 
-      <FaqAccordion label={ui.faqLabel} title={ui.faqTitle} items={reformasFaq} />
+      <FaqAccordion label={ui.faqLabel} title={ui.faqTitle} items={copy.faq} />
 
       <ContactCTA
         label={ui.contact}

@@ -10,6 +10,7 @@ const routes: MetadataRoute.Sitemap = [
   { url: `${site.url}/climate`, changeFrequency: "monthly", priority: 0.9 },
   { url: `${site.url}/estudio`, changeFrequency: "monthly", priority: 0.8 },
   { url: `${site.url}/contacto`, changeFrequency: "monthly", priority: 0.8 },
+  { url: `${site.url}/preguntas-frecuentes`, changeFrequency: "monthly", priority: 0.6 },
   { url: `${site.url}/legal/privacidad`, changeFrequency: "yearly", priority: 0.3 },
   { url: `${site.url}/legal/terminos`, changeFrequency: "yearly", priority: 0.3 },
   { url: `${site.url}/legal/cookies`, changeFrequency: "yearly", priority: 0.3 },

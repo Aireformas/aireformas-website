@@ -32,6 +32,7 @@ export const mobiliarioCopy = defineCopy({
         "Medimos, diseñamos y fabricamos carpintería que respeta proporción, luz y circulación de la vivienda.",
         "Cocinas, vestidores y muebles especiales comparten materiales y criterio con el resto del proyecto.",
         "Fabricación, transporte e instalación con un equipo que conoce la obra y el diseño acordado.",
+        "También resolvemos mostradores, recepciones, expositores, almacenaje y mobiliario corporativo a medida para oficinas y locales, siempre como extensión del mismo criterio de diseño.",
       ],
       image: {
         src: "/images/distributions/67_SALON_jotajotape_NEXT.jpg",
@@ -297,6 +298,7 @@ export const mobiliarioCopy = defineCopy({
         "We measure, design and make joinery that respects the proportion, light and circulation of the home.",
         "Kitchens, dressing rooms and special pieces share materials and criteria with the rest of the project.",
         "Making, delivery and installation by a team that knows the site and the agreed design.",
+        "We also resolve counters, receptions, display units, storage and corporate bespoke furniture for offices and retail, always as an extension of the same design criteria.",
       ],
       image: {
         src: "/images/distributions/67_SALON_jotajotape_NEXT.jpg",

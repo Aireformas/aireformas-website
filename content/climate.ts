@@ -43,7 +43,7 @@ export const climateCopy = defineCopy({
     services: {
       label: "Servicios",
       title: "Ingeniería y diseño integrados al proyecto",
-      lead: "Soluciones de climatización pensadas desde el inicio, coordinadas con la arquitectura y el interiorismo para un resultado eficiente, estético y duradero.",
+      lead: "Soluciones de climatización pensadas desde el inicio, coordinadas con la arquitectura y el interiorismo para un resultado eficiente, estético y duradero. El foco es la vivienda; también integramos climatización, ventilación y conductos en oficinas y locales cuando el proyecto lo requiere.",
       crossLead: "Reforma e interiorismo en",
       reformas: "Reformas",
       crossAnd: "e",
@@ -107,7 +107,7 @@ export const climateCopy = defineCopy({
     services: {
       label: "Services",
       title: "Engineering and design integrated into the project",
-      lead: "Climate solutions considered from the start, coordinated with architecture and interiors for an efficient, quiet and lasting result.",
+      lead: "Climate solutions considered from the start, coordinated with architecture and interiors for an efficient, quiet and lasting result. The focus is the home; we also integrate climate, ventilation and ductwork in offices and retail when the project requires it.",
       crossLead: "Renovation and interiors in",
       reformas: "Renovation",
       crossAnd: "and",

@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
 import { ContactCTA } from "@/components/contact/ContactCTA";
-import { InView } from "@/components/motion/InView";
 import { PageHero } from "@/components/shared/PageHero";
 import { ImageGallery } from "@/components/shared/ImageGallery";
+import { PhilosophyBandSection } from "@/components/shared/PhilosophyBandSection";
 import { ProcessGridSection } from "@/components/shared/ProcessGridSection";
 import {
   PillarCrossLink,
   PillarCrossLinks,
 } from "@/components/shared/PillarCrossLinks";
-import { PageSection } from "@/components/shared/PageSection";
-import { SectionIntro } from "@/components/shared/SectionIntro";
 import { TopicGridSection } from "@/components/shared/TopicGridSection";
 import { chrome } from "@/content/chrome";
 import { interiorismoCopy } from "@/content/interiorismo";
@@ -27,36 +25,29 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function InteriorismoPage() {
   const copy = interiorismoCopy[await getLocale()];
   const ui = chrome[await getLocale()];
-  const editorialBlock = copy.editorial;
-  const interiorismoHero = copy.hero;
-  const interiorismoGallery = copy.gallery.items;
-  const interiorismoProcess = copy.process.steps;
-  const interiorismoServices = copy.services.items;
+
   return (
     <>
       <PageHero
-        label={interiorismoHero.label}
-        title={interiorismoHero.title}
-        description={interiorismoHero.description}
-        image={interiorismoHero.image}
+        label={copy.hero.label}
+        title={copy.hero.title}
+        description={copy.hero.description}
+        image={copy.hero.image}
         cta={{ label: ui.talk, href: "/contacto" }}
       />
 
-      <PageSection tone="sand" borderTop>
-        <SectionIntro label={editorialBlock.label} title={editorialBlock.title} />
-        <div className="grid max-w-4xl gap-5 text-body-md font-light text-on-surface-variant">
-          {editorialBlock.paragraphs.map((paragraph) => (
-            <InView key={paragraph.slice(0, 24)}>
-              <p>{paragraph}</p>
-            </InView>
-          ))}
-        </div>
-      </PageSection>
+      <PhilosophyBandSection
+        label={copy.editorial.label}
+        title={copy.editorial.title}
+        paragraphs={copy.editorial.paragraphs}
+        image={copy.editorial.image}
+        headingId="interiorismo-enfoque"
+      />
 
       <TopicGridSection
         label={copy.services.label}
         title={copy.services.title}
-        items={interiorismoServices}
+        items={copy.services.items}
         tone="cream"
         footer={
           <PillarCrossLinks>
@@ -73,13 +64,13 @@ export default async function InteriorismoPage() {
       <ImageGallery
         label={copy.gallery.label}
         title={copy.gallery.title}
-        items={interiorismoGallery}
+        items={copy.gallery.items}
       />
 
       <ProcessGridSection
         label={copy.process.label}
         title={copy.process.title}
-        steps={interiorismoProcess}
+        steps={copy.process.steps}
         tone="sand"
         borderTop
       />
