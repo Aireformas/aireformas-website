@@ -9,8 +9,8 @@ export async function ComfortSection() {
     <ThermalComfortSection
       id="climate"
       label={comfortSection.label}
-      temperature={comfortSection.temperature}
-      temperatureNote={comfortSection.temperatureNote}
+      claim={comfortSection.claim}
+      claimNote={comfortSection.claimNote}
       title={comfortSection.title}
       subline={comfortSection.subline}
       tags={comfortSection.tags}

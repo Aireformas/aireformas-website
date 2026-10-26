@@ -5,8 +5,8 @@ import { MaterialIcon } from "@/components/ui/MaterialIcon";
 
 type ThermalComfortSectionProps = {
   label: string;
-  temperature: string;
-  temperatureNote?: string;
+  claim: string;
+  claimNote?: string;
   title: string;
   subline: string;
   tags: readonly string[];
@@ -17,8 +17,8 @@ type ThermalComfortSectionProps = {
 
 export function ThermalComfortSection({
   label,
-  temperature,
-  temperatureNote = "Constante todo el año",
+  claim,
+  claimNote = "Confort térmico todo el año",
   title,
   subline,
   tags,
@@ -44,17 +44,17 @@ export function ThermalComfortSection({
           </div>
         </div>
 
-        <div className="md:col-span-5 md:pl-6">
+        <div className="min-w-0 md:col-span-5 md:pl-6">
           <span className="mb-3 block text-label-uppercase text-warm-label">
             {label}
           </span>
-          <div className="mb-3 flex items-baseline">
-            <span className="text-[5.5rem] font-extralight leading-none tracking-tighter text-primary">
-              {temperature}
-            </span>
-            <span className="ml-4 text-label-uppercase text-outline">
-              {temperatureNote}
-            </span>
+          <div className="mb-4">
+            <p className="text-balance text-[clamp(2.15rem,4.2vw,3.25rem)] font-extralight leading-[0.98] tracking-tight text-primary">
+              {claim}
+            </p>
+            <p className="mt-3 text-balance text-label-uppercase text-outline">
+              {claimNote}
+            </p>
           </div>
           <h3 className="text-headline-md mb-2 font-light text-ink-primary">
             {title}

@@ -10,14 +10,14 @@ export type ClimateService = {
 };
 
 const serviceImages = {
-  vrv: { src: "/images/climate/climate-vrv.jpg", altEs: "Consola de bomba de calor blanca junto a un ventanal en un interior de yeso y roble", altEn: "White heat-pump console beside a window in a plaster and oak interior" },
-  ventilacion: { src: "/images/climate/climate-ventilacion.jpg", altEs: "Equipo de recuperación de calor con tres conductos metálicos en un cuarto técnico", altEn: "Heat-recovery unit with three metal ducts in a plant room" },
+  vrv: { src: "/images/climate/climate-vrv.jpg", altEs: "Corte de vivienda con unidad exterior, tuberías y unidades interiores de bomba de calor", altEn: "Home section with an outdoor unit, pipework and indoor heat-pump units" },
+  ventilacion: { src: "/images/climate/climate-ventilacion.jpg", altEs: "Equipo de recuperación de calor blanco con tres conductos aislados en un cuarto técnico", altEn: "White heat-recovery unit with three insulated ducts in a plant room" },
   aerotermia: { src: "/images/climate/climate-aerotermia.jpg", altEs: "Unidad exterior de aerotermia en la terraza de una vivienda de hormigón y vidrio", altEn: "Outdoor air-source heat pump on the terrace of a concrete and glass home" },
   suelo: { src: "/images/climate/climate-suelo.jpg", altEs: "Circuitos de suelo radiante sobre aislamiento negro, con colector junto a un pilar de hormigón", altEn: "Underfloor heating circuits on black insulation, with a manifold beside a concrete column" },
-  invisible: { src: "/images/climate/climate-invisible.jpg", altEs: "Corte de techo con conducto de suministro y plenum de retorno sobre un salón terminado", altEn: "Ceiling section with a supply duct and return plenum above a finished living room" },
+  invisible: { src: "/images/climate/climate-invisible.jpg", altEs: "Corte de techo con conducto de impulsión, rejilla lineal y retorno de aire sobre un salón", altEn: "Ceiling section with a supply duct, linear grille and return air above a living room" },
   acs: { src: "/images/climate/climate-acs.jpg", altEs: "Acumulador de agua caliente integrado en un armario de roble, con vaso de expansión y tuberías", altEn: "Hot-water cylinder integrated in an oak cupboard, with an expansion vessel and pipework" },
   conductos: { src: "/images/climate/climate-conductos.jpg", altEs: "Salón y cocina con rejillas lineales en el techo y un conducto circular alineado con la arquitectura", altEn: "Living room and kitchen with linear ceiling grilles and a circular duct aligned with the architecture" },
-  control: { src: "/images/climate/climate-control.jpg", altEs: "Panel de clima en la pared mostrando 22 grados, con el salón desenfocado al fondo", altEn: "Wall climate panel showing 22 degrees, with the living room soft in the background" },
+  control: { src: "/images/climate/climate-control.jpg", altEs: "Panel de control de climatización en la pared, con zonas, suelo radiante y calidad del aire, y el salón desenfocado", altEn: "Wall climate-control panel with zones, underfloor heating and air quality, living room soft behind" },
 } as const;
 
 export const climateCopy = defineCopy({

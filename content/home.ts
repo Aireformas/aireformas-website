@@ -219,8 +219,8 @@ export const homeCopy = defineCopy({
     },
     comfort: {
       label: "07 / CONFORT TÉRMICO",
-      temperature: "22°C",
-      temperatureNote: "Constante todo el año",
+      claim: "Climatización invisible",
+      claimNote: "Confort térmico todo el año",
       title: "Confort que se siente",
       subline: "Tecnología que desaparece.",
       tags: ["Aerotermia", "Suelo radiante", "Climatización invisible", "ACS", "Control inteligente"],
@@ -482,8 +482,8 @@ export const homeCopy = defineCopy({
     },
     comfort: {
       label: "07 / THERMAL COMFORT",
-      temperature: "22°C",
-      temperatureNote: "Steady all year",
+      claim: "Invisible climate",
+      claimNote: "Thermal comfort all year",
       title: "Comfort you can feel",
       subline: "Technology that disappears.",
       tags: ["Air-source heat pump", "Underfloor heating", "Invisible climate", "Hot water", "Smart control"],
