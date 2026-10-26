@@ -22,8 +22,8 @@ export const mobiliarioCopy = defineCopy({
         "Diseñamos, fabricamos e instalamos cocinas, vestidores, armarios, muebles TV y soluciones especiales alineadas con el proyecto.",
       cta: "Hablar de mi proyecto",
       image: {
-        src: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=2560&q=90",
-        alt: "Vestidor con carpintería a medida, iluminación integrada y acabados lacados",
+        src: "/images/mobiliario/mobiliario-hero.jpg",
+        alt: "Vestidor walk-in con carpintería a medida en roble, puertas de cristal, tocador e iluminación integrada",
       },
       chips: [
         { id: "armarios", title: "Armarios y vestidores", icon: "checkroom" },
@@ -51,10 +51,10 @@ export const mobiliarioCopy = defineCopy({
       label: "SOLUCIONES",
       title: "Carpintería para cada estancia",
       items: [
-        { title: "Armarios y vestidores", description: "Empotrados, correderas o walk-in: distribución interior pensada para tu día a día.", image: { src: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=700&q=80", alt: "Armario empotrado en dormitorio principal" } },
-        { title: "Cocinas", description: "Mobiliario, encimeras e iluminación integrados con el resto de la vivienda.", image: { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=80", alt: "Cocina a medida con isla y madera" } },
-        { title: "Baños", description: "Muebles suspendidos, encimeras y almacenaje oculto con materiales duraderos.", image: { src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80", alt: "Baño con mobiliario a medida" } },
-        { title: "Piezas especiales", description: "Muebles TV, bibliotecas, bars y paneles que completan la arquitectura del espacio.", image: { src: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=700&q=80", alt: "Mueble TV integrado en salón" } },
+        { title: "Armarios y vestidores", description: "Empotrados, correderas o walk-in: distribución interior pensada para tu día a día.", image: { src: "/images/mobiliario/mobiliario-armarios.jpg", alt: "Armario y vestidor a medida en roble con puertas de cristal e iluminación LED" } },
+        { title: "Cocinas", description: "Mobiliario, encimeras e iluminación integrados con el resto de la vivienda.", image: { src: "/images/mobiliario/mobiliario-cocina.jpg", alt: "Cocina a medida en roble y crema con isla y encimera de piedra" } },
+        { title: "Baños", description: "Muebles suspendidos, encimeras y almacenaje oculto con materiales duraderos.", image: { src: "/images/mobiliario/mobiliario-bano.jpg", alt: "Baño con mueble suspendido a medida, encimera de piedra y espejo iluminado" } },
+        { title: "Piezas especiales", description: "Muebles TV, bibliotecas, bars y paneles que completan la arquitectura del espacio.", image: { src: "/images/mobiliario/mobiliario-especiales.jpg", alt: "Panelado y mueble TV a medida en roble con estantería integrada" } },
       ],
     },
     distributions: {
@@ -296,8 +296,8 @@ export const mobiliarioCopy = defineCopy({
         "We design, make and install kitchens, dressing rooms, wardrobes, TV units and special solutions aligned with the project.",
       cta: "Start a project",
       image: {
-        src: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=2560&q=90",
-        alt: "Dressing room with bespoke joinery, integrated lighting and lacquered finishes",
+        src: "/images/mobiliario/mobiliario-hero.jpg",
+        alt: "Walk-in dressing room with bespoke oak joinery, glass doors, vanity and integrated lighting",
       },
       chips: [
         { id: "armarios", title: "Wardrobes and dressing rooms", icon: "checkroom" },
@@ -325,10 +325,10 @@ export const mobiliarioCopy = defineCopy({
       label: "SOLUTIONS",
       title: "Joinery for every room",
       items: [
-        { title: "Wardrobes and dressing rooms", description: "Built-in, sliding or walk-in: an interior layout planned for daily use.", image: { src: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=700&q=80", alt: "Built-in wardrobe in a primary bedroom" } },
-        { title: "Kitchens", description: "Furniture, worktops and lighting integrated with the rest of the home.", image: { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=80", alt: "Bespoke kitchen with an island and wood" } },
-        { title: "Bathrooms", description: "Wall-hung units, worktops and concealed storage in durable materials.", image: { src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80", alt: "Bathroom with bespoke furniture" } },
-        { title: "Special pieces", description: "TV units, libraries, bars and panels that complete the architecture of the space.", image: { src: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=700&q=80", alt: "TV unit integrated into a living room" } },
+        { title: "Wardrobes and dressing rooms", description: "Built-in, sliding or walk-in: an interior layout planned for daily use.", image: { src: "/images/mobiliario/mobiliario-armarios.jpg", alt: "Bespoke oak wardrobe and dressing room with glass doors and LED lighting" } },
+        { title: "Kitchens", description: "Furniture, worktops and lighting integrated with the rest of the home.", image: { src: "/images/mobiliario/mobiliario-cocina.jpg", alt: "Bespoke oak and cream kitchen with island and stone worktop" } },
+        { title: "Bathrooms", description: "Wall-hung units, worktops and concealed storage in durable materials.", image: { src: "/images/mobiliario/mobiliario-bano.jpg", alt: "Bathroom with wall-hung bespoke vanity, stone countertop and lit mirror" } },
+        { title: "Special pieces", description: "TV units, libraries, bars and panels that complete the architecture of the space.", image: { src: "/images/mobiliario/mobiliario-especiales.jpg", alt: "Custom oak TV wall paneling with integrated shelving" } },
       ],
     },
     distributions: {
