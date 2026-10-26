@@ -13,7 +13,7 @@ import {
 } from "@/content/proyectos";
 import { cn } from "@/lib/cn";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
-import { PageIntro } from "@/components/shared/PageIntro";
+import { SplitHero } from "@/components/shared/SplitHero";
 
 function matchesFilter(
   categories: readonly ProjectCategory[],
@@ -186,19 +186,24 @@ export function ProyectosPageContent() {
 
   return (
     <div className="flex flex-col gap-0 bg-cream-base">
-      <PageIntro
+      <SplitHero
         label={proyectosPageIntro.label}
         title={proyectosPageIntro.title}
+        headline={proyectosPageIntro.headline}
         description={proyectosPageIntro.description}
+        support={proyectosPageIntro.support}
+        image={proyectosPageIntro.image}
+        cta={{ label: proyectosPageIntro.cta, href: "/contacto" }}
       >
         <div
           role="group"
           aria-label={ui.filter}
-          className="custom-scroll flex items-center gap-2 overflow-x-auto border-b border-outline-variant/30 pb-2 pt-10"
+          className="custom-scroll -mt-2 flex flex-wrap items-center gap-2"
         >
           {projectFilterOptions.map((option) => {
             const isActive = activeFilter === option.id;
             const count = filterCount(option.id, featuredProject.categories, portfolioProjects);
+            const chip = proyectosPageIntro.chips.find((item) => item.id === option.id);
             return (
               <button
                 key={option.id}
@@ -206,18 +211,27 @@ export function ProyectosPageContent() {
                 aria-pressed={isActive}
                 onClick={() => setActiveFilter(option.id)}
                 className={cn(
-                  "whitespace-nowrap rounded-full px-5 py-2 text-label-uppercase transition-colors",
+                  "inline-flex items-center gap-2 rounded-full border px-3 py-2 text-[0.75rem] leading-none transition-colors",
                   isActive
-                    ? "bg-primary text-white"
-                    : "bg-transparent text-on-surface-variant hover:bg-sand-container hover:text-ink-primary",
+                    ? "border-primary bg-primary text-white"
+                    : "border-outline/15 bg-white/70 text-ink-primary hover:border-primary/40 hover:text-primary",
                 )}
               >
+                {chip?.icon ? (
+                  <MaterialIcon
+                    name={chip.icon}
+                    className={cn(
+                      "text-[18px]",
+                      isActive ? "text-white" : "text-primary",
+                    )}
+                  />
+                ) : null}
                 {option.label} ({count})
               </button>
             );
           })}
         </div>
-      </PageIntro>
+      </SplitHero>
 
       {showFeatured ? (
       <section className="mx-auto w-full max-w-7xl px-margin-mobile pb-space-2xl md:px-margin">

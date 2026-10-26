@@ -4,6 +4,7 @@ import { InView } from "@/components/motion/InView";
 import { SectionIntro } from "@/components/shared/SectionIntro";
 
 export type TopicGridItem = {
+  id?: string;
   title: string;
   description: string;
 };
@@ -53,10 +54,11 @@ export function TopicGridSection({
         <ul className={cn("grid gap-6", columnClass[columns])}>
           {items.map((item, index) => (
             <InView
-              key={item.title}
+              key={item.id ?? item.title}
+              id={item.id}
               staggerIndex={index}
               as="li"
-              className="list-none border-t border-outline/25 pt-6"
+              className="list-none border-t border-outline/25 pt-6 scroll-mt-28"
             >
               <h3 className="text-headline-sm font-light">{item.title}</h3>
               <p className="mt-3 text-body-sm font-light text-on-surface-variant">

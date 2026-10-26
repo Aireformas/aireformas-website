@@ -14,15 +14,23 @@ export const mobiliarioCopy = defineCopy({
         "Cocinas, vestidores, armarios, muebles TV y carpintería integrada en la arquitectura. Diseño, fabricación e instalación en Madrid.",
     },
     hero: {
-      label: "MOBILIARIO",
-      title: "Made for your space",
-      description:
-        "Diseñamos piezas que pertenecen a la arquitectura: carpintería, cocinas, vestidores, muebles TV y soluciones a medida para cada estancia.",
+      label: "A medida",
+      title: "Mobiliario",
+      headline: "Made for your space",
+      description: "Piezas que pertenecen a la arquitectura.",
+      support:
+        "Diseñamos, fabricamos e instalamos cocinas, vestidores, armarios, muebles TV y soluciones especiales alineadas con el proyecto.",
       cta: "Hablar de mi proyecto",
       image: {
         src: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=2560&q=90",
         alt: "Vestidor con carpintería a medida, iluminación integrada y acabados lacados",
       },
+      chips: [
+        { id: "armarios", title: "Armarios y vestidores", icon: "checkroom" },
+        { id: "cocinas", title: "Cocinas", icon: "kitchen" },
+        { id: "banos", title: "Baños", icon: "bathtub" },
+        { id: "especiales", title: "Piezas especiales", icon: "chair" },
+      ],
     },
     editorial: {
       label: "ENFOQUE",
@@ -280,15 +288,23 @@ export const mobiliarioCopy = defineCopy({
         "Kitchens, dressing rooms, wardrobes, TV units and joinery integrated into the architecture. Design, making and installation in Madrid.",
     },
     hero: {
-      label: "FURNITURE",
-      title: "Made for your space",
-      description:
-        "We design pieces that belong to the architecture: joinery, kitchens, dressing rooms, TV units and bespoke solutions for each room.",
+      label: "Bespoke",
+      title: "Furniture",
+      headline: "Made for your space",
+      description: "Pieces that belong to the architecture.",
+      support:
+        "We design, make and install kitchens, dressing rooms, wardrobes, TV units and special solutions aligned with the project.",
       cta: "Start a project",
       image: {
         src: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=2560&q=90",
         alt: "Dressing room with bespoke joinery, integrated lighting and lacquered finishes",
       },
+      chips: [
+        { id: "armarios", title: "Wardrobes and dressing rooms", icon: "checkroom" },
+        { id: "cocinas", title: "Kitchens", icon: "kitchen" },
+        { id: "banos", title: "Bathrooms", icon: "bathtub" },
+        { id: "especiales", title: "Special pieces", icon: "chair" },
+      ],
     },
     editorial: {
       label: "APPROACH",

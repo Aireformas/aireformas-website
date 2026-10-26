@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { ContactCTA } from "@/components/contact/ContactCTA";
-import { PageHero } from "@/components/shared/PageHero";
-import { chrome } from "@/content/chrome";
+import { SplitHero } from "@/components/shared/SplitHero";
 import { contactoCopy } from "@/content/contacto";
-import { site } from "@/content/site";
 import { getLocale } from "@/lib/locale.server";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -16,22 +14,23 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ContactoPage() {
-  const locale = await getLocale();
-  const copy = contactoCopy[locale];
-  const ui = chrome[locale];
+  const copy = contactoCopy[await getLocale()];
 
   return (
     <>
-      <PageHero
+      <SplitHero
         label={copy.hero.label}
         title={copy.hero.title}
+        headline={copy.hero.headline}
         description={copy.hero.description}
+        support={copy.hero.support}
         image={copy.hero.image}
-        cta={{ label: site.phone, href: site.phoneHref }}
-        secondaryCta={{ label: ui.sendEmail, href: site.emailHref }}
+        cta={{ label: copy.hero.cta, href: "#escribir" }}
+        chips={copy.hero.chips}
       />
 
       <ContactCTA
+        id="escribir"
         label={copy.section.label}
         title={copy.section.title}
         description={copy.section.description}

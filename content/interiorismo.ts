@@ -9,14 +9,24 @@ export const interiorismoCopy = defineCopy({
         "Espacios pensados para vivirlos. Diseñados para ti. Moodboards, materiales, 3D y renders. Interiorismo integrado con reforma y mobiliario en Madrid.",
     },
     hero: {
-      label: "INTERIORISMO",
-      title: "Espacios pensados para vivirlos. Diseñados para ti.",
-      description:
-        "En AIREFORMAS transformamos ideas en espacios únicos, combinando estética, funcionalidad y confort. Cada proyecto comienza escuchando al cliente, comprendiendo su estilo de vida, sus preferencias y sus necesidades.",
+      label: "Diseño",
+      title: "Interiorismo",
+      headline: "Espacios pensados para vivirlos. Diseñados para ti.",
+      description: "Estética, funcionalidad y confort en un único criterio.",
+      support:
+        "Cada proyecto comienza escuchando al cliente. Moodboards, materiales, luz, mobiliario y renders 3D antes de ejecutar.",
+      cta: "Hablar de mi proyecto",
       image: {
         src: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=2400&q=90",
         alt: "Salón con diseño de interiorismo y luz natural",
       },
+      chips: [
+        { id: "concepto", title: "Concepto y estilo de vida", icon: "home" },
+        { id: "moodboards", title: "Moodboards y materiales", icon: "palette" },
+        { id: "acabados", title: "Pinturas, papeles, luz y mobiliario", icon: "lightbulb" },
+        { id: "renders", title: "Diseño 3D y revisiones", icon: "view_in_ar" },
+        { id: "inversion", title: "Alternativas según inversión", icon: "account_balance_wallet" },
+      ],
     },
     editorial: {
       label: "ENFOQUE",
@@ -37,26 +47,31 @@ export const interiorismoCopy = defineCopy({
       title: "Interiorismo integral",
       items: [
         {
+          id: "concepto",
           title: "Concepto y estilo de vida",
           description:
             "Distribución, función y atmósfera adaptadas a cómo se vive o se usa el espacio.",
         },
         {
+          id: "moodboards",
           title: "Moodboards y materiales",
           description:
             "Selección de colores, tejidos, texturas y materiales con criterio de calidad y durabilidad.",
         },
         {
+          id: "acabados",
           title: "Pinturas, papeles, luz y mobiliario",
           description:
             "Acabados decorativos, iluminación y mobiliario coordinados con la arquitectura del proyecto.",
         },
         {
+          id: "renders",
           title: "Diseño 3D y revisiones",
           description:
             "Renders fotorrealistas y revisiones antes de ejecutar, para decidir con claridad.",
         },
         {
+          id: "inversion",
           title: "Alternativas según inversión",
           description:
             "Propuestas alineadas con prioridades y presupuesto, sin perder coherencia de diseño.",
@@ -101,14 +116,24 @@ export const interiorismoCopy = defineCopy({
         "Spaces designed to be lived in. Designed for you. Moodboards, materials, 3D and renders. Interiors integrated with renovation and furniture in Madrid.",
     },
     hero: {
-      label: "INTERIORS",
-      title: "Spaces designed to be lived in. Designed for you.",
-      description:
-        "At AIREFORMAS we turn ideas into unique spaces, combining aesthetics, function and comfort. Every project begins by listening to the client, understanding their way of living, preferences and needs.",
+      label: "Design",
+      title: "Interiors",
+      headline: "Spaces designed to be lived in. Designed for you.",
+      description: "Aesthetics, function and comfort under one standard.",
+      support:
+        "Every project begins by listening to the client. Moodboards, materials, light, furniture and 3D renders before we build.",
+      cta: "Start a project",
       image: {
         src: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=2400&q=90",
         alt: "Living room with interior design and daylight",
       },
+      chips: [
+        { id: "concepto", title: "Concept and way of living", icon: "home" },
+        { id: "moodboards", title: "Moodboards and materials", icon: "palette" },
+        { id: "acabados", title: "Paints, papers, light and furniture", icon: "lightbulb" },
+        { id: "renders", title: "3D design and reviews", icon: "view_in_ar" },
+        { id: "inversion", title: "Options by investment", icon: "account_balance_wallet" },
+      ],
     },
     editorial: {
       label: "APPROACH",
@@ -129,26 +154,31 @@ export const interiorismoCopy = defineCopy({
       title: "Integrated interiors",
       items: [
         {
+          id: "concepto",
           title: "Concept and way of living",
           description:
             "Layout, function and atmosphere adapted to how the space is lived in or used.",
         },
         {
+          id: "moodboards",
           title: "Moodboards and materials",
           description:
             "Selection of colours, fabrics, textures and materials with quality and durability in mind.",
         },
         {
+          id: "acabados",
           title: "Paints, papers, light and furniture",
           description:
             "Decorative finishes, lighting and furniture coordinated with the architecture of the project.",
         },
         {
+          id: "renders",
           title: "3D design and reviews",
           description:
             "Photorealistic renders and reviews before build, so decisions are clear.",
         },
         {
+          id: "inversion",
           title: "Options by investment",
           description:
             "Proposals aligned with priorities and budget, without losing design coherence.",

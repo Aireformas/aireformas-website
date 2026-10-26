@@ -3,13 +3,13 @@ import { ContactCTA } from "@/components/contact/ContactCTA";
 import { faqPageJsonLd, JsonLd } from "@/components/seo/JsonLd";
 import { FaqAccordion } from "@/components/shared/FaqAccordion";
 import { ImageGallery } from "@/components/shared/ImageGallery";
-import { PageHero } from "@/components/shared/PageHero";
 import { PhilosophyBandSection } from "@/components/shared/PhilosophyBandSection";
 import { ProcessGridSection } from "@/components/shared/ProcessGridSection";
 import {
   PillarCrossLink,
   PillarCrossLinks,
 } from "@/components/shared/PillarCrossLinks";
+import { SplitHero } from "@/components/shared/SplitHero";
 import { TopicGridSection } from "@/components/shared/TopicGridSection";
 import { chrome } from "@/content/chrome";
 import { reformasCopy } from "@/content/reformas";
@@ -35,12 +35,18 @@ export default async function ReformasPage() {
           copy.faq.map((f) => ({ question: f.question, answer: f.answer })),
         )}
       />
-      <PageHero
+      <SplitHero
         label={copy.hero.label}
         title={copy.hero.title}
+        headline={copy.hero.headline}
         description={copy.hero.description}
+        support={copy.hero.support}
         image={copy.hero.image}
         cta={{ label: copy.hero.cta, href: "/contacto" }}
+        chips={copy.hero.chips.map((chip) => ({
+          ...chip,
+          href: `#${chip.id}`,
+        }))}
       />
 
       <PhilosophyBandSection

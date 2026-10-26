@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ContactCTA } from "@/components/contact/ContactCTA";
-import { PageHero } from "@/components/shared/PageHero";
 import { ImageGallery } from "@/components/shared/ImageGallery";
 import { PhilosophyBandSection } from "@/components/shared/PhilosophyBandSection";
 import { ProcessGridSection } from "@/components/shared/ProcessGridSection";
@@ -8,6 +7,7 @@ import {
   PillarCrossLink,
   PillarCrossLinks,
 } from "@/components/shared/PillarCrossLinks";
+import { SplitHero } from "@/components/shared/SplitHero";
 import { TopicGridSection } from "@/components/shared/TopicGridSection";
 import { chrome } from "@/content/chrome";
 import { interiorismoCopy } from "@/content/interiorismo";
@@ -28,12 +28,18 @@ export default async function InteriorismoPage() {
 
   return (
     <>
-      <PageHero
+      <SplitHero
         label={copy.hero.label}
         title={copy.hero.title}
+        headline={copy.hero.headline}
         description={copy.hero.description}
+        support={copy.hero.support}
         image={copy.hero.image}
-        cta={{ label: ui.talk, href: "/contacto" }}
+        cta={{ label: copy.hero.cta, href: "/contacto" }}
+        chips={copy.hero.chips.map((chip) => ({
+          ...chip,
+          href: `#${chip.id}`,
+        }))}
       />
 
       <PhilosophyBandSection

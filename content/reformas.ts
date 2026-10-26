@@ -9,15 +9,25 @@ export const reformasCopy = defineCopy({
         "Transformamos espacios. Ejecutamos cada detalle. Reformas de viviendas, oficinas y locales con interiorismo, mobiliario y climatización coordinados en Madrid.",
     },
     hero: {
-      label: "REFORMAS",
-      title: "Transformamos espacios. Ejecutamos cada detalle.",
-      description:
-        "En AIREFORMAS desarrollamos reformas integrales y parciales de viviendas y espacios interiores, coordinando cada fase del proyecto desde la planificación inicial hasta la entrega final.",
+      label: "Obra",
+      title: "Reformas",
+      headline: "Transformamos espacios. Ejecutamos cada detalle.",
+      description: "Integrales y parciales, de la planificación a la entrega.",
+      support:
+        "Coordinamos albañilería, instalaciones, acabados, mobiliario y climatización con un solo criterio estético y técnico.",
       cta: "Hablar de mi proyecto",
       image: {
         src: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=2560&q=90",
         alt: "Interior con distribución abierta y acabados contemporáneos",
       },
+      chips: [
+        { id: "albanileria", title: "Albañilería y pladur", icon: "construction" },
+        { id: "electricidad", title: "Electricidad e iluminación", icon: "bolt" },
+        { id: "fontaneria", title: "Fontanería, baños y cocinas", icon: "water_drop" },
+        { id: "suelos", title: "Suelos, revestimientos y piedra", icon: "layers" },
+        { id: "carpinteria", title: "Puertas, ventanas y carpintería", icon: "door_front" },
+        { id: "pintura", title: "Pintura y coordinación", icon: "format_paint" },
+      ],
     },
     editorial: {
       label: "ENFOQUE",
@@ -39,26 +49,32 @@ export const reformasCopy = defineCopy({
       title: "Partidas y oficios",
       items: [
         {
+          id: "albanileria",
           title: "Albañilería y pladur",
           description: "Demoliciones, tabiquería, albañilería y sistemas de pladur para redistribuir el espacio.",
         },
         {
+          id: "electricidad",
           title: "Electricidad e iluminación",
           description: "Instalaciones eléctricas, mecanismos e iluminación técnica y decorativa.",
         },
         {
+          id: "fontaneria",
           title: "Fontanería, baños y cocinas",
           description: "Fontanería, saneamiento y renovación de baños y cocinas.",
         },
         {
+          id: "suelos",
           title: "Suelos, revestimientos y piedra",
           description: "Pavimentos, revestimientos, encimeras y soluciones de piedra.",
         },
         {
+          id: "carpinteria",
           title: "Puertas, ventanas y carpintería",
           description: "Puertas interiores y exteriores, ventanas y carpintería de obra.",
         },
         {
+          id: "pintura",
           title: "Pintura y coordinación",
           description: "Acabados de pintura y coordinación de oficios hasta la entrega.",
         },
@@ -131,15 +147,25 @@ export const reformasCopy = defineCopy({
         "We transform spaces. We execute every detail. Renovation of homes, offices and retail with coordinated interiors, furniture and climate in Madrid.",
     },
     hero: {
-      label: "RENOVATION",
-      title: "We transform spaces. We execute every detail.",
-      description:
-        "At AIREFORMAS we carry out full and partial renovations of homes and interior spaces, coordinating every phase from initial planning to final handover.",
+      label: "Build",
+      title: "Renovation",
+      headline: "We transform spaces. We execute every detail.",
+      description: "Full and partial, from planning to handover.",
+      support:
+        "We coordinate masonry, services, finishes, furniture and climate with one aesthetic and technical standard.",
       cta: "Start a project",
       image: {
         src: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=2560&q=90",
         alt: "Interior with an open plan and contemporary finishes",
       },
+      chips: [
+        { id: "albanileria", title: "Masonry and plasterboard", icon: "construction" },
+        { id: "electricidad", title: "Electrical and lighting", icon: "bolt" },
+        { id: "fontaneria", title: "Plumbing, bathrooms and kitchens", icon: "water_drop" },
+        { id: "suelos", title: "Floors, finishes and stone", icon: "layers" },
+        { id: "carpinteria", title: "Doors, windows and joinery", icon: "door_front" },
+        { id: "pintura", title: "Paint and coordination", icon: "format_paint" },
+      ],
     },
     editorial: {
       label: "APPROACH",
@@ -161,26 +187,32 @@ export const reformasCopy = defineCopy({
       title: "Trades and packages",
       items: [
         {
+          id: "albanileria",
           title: "Masonry and plasterboard",
           description: "Demolition, partitions, masonry and plasterboard systems to redistribute space.",
         },
         {
+          id: "electricidad",
           title: "Electrical and lighting",
           description: "Electrical installations, fittings and technical and decorative lighting.",
         },
         {
+          id: "fontaneria",
           title: "Plumbing, bathrooms and kitchens",
           description: "Plumbing, drainage and renewal of bathrooms and kitchens.",
         },
         {
+          id: "suelos",
           title: "Floors, finishes and stone",
           description: "Flooring, finishes, worktops and stone solutions.",
         },
         {
+          id: "carpinteria",
           title: "Doors, windows and joinery",
           description: "Interior and exterior doors, windows and site joinery.",
         },
         {
+          id: "pintura",
           title: "Paint and coordination",
           description: "Paint finishes and coordination of trades through to handover.",
         },

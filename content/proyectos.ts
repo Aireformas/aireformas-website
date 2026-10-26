@@ -102,10 +102,23 @@ export const proyectosCopy = defineCopy({
         "Selección de proyectos residenciales donde convergen arquitectura interior, reforma integral, mobiliario a medida y climatización invisible en Madrid y noroeste.",
     },
     intro: {
-      label: "PORTFOLIO ARQUITECTÓNICO",
-      title: "Viviendas diseñadas para ser vividas",
-      description:
-        "Selección de proyectos residenciales donde convergen arquitectura interior, reforma integral, mobiliario a medida y climatización invisible.",
+      label: "Portfolio",
+      title: "Proyectos",
+      headline: "Viviendas diseñadas para ser vividas",
+      description: "Arquitectura interior, reforma, mobiliario y clima en un solo relato.",
+      support:
+        "Selección de proyectos residenciales en Madrid y noroeste donde convergen diseño, ejecución y confort técnico.",
+      cta: "Hablar de mi proyecto",
+      image: {
+        src: "/images/projects/villa-mirasierra-2560.jpg",
+        alt: "Villa moderna de dos plantas en Mirasierra, Madrid, al anochecer",
+      },
+      chips: [
+        { id: "unifamiliar", title: "Viviendas unifamiliares", icon: "cottage" },
+        { id: "aticos", title: "Áticos y apartamentos", icon: "apartment" },
+        { id: "reformas-integrales", title: "Reformas integrales", icon: "handyman" },
+        { id: "singulares", title: "Espacios singulares", icon: "star" },
+      ],
     },
     filters: [
       { id: "all" as const, label: "Todos" },
@@ -226,10 +239,23 @@ export const proyectosCopy = defineCopy({
         "A selection of residential projects where interior architecture, full renovation, bespoke furniture and invisible climate meet in Madrid and the northwest.",
     },
     intro: {
-      label: "ARCHITECTURAL PORTFOLIO",
-      title: "Homes designed to be lived in",
-      description:
-        "A selection of residential projects where interior architecture, full renovation, bespoke furniture and invisible climate meet.",
+      label: "Portfolio",
+      title: "Projects",
+      headline: "Homes designed to be lived in",
+      description: "Interior architecture, renovation, furniture and climate in one story.",
+      support:
+        "A selection of residential projects in Madrid and the northwest where design, delivery and technical comfort converge.",
+      cta: "Start a project",
+      image: {
+        src: "/images/projects/villa-mirasierra-2560.jpg",
+        alt: "Modern two-storey villa in Mirasierra, Madrid, at dusk",
+      },
+      chips: [
+        { id: "unifamiliar", title: "Houses", icon: "cottage" },
+        { id: "aticos", title: "Penthouses and apartments", icon: "apartment" },
+        { id: "reformas-integrales", title: "Full renovations", icon: "handyman" },
+        { id: "singulares", title: "Singular spaces", icon: "star" },
+      ],
     },
     filters: [
       { id: "all" as const, label: "All" },

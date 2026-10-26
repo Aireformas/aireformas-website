@@ -5,13 +5,13 @@ import { FaqAccordion } from "@/components/shared/FaqAccordion";
 import { DistributionShowcase } from "@/components/shared/DistributionShowcase";
 import { EditorialFeatureGrid } from "@/components/shared/EditorialFeatureGrid";
 import { ImageGallery } from "@/components/shared/ImageGallery";
-import { PageHero } from "@/components/shared/PageHero";
 import { PhilosophyBandSection } from "@/components/shared/PhilosophyBandSection";
 import { ProcessGridSection } from "@/components/shared/ProcessGridSection";
 import {
   PillarCrossLink,
   PillarCrossLinks,
 } from "@/components/shared/PillarCrossLinks";
+import { SplitHero } from "@/components/shared/SplitHero";
 import { TopicGridSection } from "@/components/shared/TopicGridSection";
 import { chrome } from "@/content/chrome";
 import { mobiliarioCopy } from "@/content/mobiliario";
@@ -44,12 +44,15 @@ export default async function MobiliarioPage() {
           mobiliarioFaq.map((f) => ({ question: f.question, answer: f.answer })),
         )}
       />
-      <PageHero
+      <SplitHero
         label={mobiliarioHero.label}
         title={mobiliarioHero.title}
+        headline={mobiliarioHero.headline}
         description={mobiliarioHero.description}
+        support={mobiliarioHero.support}
         image={mobiliarioHero.image}
         cta={{ label: mobiliarioHero.cta, href: "/contacto" }}
+        chips={mobiliarioHero.chips}
       />
 
       <PhilosophyBandSection
