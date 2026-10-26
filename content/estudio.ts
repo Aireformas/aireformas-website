@@ -9,13 +9,23 @@ export const estudioCopy = defineCopy({
         "Diseñamos espacios. Creamos experiencias. Diseño, técnica y ejecución en equilibrio para viviendas, oficinas y locales en Madrid.",
     },
     hero: {
-      label: "ESTUDIO",
-      title: "Diseñamos espacios. Creamos experiencias.",
+      label: "Identidad",
+      title: "Estudio",
+      headline: "Diseñamos espacios. Creamos experiencias.",
       description: "Diseño, técnica y ejecución en equilibrio.",
+      support:
+        "Interiorismo, reforma, mobiliario y climatización con un solo equipo. Viviendas, oficinas y locales en Madrid y noroeste.",
+      cta: "Hablar de mi proyecto",
       image: {
         src: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=2400&q=90",
         alt: "Espacio interior con luz natural y materiales naturales",
       },
+      chips: [
+        { id: "interiorismo", title: "Interiorismo", icon: "design_services", href: "/interiorismo" },
+        { id: "reformas", title: "Reformas", icon: "construction", href: "/reformas" },
+        { id: "mobiliario", title: "Mobiliario", icon: "chair", href: "/mobiliario" },
+        { id: "climate", title: "Climate", icon: "thermostat", href: "/climate" },
+      ],
     },
     editorial: {
       label: "MANIFIESTO",
@@ -153,13 +163,23 @@ export const estudioCopy = defineCopy({
         "We design spaces. We create experiences. Design, technique and delivery in balance for homes, offices and retail in Madrid.",
     },
     hero: {
-      label: "STUDIO",
-      title: "We design spaces. We create experiences.",
+      label: "Identity",
+      title: "Studio",
+      headline: "We design spaces. We create experiences.",
       description: "Design, technique and delivery in balance.",
+      support:
+        "Interiors, renovation, furniture and climate with one team. Homes, offices and retail in Madrid and the northwest.",
+      cta: "Start a project",
       image: {
         src: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=2400&q=90",
         alt: "Interior space with natural light and natural materials",
       },
+      chips: [
+        { id: "interiorismo", title: "Interiors", icon: "design_services", href: "/interiorismo" },
+        { id: "reformas", title: "Renovation", icon: "construction", href: "/reformas" },
+        { id: "mobiliario", title: "Furniture", icon: "chair", href: "/mobiliario" },
+        { id: "climate", title: "Climate", icon: "thermostat", href: "/climate" },
+      ],
     },
     editorial: {
       label: "MANIFESTO",

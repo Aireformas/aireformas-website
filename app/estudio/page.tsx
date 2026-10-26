@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { ContactCTA } from "@/components/contact/ContactCTA";
 import { InView } from "@/components/motion/InView";
 import { EditorialFeatureGrid } from "@/components/shared/EditorialFeatureGrid";
-import { PageHero } from "@/components/shared/PageHero";
 import { PhilosophyBandSection } from "@/components/shared/PhilosophyBandSection";
 import { ProcessGridSection } from "@/components/shared/ProcessGridSection";
 import { PageSection } from "@/components/shared/PageSection";
 import { SectionIntro } from "@/components/shared/SectionIntro";
+import { SplitHero } from "@/components/shared/SplitHero";
 import { TopicGridSection } from "@/components/shared/TopicGridSection";
 import { TestimonialsSection } from "@/components/testimonials/TestimonialsSection";
 import { chrome } from "@/content/chrome";
@@ -30,12 +30,15 @@ export default async function EstudioPage() {
 
   return (
     <>
-      <PageHero
+      <SplitHero
         label={copy.hero.label}
         title={copy.hero.title}
+        headline={copy.hero.headline}
         description={copy.hero.description}
+        support={copy.hero.support}
         image={copy.hero.image}
-        cta={{ label: ui.talk, href: "/contacto" }}
+        cta={{ label: copy.hero.cta, href: "/contacto" }}
+        chips={copy.hero.chips}
       />
 
       <PhilosophyBandSection
