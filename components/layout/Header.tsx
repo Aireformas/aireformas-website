@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from "react";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { Logo } from "@/components/layout/Logo";
 import { useLocale } from "@/components/locale/LocaleProvider";
-import { MaterialIcon } from "@/components/ui/MaterialIcon";
 import { chrome } from "@/content/chrome";
 import { headerCta, headerNav, isNavGroup } from "@/content/navigation";
 import { cn } from "@/lib/cn";
@@ -18,6 +17,31 @@ import {
   type SiteLocale,
 } from "@/lib/i18n";
 
+function ChevronIcon({ open, className }: { open?: boolean; className?: string }) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden
+      className={cn(
+        "shrink-0 transition-transform duration-200 ease-out",
+        open && "rotate-180",
+        className,
+      )}
+    >
+      <path
+        d="M6 9l6 6 6-6"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function Header() {
   const pathname = usePathname();
   const router = useRouter();
@@ -25,7 +49,9 @@ export function Header() {
   const ui = chrome[locale];
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
   const localeSynced = useRef(false);
+  const desktopCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (localeSynced.current) return;
@@ -48,6 +74,16 @@ export function Header() {
     writeLocaleCookie(locale);
   }, [locale, router]);
 
+  useEffect(() => {
+    setOpen(false);
+    setServicesOpen(false);
+    setDesktopServicesOpen(false);
+    if (desktopCloseTimer.current) {
+      clearTimeout(desktopCloseTimer.current);
+      desktopCloseTimer.current = null;
+    }
+  }, [pathname]);
+
   function chooseLocale(next: SiteLocale) {
     if (next === locale) return;
     window.localStorage.setItem(LOCALE_STORAGE_KEY, next);
@@ -59,6 +95,23 @@ export function Header() {
   function closeMenus() {
     setOpen(false);
     setServicesOpen(false);
+    setDesktopServicesOpen(false);
+  }
+
+  function openDesktopServices() {
+    if (desktopCloseTimer.current) {
+      clearTimeout(desktopCloseTimer.current);
+      desktopCloseTimer.current = null;
+    }
+    setDesktopServicesOpen(true);
+  }
+
+  function scheduleCloseDesktopServices() {
+    if (desktopCloseTimer.current) clearTimeout(desktopCloseTimer.current);
+    desktopCloseTimer.current = setTimeout(() => {
+      setDesktopServicesOpen(false);
+      desktopCloseTimer.current = null;
+    }, 120);
   }
 
   return (
@@ -71,24 +124,45 @@ export function Header() {
             if (isNavGroup(entry)) {
               const active = entry.items.some((item) => pathname === item.href);
               return (
-                <div key={entry.label.es} className="group relative">
+                <div
+                  key={entry.label.es}
+                  className="relative"
+                  onMouseEnter={openDesktopServices}
+                  onMouseLeave={scheduleCloseDesktopServices}
+                  onFocusCapture={openDesktopServices}
+                  onBlurCapture={(event) => {
+                    const next = event.relatedTarget;
+                    if (next instanceof Node && event.currentTarget.contains(next)) {
+                      return;
+                    }
+                    scheduleCloseDesktopServices();
+                  }}
+                >
                   <button
                     type="button"
                     className={cn(
                       "inline-flex items-center gap-0.5 text-label-uppercase transition-colors",
-                      active
+                      active || desktopServicesOpen
                         ? "border-b border-primary pb-0.5 text-primary"
                         : "text-on-surface-variant hover:text-ink-primary",
                     )}
                     aria-haspopup="true"
+                    aria-expanded={desktopServicesOpen}
+                    onClick={() =>
+                      setDesktopServicesOpen((value) => !value)
+                    }
                   >
                     {entry.label[locale]}
-                    <MaterialIcon
-                      name="expand_more"
-                      className="text-[1.05rem] leading-none transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"
-                    />
+                    <ChevronIcon open={desktopServicesOpen} />
                   </button>
-                  <div className="invisible absolute left-0 top-full z-50 pt-3 opacity-0 transition-opacity group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                  <div
+                    className={cn(
+                      "absolute left-0 top-full z-50 pt-3 transition-[opacity,visibility,transform] duration-200 ease-out",
+                      desktopServicesOpen
+                        ? "visible translate-y-0 opacity-100"
+                        : "invisible -translate-y-1 opacity-0 pointer-events-none",
+                    )}
+                  >
                     <ul className="min-w-44 rounded-editorial border border-outline-variant/30 bg-surface/95 py-2 shadow-sm backdrop-blur-md">
                       {entry.items.map((item) => (
                         <li key={item.href}>
@@ -100,6 +174,7 @@ export function Header() {
                                 ? "text-primary"
                                 : "text-on-surface-variant hover:text-ink-primary",
                             )}
+                            onClick={closeMenus}
                           >
                             {item.label[locale]}
                           </Link>
@@ -122,6 +197,7 @@ export function Header() {
                     ? "border-b border-primary pb-0.5 text-primary"
                     : "text-on-surface-variant hover:text-ink-primary",
                 )}
+                onClick={closeMenus}
               >
                 {entry.label[locale]}
               </Link>
@@ -135,6 +211,7 @@ export function Header() {
           <Link
             href="/contacto"
             className="hidden items-center justify-center rounded-full bg-slate-accent px-6 py-2.5 text-label-uppercase text-surface transition-colors hover:bg-slate-deep lg:inline-flex"
+            onClick={closeMenus}
           >
             {headerCta[locale]}
           </Link>
@@ -184,13 +261,7 @@ export function Header() {
                       onClick={() => setServicesOpen((value) => !value)}
                     >
                       {entry.label[locale]}
-                      <MaterialIcon
-                        name="expand_more"
-                        className={cn(
-                          "text-[1.05rem] transition-transform duration-200",
-                          servicesOpen && "rotate-180",
-                        )}
-                      />
+                      <ChevronIcon open={servicesOpen} />
                     </button>
                     {servicesOpen ? (
                       <ul className="pb-2 pl-3">
