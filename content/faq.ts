@@ -6,7 +6,7 @@ export const faqCopy = defineCopy({
     meta: {
       title: "Preguntas frecuentes",
       description:
-        "FAQ de aireformas en Madrid: interiorismo, reforma integral, mobiliario a medida, climatización, aerotermia, licencias, plazos y zona de trabajo (Pozuelo, Boadilla, Majadahonda, Las Rozas, La Moraleja).",
+        "Preguntas sobre interiorismo, reforma, mobiliario y climatización en Madrid: plazos, licencias y zona de trabajo. Sin letra pequeña.",
     },
     hero: {
       label: "FAQ",
@@ -121,7 +121,7 @@ export const faqCopy = defineCopy({
     meta: {
       title: "Frequently asked questions",
       description:
-        "aireformas FAQ in Madrid: interior design, full renovation, bespoke furniture, climate control, air-source heat pumps, permits, timelines and work area (Pozuelo, Boadilla, Majadahonda, Las Rozas, La Moraleja).",
+        "Questions on interiors, renovation, furniture and climate in Madrid: timelines, permits and where we work. Plain answers.",
     },
     hero: {
       label: "FAQ",

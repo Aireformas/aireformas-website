@@ -44,16 +44,16 @@ export async function FeaturedProjects() {
                 className="grid grid-cols-1 items-center gap-gutter md:grid-cols-12"
               >
                 <div
-                  className={`group overflow-hidden rounded-editorial border border-outline/15 md:col-span-8 ${
+                  className={`group relative h-[460px] overflow-hidden rounded-editorial border border-outline/15 md:col-span-8 ${
                     reversed ? "md:order-2" : ""
                   }`}
                 >
                   <Image
                     src={project.image.src}
                     alt={project.image.alt}
-                    width={1200}
-                    height={800}
-                    className="h-[460px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 66vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                 </div>
                 <div

@@ -9,7 +9,7 @@ export const legalCopy = defineCopy({
     privacy: {
       meta: {
         title: "Política de privacidad",
-        description: "Información sobre el tratamiento de datos personales en aireformas.",
+        description: "Cómo aireformas trata tus datos al pedir un presupuesto o usar esta web, y cómo puedes ejercer tus derechos. Consulta el detalle.",
       },
       page: {
         label: "Legal",
@@ -31,7 +31,7 @@ export const legalCopy = defineCopy({
     terms: {
       meta: {
         title: "Términos y condiciones",
-        description: "Condiciones de uso del sitio web y contratación de servicios de aireformas.",
+        description: "Condiciones de uso de la web de aireformas y el marco general para contratar reforma, mobiliario e interiorismo. Léelas con calma.",
       },
       page: {
         label: "Legal",
@@ -56,8 +56,8 @@ export const legalCopy = defineCopy({
   en: {
     privacy: {
       meta: {
-        title: "Privacy policy",
-        description: "Information about the processing of personal data at aireformas.",
+        title: "How we handle your data",
+        description: "How aireformas handles your data when you ask for a quote or use this site, and how you can use your rights. Read the detail.",
       },
       page: {
         label: "Legal",
@@ -79,7 +79,7 @@ export const legalCopy = defineCopy({
     terms: {
       meta: {
         title: "Terms and conditions",
-        description: "Terms of use of the website and engagement of aireformas services.",
+        description: "Terms of use of the aireformas website and the framework for engaging renovation, furniture and interior work. Read them first.",
       },
       page: {
         label: "Legal",

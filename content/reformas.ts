@@ -6,7 +6,7 @@ export const reformasCopy = defineCopy({
     meta: {
       title: "Reformas integrales y parciales",
       description:
-        "Transformamos espacios. Ejecutamos cada detalle. Reformas de viviendas, oficinas y locales con interiorismo, mobiliario y climatización coordinados en Madrid.",
+        "Reformas de viviendas, oficinas y locales en Madrid, con interiorismo y mobiliario. Un solo equipo hasta la entrega. Sin sorpresas.",
     },
     hero: {
       label: "Obra",
@@ -144,7 +144,7 @@ export const reformasCopy = defineCopy({
     meta: {
       title: "Full and partial renovations",
       description:
-        "We transform spaces. We execute every detail. Renovation of homes, offices and retail with coordinated interiors, furniture and climate in Madrid.",
+        "Renovation of homes, offices and retail in Madrid, with interiors and furniture. One team through to handover. No surprises.",
     },
     hero: {
       label: "Build",

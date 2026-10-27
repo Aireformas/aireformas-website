@@ -53,8 +53,8 @@ export function Logo({
       <Image
         src={asset.src}
         alt={site.logo.alt}
-        width={asset.width}
-        height={asset.height}
+        width={360}
+        height={Math.round((360 * asset.height) / asset.width)}
         unoptimized
         className={cn(
           logoHeights[size],

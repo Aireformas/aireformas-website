@@ -9,6 +9,8 @@ import {
   organizationJsonLd,
   webSiteJsonLd,
 } from "@/components/seo/JsonLd";
+import { RouteBreadcrumbs } from "@/components/seo/RouteBreadcrumbs";
+import { chrome } from "@/content/chrome";
 import { site, siteCopy } from "@/content/site";
 import { getLocale } from "@/lib/locale.server";
 import "./globals.css";
@@ -72,16 +74,24 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       data-scroll-behavior="smooth"
     >
       <head>
+        <link rel="llms" href="/llms.txt" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=block"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
           rel="stylesheet"
         />
       </head>
       <body className="flex min-h-full flex-col">
         <LocaleProvider locale={locale}>
+          <a
+            href="#contenido"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-slate-deep focus:px-4 focus:py-2 focus:text-body-sm focus:text-white"
+          >
+            {chrome[locale].skipToContent}
+          </a>
           <JsonLd data={[organizationJsonLd(locale), webSiteJsonLd(locale)]} />
           <Header />
-          <main className="flex-1">{children}</main>
+          <RouteBreadcrumbs />
+          <main id="contenido" className="flex-1">{children}</main>
           <Footer />
           <CookieConsent />
         </LocaleProvider>

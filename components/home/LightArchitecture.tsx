@@ -29,13 +29,13 @@ export async function LightArchitecture() {
 
         <div className="grid grid-cols-1 items-end gap-gutter md:grid-cols-12">
           <div className="md:col-span-7">
-            <div className="overflow-hidden rounded-editorial border border-outline/10">
+            <div className="relative h-[520px] overflow-hidden rounded-editorial border border-outline/10">
               <Image
                 src={lightArchitectureSection.image.src}
                 alt={lightArchitectureSection.image.alt}
-                width={1400}
-                height={1050}
-                className="h-[520px] w-full object-cover transition-transform duration-700 ease-out hover:scale-105"
+                fill
+                sizes="(max-width: 768px) 100vw, 58vw"
+                className="object-cover transition-transform duration-700 ease-out hover:scale-105"
               />
             </div>
             <div className="mt-4 flex items-center justify-between text-label-uppercase text-warm-label">
@@ -48,14 +48,14 @@ export async function LightArchitecture() {
             {sideImages.map((image) => (
               <div
                 key={image.src}
-                className="overflow-hidden rounded-editorial border border-outline/10"
+                className="relative h-64 overflow-hidden rounded-editorial border border-outline/10"
               >
                 <Image
                   src={image.src}
                   alt={image.alt}
-                  width={900}
-                  height={700}
-                  className="h-64 w-full object-cover transition-transform duration-700 ease-out hover:scale-105"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-cover transition-transform duration-700 ease-out hover:scale-105"
                 />
               </div>
             ))}

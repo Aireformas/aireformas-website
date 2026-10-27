@@ -33,13 +33,13 @@ export function ThermalComfortSection({
     >
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-gutter md:grid-cols-12">
         <div className="md:col-span-7">
-          <div className="overflow-hidden rounded-editorial border border-outline/15 shadow-sm">
+          <div className="relative h-[540px] overflow-hidden rounded-editorial border border-outline/15 shadow-sm">
             <Image
               src={image.src}
               alt={image.alt}
-              width={1600}
-              height={1200}
-              className="h-[540px] w-full object-cover"
+              fill
+              sizes="(max-width: 768px) 100vw, 58vw"
+              className="object-cover"
             />
           </div>
         </div>

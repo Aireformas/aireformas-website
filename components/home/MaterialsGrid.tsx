@@ -22,13 +22,13 @@ export async function MaterialsGrid() {
               key={tile.id}
               className="flex flex-col justify-between rounded-editorial border border-outline/10 bg-cream-base p-5"
             >
-              <div className="mb-4 h-48 overflow-hidden rounded-lg">
+              <div className="relative mb-4 h-48 overflow-hidden rounded-lg">
                 <Image
                   src={tile.image.src}
                   alt={tile.image.alt}
-                  width={600}
-                  height={480}
-                  className="h-full w-full object-cover"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 20vw"
+                  className="object-cover"
                 />
               </div>
               <div>

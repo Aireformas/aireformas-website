@@ -40,7 +40,7 @@ export const headerCta: Localized = {
 
 export const footerNav: Record<SiteLocale, { label: string; href: string }[]> = {
   es: [
-    { label: "Estudio", href: "/estudio" },
+    { label: "Sobre nosotros", href: "/estudio" },
     { label: "Interiorismo", href: "/interiorismo" },
     { label: "Reformas", href: "/reformas" },
     { label: "Mobiliario", href: "/mobiliario" },
@@ -50,7 +50,7 @@ export const footerNav: Record<SiteLocale, { label: string; href: string }[]> = 
     { label: "Preguntas frecuentes", href: "/preguntas-frecuentes" },
   ],
   en: [
-    { label: "Studio", href: "/estudio" },
+    { label: "About", href: "/estudio" },
     { label: "Interiors", href: "/interiorismo" },
     { label: "Renovation", href: "/reformas" },
     { label: "Furniture", href: "/mobiliario" },

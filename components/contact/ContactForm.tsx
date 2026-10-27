@@ -137,7 +137,7 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
             className="flex w-full items-center justify-center gap-2.5 rounded-full border border-[#25D366]/35 bg-[#25D366]/10 py-3.5 text-label-uppercase text-ink-primary transition-colors hover:bg-[#25D366]/15"
           >
             <WhatsAppIcon branded className="h-5 w-5" />
-            {site.phone}
+            WhatsApp
           </a>
         </div>
       ) : null}

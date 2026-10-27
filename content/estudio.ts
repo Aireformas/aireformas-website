@@ -4,7 +4,7 @@ import type { ProcessStep, Testimonial, TrustStat } from "@/lib/types";
 export const estudioCopy = defineCopy({
   es: {
     meta: {
-      title: "Estudio",
+      title: "Estudio de interiorismo",
       description:
         "Diseñamos espacios. Creamos experiencias. Diseño, técnica y ejecución en equilibrio para viviendas, oficinas y locales en Madrid.",
     },
@@ -196,7 +196,7 @@ export const estudioCopy = defineCopy({
   },
   en: {
     meta: {
-      title: "Studio",
+      title: "Interior design studio",
       description:
         "We design spaces. We create experiences. Design, technique and delivery in balance for homes, offices and retail in Madrid.",
     },

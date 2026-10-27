@@ -285,7 +285,7 @@ export const mobiliarioCopy = defineCopy({
     meta: {
       title: "Bespoke furniture and joinery",
       description:
-        "Kitchens, dressing rooms, wardrobes, TV units and joinery integrated into the architecture. Design, making and installation in Madrid.",
+        "Kitchens, wardrobes and joinery integrated into the architecture. Design, making and installation in Madrid, by one team.",
     },
     hero: {
       label: "Bespoke",

@@ -18,13 +18,13 @@ export async function ProjectTimeline() {
         <div className="grid grid-cols-1 gap-gutter sm:grid-cols-2 lg:grid-cols-4">
           {projectTimelineSteps.map((step, index) => (
             <div key={step.phase} className="flex flex-col">
-              <div className="group relative mb-4 overflow-hidden rounded-editorial border border-outline/15">
+              <div className="group relative mb-4 h-80 overflow-hidden rounded-editorial border border-outline/15">
                 <Image
                   src={step.image.src}
                   alt={step.image.alt}
-                  width={700}
-                  height={900}
-                  className="h-80 w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
                 <span
                   className={`absolute left-4 top-4 rounded-full px-3 py-1 text-label-uppercase ${

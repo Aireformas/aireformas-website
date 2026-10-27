@@ -97,9 +97,9 @@ const images = {
 export const proyectosCopy = defineCopy({
   es: {
     meta: {
-      title: "Proyectos",
+      title: "Proyectos en Madrid",
       description:
-        "Selección de proyectos residenciales donde convergen arquitectura interior, reforma integral, mobiliario a medida y climatización invisible en Madrid y noroeste.",
+        "Proyectos residenciales en Madrid: reforma, interiorismo, mobiliario a medida y climatización invisible. Un solo equipo.",
     },
     intro: {
       label: "Portfolio",
@@ -234,9 +234,9 @@ export const proyectosCopy = defineCopy({
   },
   en: {
     meta: {
-      title: "Projects",
+      title: "Projects in Madrid",
       description:
-        "A selection of residential projects where interior architecture, full renovation, bespoke furniture and invisible climate meet in Madrid and the northwest.",
+        "Residential projects in Madrid: renovation, interiors, bespoke furniture and invisible climate. One team. Real homes too.",
     },
     intro: {
       label: "Portfolio",

@@ -70,7 +70,7 @@ export async function Footer() {
               {ui.terms}
             </Link>
             <Link href="/legal/privacidad" className="hover:text-white">
-              {ui.privacy}
+              {ui.privacyFull}
             </Link>
             <Link href="/legal/cookies" className="hover:text-white">
               {ui.cookies}

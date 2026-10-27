@@ -6,7 +6,7 @@ export const interiorismoCopy = defineCopy({
     meta: {
       title: "Interiorismo en Madrid",
       description:
-        "Espacios pensados para vivirlos. Diseñados para ti. Moodboards, materiales, 3D y renders. Interiorismo integrado con reforma y mobiliario en Madrid.",
+        "Interiorismo en Madrid: moodboards, materiales, 3D y renders, con la reforma y el mobiliario del espacio. Lo vemos en 3D.",
     },
     hero: {
       label: "Diseño",
@@ -113,7 +113,7 @@ export const interiorismoCopy = defineCopy({
     meta: {
       title: "Interior design in Madrid",
       description:
-        "Spaces designed to be lived in. Designed for you. Moodboards, materials, 3D and renders. Interiors integrated with renovation and furniture in Madrid.",
+        "Interiors in Madrid: moodboards, materials, 3D and renders, together with the renovation and furniture. We design it with you.",
     },
     hero: {
       label: "Design",

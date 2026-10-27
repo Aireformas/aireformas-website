@@ -25,7 +25,7 @@ export const climateCopy = defineCopy({
     meta: {
       title: "Climatización invisible y aerotermia",
       description:
-        "AIREFORMAS Climate: aerotermia, bombas de calor y VRV, ventilación con recuperación, suelo radiante, conductos, ACS y control inteligente integrados en el proyecto de vivienda en Madrid.",
+        "Aerotermia, suelo radiante y climatización invisible, integrados en la reforma de tu vivienda en Madrid. Un solo equipo.",
     },
     hero: {
       label: "Confort",
@@ -87,9 +87,9 @@ export const climateCopy = defineCopy({
   },
   en: {
     meta: {
-      title: "Invisible climate control and air-source heat pumps",
+      title: "Climate control in Madrid",
       description:
-        "AIREFORMAS Climate: air-source heat pumps, heat pumps and VRV, heat-recovery ventilation, underfloor heating, ductwork, hot water and smart control integrated into the home project in Madrid.",
+        "Air-source heat pumps, underfloor heating and invisible climate, built into your home renovation in Madrid. One team on site.",
     },
     hero: {
       label: "Comfort",

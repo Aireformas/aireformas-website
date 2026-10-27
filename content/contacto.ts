@@ -3,7 +3,7 @@ import { defineCopy } from "@/lib/i18n";
 export const contactoCopy = defineCopy({
   es: {
     meta: {
-      title: "Contacto",
+      title: "Contacto en Madrid",
       description:
         "Habla de tu proyecto de interiorismo, reforma, mobiliario o climatización en Madrid. Respuesta personalizada sin compromiso.",
     },
@@ -13,7 +13,7 @@ export const contactoCopy = defineCopy({
       headline: "Hablar de mi proyecto",
       description: "Primera orientación clara, sin compromiso.",
       support:
-        "Cuéntanos qué necesitas: vivienda, plazos y objetivos. Respondemos en 1–2 días laborables.",
+        "Cuéntanos qué necesitas: vivienda, plazos y objetivos. Respondemos en 1–2 días laborables. Después visitamos la casa y enviamos alcance, plazo y presupuesto cerrado. Interiorismo, reforma, mobiliario y climatización siguen con el mismo equipo.",
       cta: "Enviar mensaje",
       image: {
         src: "/images/hero-interior-2560.jpg",
@@ -29,14 +29,14 @@ export const contactoCopy = defineCopy({
     section: {
       label: "ESCRÍBENOS",
       title: "Cuéntanos tu vivienda",
-      description: "Nombre, teléfono y una breve descripción bastan para empezar la conversación.",
+      description: "Nombre, teléfono y una breve descripción bastan para empezar. Si tienes fotos o planos, adjúntalos en el mensaje. Una primera conversación sirve para ver si encajamos.",
     },
   },
   en: {
     meta: {
-      title: "Contact",
+      title: "Contact in Madrid",
       description:
-        "Talk about your interior, renovation, furniture or climate project in Madrid. A personal reply, with no obligation.",
+        "Talk about your interior, renovation, furniture or climate project in Madrid. A personal reply, with no obligation at all.",
     },
     hero: {
       label: "Conversation",
@@ -44,7 +44,7 @@ export const contactoCopy = defineCopy({
       headline: "Start a project",
       description: "A clear first orientation, with no obligation.",
       support:
-        "Tell us what you need: the home, timing and goals. We reply within 1–2 working days.",
+        "Tell us what you need: the home, timing and goals. We reply within 1–2 working days. We then visit and send scope, timing and a fixed quote. Design, renovation, furniture and climate stay with the same team.",
       cta: "Send a message",
       image: {
         src: "/images/hero-interior-2560.jpg",
@@ -60,7 +60,7 @@ export const contactoCopy = defineCopy({
     section: {
       label: "WRITE TO US",
       title: "Tell us about your home",
-      description: "A name, a phone number and a short description are enough to start the conversation.",
+      description: "A name, a phone number and a short description are enough to start. Add photos or plans in the message if you have them. A first conversation shows whether we are the right studio.",
     },
   },
 });

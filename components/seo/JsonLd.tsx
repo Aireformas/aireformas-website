@@ -5,8 +5,18 @@ type JsonLdProps = {
   data: Record<string, unknown> | Record<string, unknown>[];
 };
 
+function withoutContext(item: Record<string, unknown>): Record<string, unknown> {
+  const { "@context": _context, ...rest } = item;
+  return rest;
+}
+
 export function JsonLd({ data }: JsonLdProps) {
-  const payload = Array.isArray(data) ? data : [data];
+  const items = (Array.isArray(data) ? data : [data]).map(withoutContext);
+  const payload =
+    items.length === 1
+      ? { "@context": "https://schema.org", ...items[0] }
+      : { "@context": "https://schema.org", "@graph": items };
+
   return (
     <script
       type="application/ld+json"
@@ -19,7 +29,7 @@ export function organizationJsonLd(locale: SiteLocale): Record<string, unknown> 
   const copy = siteCopy[locale];
   return {
     "@context": "https://schema.org",
-    "@type": ["Organization", "HomeAndConstructionBusiness"],
+    "@type": "HomeAndConstructionBusiness",
     "@id": `${site.url}/#organization`,
     name: site.name,
     url: site.url,

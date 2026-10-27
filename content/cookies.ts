@@ -4,7 +4,7 @@ export const cookiesCopy = defineCopy({
   es: {
     meta: {
       title: "Política de cookies",
-      description: "Información sobre cookies y consentimiento en aireformas.",
+      description: "Qué cookies usa aireformas, para qué sirve cada una y cómo aceptar o rechazar las que no son necesarias. Tú decides siempre.",
     },
     banner: {
       title: "Cookies",
@@ -49,8 +49,8 @@ export const cookiesCopy = defineCopy({
   },
   en: {
     meta: {
-      title: "Cookie policy",
-      description: "Information about cookies and consent at aireformas.",
+      title: "Cookies on this site",
+      description: "Which cookies aireformas uses, what each one is for, and how to accept or reject the ones that are optional. You choose.",
     },
     banner: {
       title: "Cookies",

@@ -73,7 +73,7 @@ export async function ContactCTA({
                   className="inline-flex items-center gap-2 text-headline-sm font-light transition-colors hover:text-primary-fixed"
                 >
                   <WhatsAppIcon branded className="h-5 w-5" />
-                  {site.phone}
+                  WhatsApp
                 </a>
               </div>
             </div>
