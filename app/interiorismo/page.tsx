@@ -83,6 +83,7 @@ export default async function InteriorismoPage() {
         title={copy.cta.title}
         description={copy.cta.description}
         variant="landing"
+        service="interiorismo"
       />
     </>
   );

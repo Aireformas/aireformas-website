@@ -112,6 +112,7 @@ export default async function MobiliarioPage() {
         title={copy.cta.title}
         description={copy.cta.description}
         variant="landing"
+        service="mobiliario"
       />
     </>
   );

@@ -2,6 +2,7 @@ import { ContactForm } from "@/components/contact/ContactForm";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { chrome } from "@/content/chrome";
 import { site } from "@/content/site";
+import type { ContactService } from "@/lib/contact-inquiry";
 import { getLocale } from "@/lib/locale.server";
 
 type ContactCTAProps = {
@@ -10,6 +11,7 @@ type ContactCTAProps = {
   title: string;
   description: string;
   variant?: "light" | "dark" | "brand" | "landing";
+  service?: ContactService;
 };
 
 export async function ContactCTA({
@@ -18,100 +20,82 @@ export async function ContactCTA({
   title,
   description,
   variant = "light",
+  service,
 }: ContactCTAProps) {
   const ui = chrome[await getLocale()];
   const isLanding = variant === "landing" || variant === "brand";
-
-  if (isLanding) {
-    return (
-      <section
-        id={id}
-        className="bg-slate-accent py-space-2xl text-surface px-margin-mobile md:px-margin"
-      >
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-gutter lg:grid-cols-12">
-          <div className="text-white lg:col-span-5">
-            <span className="mb-3 block text-label-uppercase text-primary-fixed">
-              {label}
-            </span>
-            <h2 className="text-headline-lg mb-6 leading-tight text-white">
-              {title}
-            </h2>
-            <p className="mb-10 max-w-md text-body-lg font-light text-surface/90">
-              {description}
-            </p>
-            <div className="space-y-6 border-t border-white/20 pt-8">
-              <div>
-                <span className="mb-1 block text-label-uppercase text-surface/70">
-                  {ui.phone}
-                </span>
-                <a
-                  href={site.phoneHref}
-                  className="text-headline-sm font-light transition-colors hover:text-primary-fixed"
-                >
-                  {site.phone}
-                </a>
-              </div>
-              <div>
-                <span className="mb-1 block text-label-uppercase text-surface/70">
-                  {ui.email}
-                </span>
-                <a
-                  href={site.emailHref}
-                  className="text-headline-sm font-light transition-colors hover:text-primary-fixed"
-                >
-                  {site.email}
-                </a>
-              </div>
-              <div>
-                <span className="mb-1 block text-label-uppercase text-surface/70">
-                  WhatsApp
-                </span>
-                <a
-                  href={site.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-headline-sm font-light transition-colors hover:text-primary-fixed"
-                >
-                  <WhatsAppIcon branded className="h-5 w-5" />
-                  WhatsApp
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="lg:col-span-7">
-            <div className="rounded-editorial bg-sand-container p-8 text-ink-primary shadow-2xl md:p-12">
-              <ContactForm variant="landing" />
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   const isDark = variant === "dark";
+  const onColor = isLanding || isDark;
 
   return (
     <section
       id={id}
       className={
-        isDark
-          ? "bg-stone py-space-2xl text-white px-margin-mobile md:px-margin"
-          : "border-t border-outline/15 bg-sand-container py-space-2xl text-ink-primary px-margin-mobile md:px-margin"
+        isLanding
+          ? "bg-slate-accent px-margin-mobile py-12 text-surface md:px-margin md:py-14"
+          : isDark
+            ? "bg-stone px-margin-mobile py-12 text-white md:px-margin md:py-14"
+            : "border-t border-outline/15 bg-sand-container px-margin-mobile py-12 text-ink-primary md:px-margin md:py-14"
       }
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-gutter lg:grid-cols-12">
-        <div className="lg:col-span-5">
-          <span className="mb-3 block text-label-uppercase text-warm-label">
+      <div className="mx-auto grid max-w-7xl items-start gap-6 lg:grid-cols-12 lg:gap-10">
+        <div className={onColor ? "text-white lg:col-span-4" : "lg:col-span-4"}>
+          <span
+            className={
+              isLanding
+                ? "mb-2 block text-label-uppercase text-primary-fixed"
+                : "mb-2 block text-label-uppercase text-warm-label"
+            }
+          >
             {label}
           </span>
-          <h2 className="text-headline-lg mb-5">{title}</h2>
-          <p className="max-w-md text-body-md text-on-surface-variant">
+          <h2 className={`text-headline-sm mb-3 ${onColor ? "text-white" : ""}`}>{title}</h2>
+          <p
+            className={
+              onColor
+                ? "mb-4 text-body-sm font-light text-surface/90"
+                : "mb-4 text-body-sm text-on-surface-variant"
+            }
+          >
             {description}
           </p>
+          <div className="flex flex-wrap gap-x-4 gap-y-2 text-body-sm">
+            <a
+              href={site.phoneHref}
+              className={onColor ? "hover:text-primary-fixed" : "hover:text-slate-deep"}
+            >
+              {site.phone}
+            </a>
+            <a
+              href={site.emailHref}
+              className={onColor ? "hover:text-primary-fixed" : "hover:text-slate-deep"}
+            >
+              {site.email}
+            </a>
+            <a
+              href={site.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={
+                onColor
+                  ? "inline-flex items-center gap-1.5 hover:text-primary-fixed"
+                  : "inline-flex items-center gap-1.5 hover:text-slate-deep"
+              }
+            >
+              <WhatsAppIcon branded className="h-4 w-4" />
+              {ui.whatsapp}
+            </a>
+          </div>
         </div>
-        <div className="rounded-editorial border border-outline/10 bg-cream-base p-8 lg:col-span-7">
-          <ContactForm />
+
+        <div
+          className={
+            isLanding
+              ? "rounded-editorial bg-sand-container p-4 text-ink-primary sm:p-5 lg:col-span-8"
+              : "rounded-editorial border border-outline/10 bg-cream-base p-4 sm:p-5 lg:col-span-8"
+          }
+        >
+          <ContactForm variant={isLanding ? "landing" : "default"} service={service} />
         </div>
       </div>
     </section>

@@ -80,6 +80,7 @@ export default async function ClimatePage() {
         title={climateCta.title}
         description={climateCta.description}
         variant="landing"
+        service="clima"
       />
     </>
   );

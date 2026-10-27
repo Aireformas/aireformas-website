@@ -29,7 +29,7 @@ export const contactoCopy = defineCopy({
     section: {
       label: "ESCRÍBENOS",
       title: "Cuéntanos tu vivienda",
-      description: "Nombre, teléfono y una breve descripción bastan para empezar. Si tienes fotos o planos, adjúntalos en el mensaje. Una primera conversación sirve para ver si encajamos.",
+      description: "Servicio, tipo de vivienda y plazo. Respondemos en 1–2 días laborables.",
     },
   },
   en: {
@@ -60,7 +60,7 @@ export const contactoCopy = defineCopy({
     section: {
       label: "WRITE TO US",
       title: "Tell us about your home",
-      description: "A name, a phone number and a short description are enough to start. Add photos or plans in the message if you have them. A first conversation shows whether we are the right studio.",
+      description: "Service, type of home and timing. We reply within 1–2 working days.",
     },
   },
 });

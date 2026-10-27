@@ -1,14 +1,17 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useId } from "react";
 import { sendContact, type ContactFormState } from "@/app/contacto/actions";
 import { useLocale } from "@/components/locale/LocaleProvider";
+import { MaterialIcon } from "@/components/ui/MaterialIcon";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { chrome } from "@/content/chrome";
 import { site } from "@/content/site";
+import type { ContactService } from "@/lib/contact-inquiry";
 
 type ContactFormProps = {
   variant?: "default" | "landing";
+  service?: ContactService;
 };
 
 const initialState: ContactFormState = {
@@ -16,92 +19,177 @@ const initialState: ContactFormState = {
   revision: 0,
   nombre: "",
   telefono: "",
+  email: "",
+  servicio: "",
+  espacio: "",
+  zona: "",
+  plazo: "",
   mensaje: "",
 };
 
-export function ContactForm({ variant = "default" }: ContactFormProps) {
+export function ContactForm({ variant = "default", service }: ContactFormProps) {
   const form = chrome[useLocale()].form;
   const [state, formAction, pending] = useActionState(sendContact, initialState);
+  const fieldId = useId();
   const isLanding = variant === "landing";
+  const selectedService = state.servicio || service || "";
 
   if (state.status === "ok") {
-    return (
-      <p className="rounded-editorial border border-outline/15 bg-cream-base p-6 text-body-sm text-on-surface-variant">
-        {form.thanks}
-      </p>
-    );
+    return <ContactReceived state={state} />;
   }
 
   const fieldClassName = isLanding
-    ? "w-full rounded-lg border border-outline/30 bg-cream-base px-4 py-3.5 text-ink-primary text-body-md transition-colors focus:border-slate-deep focus:outline-none focus:ring-0"
-    : "w-full rounded-lg border border-outline/30 bg-paper px-4 py-3.5 text-ink-primary outline-none transition-[border-color] focus:border-accent focus:ring-2 focus:ring-accent/15";
+    ? "w-full rounded-md border border-outline/30 bg-cream-base px-3 py-2 text-body-sm text-ink-primary outline-none transition-colors focus:border-slate-deep"
+    : "w-full rounded-md border border-outline/30 bg-paper px-3 py-2 text-body-sm text-ink-primary outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/15";
 
-  const labelClassName = isLanding
-    ? "mb-2 block text-label-uppercase text-warm-label uppercase"
-    : "mb-2 block text-label-uppercase text-warm-label";
+  const labelClassName = "mb-1 block text-label-uppercase text-warm-label";
 
   return (
-    <form key={state.revision} action={formAction} className="space-y-6">
-      {isLanding ? (
-        <div className="mb-8">
-          <h3 className="text-headline-md mb-1 font-light text-ink-primary">
-            {form.title}
-          </h3>
-          <p className="text-body-sm font-light text-warm-label">
-            {form.response}
-          </p>
-        </div>
-      ) : (
-        <div className="mb-6 border-b border-outline/15 pb-5">
-          <h3 className="text-headline-sm text-ink-primary">{form.title}</h3>
-          <p className="mt-2 text-body-sm text-on-surface-variant">
-            {form.response}
-          </p>
-        </div>
-      )}
+    <form key={state.revision} action={formAction} className="space-y-3">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+        <h3 className="text-body-md font-medium text-ink-primary">{form.title}</h3>
+        <p className="text-body-sm text-warm-label">{form.response}</p>
+      </div>
 
-      <div>
-        <label className={labelClassName} htmlFor="nombre">
-          {form.name}
-        </label>
-        <input
-          id="nombre"
-          type="text"
-          name="nombre"
-          required
-          defaultValue={state.nombre}
-          autoComplete="name"
-          placeholder={form.namePlaceholder}
-          className={fieldClassName}
-        />
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div>
+          <label className={labelClassName} htmlFor={`${fieldId}-nombre`}>
+            {form.name}
+          </label>
+          <input
+            id={`${fieldId}-nombre`}
+            type="text"
+            name="nombre"
+            required
+            defaultValue={state.nombre}
+            autoComplete="name"
+            placeholder={form.namePlaceholder}
+            className={fieldClassName}
+          />
+        </div>
+        <div>
+          <label className={labelClassName} htmlFor={`${fieldId}-telefono`}>
+            {form.phone}
+          </label>
+          <input
+            id={`${fieldId}-telefono`}
+            type="tel"
+            name="telefono"
+            required
+            defaultValue={state.telefono}
+            autoComplete="tel"
+            placeholder="+34"
+            className={fieldClassName}
+          />
+        </div>
+      </div>
+
+      <fieldset>
+        <legend className={labelClassName}>{form.service}</legend>
+        <div className="flex flex-wrap gap-1.5">
+          {form.services.map((option) => (
+            <label key={option.id} className="cursor-pointer">
+              <input
+                type="radio"
+                name="servicio"
+                value={option.id}
+                required
+                defaultChecked={selectedService === option.id}
+                className="peer sr-only"
+              />
+              <span className="inline-block rounded-full border border-outline/30 px-3 py-1 text-body-sm text-ink-primary transition-colors peer-checked:border-slate-deep peer-checked:bg-slate-deep peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-slate-accent/40">
+                {option.label}
+              </span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div>
+          <label className={labelClassName} htmlFor={`${fieldId}-espacio`}>
+            {form.space}
+          </label>
+          <select
+            id={`${fieldId}-espacio`}
+            name="espacio"
+            required
+            defaultValue={state.espacio}
+            className={fieldClassName}
+          >
+            <option value="" disabled>
+              {form.spacePlaceholder}
+            </option>
+            {form.spaces.map((option) => (
+              <option key={option.id} value={option.id}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label className={labelClassName} htmlFor={`${fieldId}-plazo`}>
+            {form.timing}
+          </label>
+          <select
+            id={`${fieldId}-plazo`}
+            name="plazo"
+            required
+            defaultValue={state.plazo}
+            className={fieldClassName}
+          >
+            <option value="" disabled>
+              {form.timingPlaceholder}
+            </option>
+            {form.timings.map((option) => (
+              <option key={option.id} value={option.id}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div>
+          <label className={labelClassName} htmlFor={`${fieldId}-zona`}>
+            {form.area}
+          </label>
+          <input
+            id={`${fieldId}-zona`}
+            type="text"
+            name="zona"
+            defaultValue={state.zona}
+            placeholder={form.areaPlaceholder}
+            className={fieldClassName}
+          />
+        </div>
+        <div>
+          <label className={labelClassName} htmlFor={`${fieldId}-email`}>
+            {form.email}
+          </label>
+          <input
+            id={`${fieldId}-email`}
+            type="email"
+            name="email"
+            defaultValue={state.email}
+            autoComplete="email"
+            placeholder={form.emailPlaceholder}
+            className={fieldClassName}
+          />
+        </div>
       </div>
 
       <div>
-        <label className={labelClassName} htmlFor="telefono">
-          {form.phone}
-        </label>
-        <input
-          id="telefono"
-          type="tel"
-          name="telefono"
-          required
-          defaultValue={state.telefono}
-          autoComplete="tel"
-          placeholder="+34"
-          className={fieldClassName}
-        />
-      </div>
-
-      <div>
-        <label className={labelClassName} htmlFor="mensaje">
+        <label className={labelClassName} htmlFor={`${fieldId}-mensaje`}>
           {form.message}
         </label>
         <textarea
-          id="mensaje"
+          id={`${fieldId}-mensaje`}
           name="mensaje"
           required
           defaultValue={state.mensaje}
-          rows={4}
+          rows={3}
           placeholder={form.messagePlaceholder}
           className={fieldClassName}
         />
@@ -118,29 +206,71 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
         disabled={pending}
         className={
           isLanding
-            ? "w-full rounded-full bg-slate-deep py-4 text-label-uppercase text-white shadow-md transition-colors hover:bg-ink-primary disabled:opacity-60"
-            : "w-full rounded-full bg-slate-accent py-3.5 text-label-uppercase text-white transition-colors hover:bg-slate-deep disabled:opacity-60"
+            ? "w-full rounded-full bg-slate-deep py-2.5 text-label-uppercase text-white transition-colors hover:bg-ink-primary disabled:opacity-60"
+            : "w-full rounded-full bg-slate-accent py-2.5 text-label-uppercase text-white transition-colors hover:bg-slate-deep disabled:opacity-60"
         }
       >
         {pending ? form.sending : form.submit}
       </button>
-
-      {isLanding ? (
-        <div className="border-t border-outline/15 pt-6">
-          <p className="mb-3 text-center text-body-sm font-light text-warm-label">
-            {form.orWhatsapp}
-          </p>
-          <a
-            href={site.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex w-full items-center justify-center gap-2.5 rounded-full border border-[#25D366]/35 bg-[#25D366]/10 py-3.5 text-label-uppercase text-ink-primary transition-colors hover:bg-[#25D366]/15"
-          >
-            <WhatsAppIcon branded className="h-5 w-5" />
-            WhatsApp
-          </a>
-        </div>
-      ) : null}
     </form>
+  );
+}
+
+function optionLabel(options: readonly { id: string; label: string }[], id: string): string {
+  return options.find((option) => option.id === id)?.label ?? "";
+}
+
+function ContactReceived({ state }: { state: ContactFormState }) {
+  const form = chrome[useLocale()].form;
+  const firstName = state.nombre.trim().split(/\s+/)[0] ?? "";
+  const rows = [
+    { label: form.service, value: optionLabel(form.services, state.servicio) },
+    { label: form.space, value: optionLabel(form.spaces, state.espacio) },
+    { label: form.timing, value: optionLabel(form.timings, state.plazo) },
+    { label: form.area, value: state.zona },
+    { label: form.phone, value: state.telefono },
+    { label: form.email, value: state.email },
+  ].filter((row) => row.value);
+
+  return (
+    <div role="status" className="rounded-editorial border border-outline/15 bg-cream-base px-4 py-4">
+      <div className="flex items-start gap-3">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-deep text-white">
+          <MaterialIcon name="check" className="text-[20px]" />
+        </span>
+        <div className="min-w-0">
+          <p className="text-label-uppercase text-warm-label">{form.thanksLabel}</p>
+          <p className="mt-1 text-body-md font-medium text-ink-primary">
+            {form.thanksName.replace("{name}", firstName)}
+          </p>
+          <p className="mt-1 text-body-sm text-on-surface-variant">{form.thanks}</p>
+        </div>
+      </div>
+
+      <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-outline/15 pt-3">
+        {rows.map((row) => (
+          <div key={row.label} className="min-w-0">
+            <dt className="text-label-uppercase text-warm-label">{row.label}</dt>
+            <dd className="truncate text-body-sm text-ink-primary">{row.value}</dd>
+          </div>
+        ))}
+      </dl>
+
+      {state.mensaje ? (
+        <p className="mt-3 line-clamp-2 border-t border-outline/15 pt-3 text-body-sm text-on-surface-variant">
+          {state.mensaje}
+        </p>
+      ) : null}
+
+      <a
+        href={site.whatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-3 inline-flex items-center gap-2 text-body-sm text-slate-deep underline-offset-4 hover:underline"
+      >
+        <WhatsAppIcon className="h-4 w-4" />
+        {form.thanksWhatsapp}
+      </a>
+    </div>
   );
 }

@@ -111,6 +111,7 @@ export default async function ReformasPage() {
         title={copy.cta.title}
         description={copy.cta.description}
         variant="landing"
+        service="reforma"
       />
     </>
   );
