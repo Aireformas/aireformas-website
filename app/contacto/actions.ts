@@ -1,6 +1,7 @@
 "use server";
 
 import { Resend } from "resend";
+import { contactEmailHtml, contactEmailText } from "@/lib/contact-email";
 import {
   inquiryLabels,
   isContactService,
@@ -78,23 +79,24 @@ export async function sendContact(
   }
 
   const labels = inquiryLabels({ servicio, espacio, plazo });
+  const letter = {
+    nombre,
+    telefono,
+    email,
+    zona,
+    mensaje,
+    servicio: labels.servicio,
+    espacio: labels.espacio,
+    plazo: labels.plazo,
+  };
   const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({
     from: CONTACT_FROM,
     to: CONTACT_TO,
     replyTo: email || undefined,
     subject: `Consulta web — ${labels.servicio} — ${nombre}`,
-    text: [
-      `Nombre: ${nombre}`,
-      `Teléfono: ${telefono}`,
-      `Email: ${email || "—"}`,
-      `Servicio: ${labels.servicio}`,
-      `Espacio: ${labels.espacio}`,
-      `Zona: ${zona || "—"}`,
-      `Plazo: ${labels.plazo}`,
-      "",
-      mensaje,
-    ].join("\n"),
+    html: contactEmailHtml(letter),
+    text: contactEmailText(letter),
   });
 
   if (error) {
