@@ -43,6 +43,7 @@ export function ContactForm({ variant = "default", service }: ContactFormProps) 
     : "w-full rounded-md border border-outline/30 bg-paper px-3 py-2 text-body-sm text-ink-primary outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/15";
 
   const labelClassName = "mb-1 block text-label-uppercase text-warm-label";
+  const selectClassName = `${fieldClassName} cursor-pointer appearance-none bg-none pr-10`;
 
   return (
     <form key={state.revision} action={formAction} className="space-y-3">
@@ -55,6 +56,7 @@ export function ContactForm({ variant = "default", service }: ContactFormProps) 
         <div>
           <label className={labelClassName} htmlFor={`${fieldId}-nombre`}>
             {form.name}
+            <RequiredMark />
           </label>
           <input
             id={`${fieldId}-nombre`}
@@ -70,6 +72,7 @@ export function ContactForm({ variant = "default", service }: ContactFormProps) 
         <div>
           <label className={labelClassName} htmlFor={`${fieldId}-telefono`}>
             {form.phone}
+            <RequiredMark />
           </label>
           <input
             id={`${fieldId}-telefono`}
@@ -85,7 +88,10 @@ export function ContactForm({ variant = "default", service }: ContactFormProps) 
       </div>
 
       <fieldset>
-        <legend className={labelClassName}>{form.service}</legend>
+        <legend className={labelClassName}>
+          {form.service}
+          <RequiredMark />
+        </legend>
         <div className="flex flex-wrap gap-1.5">
           {form.services.map((option) => (
             <label key={option.id} className="cursor-pointer">
@@ -109,44 +115,52 @@ export function ContactForm({ variant = "default", service }: ContactFormProps) 
         <div>
           <label className={labelClassName} htmlFor={`${fieldId}-espacio`}>
             {form.space}
+            <RequiredMark />
           </label>
-          <select
-            id={`${fieldId}-espacio`}
-            name="espacio"
-            required
-            defaultValue={state.espacio}
-            className={fieldClassName}
-          >
-            <option value="" disabled>
-              {form.spacePlaceholder}
-            </option>
-            {form.spaces.map((option) => (
-              <option key={option.id} value={option.id}>
-                {option.label}
+          <div className="relative">
+            <select
+              id={`${fieldId}-espacio`}
+              name="espacio"
+              required
+              defaultValue={state.espacio}
+              className={selectClassName}
+            >
+              <option value="" disabled>
+                {form.spacePlaceholder}
               </option>
-            ))}
-          </select>
+              {form.spaces.map((option) => (
+                <option key={option.id} value={option.id}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+            <SelectChevron />
+          </div>
         </div>
         <div>
           <label className={labelClassName} htmlFor={`${fieldId}-plazo`}>
             {form.timing}
+            <RequiredMark />
           </label>
-          <select
-            id={`${fieldId}-plazo`}
-            name="plazo"
-            required
-            defaultValue={state.plazo}
-            className={fieldClassName}
-          >
-            <option value="" disabled>
-              {form.timingPlaceholder}
-            </option>
-            {form.timings.map((option) => (
-              <option key={option.id} value={option.id}>
-                {option.label}
+          <div className="relative">
+            <select
+              id={`${fieldId}-plazo`}
+              name="plazo"
+              required
+              defaultValue={state.plazo}
+              className={selectClassName}
+            >
+              <option value="" disabled>
+                {form.timingPlaceholder}
               </option>
-            ))}
-          </select>
+              {form.timings.map((option) => (
+                <option key={option.id} value={option.id}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+            <SelectChevron />
+          </div>
         </div>
       </div>
 
@@ -183,6 +197,7 @@ export function ContactForm({ variant = "default", service }: ContactFormProps) 
       <div>
         <label className={labelClassName} htmlFor={`${fieldId}-mensaje`}>
           {form.message}
+          <RequiredMark />
         </label>
         <textarea
           id={`${fieldId}-mensaje`}
@@ -213,6 +228,23 @@ export function ContactForm({ variant = "default", service }: ContactFormProps) 
         {pending ? form.sending : form.submit}
       </button>
     </form>
+  );
+}
+
+function RequiredMark() {
+  return (
+    <span aria-hidden="true" className="text-slate-deep">
+      {" *"}
+    </span>
+  );
+}
+
+function SelectChevron() {
+  return (
+    <MaterialIcon
+      name="expand_more"
+      className="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-[20px] leading-none text-warm-label"
+    />
   );
 }
 
