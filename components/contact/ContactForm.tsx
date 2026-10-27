@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useActionState } from "react";
+import { sendContact, type ContactFormState } from "@/app/contacto/actions";
 import { useLocale } from "@/components/locale/LocaleProvider";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { chrome } from "@/content/chrome";
@@ -10,17 +11,20 @@ type ContactFormProps = {
   variant?: "default" | "landing";
 };
 
+const initialState: ContactFormState = {
+  status: "idle",
+  revision: 0,
+  nombre: "",
+  telefono: "",
+  mensaje: "",
+};
+
 export function ContactForm({ variant = "default" }: ContactFormProps) {
   const form = chrome[useLocale()].form;
-  const [submitted, setSubmitted] = useState(false);
+  const [state, formAction, pending] = useActionState(sendContact, initialState);
   const isLanding = variant === "landing";
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setSubmitted(true);
-  }
-
-  if (submitted) {
+  if (state.status === "ok") {
     return (
       <p className="rounded-editorial border border-outline/15 bg-cream-base p-6 text-body-sm text-on-surface-variant">
         {form.thanks}
@@ -37,7 +41,7 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
     : "mb-2 block text-label-uppercase text-warm-label";
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form key={state.revision} action={formAction} className="space-y-6">
       {isLanding ? (
         <div className="mb-8">
           <h3 className="text-headline-md mb-1 font-light text-ink-primary">
@@ -65,6 +69,7 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
           type="text"
           name="nombre"
           required
+          defaultValue={state.nombre}
           autoComplete="name"
           placeholder={form.namePlaceholder}
           className={fieldClassName}
@@ -80,6 +85,7 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
           type="tel"
           name="telefono"
           required
+          defaultValue={state.telefono}
           autoComplete="tel"
           placeholder="+34"
           className={fieldClassName}
@@ -94,21 +100,29 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
           id="mensaje"
           name="mensaje"
           required
+          defaultValue={state.mensaje}
           rows={4}
           placeholder={form.messagePlaceholder}
           className={fieldClassName}
         />
       </div>
 
+      {state.status === "error" ? (
+        <p role="alert" className="text-body-sm text-ink-primary">
+          {form.error}
+        </p>
+      ) : null}
+
       <button
         type="submit"
+        disabled={pending}
         className={
           isLanding
-            ? "w-full rounded-full bg-slate-deep py-4 text-label-uppercase text-white shadow-md transition-colors hover:bg-ink-primary"
-            : "w-full rounded-full bg-slate-accent py-3.5 text-label-uppercase text-white transition-colors hover:bg-slate-deep"
+            ? "w-full rounded-full bg-slate-deep py-4 text-label-uppercase text-white shadow-md transition-colors hover:bg-ink-primary disabled:opacity-60"
+            : "w-full rounded-full bg-slate-accent py-3.5 text-label-uppercase text-white transition-colors hover:bg-slate-deep disabled:opacity-60"
         }
       >
-        {form.submit}
+        {pending ? form.sending : form.submit}
       </button>
 
       {isLanding ? (

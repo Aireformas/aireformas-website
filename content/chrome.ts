@@ -44,6 +44,8 @@ export const chrome = defineCopy({
       message: "Mensaje",
       messagePlaceholder: "Vivienda, ubicación y qué te gustaría lograr...",
       submit: "Enviar solicitud",
+      sending: "Enviando…",
+      error: "No se ha podido enviar. Inténtalo de nuevo o escríbenos por WhatsApp.",
       orWhatsapp: "O escríbenos por WhatsApp",
     },
     projects: {
@@ -97,6 +99,8 @@ export const chrome = defineCopy({
       message: "Message",
       messagePlaceholder: "Home, location and what you would like to achieve...",
       submit: "Send request",
+      sending: "Sending…",
+      error: "Could not send. Try again or message us on WhatsApp.",
       orWhatsapp: "Or message us on WhatsApp",
     },
     projects: {
