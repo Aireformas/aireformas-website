@@ -63,7 +63,7 @@ export const homeCopy = defineCopy({
     },
     projects: {
       label: "03 / PROYECTOS SELECCIONADOS",
-      title: "Viviendas recientes",
+      title: "Proyectos de reforma e interiorismo",
     },
     philosophy: {
       label: "02 / FILOSOFÍA",
@@ -326,7 +326,7 @@ export const homeCopy = defineCopy({
     },
     projects: {
       label: "03 / SELECTED PROJECTS",
-      title: "Recent homes",
+      title: "Renovation and interior design projects",
     },
     philosophy: {
       label: "02 / PHILOSOPHY",

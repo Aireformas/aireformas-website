@@ -1,24 +1,25 @@
-import Image from "next/image";
 import Link from "next/link";
 import { chrome } from "@/content/chrome";
 import { homeCopy } from "@/content/home";
-import { proyectosCopy, toProjectCards } from "@/content/proyectos";
+import { homeGalleryItems, proyectosCopy } from "@/content/proyectos";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
+import { ProjectMasonry } from "@/components/shared/ProjectMasonry";
 import { getLocale } from "@/lib/locale.server";
 
 export async function FeaturedProjects() {
   const locale = await getLocale();
   const homeProjectsSection = homeCopy[locale].projects;
-  const homeFeaturedProjects = toProjectCards(proyectosCopy[locale].projects);
+  const gallery = homeGalleryItems(proyectosCopy[locale].gallery);
   const ui = chrome[locale];
+
   return (
     <section
-      className="bg-cream-base py-space-2xl px-margin-mobile md:px-margin"
+      className="bg-sand-container py-space-2xl px-margin-mobile md:px-margin"
       id="proyectos"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-space-lg flex flex-col justify-between border-b border-outline/15 pb-6 md:flex-row md:items-end">
-          <div>
+        <div className="mb-space-lg flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <div className="max-w-xl">
             <span className="mb-2 block text-label-uppercase text-warm-label">
               {homeProjectsSection.label}
             </span>
@@ -28,53 +29,24 @@ export async function FeaturedProjects() {
           </div>
           <Link
             href="/proyectos"
-            className="mt-4 inline-flex items-center space-x-2 text-label-uppercase text-primary transition-colors hover:text-slate-deep md:mt-0"
+            className="group inline-flex items-center gap-2 self-start text-label-uppercase text-primary transition-colors hover:text-slate-deep md:self-auto"
           >
             <span>{ui.viewAll}</span>
-            <MaterialIcon name="arrow_forward" className="text-sm" />
+            <MaterialIcon
+              name="arrow_forward"
+              className="text-sm transition-transform duration-300 group-hover:translate-x-0.5"
+            />
           </Link>
         </div>
 
-        <div className="space-y-space-2xl">
-          {homeFeaturedProjects.map((project, index) => {
-            const reversed = index % 2 === 1;
-            return (
-              <article
-                key={project.slug}
-                className="grid grid-cols-1 items-center gap-gutter md:grid-cols-12"
-              >
-                <div
-                  className={`group relative h-[460px] overflow-hidden rounded-editorial border border-outline/15 md:col-span-8 ${
-                    reversed ? "md:order-2" : ""
-                  }`}
-                >
-                  <Image
-                    src={project.image.src}
-                    alt={project.image.alt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 66vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                </div>
-                <div
-                  className={`md:col-span-4 ${reversed ? "md:order-1 md:pr-6" : "md:pl-6"}`}
-                >
-                  <span className="mb-2 block text-label-uppercase text-warm-label">
-                    {project.location}
-                  </span>
-                  <h3 className="text-headline-md mb-3 font-light text-ink-primary">
-                    {project.typology}
-                  </h3>
-                  <div className="flex items-center space-x-6 border-t border-outline/20 pt-4 text-body-sm text-outline">
-                    <span>{project.location}</span>
-                    <span aria-hidden>•</span>
-                    <span>{project.area}</span>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
-        </div>
+        <ProjectMasonry
+          items={gallery}
+          href="/proyectos"
+          priorityCount={2}
+          desktopColumns={3}
+          variant="pack"
+          accent="editorial"
+        />
       </div>
     </section>
   );
