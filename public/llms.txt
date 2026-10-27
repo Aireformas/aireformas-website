@@ -1,0 +1,23 @@
+# aireformas
+
+> Interiorismo, reforma, mobiliario y climatización integrados en un único proyecto. Madrid y alrededores.
+
+- Site: https://aireformas.com
+- Contact: info@aireformas.com
+- Phone: +34 675 784 752
+- Area: Madrid, Salamanca, Chamberí, Chamartín, Retiro, Moncloa, Aravaca, Pozuelo de Alarcón, Boadilla del Monte, Majadahonda, Las Rozas, La Moraleja
+
+## Pages
+
+- [Inicio](https://aireformas.com/): espacios pensados al detalle
+- [Estudio](https://aireformas.com/estudio): diseño, técnica y ejecución
+- [Interiorismo](https://aireformas.com/interiorismo): interiorismo residencial en Madrid
+- [Reformas](https://aireformas.com/reformas): reformas integrales y parciales
+- [Mobiliario](https://aireformas.com/mobiliario): mobiliario y carpintería a medida
+- [Climate](https://aireformas.com/climate): climatización invisible y aerotermia
+- [Proyectos](https://aireformas.com/proyectos): selección de proyectos residenciales
+- [Contacto](https://aireformas.com/contacto): primera orientación sin compromiso
+- [Preguntas frecuentes](https://aireformas.com/preguntas-frecuentes)
+- [Privacidad](https://aireformas.com/legal/privacidad)
+- [Términos](https://aireformas.com/legal/terminos)
+- [Cookies](https://aireformas.com/legal/cookies)

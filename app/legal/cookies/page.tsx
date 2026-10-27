@@ -2,14 +2,13 @@ import type { Metadata } from "next";
 import { LegalDocumentPage } from "@/components/legal/LegalDocumentPage";
 import { cookiesCopy } from "@/content/cookies";
 import { getLocale } from "@/lib/locale.server";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   const meta = cookiesCopy[await getLocale()].meta;
-  return {
-    title: meta.title,
-    description: meta.description,
+  return pageMetadata("/legal/cookies", meta, {
     robots: { index: true, follow: true },
-  };
+  });
 }
 
 export default async function CookiesPolicyPage() {

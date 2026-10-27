@@ -12,14 +12,11 @@ import { TopicGridSection } from "@/components/shared/TopicGridSection";
 import { chrome } from "@/content/chrome";
 import { interiorismoCopy } from "@/content/interiorismo";
 import { getLocale } from "@/lib/locale.server";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   const meta = interiorismoCopy[await getLocale()].meta;
-  return {
-    title: meta.title,
-    description: meta.description,
-    openGraph: { title: meta.title, description: meta.description },
-  };
+  return pageMetadata("/interiorismo", meta);
 }
 
 export default async function InteriorismoPage() {

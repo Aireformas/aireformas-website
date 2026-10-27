@@ -10,14 +10,11 @@ import { TestimonialsSection } from "@/components/testimonials/TestimonialsSecti
 import { chrome } from "@/content/chrome";
 import { estudioCopy } from "@/content/estudio";
 import { getLocale } from "@/lib/locale.server";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   const meta = estudioCopy[await getLocale()].meta;
-  return {
-    title: meta.title,
-    description: meta.description,
-    openGraph: { title: meta.title, description: meta.description },
-  };
+  return pageMetadata("/estudio", meta);
 }
 
 export default async function EstudioPage() {

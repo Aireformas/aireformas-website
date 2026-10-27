@@ -12,14 +12,11 @@ import {
 import { chrome } from "@/content/chrome";
 import { climateCopy } from "@/content/climate";
 import { getLocale } from "@/lib/locale.server";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   const meta = climateCopy[await getLocale()].meta;
-  return {
-    title: meta.title,
-    description: meta.description,
-    openGraph: { title: meta.title, description: meta.description },
-  };
+  return pageMetadata("/climate", meta);
 }
 
 export default async function ClimatePage() {

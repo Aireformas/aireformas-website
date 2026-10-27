@@ -6,14 +6,11 @@ import { PageIntro } from "@/components/shared/PageIntro";
 import { chrome } from "@/content/chrome";
 import { faqCopy } from "@/content/faq";
 import { getLocale } from "@/lib/locale.server";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   const meta = faqCopy[await getLocale()].meta;
-  return {
-    title: meta.title,
-    description: meta.description,
-    openGraph: { title: meta.title, description: meta.description },
-  };
+  return pageMetadata("/preguntas-frecuentes", meta);
 }
 
 export default async function PreguntasFrecuentesPage() {

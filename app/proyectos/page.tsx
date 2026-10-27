@@ -4,14 +4,11 @@ import { ProyectosMethodology } from "@/components/proyectos/ProyectosMethodolog
 import { ProyectosPageContent } from "@/components/proyectos/ProyectosPageContent";
 import { proyectosCopy } from "@/content/proyectos";
 import { getLocale } from "@/lib/locale.server";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   const meta = proyectosCopy[await getLocale()].meta;
-  return {
-    title: meta.title,
-    description: meta.description,
-    openGraph: { title: meta.title, description: meta.description },
-  };
+  return pageMetadata("/proyectos", meta);
 }
 
 export default async function ProyectosPage() {

@@ -11,19 +11,12 @@ import { MaterialsGrid } from "@/components/home/MaterialsGrid";
 import { PhilosophySection } from "@/components/home/PhilosophySection";
 import { ProjectTimeline } from "@/components/home/ProjectTimeline";
 import { homeCopy } from "@/content/home";
-import { site } from "@/content/site";
 import { getLocale } from "@/lib/locale.server";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   const homeMeta = homeCopy[await getLocale()].meta;
-  return {
-    title: homeMeta.title,
-    description: homeMeta.description,
-    openGraph: {
-      title: `${homeMeta.title} | ${site.name}`,
-      description: homeMeta.description,
-    },
-  };
+  return pageMetadata("/", homeMeta);
 }
 
 export default async function HomePage() {
