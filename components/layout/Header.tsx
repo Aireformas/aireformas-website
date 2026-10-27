@@ -126,7 +126,7 @@ export function Header() {
               return (
                 <div
                   key={entry.label.es}
-                  className="relative"
+                  className="relative flex items-center"
                   onMouseEnter={openDesktopServices}
                   onMouseLeave={scheduleCloseDesktopServices}
                   onFocusCapture={openDesktopServices}
