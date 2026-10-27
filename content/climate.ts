@@ -36,8 +36,8 @@ export const climateCopy = defineCopy({
         "Diseñamos climatización, agua caliente y control como parte del espacio: invisible en la arquitectura, precisa en el funcionamiento.",
       cta: "Hablar de mi proyecto",
       image: {
-        src: "/images/climate/climate-hero.jpg",
-        alt: "Salón con rejilla lineal en el techo y unidad de aerotermia en el jardín, vista a través del ventanal",
+        src: "/images/climate/climate-hero-room.jpg",
+        alt: "Salón con una rejilla lineal en el techo, integrada en la arquitectura, y el jardín al otro lado del ventanal",
       },
     },
     services: {
@@ -100,8 +100,8 @@ export const climateCopy = defineCopy({
         "We design climate, hot water and control as part of the space: invisible in the architecture, precise in how it works.",
       cta: "Start a project",
       image: {
-        src: "/images/climate/climate-hero.jpg",
-        alt: "Living room with a linear ceiling grille and an air-source unit in the garden, seen through the window",
+        src: "/images/climate/climate-hero-room.jpg",
+        alt: "Living room with a linear ceiling grille built into the architecture, and the garden beyond the window",
       },
     },
     services: {
