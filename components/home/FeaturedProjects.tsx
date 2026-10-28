@@ -46,6 +46,7 @@ export async function FeaturedProjects() {
           desktopColumns={3}
           variant="pack"
           accent="editorial"
+          className="mx-auto w-[84%]"
         />
       </div>
     </section>
