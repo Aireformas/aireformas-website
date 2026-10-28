@@ -94,7 +94,7 @@ export function ProyectosPageContent() {
 
       <section
         id="proyectos"
-        className="mx-auto w-full max-w-7xl space-y-space-2xl px-margin-mobile pb-space-2xl md:px-margin"
+        className="mx-auto w-full max-w-7xl space-y-8 px-margin-mobile pb-space-2xl md:space-y-10 md:px-margin"
       >
         <div className="flex flex-col justify-between gap-4 pb-2 md:flex-row md:items-baseline">
           <div className="space-y-1">
@@ -111,9 +111,11 @@ export function ProyectosPageContent() {
         <ProjectMasonry
           items={gallery}
           onSelect={setActiveItem}
-          desktopColumns={3}
-          variant="pack"
-          accent="collage"
+          desktopColumns={4}
+          variant="fill"
+          tileAspect="1/1"
+          accent="editorial"
+          overlayLabel={locale === "es" ? "Ver" : "View"}
         />
       </section>
 

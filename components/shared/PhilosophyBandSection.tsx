@@ -1,5 +1,11 @@
 import Image from "next/image";
+import { cn } from "@/lib/cn";
 import type { ImageAsset } from "@/lib/types";
+
+function frameRatio(image: ImageAsset): string | null {
+  if (image.width == null || image.height == null) return null;
+  return `${image.width} / ${image.height}`;
+}
 
 type PhilosophyBandSectionProps = {
   label: string;
@@ -16,14 +22,22 @@ export function PhilosophyBandSection({
   image,
   headingId = "philosophy-heading",
 }: PhilosophyBandSectionProps) {
+  const ratio = frameRatio(image);
+
   return (
     <section
       className="border-t border-white/10 bg-deep-brown py-space-2xl text-surface px-margin-mobile md:px-margin"
       aria-labelledby={headingId}
     >
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-stretch gap-gutter md:grid-cols-12">
-        <div className="md:col-span-5 lg:col-span-6">
-          <div className="relative h-full min-h-[22rem] overflow-hidden rounded-editorial border border-white/10 shadow-2xl md:min-h-[36rem]">
+        <div className={cn("md:col-span-5 lg:col-span-6", ratio && "md:self-center")}>
+          <div
+            className={cn(
+              "relative overflow-hidden rounded-editorial border border-white/10 shadow-2xl",
+              !ratio && "h-full min-h-[22rem] md:min-h-[36rem]",
+            )}
+            style={ratio ? { aspectRatio: ratio } : undefined}
+          >
             <Image
               src={image.src}
               alt={image.alt}

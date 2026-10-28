@@ -38,8 +38,10 @@ export const interiorismoCopy = defineCopy({
         "Diseñamos con criterio, cuidamos los detalles y buscamos el equilibrio entre diseño, calidad y presupuesto.",
       ],
       image: {
-        src: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&q=90",
-        alt: "Interior con luz cálida, materiales naturales y proporción calmada",
+        src: "/images/interiorismo/enfoque.webp",
+        alt: "Salón comedor con mesa redonda de madera, sillas terracota, sofá claro y cuadro abstracto",
+        width: 1024,
+        height: 576,
       },
     },
     services: {
@@ -88,10 +90,10 @@ export const interiorismoCopy = defineCopy({
       label: "PROYECTOS",
       title: "Selección de ambientes",
       items: [
-        { image: { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=80", alt: "Salón con luz natural y materiales naturales" }, caption: "Salón" },
-        { image: { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&q=80", alt: "Dormitorio con textiles y luz cálida" }, caption: "Dormitorio" },
-        { image: { src: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=900&q=80", alt: "Detalle decorativo con madera y luz" }, caption: "Detalle" },
-        { image: { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80", alt: "Cocina integrada con salón" }, caption: "Cocina" },
+        { image: { src: "/images/projects/gallery/img-2452.webp", alt: "Salón con sofá texturado, mesa ovalada de madera y butaca mostaza" }, caption: "Salón" },
+        { image: { src: "/images/projects/gallery/img-2483.webp", alt: "Dormitorio con cabecero tapizado, arte y textiles" }, caption: "Dormitorio" },
+        { image: { src: "/images/projects/gallery/img-2475.webp", alt: "Detalle de salón con sofá beige, cuadro abstracto y lámpara de malla" }, caption: "Detalle" },
+        { image: { src: "/images/projects/gallery/img-2459.webp", alt: "Cocina con isla de piedra veteada y carpintería de madera" }, caption: "Cocina" },
       ] satisfies GalleryItem[],
     },
     process: {
@@ -145,8 +147,10 @@ export const interiorismoCopy = defineCopy({
         "We design with criteria, care for detail and seek the balance between design, quality and budget.",
       ],
       image: {
-        src: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&q=90",
-        alt: "Interior with warm light, natural materials and calm proportion",
+        src: "/images/interiorismo/enfoque.webp",
+        alt: "Living and dining room with a round wood table, terracotta chairs, a light sofa and an abstract painting",
+        width: 1024,
+        height: 576,
       },
     },
     services: {
@@ -195,10 +199,10 @@ export const interiorismoCopy = defineCopy({
       label: "PROJECTS",
       title: "Selected atmospheres",
       items: [
-        { image: { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=80", alt: "Living room with daylight and natural materials" }, caption: "Living room" },
-        { image: { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&q=80", alt: "Bedroom with textiles and warm light" }, caption: "Bedroom" },
-        { image: { src: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=900&q=80", alt: "Decorative detail in wood and light" }, caption: "Detail" },
-        { image: { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80", alt: "Kitchen open to the living room" }, caption: "Kitchen" },
+        { image: { src: "/images/projects/gallery/img-2452.webp", alt: "Living room with a textured sofa, oval wood coffee table and mustard armchair" }, caption: "Living room" },
+        { image: { src: "/images/projects/gallery/img-2483.webp", alt: "Bedroom with an upholstered headboard, art and textiles" }, caption: "Bedroom" },
+        { image: { src: "/images/projects/gallery/img-2475.webp", alt: "Living-room detail with a beige sofa, abstract art and a mesh pendant" }, caption: "Detail" },
+        { image: { src: "/images/projects/gallery/img-2459.webp", alt: "Kitchen with a veined stone island and wood cabinetry" }, caption: "Kitchen" },
       ] satisfies GalleryItem[],
     },
     process: {

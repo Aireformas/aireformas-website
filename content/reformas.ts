@@ -124,9 +124,9 @@ export const reformasCopy = defineCopy({
       label: "RESULTADO",
       title: "Espacios terminados",
       items: [
-        { image: { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=80", alt: "Salón con distribución abierta" }, caption: "Salón" },
-        { image: { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&q=80", alt: "Dormitorio con acabados contemporáneos" }, caption: "Dormitorio" },
-        { image: { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80", alt: "Cocina con acabados integrados" }, caption: "Cocina" },
+        { image: { src: "/images/projects/gallery/img-2452.webp", alt: "Salón con sofá texturado, mesa ovalada de madera y butaca mostaza" }, caption: "Salón" },
+        { image: { src: "/images/projects/gallery/img-2453.webp", alt: "Dormitorio terminado con armario empotrado blanco" }, caption: "Dormitorio" },
+        { image: { src: "/images/projects/gallery/img-2463.webp", alt: "Cocina terminada con isla de piedra y hornos empotrados" }, caption: "Cocina" },
       ] satisfies GalleryItem[],
     },
     faq: [
@@ -262,9 +262,9 @@ export const reformasCopy = defineCopy({
       label: "RESULT",
       title: "Finished spaces",
       items: [
-        { image: { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=80", alt: "Living room with an open plan" }, caption: "Living room" },
-        { image: { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&q=80", alt: "Bedroom with contemporary finishes" }, caption: "Bedroom" },
-        { image: { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80", alt: "Kitchen with integrated finishes" }, caption: "Kitchen" },
+        { image: { src: "/images/projects/gallery/img-2452.webp", alt: "Living room with a textured sofa, oval wood coffee table and mustard armchair" }, caption: "Living room" },
+        { image: { src: "/images/projects/gallery/img-2453.webp", alt: "Finished bedroom with a white built-in wardrobe" }, caption: "Bedroom" },
+        { image: { src: "/images/projects/gallery/img-2463.webp", alt: "Finished kitchen with a stone island and built-in ovens" }, caption: "Kitchen" },
       ] satisfies GalleryItem[],
     },
     faq: [

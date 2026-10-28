@@ -55,14 +55,34 @@ type ProjectMasonryProps = {
   onSelect?: (item: ProjectGalleryItem) => void;
   href?: string;
   priorityCount?: number;
-  desktopColumns?: 2 | 3;
+  desktopColumns?: 2 | 3 | 4;
   /** `pack` = natural aspect masonry. `fill` = equal cells, no empty gaps. */
   variant?: "pack" | "fill";
   /** Editorial = staggered columns + index. Collage = playful tilt/offsets. */
   accent?: "plain" | "editorial" | "collage";
+  /** Fill tiles only. `4/5` is the default portrait card. */
+  tileAspect?: "4/5" | "3/4" | "1/1";
   overlayLabel?: string;
   className?: string;
 };
+
+const TILE_ASPECT = {
+  "4/5": "aspect-[4/5]",
+  "3/4": "aspect-[3/4]",
+  "1/1": "aspect-square",
+} as const;
+
+function imageSizes(columns: 2 | 3 | 4): string {
+  if (columns === 4) return "(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw";
+  if (columns === 2) return "(max-width: 768px) 100vw, 50vw";
+  return "(max-width: 768px) 50vw, 33vw";
+}
+
+function fillGridClass(columns: 2 | 3 | 4): string {
+  if (columns === 4) return "grid-cols-2 md:grid-cols-3 lg:grid-cols-4";
+  if (columns === 2) return "grid-cols-1 sm:grid-cols-2";
+  return "grid-cols-2 md:grid-cols-3";
+}
 
 function TileShell({
   item,
@@ -72,6 +92,8 @@ function TileShell({
   onSelect,
   fill,
   accent,
+  tileAspect = "4/5",
+  sizes,
   overlayLabel,
 }: {
   item: ProjectGalleryItem;
@@ -81,6 +103,8 @@ function TileShell({
   onSelect?: (item: ProjectGalleryItem) => void;
   fill?: boolean;
   accent?: "plain" | "editorial" | "collage";
+  tileAspect?: "4/5" | "3/4" | "1/1";
+  sizes: string;
   overlayLabel?: string;
 }) {
   const editorial = accent === "editorial";
@@ -91,8 +115,8 @@ function TileShell({
       alt={item.alt}
       fill
       quality={60}
-      sizes="(max-width: 768px) 50vw, 33vw"
-      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+      sizes={sizes}
+      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
       priority={priority}
     />
   ) : (
@@ -102,7 +126,7 @@ function TileShell({
       width={item.width}
       height={item.height}
       quality={60}
-      sizes="(max-width: 768px) 50vw, 33vw"
+      sizes={sizes}
       className="h-auto w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
       priority={priority}
     />
@@ -111,7 +135,11 @@ function TileShell({
   const className = cn(
     "group relative block w-full overflow-hidden text-left",
     editorial &&
+      !fill &&
       "rounded-sm shadow-[0_1px_0_rgba(46,42,38,0.06)] ring-1 ring-ink-primary/8 transition-[box-shadow,transform] duration-500 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-28px_rgba(46,42,38,0.45)]",
+    editorial &&
+      fill &&
+      "rounded-editorial shadow-[0_10px_28px_-20px_rgba(46,42,38,0.45)] ring-1 ring-ink-primary/10 transition-[box-shadow,transform] duration-500 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_-22px_rgba(46,42,38,0.5)]",
     collage &&
       cn(
         "rounded-[2px] bg-surface p-1.5 shadow-[0_10px_28px_-18px_rgba(46,42,38,0.55)] ring-1 ring-ink-primary/10 transition-[transform,box-shadow] duration-500 ease-out",
@@ -121,7 +149,7 @@ function TileShell({
         COLLAGE_SCALE[index % COLLAGE_SCALE.length],
       ),
     !editorial && !collage && "rounded-editorial border border-outline/15",
-    fill && "aspect-[4/5]",
+    fill && TILE_ASPECT[tileAspect],
   );
 
   const body = (
@@ -166,6 +194,7 @@ export function ProjectMasonry({
   desktopColumns = 3,
   variant = "pack",
   accent = "plain",
+  tileAspect = "4/5",
   overlayLabel,
   className,
 }: ProjectMasonryProps) {
@@ -173,15 +202,19 @@ export function ProjectMasonry({
   const columns = splitColumns(items, columnCount);
   const editorial = accent === "editorial";
   const collage = accent === "collage";
-  const gapClass = collage
-    ? "gap-4 md:gap-5"
-    : editorial
-      ? "gap-2.5 md:gap-3"
-      : "gap-3 md:gap-4";
+  const sizes = imageSizes(desktopColumns);
+  const gapClass =
+    variant === "fill"
+      ? "gap-3 md:gap-4"
+      : collage
+        ? "gap-4 md:gap-5"
+        : editorial
+          ? "gap-2.5 md:gap-3"
+          : "gap-3 md:gap-4";
 
   if (variant === "fill") {
     return (
-      <div className={cn("grid grid-cols-2 md:grid-cols-3", gapClass, className)}>
+      <div className={cn("grid", fillGridClass(desktopColumns), gapClass, className)}>
         {items.map((item, index) => (
           <TileShell
             key={item.id}
@@ -192,6 +225,8 @@ export function ProjectMasonry({
             onSelect={onSelect}
             fill
             accent={accent}
+            tileAspect={tileAspect}
+            sizes={sizes}
             overlayLabel={overlayLabel}
           />
         ))}
@@ -227,6 +262,7 @@ export function ProjectMasonry({
                 href={href}
                 onSelect={onSelect}
                 accent={accent}
+                sizes={sizes}
                 overlayLabel={overlayLabel}
               />
             );
