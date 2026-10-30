@@ -64,8 +64,8 @@ export const catalogosCopy = defineCopy({
         "Explora acabados, revestimientos y propuestas decorativas. Abre cada catálogo aquí mismo o descárgalo para revisarlo con calma.",
       cta: "Hablar de mi proyecto",
       image: {
-        src: "/images/materials/material-stone.jpg",
-        alt: "Muestrario de piedra y acabados naturales para elegir materiales en proyecto",
+        src: "/images/distributions/73_ARMARIO_jotajotape_NEXT.jpg",
+        alt: "Vestidor a medida con librería integrada, puertas de cristal e iluminación",
       },
     },
     grid: {
@@ -109,8 +109,8 @@ export const catalogosCopy = defineCopy({
         "Explore finishes, surfaces and decorative proposals. Open each catalog here or download it for later.",
       cta: "Start a project",
       image: {
-        src: "/images/materials/material-stone.jpg",
-        alt: "Stone and natural finish samples for project material selection",
+        src: "/images/distributions/73_ARMARIO_jotajotape_NEXT.jpg",
+        alt: "Custom walk-in dressing room with integrated bookcase, glass doors and lighting",
       },
     },
     grid: {
