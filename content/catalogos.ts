@@ -4,21 +4,34 @@ import type { ImageAsset } from "@/lib/types";
 export type CatalogItem = {
   id: string;
   pdfSrc: string;
+  downloadSrc: string;
+  downloadFilename: string;
   title: string;
   subtitle: string;
   description: string;
   cover: ImageAsset;
 };
 
-const catalogRegistry = [
+export const catalogRegistry = [
   {
     id: "flow-jotajotape",
     pdfSrc: "/catalogs/Catalogo_FLOW_jotajotape-compressed.pdf",
+    downloadFilename: "Catalogo-Flow-JotaJotaPe.pdf",
     coverSrc: "/catalogs/flow-jotajotape-cover.jpg",
     coverWidth: 1200,
     coverHeight: 463,
   },
 ] as const;
+
+export type CatalogRegistryId = (typeof catalogRegistry)[number]["id"];
+
+export function getCatalogRegistryEntry(id: string) {
+  return catalogRegistry.find((entry) => entry.id === id);
+}
+
+export function catalogDownloadPath(id: CatalogRegistryId): string {
+  return `/api/catalogos/${id}/download`;
+}
 
 type CatalogLocaleCopy = {
   title: string;
@@ -35,6 +48,8 @@ function buildItems(
     return {
       id: entry.id,
       pdfSrc: entry.pdfSrc,
+      downloadSrc: catalogDownloadPath(entry.id),
+      downloadFilename: entry.downloadFilename,
       title: copy.title,
       subtitle: copy.subtitle,
       description: copy.description,
@@ -79,7 +94,7 @@ export const catalogosCopy = defineCopy({
       openInBrowser: "Ver catálogo",
       download: "Descargar PDF",
       mobileLead:
-        "En el móvil el PDF se abre con el visor integrado del navegador para una lectura cómoda.",
+        "En el móvil el PDF se abre con el visor del navegador. Al descargar, en iPhone puedes usar Compartir → Guardar en Archivos.",
     },
     items: buildItems({
       "flow-jotajotape": {
@@ -127,7 +142,7 @@ export const catalogosCopy = defineCopy({
       openInBrowser: "View catalog",
       download: "Download PDF",
       mobileLead:
-        "On mobile, the PDF opens in your browser’s built-in viewer for comfortable reading.",
+        "On mobile, the PDF opens in your browser viewer. To save it on iPhone, use Share → Save to Files after downloading.",
     },
     items: buildItems({
       "flow-jotajotape": {

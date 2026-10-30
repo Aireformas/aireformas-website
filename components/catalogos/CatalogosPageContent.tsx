@@ -110,8 +110,8 @@ function CatalogViewerDesktop({
             {labels.openTab}
           </a>
           <a
-            href={item.pdfSrc}
-            download
+            href={item.downloadSrc}
+            download={item.downloadFilename}
             className="inline-flex items-center gap-1.5 rounded-full border border-white/20 px-3 py-1.5 text-sm text-surface transition-colors hover:bg-white/10"
           >
             <MaterialIcon name="download" className="text-base" />
@@ -156,8 +156,8 @@ function CatalogViewerMobile({
             {labels.openInBrowser}
           </a>
           <a
-            href={item.pdfSrc}
-            download
+            href={item.downloadSrc}
+            download={item.downloadFilename}
             className="inline-flex w-full items-center justify-center gap-2 rounded-editorial border border-white/25 px-4 py-3.5 text-sm text-surface"
           >
             <MaterialIcon name="download" className="text-lg" />
