@@ -1,11 +1,173 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { useLocale } from "@/components/locale/LocaleProvider";
 import { SplitHero } from "@/components/shared/SplitHero";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
 import { catalogosCopy, type CatalogItem } from "@/content/catalogos";
+import { prefersNativePdfViewer } from "@/lib/catalogPdf";
+
+function useNativePdfViewer() {
+  const [native, setNative] = useState(false);
+
+  useEffect(() => {
+    const update = () => setNative(prefersNativePdfViewer());
+    update();
+    const mq = window.matchMedia("(max-width: 767px)");
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  return native;
+}
+
+function CatalogViewerShell({
+  item,
+  onClose,
+  labels,
+  children,
+}: {
+  item: CatalogItem;
+  onClose: () => void;
+  labels: (typeof catalogosCopy)["es"]["viewer"];
+  children: ReactNode;
+}) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const titleId = useId();
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    if (!dialog.open) dialog.showModal();
+    document.documentElement.classList.add("overflow-hidden");
+
+    const handleClose = () => onClose();
+    dialog.addEventListener("close", handleClose);
+    return () => {
+      dialog.removeEventListener("close", handleClose);
+      document.documentElement.classList.remove("overflow-hidden");
+    };
+  }, [onClose]);
+
+  return (
+    <dialog
+      ref={dialogRef}
+      aria-labelledby={titleId}
+      className="fixed inset-0 z-50 m-0 flex h-dvh max-h-none w-screen max-w-none flex-col overflow-hidden bg-ink-primary/90 p-0 backdrop:bg-transparent open:flex"
+      onClick={(event) => {
+        if (event.target === event.currentTarget) dialogRef.current?.close();
+      }}
+    >
+      <div className="flex shrink-0 items-center justify-between gap-4 border-b border-white/10 px-4 py-3 pt-[max(0.75rem,env(safe-area-inset-top))] md:px-8">
+        <div className="min-w-0">
+          <p id={titleId} className="truncate font-medium text-surface">
+            {item.title}
+          </p>
+          <p className="truncate text-sm text-surface/70">{item.subtitle}</p>
+        </div>
+        <button
+          type="button"
+          onClick={() => dialogRef.current?.close()}
+          className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface/90 text-ink-primary transition-colors hover:bg-surface"
+          aria-label={labels.close}
+        >
+          <MaterialIcon name="close" className="text-xl" />
+        </button>
+      </div>
+      {children}
+    </dialog>
+  );
+}
+
+function CatalogViewerDesktop({
+  item,
+  onClose,
+  labels,
+}: {
+  item: CatalogItem;
+  onClose: () => void;
+  labels: (typeof catalogosCopy)["es"]["viewer"];
+}) {
+  return (
+    <CatalogViewerShell item={item} onClose={onClose} labels={labels}>
+      <div className="flex min-h-0 flex-1 flex-col gap-3 p-4 pb-[max(1rem,env(safe-area-inset-bottom))] md:p-6">
+        <div className="relative min-h-0 flex-1 overflow-hidden rounded-editorial border border-white/10 bg-surface">
+          <iframe
+            src={item.pdfSrc}
+            title={`${item.title} — ${item.subtitle}`}
+            className="absolute inset-0 h-full w-full border-0"
+          />
+        </div>
+        <div className="flex shrink-0 flex-wrap justify-end gap-2">
+          <a
+            href={item.pdfSrc}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-white/20 px-3 py-1.5 text-sm text-surface transition-colors hover:bg-white/10"
+          >
+            <MaterialIcon name="open_in_new" className="text-base" />
+            {labels.openTab}
+          </a>
+          <a
+            href={item.pdfSrc}
+            download
+            className="inline-flex items-center gap-1.5 rounded-full border border-white/20 px-3 py-1.5 text-sm text-surface transition-colors hover:bg-white/10"
+          >
+            <MaterialIcon name="download" className="text-base" />
+            {labels.download}
+          </a>
+        </div>
+      </div>
+    </CatalogViewerShell>
+  );
+}
+
+function CatalogViewerMobile({
+  item,
+  onClose,
+  labels,
+}: {
+  item: CatalogItem;
+  onClose: () => void;
+  labels: (typeof catalogosCopy)["es"]["viewer"];
+}) {
+  return (
+    <CatalogViewerShell item={item} onClose={onClose} labels={labels}>
+      <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-4 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-2">
+        <div className="relative mb-5 aspect-[4/3] overflow-hidden rounded-editorial border border-white/15 bg-surface/10">
+          <Image
+            src={item.cover.src}
+            alt=""
+            width={item.cover.width ?? 1200}
+            height={item.cover.height ?? 900}
+            sizes="100vw"
+            className="h-full w-full object-cover"
+            aria-hidden
+          />
+        </div>
+        <p className="text-body-md text-surface/90">{labels.mobileLead}</p>
+        <div className="mt-6 flex flex-col gap-3">
+          <a
+            href={item.pdfSrc}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-editorial bg-surface px-4 py-3.5 text-sm font-medium text-ink-primary"
+          >
+            <MaterialIcon name="menu_book" className="text-lg" />
+            {labels.openInBrowser}
+          </a>
+          <a
+            href={item.pdfSrc}
+            download
+            className="inline-flex w-full items-center justify-center gap-2 rounded-editorial border border-white/25 px-4 py-3.5 text-sm text-surface"
+          >
+            <MaterialIcon name="download" className="text-lg" />
+            {labels.download}
+          </a>
+        </div>
+      </div>
+    </CatalogViewerShell>
+  );
+}
 
 function CatalogViewer({
   item,
@@ -16,91 +178,13 @@ function CatalogViewer({
   onClose: () => void;
   labels: (typeof catalogosCopy)["es"]["viewer"];
 }) {
-  const dialogRef = useRef<HTMLDialogElement>(null);
-  const titleId = useId();
+  const native = useNativePdfViewer();
 
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (!dialog) return;
-    if (!dialog.open) dialog.showModal();
+  if (native) {
+    return <CatalogViewerMobile item={item} onClose={onClose} labels={labels} />;
+  }
 
-    const handleClose = () => onClose();
-    dialog.addEventListener("close", handleClose);
-    return () => dialog.removeEventListener("close", handleClose);
-  }, [onClose]);
-
-  return (
-    <dialog
-      ref={dialogRef}
-      aria-labelledby={titleId}
-      className="fixed inset-0 z-50 m-0 flex h-dvh max-h-none w-screen max-w-none flex-col bg-ink-primary/90 p-0 backdrop:bg-transparent open:flex"
-      onClick={(event) => {
-        if (event.target === event.currentTarget) dialogRef.current?.close();
-      }}
-    >
-      <div className="flex shrink-0 items-center justify-between gap-4 border-b border-white/10 px-4 py-3 md:px-8">
-        <div className="min-w-0">
-          <p id={titleId} className="truncate font-medium text-surface">
-            {item.title}
-          </p>
-          <p className="truncate text-sm text-surface/70">{item.subtitle}</p>
-        </div>
-        <div className="flex shrink-0 items-center gap-2">
-          <a
-            href={item.pdfSrc}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden items-center gap-1.5 rounded-full border border-white/20 px-3 py-1.5 text-sm text-surface transition-colors hover:bg-white/10 sm:inline-flex"
-          >
-            <MaterialIcon name="open_in_new" className="text-base" />
-            {labels.openTab}
-          </a>
-          <a
-            href={item.pdfSrc}
-            download
-            className="hidden items-center gap-1.5 rounded-full border border-white/20 px-3 py-1.5 text-sm text-surface transition-colors hover:bg-white/10 sm:inline-flex"
-          >
-            <MaterialIcon name="download" className="text-base" />
-            {labels.download}
-          </a>
-          <button
-            type="button"
-            onClick={() => dialogRef.current?.close()}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-surface/90 text-ink-primary transition-colors hover:bg-surface"
-            aria-label={labels.close}
-          >
-            <MaterialIcon name="close" className="text-xl" />
-          </button>
-        </div>
-      </div>
-      <div className="flex min-h-0 flex-1 flex-col p-4 md:p-6">
-        <iframe
-          src={item.pdfSrc}
-          title={`${item.title} — ${item.subtitle}`}
-          className="min-h-0 w-full flex-1 rounded-editorial border border-white/10 bg-surface"
-        />
-        <div className="mt-3 flex gap-3 sm:hidden">
-          <a
-            href={item.pdfSrc}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-editorial bg-surface/90 px-3 py-2.5 text-sm text-ink-primary"
-          >
-            <MaterialIcon name="open_in_new" className="text-base" />
-            {labels.openTab}
-          </a>
-          <a
-            href={item.pdfSrc}
-            download
-            className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-editorial border border-white/20 px-3 py-2.5 text-sm text-surface"
-          >
-            <MaterialIcon name="download" className="text-base" />
-            {labels.download}
-          </a>
-        </div>
-      </div>
-    </dialog>
-  );
+  return <CatalogViewerDesktop item={item} onClose={onClose} labels={labels} />;
 }
 
 function CatalogCard({

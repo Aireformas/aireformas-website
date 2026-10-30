@@ -76,7 +76,10 @@ export const catalogosCopy = defineCopy({
     viewer: {
       close: "Cerrar catálogo",
       openTab: "Abrir en nueva pestaña",
+      openInBrowser: "Ver catálogo",
       download: "Descargar PDF",
+      mobileLead:
+        "En el móvil el PDF se abre con el visor integrado del navegador para una lectura cómoda.",
     },
     items: buildItems({
       "flow-jotajotape": {
@@ -121,7 +124,10 @@ export const catalogosCopy = defineCopy({
     viewer: {
       close: "Close catalog",
       openTab: "Open in new tab",
+      openInBrowser: "View catalog",
       download: "Download PDF",
+      mobileLead:
+        "On mobile, the PDF opens in your browser’s built-in viewer for comfortable reading.",
     },
     items: buildItems({
       "flow-jotajotape": {
