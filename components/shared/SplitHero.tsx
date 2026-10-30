@@ -45,7 +45,8 @@ export function SplitHero({
             alt={image.alt}
             fill
             priority
-            sizes="(max-width: 1024px) 100vw, 720px"
+            quality={90}
+            sizes="(max-width: 1024px) 100vw, 800px"
             className="object-cover"
           />
         </div>

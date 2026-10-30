@@ -17,7 +17,7 @@ export const estudioCopy = defineCopy({
         "Interiorismo, reforma, mobiliario y climatización con un solo equipo. Viviendas, oficinas y locales en Madrid y noroeste.",
       cta: "Hablar de mi proyecto",
       image: {
-        src: "/images/estudio/estudio-hero.webp",
+        src: "/images/estudio/estudio-hero.jpg",
         alt: "Estudio de interiorismo con mesa de trabajo, planos y muestras de materiales; salón y zona de oficina con luz natural",
       },
       chips: [
@@ -209,7 +209,7 @@ export const estudioCopy = defineCopy({
         "Interiors, renovation, furniture and climate with one team. Homes, offices and retail in Madrid and the northwest.",
       cta: "Start a project",
       image: {
-        src: "/images/estudio/estudio-hero.webp",
+        src: "/images/estudio/estudio-hero.jpg",
         alt: "Interior design studio with a work table, floor plans and material samples; lounge and office area with natural light",
       },
       chips: [
