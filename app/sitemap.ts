@@ -4,6 +4,7 @@ import { site } from "@/content/site";
 const routes: MetadataRoute.Sitemap = [
   { url: `${site.url}/`, changeFrequency: "weekly", priority: 1 },
   { url: `${site.url}/proyectos`, changeFrequency: "weekly", priority: 0.9 },
+  { url: `${site.url}/catalogos`, changeFrequency: "monthly", priority: 0.7 },
   { url: `${site.url}/interiorismo`, changeFrequency: "monthly", priority: 0.9 },
   { url: `${site.url}/reformas`, changeFrequency: "monthly", priority: 0.9 },
   { url: `${site.url}/mobiliario`, changeFrequency: "monthly", priority: 0.9 },

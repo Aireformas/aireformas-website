@@ -30,6 +30,7 @@ export const headerNav: HeaderNavEntry[] = [
     ],
   },
   { href: "/proyectos", label: { es: "Proyectos", en: "Projects" } },
+  { href: "/catalogos", label: { es: "Catálogos", en: "Catalogs" } },
   { href: "/contacto", label: { es: "Contacto", en: "Contact" } },
 ];
 
@@ -46,6 +47,7 @@ export const footerNav: Record<SiteLocale, { label: string; href: string }[]> = 
     { label: "Mobiliario", href: "/mobiliario" },
     { label: "Climate", href: "/climate" },
     { label: "Proyectos", href: "/proyectos" },
+    { label: "Catálogos", href: "/catalogos" },
     { label: "Contacto", href: "/contacto" },
     { label: "Preguntas frecuentes", href: "/preguntas-frecuentes" },
   ],
@@ -56,6 +58,7 @@ export const footerNav: Record<SiteLocale, { label: string; href: string }[]> = 
     { label: "Furniture", href: "/mobiliario" },
     { label: "Climate", href: "/climate" },
     { label: "Projects", href: "/proyectos" },
+    { label: "Catalogs", href: "/catalogos" },
     { label: "Contact", href: "/contacto" },
     { label: "FAQ", href: "/preguntas-frecuentes" },
   ],
