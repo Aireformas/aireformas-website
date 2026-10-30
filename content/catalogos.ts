@@ -64,8 +64,8 @@ export const catalogosCopy = defineCopy({
         "Explora acabados, revestimientos y propuestas decorativas. Abre cada catálogo aquí mismo o descárgalo para revisarlo con calma.",
       cta: "Hablar de mi proyecto",
       image: {
-        src: "/images/mobiliario/mobiliario-hero.jpg",
-        alt: "Detalle de carpintería y materiales en un interior contemporáneo",
+        src: "/images/materials/material-stone.jpg",
+        alt: "Muestrario de piedra y acabados naturales para elegir materiales en proyecto",
       },
     },
     grid: {
@@ -82,8 +82,9 @@ export const catalogosCopy = defineCopy({
       "flow-jotajotape": {
         title: "Flow",
         subtitle: "Jota Jota Pe",
-        description: "Colección de revestimientos y soluciones decorativas Flow.",
-        coverAlt: "Portada del catálogo Flow de Jota Jota Pe",
+        description:
+          "Mobiliario juvenil y modular de la colección Flow de Jota Jota Pe.",
+        coverAlt: "Portada del catálogo Flow de mobiliario Jota Jota Pe",
       },
     }),
     cta: {
@@ -108,8 +109,8 @@ export const catalogosCopy = defineCopy({
         "Explore finishes, surfaces and decorative proposals. Open each catalog here or download it for later.",
       cta: "Start a project",
       image: {
-        src: "/images/mobiliario/mobiliario-hero.jpg",
-        alt: "Cabinetry and material detail in a contemporary interior",
+        src: "/images/materials/material-stone.jpg",
+        alt: "Stone and natural finish samples for project material selection",
       },
     },
     grid: {
@@ -126,8 +127,8 @@ export const catalogosCopy = defineCopy({
       "flow-jotajotape": {
         title: "Flow",
         subtitle: "Jota Jota Pe",
-        description: "Flow decorative surfaces and wall covering collection.",
-        coverAlt: "Cover of the Flow catalog by Jota Jota Pe",
+        description: "Youth and modular furniture from Jota Jota Pe's Flow collection.",
+        coverAlt: "Cover of the Jota Jota Pe Flow furniture catalog",
       },
     }),
     cta: {
