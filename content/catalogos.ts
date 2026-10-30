@@ -99,10 +99,10 @@ export const catalogosCopy = defineCopy({
     items: buildItems({
       "flow-jotajotape": {
         title: "Flow",
-        subtitle: "Jota Jota Pe",
+        subtitle: "JotaJotaPe",
         description:
-          "Mobiliario juvenil y modular de la colección Flow de Jota Jota Pe.",
-        coverAlt: "Portada del catálogo Flow de mobiliario Jota Jota Pe",
+          "Mobiliario juvenil y modular de la colección Flow de JotaJotaPe.",
+        coverAlt: "Portada del catálogo Flow de mobiliario JotaJotaPe",
       },
     }),
     cta: {
@@ -147,9 +147,9 @@ export const catalogosCopy = defineCopy({
     items: buildItems({
       "flow-jotajotape": {
         title: "Flow",
-        subtitle: "Jota Jota Pe",
-        description: "Youth and modular furniture from Jota Jota Pe's Flow collection.",
-        coverAlt: "Cover of the Jota Jota Pe Flow furniture catalog",
+        subtitle: "JotaJotaPe",
+        description: "Youth and modular furniture from JotaJotaPe's Flow collection.",
+        coverAlt: "Cover of the JotaJotaPe Flow furniture catalog",
       },
     }),
     cta: {

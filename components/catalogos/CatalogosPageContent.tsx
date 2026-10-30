@@ -218,7 +218,9 @@ function CatalogCard({
         </span>
       </div>
       <div className="mt-auto space-y-2">
-        <p className="text-label-uppercase text-warm-label">{item.subtitle}</p>
+        <p className="text-[0.6875rem] font-medium leading-4 tracking-normal text-warm-label uppercase">
+          {item.subtitle}
+        </p>
         <h3 className="text-headline-md text-ink-primary">{item.title}</h3>
         <p className="text-body-sm text-ink-primary/75">{item.description}</p>
         <span className="inline-flex items-center gap-1 pt-2 text-sm font-medium text-primary">
