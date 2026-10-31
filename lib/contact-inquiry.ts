@@ -1,6 +1,8 @@
 export const contactServices = [
   "interiorismo",
   "reforma",
+  "armarios",
+  "cocinas",
   "mobiliario",
   "clima",
   "integral",
@@ -17,6 +19,8 @@ export type ContactTiming = (typeof contactTimings)[number];
 const serviceLabel: Record<ContactService, string> = {
   interiorismo: "Interiorismo",
   reforma: "Reforma",
+  armarios: "Armarios",
+  cocinas: "Cocinas",
   mobiliario: "Mobiliario",
   clima: "Climatización",
   integral: "Proyecto completo",
@@ -52,13 +56,24 @@ export function isContactTiming(value: string): value is ContactTiming {
   return isListed(contactTimings, value);
 }
 
+export function parseContactServices(raw: FormDataEntryValue[]): ContactService[] {
+  const seen = new Set<ContactService>();
+  for (const entry of raw) {
+    if (typeof entry !== "string") continue;
+    if (!isContactService(entry)) continue;
+    seen.add(entry);
+    if (seen.size >= 6) break;
+  }
+  return [...seen];
+}
+
 export function inquiryLabels(fields: {
-  servicio: ContactService;
+  servicios: readonly ContactService[];
   espacio: ContactSpace;
   plazo: ContactTiming;
 }) {
   return {
-    servicio: serviceLabel[fields.servicio],
+    servicio: fields.servicios.map((id) => serviceLabel[id]).join(", "),
     espacio: spaceLabel[fields.espacio],
     plazo: timingLabel[fields.plazo],
   };

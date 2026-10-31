@@ -5,9 +5,9 @@ import path from "node:path";
 const root = process.cwd();
 const src = path.join(root, "public", "logo-airereformas-transparent.png");
 
-/** Slate profundo de marca — apple / maskable. */
+/** Slate profundo de marca (apple / maskable). */
 const slate = { r: 63, g: 93, b: 115, alpha: 1 };
-/** Cream de marca — apple touch (encaja con highlights del isotipo). */
+/** Cream de marca, apple touch (encaja con highlights del isotipo). */
 const cream = { r: 244, g: 241, b: 236, alpha: 1 };
 const transparent = { r: 0, g: 0, b: 0, alpha: 0 };
 

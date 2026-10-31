@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useId } from "react";
+import { useActionState, useId, useState } from "react";
 import { sendContact, type ContactFormState } from "@/app/contacto/actions";
 import { useLocale } from "@/components/locale/LocaleProvider";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
@@ -27,12 +27,23 @@ const initialState: ContactFormState = {
   mensaje: "",
 };
 
+function parseSelected(servicio: string, fallback?: ContactService): ContactService[] {
+  const fromState = servicio
+    .split(",")
+    .map((id) => id.trim())
+    .filter(Boolean) as ContactService[];
+  if (fromState.length > 0) return fromState;
+  return fallback ? [fallback] : [];
+}
+
 export function ContactForm({ variant = "default", service }: ContactFormProps) {
   const form = chrome[useLocale()].form;
   const [state, formAction, pending] = useActionState(sendContact, initialState);
   const fieldId = useId();
   const isLanding = variant === "landing";
-  const selectedService = state.servicio || service || "";
+  const [selected, setSelected] = useState<ContactService[]>(() =>
+    parseSelected(state.servicio, service),
+  );
 
   if (state.status === "ok") {
     return <ContactReceived state={state} />;
@@ -44,6 +55,12 @@ export function ContactForm({ variant = "default", service }: ContactFormProps) 
 
   const labelClassName = "mb-1 block text-label-uppercase text-warm-label";
   const selectClassName = `${fieldClassName} cursor-pointer appearance-none bg-none pr-10`;
+
+  function toggleService(id: ContactService) {
+    setSelected((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
+    );
+  }
 
   return (
     <form key={state.revision} action={formAction} className="space-y-3">
@@ -92,22 +109,26 @@ export function ContactForm({ variant = "default", service }: ContactFormProps) 
           {form.service}
           <RequiredMark />
         </legend>
+        <p className="mb-2 text-body-sm text-warm-label">{form.serviceHint}</p>
         <div className="flex flex-wrap gap-1.5">
-          {form.services.map((option) => (
-            <label key={option.id} className="cursor-pointer">
-              <input
-                type="radio"
-                name="servicio"
-                value={option.id}
-                required
-                defaultChecked={selectedService === option.id}
-                className="peer sr-only"
-              />
-              <span className="inline-block rounded-full border border-outline/30 px-3 py-1 text-body-sm text-ink-primary transition-colors peer-checked:border-slate-deep peer-checked:bg-slate-deep peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-slate-accent/40">
-                {option.label}
-              </span>
-            </label>
-          ))}
+          {form.services.map((option) => {
+            const checked = selected.includes(option.id as ContactService);
+            return (
+              <label key={option.id} className="cursor-pointer">
+                <input
+                  type="checkbox"
+                  name="servicio"
+                  value={option.id}
+                  checked={checked}
+                  onChange={() => toggleService(option.id as ContactService)}
+                  className="peer sr-only"
+                />
+                <span className="inline-block rounded-full border border-outline/30 px-3 py-1 text-body-sm text-ink-primary transition-colors peer-checked:border-slate-deep peer-checked:bg-slate-deep peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-slate-accent/40">
+                  {option.label}
+                </span>
+              </label>
+            );
+          })}
         </div>
       </fieldset>
 
@@ -218,7 +239,7 @@ export function ContactForm({ variant = "default", service }: ContactFormProps) 
 
       <button
         type="submit"
-        disabled={pending}
+        disabled={pending || selected.length === 0}
         className={
           isLanding
             ? "w-full rounded-full bg-slate-deep py-2.5 text-label-uppercase text-white transition-colors hover:bg-ink-primary disabled:opacity-60"
@@ -248,17 +269,30 @@ function SelectChevron() {
   );
 }
 
-function optionLabel(options: readonly { id: string; label: string }[], id: string): string {
-  return options.find((option) => option.id === id)?.label ?? "";
+function optionLabels(
+  options: readonly { id: string; label: string }[],
+  ids: string,
+): string {
+  return ids
+    .split(",")
+    .map((id) => options.find((option) => option.id === id.trim())?.label)
+    .filter(Boolean)
+    .join(", ");
 }
 
 function ContactReceived({ state }: { state: ContactFormState }) {
   const form = chrome[useLocale()].form;
   const firstName = state.nombre.trim().split(/\s+/)[0] ?? "";
   const rows = [
-    { label: form.service, value: optionLabel(form.services, state.servicio) },
-    { label: form.space, value: optionLabel(form.spaces, state.espacio) },
-    { label: form.timing, value: optionLabel(form.timings, state.plazo) },
+    { label: form.service, value: optionLabels(form.services, state.servicio) },
+    {
+      label: form.space,
+      value: form.spaces.find((option) => option.id === state.espacio)?.label ?? "",
+    },
+    {
+      label: form.timing,
+      value: form.timings.find((option) => option.id === state.plazo)?.label ?? "",
+    },
     { label: form.area, value: state.zona },
     { label: form.phone, value: state.telefono },
     { label: form.email, value: state.email },

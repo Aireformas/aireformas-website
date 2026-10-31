@@ -45,14 +45,17 @@ function button(href: string, label: string, filled: boolean): string {
 
 export function contactEmailText(input: ContactEmailInput): string {
   return [
-    "Nueva consulta — aireformas",
+    "Nueva consulta | aireformas",
     "",
     input.nombre,
     `${input.servicio} · ${input.espacio} · ${input.plazo}`,
     "",
+    `Servicios: ${input.servicio}`,
     `Teléfono: ${input.telefono}`,
-    `Email: ${input.email || "—"}`,
-    `Zona: ${input.zona || "—"}`,
+    `Email: ${input.email || "-"}`,
+    `Zona: ${input.zona || "-"}`,
+    `Espacio: ${input.espacio}`,
+    `Plazo: ${input.plazo}`,
     "",
     input.mensaje,
   ].join("\n");
@@ -87,9 +90,12 @@ export function contactEmailHtml(input: ContactEmailInput): string {
                 <p style="margin:0;font-family:${font};font-size:24px;font-weight:400;line-height:1.25;color:${ink};">${nombre}</p>
                 <p style="margin:10px 0 0;font-family:${font};font-size:13px;line-height:1.4;color:${slate};">${escapeHtml(input.servicio)} · ${escapeHtml(input.espacio)} · ${escapeHtml(input.plazo)}</p>
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:18px;">
+                  ${row("Servicios", escapeHtml(input.servicio))}
+                  ${row("Espacio", escapeHtml(input.espacio))}
+                  ${row("Plazo", escapeHtml(input.plazo))}
                   ${row("Teléfono", `<a href="${escapeHtml(telHref)}" style="color:${ink};text-decoration:none;">${escapeHtml(input.telefono)}</a>`)}
-                  ${row("Email", input.email ? `<a href="mailto:${escapeHtml(input.email)}" style="color:${ink};text-decoration:none;">${escapeHtml(input.email)}</a>` : "—")}
-                  ${row("Zona", escapeHtml(input.zona || "—"))}
+                  ${row("Email", input.email ? `<a href="mailto:${escapeHtml(input.email)}" style="color:${ink};text-decoration:none;">${escapeHtml(input.email)}</a>` : "-")}
+                  ${row("Zona", escapeHtml(input.zona || "-"))}
                 </table>
                 <p style="margin:22px 0 8px;font-family:${font};font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:${warm};">Mensaje</p>
                 <p style="margin:0;padding:14px 16px;background:${cream};border-radius:10px;font-family:${font};font-size:15px;line-height:1.55;color:${ink};">${escapeHtml(input.mensaje).replace(/\n/g, "<br>")}</p>

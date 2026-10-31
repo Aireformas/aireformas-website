@@ -78,6 +78,26 @@ export function breadcrumbJsonLd(
   };
 }
 
+export function servicePageJsonLd(params: {
+  name: string;
+  description: string;
+  path: string;
+}): Record<string, unknown> {
+  const url = params.path.startsWith("/") ? params.path : `/${params.path}`;
+  return {
+    "@type": "Service",
+    "@id": `${site.url}${url}#service`,
+    name: params.name,
+    description: params.description,
+    url: `${site.url}${url}`,
+    provider: { "@id": `${site.url}/#organization` },
+    areaServed: site.areaServed.map((name) => ({
+      "@type": "AdministrativeArea",
+      name,
+    })),
+  };
+}
+
 export function faqPageJsonLd(
   items: { question: string; answer: string }[],
 ): Record<string, unknown> {

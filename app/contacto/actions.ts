@@ -4,9 +4,9 @@ import { Resend } from "resend";
 import { contactEmailHtml, contactEmailText } from "@/lib/contact-email";
 import {
   inquiryLabels,
-  isContactService,
   isContactSpace,
   isContactTiming,
+  parseContactServices,
 } from "@/lib/contact-inquiry";
 
 /**
@@ -46,7 +46,8 @@ export async function sendContact(
   const nombre = readField(formData, "nombre", 120);
   const telefono = readField(formData, "telefono", 40);
   const email = readField(formData, "email", 120);
-  const servicio = readField(formData, "servicio", 40);
+  const servicios = parseContactServices(formData.getAll("servicio"));
+  const servicio = servicios.join(",");
   const espacio = readField(formData, "espacio", 40);
   const zona = readField(formData, "zona", 80);
   const plazo = readField(formData, "plazo", 40);
@@ -65,7 +66,7 @@ export async function sendContact(
   };
 
   const inquiryOk =
-    isContactService(servicio) && isContactSpace(espacio) && isContactTiming(plazo);
+    servicios.length > 0 && isContactSpace(espacio) && isContactTiming(plazo);
   const emailOk = email === "" || isEmail(email);
 
   if (!nombre || !telefono || !mensaje || !inquiryOk || !emailOk) {
@@ -78,7 +79,7 @@ export async function sendContact(
     return { status: "error", ...fields };
   }
 
-  const labels = inquiryLabels({ servicio, espacio, plazo });
+  const labels = inquiryLabels({ servicios, espacio, plazo });
   const letter = {
     nombre,
     telefono,
@@ -94,7 +95,7 @@ export async function sendContact(
     from: CONTACT_FROM,
     to: CONTACT_TO,
     replyTo: email || undefined,
-    subject: `Consulta web — ${labels.servicio} — ${nombre}`,
+    subject: `Consulta web | ${labels.servicio} | ${nombre}`,
     html: contactEmailHtml(letter),
     text: contactEmailText(letter),
   });

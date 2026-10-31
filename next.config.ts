@@ -18,7 +18,12 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/servicios/armarios",
-        destination: "/mobiliario",
+        destination: "/armarios",
+        permanent: true,
+      },
+      {
+        source: "/catalogos",
+        destination: "/armarios",
         permanent: true,
       },
     ];

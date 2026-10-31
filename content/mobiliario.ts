@@ -26,8 +26,8 @@ export const mobiliarioCopy = defineCopy({
         alt: "Vestidor walk-in con carpintería a medida en roble, puertas de cristal, tocador e iluminación integrada",
       },
       chips: [
-        { id: "armarios", title: "Armarios y vestidores", icon: "checkroom" },
-        { id: "cocinas", title: "Cocinas", icon: "kitchen" },
+        { id: "armarios", title: "Armarios y vestidores", icon: "checkroom", href: "/armarios" },
+        { id: "cocinas", title: "Cocinas", icon: "kitchen", href: "/cocinas" },
         { id: "banos", title: "Baños", icon: "bathtub" },
         { id: "especiales", title: "Piezas especiales", icon: "chair" },
       ],
@@ -300,8 +300,8 @@ export const mobiliarioCopy = defineCopy({
         alt: "Walk-in dressing room with bespoke oak joinery, glass doors, vanity and integrated lighting",
       },
       chips: [
-        { id: "armarios", title: "Wardrobes and dressing rooms", icon: "checkroom" },
-        { id: "cocinas", title: "Kitchens", icon: "kitchen" },
+        { id: "armarios", title: "Wardrobes and dressing rooms", icon: "checkroom", href: "/armarios" },
+        { id: "cocinas", title: "Kitchens", icon: "kitchen", href: "/cocinas" },
         { id: "banos", title: "Bathrooms", icon: "bathtub" },
         { id: "especiales", title: "Special pieces", icon: "chair" },
       ],
