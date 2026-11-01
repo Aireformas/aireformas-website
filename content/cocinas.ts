@@ -125,7 +125,7 @@ const panelsEs: CatalogPanel[] = [
       },
       {
         src: "/images/cocinasv2/cocina-ele-3.webp",
-        alt: "Detalle de esquina en L con luz bajo mueble",
+        alt: "Detalle de esquina en L con cajones abiertos y luz bajo mueble",
         caption: "Detalle esquina",
       },
     ],
@@ -267,7 +267,7 @@ const panelsEn: CatalogPanel[] = [
       },
       {
         src: "/images/cocinasv2/cocina-ele-3.webp",
-        alt: "L-corner detail with under-cabinet light",
+        alt: "L-corner detail with open drawers and under-cabinet light",
         caption: "Corner detail",
       },
     ],

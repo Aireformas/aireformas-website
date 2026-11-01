@@ -9,7 +9,9 @@ import { CatalogFilter } from "@/components/shared/CatalogFilter";
 import { FaqAccordion } from "@/components/shared/FaqAccordion";
 import { ProcessGridSection } from "@/components/shared/ProcessGridSection";
 import { SplitHero } from "@/components/shared/SplitHero";
+import { SystemSheet } from "@/components/shared/SystemSheet";
 import { armariosCopy } from "@/content/armarios";
+import { armariosSystemsCopy } from "@/content/armarios-systems";
 import { chrome } from "@/content/chrome";
 import { getLocale } from "@/lib/locale.server";
 import { pageMetadata } from "@/lib/seo";
@@ -22,6 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ArmariosPage() {
   const locale = await getLocale();
   const copy = armariosCopy[locale];
+  const systems = armariosSystemsCopy[locale];
   const ui = chrome[locale];
 
   return (
@@ -58,6 +61,13 @@ export default async function ArmariosPage() {
         title={copy.catalog.title}
         panels={copy.catalog.panels}
         finishes={copy.catalog.finishes}
+      />
+
+      <SystemSheet
+        label={systems.label}
+        title={systems.title}
+        lead={systems.lead}
+        programs={systems.programs}
       />
 
       <ProcessGridSection

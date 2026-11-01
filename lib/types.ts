@@ -96,3 +96,35 @@ export type FinishPaletteCopy = {
   lead: string;
   groups: readonly FinishGroup[];
 };
+
+export type FurniturePieceSpan = "full" | "half" | "third";
+
+export type FurniturePiece = {
+  id: string;
+  name: string;
+  src: string;
+  alt: string;
+};
+
+export type FurnitureFamily = {
+  id: string;
+  title: string;
+  subtitle: string;
+  span: FurniturePieceSpan;
+  pieces: readonly FurniturePiece[];
+};
+
+export type FurnitureProgram = {
+  id: string;
+  name: string;
+  tagline: string;
+  lead: string;
+  families: readonly FurnitureFamily[];
+};
+
+export type SystemsSheetCopy = {
+  label: string;
+  title: string;
+  lead: string;
+  programs: readonly FurnitureProgram[];
+};
