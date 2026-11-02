@@ -46,12 +46,12 @@ const galleryAssets = [
   },
   {
     id: "img-2454",
-    src: "/images/projects/gallery/img-2454.webp",
+    src: "/images/projects/gallery/img-2460.webp",
     width: 1400,
     height: 788,
     home: true,
-    altEs: "Dormitorio con armario continuo y luz natural",
-    altEn: "Bedroom with continuous wardrobe and natural light",
+    altEs: "Cocina abierta al pasillo con isla monolítica de piedra",
+    altEn: "Kitchen opening to the hallway with a monolithic stone island",
   },
   {
     id: "img-2457",
@@ -70,14 +70,6 @@ const galleryAssets = [
     home: true,
     altEs: "Cocina con isla de piedra veteada y carpintería de madera",
     altEn: "Kitchen with a veined stone island and wood cabinetry",
-  },
-  {
-    id: "img-2460",
-    src: "/images/projects/gallery/img-2460.webp",
-    width: 1400,
-    height: 788,
-    altEs: "Cocina abierta al pasillo con isla monolítica de piedra",
-    altEn: "Kitchen opening to the hallway with a monolithic stone island",
   },
   {
     id: "img-2463",

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CookieSettingsLink } from "@/components/consent/CookieSettingsLink";
 import { Logo } from "@/components/layout/Logo";
+import { InstagramIcon } from "@/components/ui/InstagramIcon";
 import { chrome } from "@/content/chrome";
 import { footerNav } from "@/content/navigation";
 import { site, siteCopy } from "@/content/site";
@@ -23,6 +24,15 @@ export async function Footer() {
             <p className="mt-4 text-label-uppercase text-white/50">
               {site.brandLine.toUpperCase()}
             </p>
+            <a
+              href={site.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex text-white/45 transition-colors hover:text-white/85"
+              aria-label={ui.instagram}
+            >
+              <InstagramIcon />
+            </a>
           </div>
 
           <div className="md:col-span-4">

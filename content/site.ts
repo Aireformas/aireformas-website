@@ -55,6 +55,7 @@ export const site = {
   email: "info@aireformas.com",
   emailHref: "mailto:info@aireformas.com",
   whatsapp: "https://wa.me/34675784752",
+  instagram: "https://www.instagram.com/aireformas/",
   address: "Madrid y alrededores",
   addressLocality: "Madrid",
   addressCountry: "ES",
