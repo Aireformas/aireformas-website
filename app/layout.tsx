@@ -16,6 +16,7 @@ import { RouteBreadcrumbs } from "@/components/seo/RouteBreadcrumbs";
 import { chrome } from "@/content/chrome";
 import { site, siteCopy } from "@/content/site";
 import { getLocale } from "@/lib/locale.server";
+import { defaultOpenGraphImage } from "@/lib/seo";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -55,11 +56,13 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: site.name,
       title: site.name,
       description: copy.tagline,
+      images: [defaultOpenGraphImage],
     },
     twitter: {
       card: "summary_large_image",
       title: site.name,
       description: copy.tagline,
+      images: [defaultOpenGraphImage.url],
     },
   };
 }

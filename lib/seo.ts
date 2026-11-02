@@ -6,6 +6,13 @@ type PageCopy = {
   description: string;
 };
 
+export const defaultOpenGraphImage = {
+  url: "/opengraph-image",
+  width: 1200,
+  height: 630,
+  alt: `${site.name} — ${site.shortTagline}`,
+} as const;
+
 export function pageMetadata(
   path: string,
   meta: PageCopy,
@@ -13,12 +20,7 @@ export function pageMetadata(
 ): Metadata {
   const canonical = path.startsWith("/") ? path : `/${path}`;
   const title = canonical === "/" ? `${meta.title} | ${site.name}` : meta.title;
-  const image = {
-    url: "/opengraph-image",
-    width: 1200,
-    height: 630,
-    alt: site.tagline,
-  };
+  const image = defaultOpenGraphImage;
 
   return {
     ...extra,
@@ -32,7 +34,7 @@ export function pageMetadata(
       title,
       description: meta.description,
       url: canonical,
-      ...(canonical === "/" ? {} : { images: [image] }),
+      images: [image],
     },
     twitter: {
       card: "summary_large_image",
