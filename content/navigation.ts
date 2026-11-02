@@ -52,6 +52,7 @@ export const footerNav: Record<SiteLocale, { label: string; href: string }[]> = 
     { label: "Proyectos", href: "/proyectos" },
     { label: "Contacto", href: "/contacto" },
     { label: "Preguntas frecuentes", href: "/preguntas-frecuentes" },
+    { label: "Colaboradores", href: "/colaboradores" },
   ],
   en: [
     { label: "About", href: "/estudio" },
@@ -64,6 +65,7 @@ export const footerNav: Record<SiteLocale, { label: string; href: string }[]> = 
     { label: "Projects", href: "/proyectos" },
     { label: "Contact", href: "/contacto" },
     { label: "FAQ", href: "/preguntas-frecuentes" },
+    { label: "Collaborators", href: "/colaboradores" },
   ],
 };
 
