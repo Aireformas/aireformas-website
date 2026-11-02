@@ -5,6 +5,7 @@ import { useCallback, useEffect, useId, useState } from "react";
 import { useLocale } from "@/components/locale/LocaleProvider";
 import { cookiesCopy } from "@/content/cookies";
 import {
+  CONSENT_UPDATED_EVENT,
   COOKIE_SETTINGS_EVENT,
   type CookieConsentChoice,
   type CookieConsentState,
@@ -70,9 +71,7 @@ export function CookieConsent() {
         : consentFromChoice(choice, { analytics, marketing });
     persistConsent(state);
     setPanel(null);
-    window.dispatchEvent(
-      new CustomEvent("aireformas:consent-updated", { detail: state }),
-    );
+    window.dispatchEvent(new CustomEvent(CONSENT_UPDATED_EVENT, { detail: state }));
   }, [analytics, marketing]);
 
   useEffect(() => {

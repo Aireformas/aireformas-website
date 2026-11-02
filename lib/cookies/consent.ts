@@ -107,6 +107,7 @@ export function readStoredConsent(): CookieConsentState | null {
   return parseConsent(window.localStorage.getItem(CONSENT_STORAGE_KEY));
 }
 
+export const CONSENT_UPDATED_EVENT = "aireformas:consent-updated";
 export const COOKIE_SETTINGS_EVENT = "aireformas:open-cookie-settings";
 
 export function openCookieSettings(): void {

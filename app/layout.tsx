@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Outfit } from "next/font/google";
+import { Suspense } from "react";
 import { CookieConsent } from "@/components/consent/CookieConsent";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { LocaleProvider } from "@/components/locale/LocaleProvider";
+import { GoogleAnalytics } from "@/components/seo/GoogleAnalytics";
 import {
   JsonLd,
   organizationJsonLd,
@@ -95,6 +97,9 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
           <main id="contenido" className="flex-1">{children}</main>
           <Footer />
           <CookieConsent />
+          <Suspense fallback={null}>
+            <GoogleAnalytics />
+          </Suspense>
         </LocaleProvider>
       </body>
     </html>
