@@ -1,6 +1,5 @@
 "use client";
 
-import Script from "next/script";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
@@ -15,8 +14,21 @@ function analyticsAllowed(): boolean {
   return Boolean(measurementId && readStoredConsent()?.analytics);
 }
 
+function syncGtagConsent(): void {
+  if (typeof window.gtag !== "function") {
+    return;
+  }
+  const stored = readStoredConsent();
+  window.gtag("consent", "update", {
+    analytics_storage: stored?.analytics ? "granted" : "denied",
+    ad_storage: stored?.marketing ? "granted" : "denied",
+    ad_user_data: stored?.marketing ? "granted" : "denied",
+    ad_personalization: stored?.marketing ? "granted" : "denied",
+  });
+}
+
 function sendPageView(url: string): void {
-  if (typeof window.gtag !== "function" || !measurementId) {
+  if (typeof window.gtag !== "function" || !measurementId || !analyticsAllowed()) {
     return;
   }
   window.gtag("config", measurementId, {
@@ -27,11 +39,12 @@ function sendPageView(url: string): void {
 export function GoogleAnalytics() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
+  const [trackPageViews, setTrackPageViews] = useState(false);
 
   useEffect(() => {
     const sync = () => {
-      setAnalyticsEnabled(analyticsAllowed());
+      syncGtagConsent();
+      setTrackPageViews(analyticsAllowed());
     };
     sync();
     window.addEventListener(CONSENT_UPDATED_EVENT, sync);
@@ -39,32 +52,13 @@ export function GoogleAnalytics() {
   }, []);
 
   useEffect(() => {
-    if (!analyticsEnabled) {
+    if (!trackPageViews) {
       return;
     }
     const query = searchParams.toString();
     const path = query ? `${pathname}?${query}` : pathname;
     sendPageView(path);
-  }, [analyticsEnabled, pathname, searchParams]);
+  }, [trackPageViews, pathname, searchParams]);
 
-  if (!analyticsEnabled || !measurementId) {
-    return null;
-  }
-
-  return (
-    <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics-init" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${measurementId}', { send_page_view: false });
-        `}
-      </Script>
-    </>
-  );
+  return null;
 }

@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { LocaleProvider } from "@/components/locale/LocaleProvider";
 import { GoogleAnalytics } from "@/components/seo/GoogleAnalytics";
+import { GoogleAnalyticsTag } from "@/components/seo/GoogleAnalyticsTag";
 import {
   JsonLd,
   organizationJsonLd,
@@ -77,6 +78,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       data-scroll-behavior="smooth"
     >
       <head>
+        <GoogleAnalyticsTag />
         <link rel="llms" href="/llms.txt" />
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
