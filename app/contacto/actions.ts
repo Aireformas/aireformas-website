@@ -9,12 +9,10 @@ import {
   parseContactServices,
 } from "@/lib/contact-inquiry";
 
-/**
- * Resend testing sender can only deliver to the account address.
- * Gmail plus-address lands in tomasg27@gmail.com. Swap once a domain is verified.
- */
-const CONTACT_TO = "tomasg27+aireformas@gmail.com";
-const CONTACT_FROM = "aireformas <onboarding@resend.dev>";
+/** Set on the host: CONTACT_FORM_TO, CONTACT_FORM_FROM (verified domain). */
+const CONTACT_TO = process.env.CONTACT_FORM_TO ?? "info@aireformas.com";
+const CONTACT_FROM =
+  process.env.CONTACT_FORM_FROM ?? "aireformas <onboarding@resend.dev>";
 
 export type ContactFormState = {
   status: "idle" | "ok" | "error";
