@@ -9,8 +9,20 @@ import {
   parseContactServices,
 } from "@/lib/contact-inquiry";
 
-/** Set on the host: CONTACT_FORM_TO, CONTACT_FORM_FROM (verified domain). */
-const CONTACT_TO = process.env.CONTACT_FORM_TO ?? "info@aireformas.com";
+/** Set on the host: CONTACT_FORM_TO (comma-separated), CONTACT_FORM_FROM. */
+const DEFAULT_CONTACT_TO = ["info@aireformas.com"];
+
+function parseContactRecipients(raw: string | undefined): string[] {
+  if (!raw?.trim()) return DEFAULT_CONTACT_TO;
+  const list = raw
+    .split(/[,;]/)
+    .map((entry) => entry.trim())
+    .filter(Boolean);
+  if (list.length === 0) return DEFAULT_CONTACT_TO;
+  return [...new Set(list)];
+}
+
+const CONTACT_TO = parseContactRecipients(process.env.CONTACT_FORM_TO);
 const CONTACT_FROM =
   process.env.CONTACT_FORM_FROM ?? "aireformas <onboarding@resend.dev>";
 
