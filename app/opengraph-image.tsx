@@ -48,7 +48,7 @@ export default async function OpenGraphImage() {
             maxWidth: 900,
           }}
         >
-          Espacios pensados al detalle
+          Diseño, reforma, mobiliario y climatización
         </div>
         <div
           style={{

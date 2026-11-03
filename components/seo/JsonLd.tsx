@@ -1,3 +1,4 @@
+import { serviceCatalog } from "@/content/discovery";
 import { site, siteCopy } from "@/content/site";
 import type { SiteLocale } from "@/lib/i18n";
 
@@ -42,6 +43,18 @@ export function organizationJsonLd(locale: SiteLocale): Record<string, unknown> 
       name,
     })),
     knowsAbout: copy.knowsAbout,
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: locale === "en" ? "Services" : "Servicios",
+      itemListElement: serviceCatalog[locale].map((entry) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: entry.name,
+          url: `${site.url}${entry.href}`,
+        },
+      })),
+    },
     address: {
       "@type": "PostalAddress",
       addressLocality: site.addressLocality,
@@ -57,7 +70,7 @@ export function webSiteJsonLd(locale: SiteLocale): Record<string, unknown> {
     "@id": `${site.url}/#website`,
     name: site.name,
     url: site.url,
-    description: siteCopy[locale].tagline,
+    description: siteCopy[locale].entityDescription,
     publisher: { "@id": `${site.url}/#organization` },
     inLanguage: locale === "en" ? "en-GB" : "es-ES",
   };

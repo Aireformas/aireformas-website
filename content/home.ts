@@ -18,12 +18,13 @@ export type MaterialTile = {
 export const homeCopy = defineCopy({
   es: {
     meta: {
-      title: "Espacios pensados al detalle",
+      title: "Interiorismo, reformas, mobiliario y climatización en Madrid",
       description:
-        "Diseñamos y ejecutamos tu proyecto en Madrid con un solo equipo: interiorismo, reforma, mobiliario y climatización. Primera orientación sin compromiso.",
+        "En Madrid: interiorismo, reformas, cocinas y armarios a medida, carpintería, aerotermia y climatización. Diseño y obra con un solo equipo. Orientación sin compromiso.",
     },
     hero: {
-      seoTitle: "Estudio de interiorismo y reforma integral en Madrid | aireformas",
+      seoTitle:
+        "Interiorismo, reformas, mobiliario y climatización en Madrid | Aireformas",
       titleLine1: "ESPACIOS PENSADOS",
       titleLine2: "AL DETALLE",
       subtitle:
@@ -282,12 +283,13 @@ export const homeCopy = defineCopy({
   },
   en: {
     meta: {
-      title: "Spaces considered in detail",
+      title: "Interiors, renovation, furniture and climate in Madrid",
       description:
-        "We design and deliver your project in Madrid with one team: interior design, renovation, furniture and climate. First consultation, no obligation.",
+        "In Madrid: interior design, renovations, bespoke kitchens and wardrobes, joinery, heat pumps and climate control. One team from design to handover. No-obligation first chat.",
     },
     hero: {
-      seoTitle: "Interior design and full renovation studio in Madrid | aireformas",
+      seoTitle:
+        "Interiors, renovation, furniture and climate in Madrid | Aireformas",
       titleLine1: "SPACES CONSIDERED",
       titleLine2: "IN DETAIL",
       subtitle: "Interior design, renovation, furniture and climate in a single project.",
