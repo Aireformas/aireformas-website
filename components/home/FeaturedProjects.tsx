@@ -19,13 +19,18 @@ export async function FeaturedProjects() {
     >
       <div className="mx-auto max-w-7xl">
         <div className="mb-space-lg flex flex-col justify-between gap-4 md:flex-row md:items-end">
-          <div className="max-w-xl">
+          <div className="max-w-xl md:max-w-2xl">
             <span className="mb-2 block text-label-uppercase text-warm-label">
               {homeProjectsSection.label}
             </span>
             <h2 className="text-headline-lg text-ink-primary">
               {homeProjectsSection.title}
             </h2>
+            {homeProjectsSection.lead ? (
+              <p className="mt-3 text-body-md font-light text-on-surface-variant">
+                {homeProjectsSection.lead}
+              </p>
+            ) : null}
           </div>
           <Link
             href="/proyectos"
@@ -42,7 +47,7 @@ export async function FeaturedProjects() {
         <ProjectMasonry
           items={gallery}
           href="/proyectos"
-          priorityCount={2}
+          priorityCount={1}
           desktopColumns={3}
           variant="pack"
           accent="editorial"

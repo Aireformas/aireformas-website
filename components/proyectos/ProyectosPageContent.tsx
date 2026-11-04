@@ -37,7 +37,7 @@ function GalleryLightbox({
     <dialog
       ref={dialogRef}
       aria-labelledby={titleId}
-      className="fixed inset-0 z-50 m-0 flex h-dvh max-h-none w-screen max-w-none items-center justify-center bg-ink-primary/85 p-4 backdrop:bg-transparent open:flex md:p-10"
+      className="fixed inset-0 z-50 m-0 flex h-dvh max-h-none w-screen max-w-none items-center justify-center bg-ink-primary/85 p-3 backdrop:bg-transparent open:flex md:p-6"
       onClick={(event) => {
         if (event.target === event.currentTarget) dialogRef.current?.close();
       }}
@@ -53,15 +53,15 @@ function GalleryLightbox({
       >
         <MaterialIcon name="close" className="text-xl" />
       </button>
-      <div className="relative max-h-[90dvh] max-w-5xl">
+      <div className="relative max-h-[92dvh] w-full max-w-7xl">
         <Image
           src={item.src}
           alt={item.alt}
           width={item.width}
           height={item.height}
           quality={75}
-          sizes="(max-width: 1024px) 100vw, 1024px"
-          className="max-h-[90dvh] w-auto rounded-editorial object-contain"
+          sizes="(max-width: 1280px) 100vw, 1280px"
+          className="mx-auto max-h-[92dvh] w-full rounded-editorial object-contain"
           priority
         />
       </div>

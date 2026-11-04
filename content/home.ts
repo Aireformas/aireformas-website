@@ -28,13 +28,13 @@ export const homeCopy = defineCopy({
       titleLine1: "ESPACIOS PENSADOS",
       titleLine2: "AL DETALLE",
       subtitle:
-        "Interiorismo, reforma, mobiliario y climatización en un único proyecto.",
+        "Interiorismo, reforma, mobiliario a medida y climatización en un único proyecto en Madrid. Un solo equipo coordina diseño, obra e instalaciones hasta la entrega.",
       pillars: site.brandLine,
       scrollLabel: "Scroll",
       primaryCta: { label: "Descubrir proyectos", href: "/proyectos" },
       secondaryCta: { label: "Hablar de mi proyecto", href: "/contacto" },
       heroImage: {
-        src: "/images/hero-interior-2560.jpg",
+        src: "/images/hero-interior-2560.webp",
         alt: "Salón con TV integrada y panel de climatización discreto en la pared; interiorismo, reforma y confort en un único espacio",
       },
       stripImages: [
@@ -65,6 +65,7 @@ export const homeCopy = defineCopy({
     projects: {
       label: "03 / PROYECTOS SELECCIONADOS",
       title: "Proyectos de reforma e interiorismo",
+      lead: "En Madrid y alrededores desarrollamos viviendas completas: reforma integral, diseño de interiores, cocinas, armarios a medida y climatización eficiente. Cada ejemplo muestra decisiones de material, luz y confort aplicadas en obra real con un único interlocutor.",
     },
     philosophy: {
       label: "02 / FILOSOFÍA",
@@ -74,6 +75,7 @@ export const homeCopy = defineCopy({
         "Un buen proyecto no termina en lo que ves.",
         "Diseñamos el espacio, los materiales y el mobiliario, pero también aquello que no se ve: iluminación, climatización, instalaciones y tecnología.",
         "Todo debe funcionar como un único sistema.",
+        "Trabajamos en Madrid y alrededores en viviendas nuevas y en uso, integrando cocinas, baños, armarios y aerotermia cuando el proyecto lo requiere.",
       ],
       image: {
         src: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=90",
@@ -136,7 +138,7 @@ export const homeCopy = defineCopy({
           phase: "Before",
           title: "El espacio original",
           image: {
-            src: "/images/timeline/timeline-before.jpg",
+            src: "/images/timeline/timeline-before.webp",
             alt: "Estancia vacía antes de la reforma, con parquet de espiga y ventana alta",
           },
         },
@@ -144,7 +146,7 @@ export const homeCopy = defineCopy({
           phase: "Design",
           title: "Plano y concepto",
           image: {
-            src: "/images/timeline/timeline-design.jpg",
+            src: "/images/timeline/timeline-design.webp",
             alt: "Plano, boceto y muestras de piedra, roble y lino del proyecto",
           },
         },
@@ -152,7 +154,7 @@ export const homeCopy = defineCopy({
           phase: "Build",
           title: "Obra coordinada",
           image: {
-            src: "/images/timeline/timeline-build.jpg",
+            src: "/images/timeline/timeline-build.webp",
             alt: "La misma estancia en obra, con suelo protegido e instalaciones vistas",
           },
         },
@@ -160,7 +162,7 @@ export const homeCopy = defineCopy({
           phase: "Live",
           title: "Vivienda terminada",
           image: {
-            src: "/images/timeline/timeline-live.jpg",
+            src: "/images/timeline/timeline-live.webp",
             alt: "Vivienda terminada: mismo salón con sofá de lino, roble y luz de tarde",
           },
         },
@@ -176,7 +178,7 @@ export const homeCopy = defineCopy({
           title: "Stone",
           caption: "Piedra, continuidad y peso visual.",
           image: {
-            src: "/images/materials/material-stone.jpg",
+            src: "/images/materials/material-stone.webp",
             alt: "Piedra natural continua, textura y peso visual",
           },
         },
@@ -185,7 +187,7 @@ export const homeCopy = defineCopy({
           title: "Wood",
           caption: "Calidez, veta y carpintería.",
           image: {
-            src: "/images/materials/material-wood.jpg",
+            src: "/images/materials/material-wood.webp",
             alt: "Veta de madera y detalle de carpintería",
           },
         },
@@ -194,7 +196,7 @@ export const homeCopy = defineCopy({
           title: "Metal",
           caption: "Perfiles, herrajes y línea.",
           image: {
-            src: "/images/materials/material-metal.jpg",
+            src: "/images/materials/material-metal.webp",
             alt: "Perfiles metálicos y herrajes lineales",
           },
         },
@@ -203,7 +205,7 @@ export const homeCopy = defineCopy({
           title: "Textile",
           caption: "Capas, tacto y acústica.",
           image: {
-            src: "/images/materials/material-textile.jpg",
+            src: "/images/materials/material-textile.webp",
             alt: "Capas de lino y lana, tacto y textura",
           },
         },
@@ -212,7 +214,7 @@ export const homeCopy = defineCopy({
           title: "Light",
           caption: "Escenas, sombra y confort.",
           image: {
-            src: "/images/materials/material-light.jpg",
+            src: "/images/materials/material-light.webp",
             alt: "Luz natural, sombra y confort en el interior",
           },
         },
@@ -242,21 +244,21 @@ export const homeCopy = defineCopy({
         {
           category: "Salón",
           image: {
-            src: "/images/distributions/67_SALON_jotajotape_NEXT.jpg",
+            src: "/images/distributions/67_SALON_jotajotape_NEXT.webp",
             alt: "Salón con mueble TV modular en roble y estantería de cubos",
           },
         },
         {
           category: "Juvenil",
           image: {
-            src: "/images/distributions/31_jotajotape-habitacion-juvenil.jpg",
+            src: "/images/distributions/31_jotajotape-habitacion-juvenil.webp",
             alt: "Habitación juvenil con librería, cama y escritorio",
           },
         },
         {
           category: "Vestidor",
           image: {
-            src: "/images/distributions/73_ARMARIO_jotajotape_NEXT.jpg",
+            src: "/images/distributions/73_ARMARIO_jotajotape_NEXT.webp",
             alt: "Vestidor walk-in con puertas de cristal e iluminación integrada",
           },
         },
@@ -292,13 +294,14 @@ export const homeCopy = defineCopy({
         "Interiors, renovation, furniture and climate in Madrid | Aireformas",
       titleLine1: "SPACES CONSIDERED",
       titleLine2: "IN DETAIL",
-      subtitle: "Interior design, renovation, furniture and climate in a single project.",
+      subtitle:
+        "Interior design, bespoke furniture and climate control in one Madrid project. One team coordinates design, build and services through to handover.",
       pillars: site.brandLine,
       scrollLabel: "Scroll",
       primaryCta: { label: "View projects", href: "/proyectos" },
       secondaryCta: { label: "Start a project", href: "/contacto" },
       heroImage: {
-        src: "/images/hero-interior-2560.jpg",
+        src: "/images/hero-interior-2560.webp",
         alt: "Living room with an integrated TV and a discreet climate panel on the wall; interiors, renovation and comfort in one space",
       },
       stripImages: [
@@ -329,6 +332,7 @@ export const homeCopy = defineCopy({
     projects: {
       label: "03 / SELECTED PROJECTS",
       title: "Renovation and interior design projects",
+      lead: "Across Madrid and nearby areas we deliver whole homes: full renovations, interior design, kitchens, bespoke wardrobes and efficient climate systems. Each example shows material, light and comfort choices from real builds with a single point of contact.",
     },
     philosophy: {
       label: "02 / PHILOSOPHY",
@@ -338,6 +342,7 @@ export const homeCopy = defineCopy({
         "A good project does not end with what you see.",
         "We design the space, the materials and the furniture, and also what stays unseen: lighting, climate, services and technology.",
         "Everything has to work as one system.",
+        "We work in Madrid and the surrounding area in new and existing homes, integrating kitchens, bathrooms, wardrobes and heat pumps when the brief calls for it.",
       ],
       image: {
         src: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=90",
@@ -400,7 +405,7 @@ export const homeCopy = defineCopy({
           phase: "Before",
           title: "The original space",
           image: {
-            src: "/images/timeline/timeline-before.jpg",
+            src: "/images/timeline/timeline-before.webp",
             alt: "Empty room before renovation, with herringbone parquet and a tall window",
           },
         },
@@ -408,7 +413,7 @@ export const homeCopy = defineCopy({
           phase: "Design",
           title: "Plan and concept",
           image: {
-            src: "/images/timeline/timeline-design.jpg",
+            src: "/images/timeline/timeline-design.webp",
             alt: "Plan, sketch and samples of stone, oak and linen",
           },
         },
@@ -416,7 +421,7 @@ export const homeCopy = defineCopy({
           phase: "Build",
           title: "Coordinated construction",
           image: {
-            src: "/images/timeline/timeline-build.jpg",
+            src: "/images/timeline/timeline-build.webp",
             alt: "The same room under construction, with protected flooring and exposed services",
           },
         },
@@ -424,7 +429,7 @@ export const homeCopy = defineCopy({
           phase: "Live",
           title: "Finished home",
           image: {
-            src: "/images/timeline/timeline-live.jpg",
+            src: "/images/timeline/timeline-live.webp",
             alt: "Finished home: the same living room with a linen sofa, oak and afternoon light",
           },
         },
@@ -440,7 +445,7 @@ export const homeCopy = defineCopy({
           title: "Stone",
           caption: "Stone, continuity and visual weight.",
           image: {
-            src: "/images/materials/material-stone.jpg",
+            src: "/images/materials/material-stone.webp",
             alt: "Continuous natural stone, texture and visual weight",
           },
         },
@@ -449,7 +454,7 @@ export const homeCopy = defineCopy({
           title: "Wood",
           caption: "Warmth, grain and joinery.",
           image: {
-            src: "/images/materials/material-wood.jpg",
+            src: "/images/materials/material-wood.webp",
             alt: "Wood grain and joinery detail",
           },
         },
@@ -458,7 +463,7 @@ export const homeCopy = defineCopy({
           title: "Metal",
           caption: "Profiles, hardware and line.",
           image: {
-            src: "/images/materials/material-metal.jpg",
+            src: "/images/materials/material-metal.webp",
             alt: "Metal profiles and linear hardware",
           },
         },
@@ -467,7 +472,7 @@ export const homeCopy = defineCopy({
           title: "Textile",
           caption: "Layers, touch and acoustics.",
           image: {
-            src: "/images/materials/material-textile.jpg",
+            src: "/images/materials/material-textile.webp",
             alt: "Layers of linen and wool, touch and texture",
           },
         },
@@ -476,7 +481,7 @@ export const homeCopy = defineCopy({
           title: "Light",
           caption: "Scenes, shadow and comfort.",
           image: {
-            src: "/images/materials/material-light.jpg",
+            src: "/images/materials/material-light.webp",
             alt: "Daylight, shadow and comfort indoors",
           },
         },
@@ -506,21 +511,21 @@ export const homeCopy = defineCopy({
         {
           category: "Living room",
           image: {
-            src: "/images/distributions/67_SALON_jotajotape_NEXT.jpg",
+            src: "/images/distributions/67_SALON_jotajotape_NEXT.webp",
             alt: "Living room with modular oak TV unit and cubby shelving",
           },
         },
         {
           category: "Teen",
           image: {
-            src: "/images/distributions/31_jotajotape-habitacion-juvenil.jpg",
+            src: "/images/distributions/31_jotajotape-habitacion-juvenil.webp",
             alt: "Teen room with library, bed and desk",
           },
         },
         {
           category: "Dressing room",
           image: {
-            src: "/images/distributions/73_ARMARIO_jotajotape_NEXT.jpg",
+            src: "/images/distributions/73_ARMARIO_jotajotape_NEXT.webp",
             alt: "Walk-in dressing room with glass doors and integrated lighting",
           },
         },

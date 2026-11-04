@@ -27,7 +27,9 @@ export async function MaterialsGrid() {
                   src={tile.image.src}
                   alt={tile.image.alt}
                   fill
-                  sizes="(max-width: 640px) 100vw, 20vw"
+                  quality={60}
+                  loading="lazy"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 240px"
                   className="object-cover"
                 />
               </div>

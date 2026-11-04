@@ -34,7 +34,9 @@ export async function LightArchitecture() {
                 src={lightArchitectureSection.image.src}
                 alt={lightArchitectureSection.image.alt}
                 fill
-                sizes="(max-width: 768px) 100vw, 58vw"
+                quality={65}
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 58vw, 720px"
                 className="object-cover transition-transform duration-700 ease-out hover:scale-105"
               />
             </div>
@@ -54,7 +56,9 @@ export async function LightArchitecture() {
                   src={image.src}
                   alt={image.alt}
                   fill
-                  sizes="(max-width: 768px) 100vw, 40vw"
+                  quality={60}
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 420px"
                   className="object-cover transition-transform duration-700 ease-out hover:scale-105"
                 />
               </div>

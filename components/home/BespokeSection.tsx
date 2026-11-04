@@ -39,7 +39,6 @@ export async function BespokeSection() {
             <TeaserCard
               category={hero.category}
               image={hero.image}
-              priority
               className="col-span-2 aspect-16/10 md:col-span-7 md:row-span-2 md:aspect-auto md:min-h-110"
             />
             <TeaserCard
@@ -78,7 +77,8 @@ function TeaserCard({ category, image, className, priority }: TeaserCardProps) {
         src={image.src}
         alt={image.alt}
         fill
-        sizes="(max-width: 768px) 100vw, 40vw"
+        quality={60}
+        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 40vw, 480px"
         priority={priority}
         className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
       />

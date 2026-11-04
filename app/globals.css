@@ -54,6 +54,13 @@
     }
   }
 
+  @media (max-width: 767px) {
+    .py-space-2xl {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+
 }
 
 @layer utilities {
@@ -181,7 +188,7 @@
 }
 
 @utility text-label-uppercase {
-  font-size: 0.6875rem;
+  font-size: max(0.75rem, 0.6875rem);
   line-height: 1rem;
   letter-spacing: 0.18em;
   font-weight: 500;

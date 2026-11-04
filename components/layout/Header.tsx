@@ -218,7 +218,7 @@ export function Header() {
 
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center text-ink-primary lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center text-ink-primary lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? ui.closeMenu : ui.openMenu}
@@ -256,7 +256,7 @@ export function Header() {
                   <li key={entry.label.es}>
                     <button
                       type="button"
-                      className="flex w-full items-center justify-between py-2.5 text-label-uppercase text-on-surface-variant"
+                      className="flex min-h-11 w-full items-center justify-between py-3 text-label-uppercase text-on-surface-variant"
                       aria-expanded={servicesOpen}
                       onClick={() => setServicesOpen((value) => !value)}
                     >

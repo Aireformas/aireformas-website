@@ -68,6 +68,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
   themeColor: "#5A7C93",
 };
 
@@ -83,6 +85,12 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <GoogleAnalyticsTag />
         <link rel="llms" href="/llms.txt" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
           rel="stylesheet"

@@ -16,7 +16,7 @@ export const contactoCopy = defineCopy({
         "Cuéntanos qué necesitas: vivienda, plazos y objetivos. Respondemos en 1–2 días laborables. Después visitamos la casa y enviamos alcance, plazo y presupuesto cerrado. Interiorismo, reforma, mobiliario y climatización siguen con el mismo equipo.",
       cta: "Enviar mensaje",
       image: {
-        src: "/images/hero-interior-2560.jpg",
+        src: "/images/hero-interior-2560.webp",
         alt: "Interior residencial integrado por aireformas en Madrid",
       },
       chips: [
@@ -47,7 +47,7 @@ export const contactoCopy = defineCopy({
         "Tell us what you need: the home, timing and goals. We reply within 1–2 working days. We then visit and send scope, timing and a fixed quote. Design, renovation, furniture and climate stay with the same team.",
       cta: "Send a message",
       image: {
-        src: "/images/hero-interior-2560.jpg",
+        src: "/images/hero-interior-2560.webp",
         alt: "Integrated residential interior by aireformas in Madrid",
       },
       chips: [

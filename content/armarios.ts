@@ -130,22 +130,22 @@ const panelsEs: CatalogPanel[] = [
     variants: ["Con zócalo", "Sin zócalo", "Rincón", "Nido", "Estantería", "Armario"],
     photos: [
       {
-        src: "/images/armariosv2/juvenil-1.png",
+        src: "/images/armariosv2/juvenil-1.webp",
         alt: "Dormitorio juvenil con módulos verdes, cama y escritorio de roble",
         caption: "Cama y escritorio",
       },
       {
-        src: "/images/armariosv2/juvenil-2.png",
+        src: "/images/armariosv2/juvenil-2.webp",
         alt: "Habitación con armario, estantería abierta, cama y escritorio en un frente",
         caption: "Frente continuo",
       },
       {
-        src: "/images/armariosv2/juvenil-3.png",
+        src: "/images/armariosv2/juvenil-3.webp",
         alt: "Cama elevada con cajones, estantería de roble y panel de listones",
         caption: "Altura y listones",
       },
       {
-        src: "/images/armariosv2/gran-volumen-1.png",
+        src: "/images/armariosv2/gran-volumen-1.webp",
         alt: "Armario de gran volumen con puertas abiertas e interior en salvia",
         caption: "Gran volumen",
       },
@@ -159,17 +159,17 @@ const panelsEs: CatalogPanel[] = [
     variants: ["Baja", "Doble", "Alta", "Con puertas", "Vertical", "Vertical con altillo"],
     photos: [
       {
-        src: "/images/armariosv2/cama-abatible-1.png",
+        src: "/images/armariosv2/cama-abatible-1.webp",
         alt: "Cama abatible horizontal abierta con respaldo de madera",
         caption: "Horizontal",
       },
       {
-        src: "/images/armariosv2/cama-abatible-2.png",
+        src: "/images/armariosv2/cama-abatible-2.webp",
         alt: "Cama abatible integrada en mueble modular",
         caption: "Integrada",
       },
       {
-        src: "/images/armariosv2/cama-abatible-3.png",
+        src: "/images/armariosv2/cama-abatible-3.webp",
         alt: "Solución de cama abatible con almacenaje",
         caption: "Con almacenaje",
       },
@@ -183,17 +183,17 @@ const panelsEs: CatalogPanel[] = [
     variants: ["Bicama alta", "Bicama baja", "Compacto con cajones", "Cajón extraíble"],
     photos: [
       {
-        src: "/images/armariosv2/bicama-1.png",
+        src: "/images/armariosv2/bicama-1.webp",
         alt: "Habitación infantil con cama elevada, bicama y armario integrado",
         caption: "Elevada + armario",
       },
       {
-        src: "/images/armariosv2/bicama-2.png",
+        src: "/images/armariosv2/bicama-2.webp",
         alt: "Solución compacta con dos camas y cajones",
         caption: "Dos camas",
       },
       {
-        src: "/images/armariosv2/bicama-3.png",
+        src: "/images/armariosv2/bicama-3.webp",
         alt: "Bicama con cajones bajo el colchón",
         caption: "Con cajones",
       },
@@ -214,22 +214,22 @@ const panelsEs: CatalogPanel[] = [
     ],
     photos: [
       {
-        src: "/images/armariosv2/cama-1.png",
+        src: "/images/armariosv2/cama-1.webp",
         alt: "Canapé elevable lateral abierto con organizadores",
         caption: "Canapé lateral",
       },
       {
-        src: "/images/armariosv2/cama-2.png",
+        src: "/images/armariosv2/cama-2.webp",
         alt: "Cama a medida con almacenaje",
         caption: "Con almacenaje",
       },
       {
-        src: "/images/armariosv2/cama-3.png",
+        src: "/images/armariosv2/cama-3.webp",
         alt: "Litera o cama modular en dormitorio",
         caption: "Modular",
       },
       {
-        src: "/images/armariosv2/cama-4.png",
+        src: "/images/armariosv2/cama-4.webp",
         alt: "Litera infantil blanca con cajones y estantes de roble",
         caption: "Litera",
       },
@@ -246,22 +246,22 @@ const panelsEn: CatalogPanel[] = [
     variants: ["With plinth", "Flush", "Corner", "Nest", "Shelving", "Wardrobe"],
     photos: [
       {
-        src: "/images/armariosv2/juvenil-1.png",
+        src: "/images/armariosv2/juvenil-1.webp",
         alt: "Youth bedroom with green modules, bed and oak desk",
         caption: "Bed and desk",
       },
       {
-        src: "/images/armariosv2/juvenil-2.png",
+        src: "/images/armariosv2/juvenil-2.webp",
         alt: "Room with wardrobe, open shelves, bed and desk on one run",
         caption: "Continuous run",
       },
       {
-        src: "/images/armariosv2/juvenil-3.png",
+        src: "/images/armariosv2/juvenil-3.webp",
         alt: "Raised bed with drawers, oak shelving and slat screen",
         caption: "Height and slats",
       },
       {
-        src: "/images/armariosv2/gran-volumen-1.png",
+        src: "/images/armariosv2/gran-volumen-1.webp",
         alt: "Large wardrobe with open doors and sage interior",
         caption: "High capacity",
       },
@@ -275,17 +275,17 @@ const panelsEn: CatalogPanel[] = [
     variants: ["Low", "Double", "High", "With doors", "Vertical", "Vertical with top"],
     photos: [
       {
-        src: "/images/armariosv2/cama-abatible-1.png",
+        src: "/images/armariosv2/cama-abatible-1.webp",
         alt: "Horizontal folding bed open with wood back panel",
         caption: "Horizontal",
       },
       {
-        src: "/images/armariosv2/cama-abatible-2.png",
+        src: "/images/armariosv2/cama-abatible-2.webp",
         alt: "Folding bed integrated in modular furniture",
         caption: "Integrated",
       },
       {
-        src: "/images/armariosv2/cama-abatible-3.png",
+        src: "/images/armariosv2/cama-abatible-3.webp",
         alt: "Folding bed solution with storage",
         caption: "With storage",
       },
@@ -299,17 +299,17 @@ const panelsEn: CatalogPanel[] = [
     variants: ["Tall trundle", "Low trundle", "Compact with drawers", "Pull-out drawer"],
     photos: [
       {
-        src: "/images/armariosv2/bicama-1.png",
+        src: "/images/armariosv2/bicama-1.webp",
         alt: "Children’s room with raised bed, trundle and fitted wardrobe",
         caption: "Raised + wardrobe",
       },
       {
-        src: "/images/armariosv2/bicama-2.png",
+        src: "/images/armariosv2/bicama-2.webp",
         alt: "Compact solution with two beds and drawers",
         caption: "Two beds",
       },
       {
-        src: "/images/armariosv2/bicama-3.png",
+        src: "/images/armariosv2/bicama-3.webp",
         alt: "Trundle bed with drawers under the mattress",
         caption: "With drawers",
       },
@@ -330,22 +330,22 @@ const panelsEn: CatalogPanel[] = [
     ],
     photos: [
       {
-        src: "/images/armariosv2/cama-1.png",
+        src: "/images/armariosv2/cama-1.webp",
         alt: "Side lift-up storage bed open with organisers",
         caption: "Side lift-up",
       },
       {
-        src: "/images/armariosv2/cama-2.png",
+        src: "/images/armariosv2/cama-2.webp",
         alt: "Bespoke bed with storage",
         caption: "With storage",
       },
       {
-        src: "/images/armariosv2/cama-3.png",
+        src: "/images/armariosv2/cama-3.webp",
         alt: "Bunk or modular bed in a bedroom",
         caption: "Modular",
       },
       {
-        src: "/images/armariosv2/cama-4.png",
+        src: "/images/armariosv2/cama-4.webp",
         alt: "White children’s bunk with drawers and oak shelves",
         caption: "Bunk",
       },
@@ -369,7 +369,7 @@ export const armariosCopy = defineCopy({
         "Medimos, diseñamos interiores con barras, cajones y zapateros, y fabricamos con acabados lacados, madera o cristal. Instalación en obra con un solo equipo.",
       cta: "Presupuesto de armario",
       image: {
-        src: "/images/armariosv2/armarios-hero.png",
+        src: "/images/armariosv2/armarios-hero.webp",
         alt: "Dormitorio con cama, escritorio y armario modular en verde oliva, madera y cristal",
       },
       chips: [
@@ -458,7 +458,7 @@ export const armariosCopy = defineCopy({
         "We measure, design interiors with rails, drawers and shoe storage, and make lacquered, wood or glass finishes. One team installs on site.",
       cta: "Get a wardrobe quote",
       image: {
-        src: "/images/armariosv2/armarios-hero.png",
+        src: "/images/armariosv2/armarios-hero.webp",
         alt: "Bedroom with bed, desk and modular wardrobe in olive green, wood and glass",
       },
       chips: [

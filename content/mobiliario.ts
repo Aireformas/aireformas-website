@@ -43,7 +43,7 @@ export const mobiliarioCopy = defineCopy({
         "También resolvemos mostradores, recepciones, expositores, almacenaje y mobiliario corporativo a medida para oficinas y locales, siempre como extensión del mismo criterio de diseño.",
       ],
       image: {
-        src: "/images/distributions/67_SALON_jotajotape_NEXT.jpg",
+        src: "/images/distributions/67_SALON_jotajotape_NEXT.webp",
         alt: "Salón con mueble TV modular y estantería que completan la arquitectura del espacio",
       },
     },
@@ -71,7 +71,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Vitrinas, bajo y cubos: almacenamiento que ordena la sala.",
           aspect: "panorama",
           image: {
-            src: "/images/distributions/67_SALON_jotajotape_NEXT.jpg",
+            src: "/images/distributions/67_SALON_jotajotape_NEXT.webp",
             alt: "Salón con mueble TV modular en roble y estantería de cubos",
           },
         },
@@ -83,7 +83,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Un hueco que aprovecha el paso y guarda sin ensuciar la vista.",
           aspect: "portrait",
           image: {
-            src: "/images/distributions/26_jotajotape-habitacion-juvenil.jpg",
+            src: "/images/distributions/26_jotajotape-habitacion-juvenil.webp",
             alt: "Pasillo con estantería empotrada y zona de trabajo minimalista",
           },
         },
@@ -95,7 +95,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Librería, escritorio y cama: un rincón que estudia y descansa.",
           aspect: "panorama",
           image: {
-            src: "/images/distributions/31_jotajotape-habitacion-juvenil.jpg",
+            src: "/images/distributions/31_jotajotape-habitacion-juvenil.webp",
             alt: "Habitación juvenil con librería gris, cama amarilla y escritorio",
           },
         },
@@ -107,7 +107,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Cajones, TV y mesa en un solo gesto. Ideal para espacios compactos.",
           aspect: "portrait",
           image: {
-            src: "/images/distributions/32_jotajotape-habitacion-juvenil.jpg",
+            src: "/images/distributions/32_jotajotape-habitacion-juvenil.webp",
             alt: "Habitación juvenil con escritorio, cama y TV integrada",
           },
         },
@@ -119,7 +119,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Dos alturas, cajonera y mesa bajo la ventana: jugar, dormir, estudiar.",
           aspect: "panorama",
           image: {
-            src: "/images/distributions/18_jotajotape-litera-tren.jpg",
+            src: "/images/distributions/18_jotajotape-litera-tren.webp",
             alt: "Litera juvenil con escritorio de madera y cajonera azul",
           },
         },
@@ -131,7 +131,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Cama con cajones y escritorio: la buhardilla se convierte en mundo.",
           aspect: "portrait",
           image: {
-            src: "/images/distributions/04_jotajotape-cuna-convertible.jpg",
+            src: "/images/distributions/04_jotajotape-cuna-convertible.webp",
             alt: "Habitación infantil bajo cubierta con cama, escritorio y ventana circular",
           },
         },
@@ -143,7 +143,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Cómoda, cama-cajón y librería: crece con el ritmo de la infancia.",
           aspect: "panorama",
           image: {
-            src: "/images/distributions/03_jotajotape-cuna-convertible.jpg",
+            src: "/images/distributions/03_jotajotape-cuna-convertible.webp",
             alt: "Habitación infantil con cómoda, cama con cajones y escritorio",
           },
         },
@@ -155,7 +155,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Puertas abiertas: barras, baldas y cajones según cómo te vistes.",
           aspect: "panorama",
           image: {
-            src: "/images/distributions/21_BATIENTES_jotajotape_NEXT.jpg",
+            src: "/images/distributions/21_BATIENTES_jotajotape_NEXT.webp",
             alt: "Armario de puertas batientes abierto con interior de madera clara",
           },
         },
@@ -167,7 +167,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Paneles lacados y espejo: guarda mucho, ocupa poco paso.",
           aspect: "portrait",
           image: {
-            src: "/images/distributions/40_jotajotape_NEXT.jpg",
+            src: "/images/distributions/40_jotajotape_NEXT.webp",
             alt: "Armario corredero lacado con panel espejo y sección abierta",
           },
         },
@@ -179,7 +179,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Módulos iluminados, tocador y librería: el vestidor como estancia.",
           aspect: "panorama",
           image: {
-            src: "/images/distributions/73_ARMARIO_jotajotape_NEXT.jpg",
+            src: "/images/distributions/73_ARMARIO_jotajotape_NEXT.webp",
             alt: "Vestidor walk-in con puertas de cristal, tocador y librería",
           },
         },
@@ -191,7 +191,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Perfiles oscuros, LED y rejillas: cada prenda tiene su sitio.",
           aspect: "portrait",
           image: {
-            src: "/images/distributions/34_jotajotape_NEXT.jpg",
+            src: "/images/distributions/34_jotajotape_NEXT.webp",
             alt: "Vestidor con puertas de cristal oscuro, iluminación LED y zapatero",
           },
         },
@@ -203,7 +203,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Baldas, barras y tocador central: orden visible, lujo cotidiano.",
           aspect: "panorama",
           image: {
-            src: "/images/distributions/57_jotajotape_NEXT.jpg",
+            src: "/images/distributions/57_jotajotape_NEXT.webp",
             alt: "Vestidor abierto en U con baldas de roble, tocador y pouf",
           },
         },
@@ -243,28 +243,28 @@ export const mobiliarioCopy = defineCopy({
         {
           caption: "Interior batiente",
           image: {
-            src: "/images/distributions/21_BATIENTES_jotajotape_NEXT.jpg",
+            src: "/images/distributions/21_BATIENTES_jotajotape_NEXT.webp",
             alt: "Armario batiente abierto con interior de madera, barras y cajones",
           },
         },
         {
           caption: "Corredera lacada",
           image: {
-            src: "/images/distributions/40_jotajotape_NEXT.jpg",
+            src: "/images/distributions/40_jotajotape_NEXT.webp",
             alt: "Armario corredero lacado con panel espejo y sección abierta",
           },
         },
         {
           caption: "Vestidor cristal",
           image: {
-            src: "/images/distributions/73_ARMARIO_jotajotape_NEXT.jpg",
+            src: "/images/distributions/73_ARMARIO_jotajotape_NEXT.webp",
             alt: "Vestidor walk-in con puertas de cristal, tocador y librería",
           },
         },
         {
           caption: "Módulos abiertos",
           image: {
-            src: "/images/distributions/57_jotajotape_NEXT.jpg",
+            src: "/images/distributions/57_jotajotape_NEXT.webp",
             alt: "Vestidor abierto con baldas de roble, barras e iluminación LED",
           },
         },
@@ -317,7 +317,7 @@ export const mobiliarioCopy = defineCopy({
         "We also resolve counters, receptions, display units, storage and corporate bespoke furniture for offices and retail, always as an extension of the same design criteria.",
       ],
       image: {
-        src: "/images/distributions/67_SALON_jotajotape_NEXT.jpg",
+        src: "/images/distributions/67_SALON_jotajotape_NEXT.webp",
         alt: "Living room with modular TV unit and shelving that complete the architecture of the space",
       },
     },
@@ -345,7 +345,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Glass cabinets, lowboard and cubbies: storage that steadies the room.",
           aspect: "panorama",
           image: {
-            src: "/images/distributions/67_SALON_jotajotape_NEXT.jpg",
+            src: "/images/distributions/67_SALON_jotajotape_NEXT.webp",
             alt: "Living room with modular oak TV unit and cubby shelving",
           },
         },
@@ -357,7 +357,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "A recess that uses the hallway and stores without cluttering the view.",
           aspect: "portrait",
           image: {
-            src: "/images/distributions/26_jotajotape-habitacion-juvenil.jpg",
+            src: "/images/distributions/26_jotajotape-habitacion-juvenil.webp",
             alt: "Hallway with built-in shelving and a minimalist work niche",
           },
         },
@@ -369,7 +369,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Library, desk and bed: a corner that studies and rests.",
           aspect: "panorama",
           image: {
-            src: "/images/distributions/31_jotajotape-habitacion-juvenil.jpg",
+            src: "/images/distributions/31_jotajotape-habitacion-juvenil.webp",
             alt: "Teen room with grey library, yellow bed and desk",
           },
         },
@@ -381,7 +381,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Drawers, TV and desk in one move. Ideal for compact rooms.",
           aspect: "portrait",
           image: {
-            src: "/images/distributions/32_jotajotape-habitacion-juvenil.jpg",
+            src: "/images/distributions/32_jotajotape-habitacion-juvenil.webp",
             alt: "Teen room with desk, bed and integrated TV",
           },
         },
@@ -393,7 +393,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Two levels, drawers and a desk by the window: play, sleep, study.",
           aspect: "panorama",
           image: {
-            src: "/images/distributions/18_jotajotape-litera-tren.jpg",
+            src: "/images/distributions/18_jotajotape-litera-tren.webp",
             alt: "Teen bunk bed with wood desk and blue drawers",
           },
         },
@@ -405,7 +405,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Bed with drawers and a desk: the attic becomes a world of its own.",
           aspect: "portrait",
           image: {
-            src: "/images/distributions/04_jotajotape-cuna-convertible.jpg",
+            src: "/images/distributions/04_jotajotape-cuna-convertible.webp",
             alt: "Kids attic room with bed, desk and circular window",
           },
         },
@@ -417,7 +417,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Chest, drawer bed and shelves: grows with childhood.",
           aspect: "panorama",
           image: {
-            src: "/images/distributions/03_jotajotape-cuna-convertible.jpg",
+            src: "/images/distributions/03_jotajotape-cuna-convertible.webp",
             alt: "Kids room with chest of drawers, drawer bed and desk",
           },
         },
@@ -429,7 +429,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Doors open: rails, shelves and drawers fitted to how you dress.",
           aspect: "panorama",
           image: {
-            src: "/images/distributions/21_BATIENTES_jotajotape_NEXT.jpg",
+            src: "/images/distributions/21_BATIENTES_jotajotape_NEXT.webp",
             alt: "Hinged wardrobe open with light wood interior",
           },
         },
@@ -441,7 +441,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Lacquered panels and a mirror: stores a lot, takes little walkway.",
           aspect: "portrait",
           image: {
-            src: "/images/distributions/40_jotajotape_NEXT.jpg",
+            src: "/images/distributions/40_jotajotape_NEXT.webp",
             alt: "Sliding lacquered wardrobe with mirror panel and open section",
           },
         },
@@ -453,7 +453,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Lit modules, vanity and bookcase: the dressing room as a room.",
           aspect: "panorama",
           image: {
-            src: "/images/distributions/73_ARMARIO_jotajotape_NEXT.jpg",
+            src: "/images/distributions/73_ARMARIO_jotajotape_NEXT.webp",
             alt: "Walk-in dressing room with glass doors, vanity and bookcase",
           },
         },
@@ -465,7 +465,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Dark frames, LED and grids: every piece has its place.",
           aspect: "portrait",
           image: {
-            src: "/images/distributions/34_jotajotape_NEXT.jpg",
+            src: "/images/distributions/34_jotajotape_NEXT.webp",
             alt: "Dressing room with dark glass doors, LED lighting and shoe racks",
           },
         },
@@ -477,7 +477,7 @@ export const mobiliarioCopy = defineCopy({
           caption: "Shelves, rails and a central vanity: visible order, everyday luxury.",
           aspect: "panorama",
           image: {
-            src: "/images/distributions/57_jotajotape_NEXT.jpg",
+            src: "/images/distributions/57_jotajotape_NEXT.webp",
             alt: "Open U-shaped dressing room with oak shelves, vanity and ottoman",
           },
         },
@@ -517,28 +517,28 @@ export const mobiliarioCopy = defineCopy({
         {
           caption: "Hinged interior",
           image: {
-            src: "/images/distributions/21_BATIENTES_jotajotape_NEXT.jpg",
+            src: "/images/distributions/21_BATIENTES_jotajotape_NEXT.webp",
             alt: "Open hinged wardrobe with wood interior, rails and drawers",
           },
         },
         {
           caption: "Lacquered sliding",
           image: {
-            src: "/images/distributions/40_jotajotape_NEXT.jpg",
+            src: "/images/distributions/40_jotajotape_NEXT.webp",
             alt: "Lacquered sliding wardrobe with mirror panel and open section",
           },
         },
         {
           caption: "Glass walk-in",
           image: {
-            src: "/images/distributions/73_ARMARIO_jotajotape_NEXT.jpg",
+            src: "/images/distributions/73_ARMARIO_jotajotape_NEXT.webp",
             alt: "Walk-in dressing room with glass doors, vanity and bookcase",
           },
         },
         {
           caption: "Open modules",
           image: {
-            src: "/images/distributions/57_jotajotape_NEXT.jpg",
+            src: "/images/distributions/57_jotajotape_NEXT.webp",
             alt: "Open dressing room with oak shelves, rails and LED lighting",
           },
         },

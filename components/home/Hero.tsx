@@ -19,6 +19,7 @@ export async function Hero() {
           alt={homeHero.heroImage.alt}
           fill
           priority
+          quality={68}
           sizes="100vw"
           className="object-cover brightness-[0.88] contrast-[0.98]"
         />
