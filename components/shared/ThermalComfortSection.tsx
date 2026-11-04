@@ -52,7 +52,7 @@ export function ThermalComfortSection({
             <p className="text-balance text-[clamp(2.15rem,4.2vw,3.25rem)] font-extralight leading-[0.98] tracking-tight text-primary">
               {claim}
             </p>
-            <p className="mt-3 text-balance text-label-uppercase text-outline">
+            <p className="mt-3 text-balance text-label-uppercase text-ink-primary/75">
               {claimNote}
             </p>
           </div>

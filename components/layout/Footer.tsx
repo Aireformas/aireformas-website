@@ -18,17 +18,17 @@ export async function Footer() {
         <div className="grid grid-cols-1 items-start gap-gutter border-b border-white/10 pb-8 md:grid-cols-12">
           <div className="md:col-span-5">
             <Logo size="footer" variant="white" />
-            <p className="mt-6 max-w-sm text-body-sm font-light text-white/70">
+            <p className="mt-6 max-w-sm text-body-sm font-light text-white/85">
               {copy.shortTagline}
             </p>
-            <p className="mt-4 text-label-uppercase text-white/50">
+            <p className="mt-4 text-label-uppercase text-white/75">
               {site.brandLine.toUpperCase()}
             </p>
             <a
               href={site.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex text-white/45 transition-colors hover:text-white/85"
+              className="mt-6 inline-flex min-h-11 min-w-11 items-center justify-center rounded-full text-white/80 transition-colors hover:bg-white/10 hover:text-white"
               aria-label={ui.instagram}
             >
               <InstagramIcon />
@@ -36,7 +36,7 @@ export async function Footer() {
           </div>
 
           <div className="md:col-span-4">
-            <span className="mb-4 block text-label-uppercase text-white/40">
+            <span className="mb-4 block text-label-uppercase text-white/90">
               {ui.navigation}
             </span>
             <ul className="grid grid-cols-2 gap-y-2.5 text-body-sm">
@@ -56,7 +56,7 @@ export async function Footer() {
           </div>
 
           <div className="md:col-span-3">
-            <span className="mb-4 block text-label-uppercase text-white/40">
+            <span className="mb-4 block text-label-uppercase text-white/90">
               {ui.contact}
             </span>
             <p className="mb-1 text-body-sm text-white/80">
@@ -69,23 +69,32 @@ export async function Footer() {
                 {site.email}
               </a>
             </p>
-            <p className="text-body-sm text-white/60">{copy.address}</p>
+            <p className="text-body-sm text-white/80">{copy.address}</p>
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 text-body-sm text-white/60 md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-4 text-body-sm text-white/80 md:flex-row">
           <p>{copy.copyright}</p>
-          <div className="flex flex-wrap items-center gap-x-6 text-label-uppercase text-white/70">
-            <Link href="/legal/terminos" className="hover:text-white">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-label-uppercase text-white/85">
+            <Link
+              href="/legal/terminos"
+              className="inline-flex min-h-11 items-center px-2 hover:text-white"
+            >
               {ui.terms}
             </Link>
-            <Link href="/legal/privacidad" className="hover:text-white">
+            <Link
+              href="/legal/privacidad"
+              className="inline-flex min-h-11 items-center px-2 hover:text-white"
+            >
               {ui.privacyFull}
             </Link>
-            <Link href="/legal/cookies" className="hover:text-white">
+            <Link
+              href="/legal/cookies"
+              className="inline-flex min-h-11 items-center px-2 hover:text-white"
+            >
               {ui.cookies}
             </Link>
-            <CookieSettingsLink className="hover:text-white">
+            <CookieSettingsLink className="inline-flex min-h-11 items-center px-2 hover:text-white">
               {ui.cookieSettings}
             </CookieSettingsLink>
           </div>

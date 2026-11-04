@@ -34,9 +34,9 @@ export async function MaterialsGrid() {
                 />
               </div>
               <div>
-                <h4 className="text-headline-sm mb-1 font-light text-ink-primary">
+                <h3 className="text-headline-sm mb-1 font-light text-ink-primary">
                   {tile.title}
-                </h4>
+                </h3>
                 <p className="text-body-sm font-light text-on-surface-variant">
                   {tile.caption}
                 </p>

@@ -210,7 +210,7 @@ export function Header() {
 
           <Link
             href="/contacto"
-            className="hidden items-center justify-center rounded-full bg-slate-accent px-6 py-2.5 text-label-uppercase text-surface transition-colors hover:bg-slate-deep lg:inline-flex"
+            className="hidden min-h-11 items-center justify-center rounded-full bg-slate-deep px-6 py-2.5 text-label-uppercase text-white transition-colors hover:bg-primary lg:inline-flex"
             onClick={closeMenus}
           >
             {headerCta[locale]}
@@ -307,7 +307,7 @@ export function Header() {
             <li className="pt-2">
               <Link
                 href="/contacto"
-                className="inline-flex rounded-full bg-slate-accent px-5 py-2.5 text-label-uppercase text-white"
+                className="inline-flex min-h-11 rounded-full bg-slate-deep px-5 py-2.5 text-label-uppercase text-white"
                 onClick={closeMenus}
               >
                 {headerCta[locale]}

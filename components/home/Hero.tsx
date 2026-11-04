@@ -28,7 +28,7 @@ export async function Hero() {
 
       <div className="relative z-10 max-w-4xl text-surface">
         <h1 className="sr-only">{homeHero.seoTitle}</h1>
-        <p className="mb-4 text-label-uppercase text-surface/80">
+        <p className="mb-4 text-label-uppercase text-white">
           {homeHero.pillars}
         </p>
         <p
@@ -45,13 +45,13 @@ export async function Hero() {
         <div className="flex flex-wrap items-center gap-4">
           <Link
             href={homeHero.primaryCta.href}
-            className="rounded-full bg-slate-accent px-8 py-3.5 text-label-uppercase text-white transition-colors hover:bg-slate-deep"
+            className="rounded-full bg-slate-deep px-8 py-3.5 text-label-uppercase text-white transition-colors hover:bg-primary"
           >
             {homeHero.primaryCta.label}
           </Link>
           <Link
             href={homeHero.secondaryCta.href}
-            className="rounded-full border border-white/50 px-8 py-3.5 text-label-uppercase text-white backdrop-blur-sm transition-colors hover:bg-white/10"
+            className="rounded-full border border-white/80 px-8 py-3.5 text-label-uppercase text-white backdrop-blur-sm transition-colors hover:bg-white/15"
           >
             {homeHero.secondaryCta.label}
           </Link>

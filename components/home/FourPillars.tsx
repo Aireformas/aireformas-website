@@ -20,11 +20,11 @@ export async function FourPillars() {
     <section className="bg-sand-panel py-space-2xl text-ink-primary px-margin-mobile md:px-margin">
       <div className="mx-auto max-w-7xl">
         <div className="mb-space-xl max-w-2xl">
-          <span className="mb-2 block text-label-uppercase font-semibold text-deep-brown">
+          <span className="mb-2 block text-label-uppercase font-semibold text-ink-primary">
             {fourPillarsSection.label}
           </span>
           <h2 className="text-headline-lg">{fourPillarsSection.title}</h2>
-          <p className="mt-3 text-body-md text-on-surface-variant">
+          <p className="mt-3 text-body-md text-ink-primary">
             {fourPillarsSection.lead}
           </p>
         </div>
@@ -46,7 +46,7 @@ export async function FourPillars() {
                     <MaterialIcon name={meta.icon} className="text-2xl text-primary" />
                   </div>
                   <h3 className="text-headline-md mb-4 font-light">{pillar.title}</h3>
-                  <p className="mb-6 max-w-lg text-body-md text-on-surface-variant">
+                  <p className="mb-6 max-w-lg text-body-md text-ink-primary">
                     {pillar.description}
                   </p>
                 </div>

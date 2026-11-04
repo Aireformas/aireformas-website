@@ -53,7 +53,7 @@ export function ContactForm({ variant = "default", service }: ContactFormProps) 
     ? "w-full rounded-md border border-outline/30 bg-cream-base px-3 py-2 text-body-sm text-ink-primary outline-none transition-colors focus:border-slate-deep"
     : "w-full rounded-md border border-outline/30 bg-paper px-3 py-2 text-body-sm text-ink-primary outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/15";
 
-  const labelClassName = "mb-1 block text-label-uppercase text-warm-label";
+  const labelClassName = "mb-1 block text-label-uppercase text-ink-primary";
   const selectClassName = `${fieldClassName} cursor-pointer appearance-none bg-none pr-10`;
 
   function toggleService(id: ContactService) {
@@ -66,7 +66,7 @@ export function ContactForm({ variant = "default", service }: ContactFormProps) 
     <form key={state.revision} action={formAction} className="space-y-3">
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
         <h3 className="text-body-md font-medium text-ink-primary">{form.title}</h3>
-        <p className="text-body-sm text-warm-label">{form.response}</p>
+        <p className="text-body-sm text-on-surface-variant">{form.response}</p>
       </div>
 
       <div className="grid gap-3 sm:grid-cols-2">
@@ -109,7 +109,7 @@ export function ContactForm({ variant = "default", service }: ContactFormProps) 
           {form.service}
           <RequiredMark />
         </legend>
-        <p className="mb-2 text-body-sm text-warm-label">{form.serviceHint}</p>
+        <p className="mb-2 text-body-sm text-on-surface-variant">{form.serviceHint}</p>
         <div className="flex flex-wrap gap-1.5">
           {form.services.map((option) => {
             const checked = selected.includes(option.id as ContactService);
@@ -243,7 +243,7 @@ export function ContactForm({ variant = "default", service }: ContactFormProps) 
         className={
           isLanding
             ? "w-full rounded-full bg-slate-deep py-2.5 text-label-uppercase text-white transition-colors hover:bg-ink-primary disabled:opacity-60"
-            : "w-full rounded-full bg-slate-accent py-2.5 text-label-uppercase text-white transition-colors hover:bg-slate-deep disabled:opacity-60"
+            : "w-full min-h-11 rounded-full bg-slate-deep py-2.5 text-label-uppercase text-white transition-colors hover:bg-primary disabled:opacity-60"
         }
       >
         {pending ? form.sending : form.submit}

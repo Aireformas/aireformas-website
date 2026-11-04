@@ -111,12 +111,17 @@ export const serviceCatalog = defineCopy({
 });
 
 export function buildLlmsTxt(): string {
+  const baseUrl = site.url.replace(
+    /^https:\/\/aireformas\.com/i,
+    "https://www.aireformas.com",
+  );
+
   const lines: string[] = [
     `# ${site.name}`,
     "",
     "> Estudio y empresa de ejecución en Madrid: interiorismo, reformas, mobiliario a medida (cocinas, armarios, vestidores, carpintería) y climatización (aerotermia, suelo radiante). Un solo equipo de diseño a entrega.",
     "",
-    `- Site: ${site.url}`,
+    `- Site: ${baseUrl}`,
     `- Contact: ${site.email}`,
     `- Phone: ${site.phone}`,
     `- WhatsApp: ${site.whatsapp}`,
@@ -130,7 +135,7 @@ export function buildLlmsTxt(): string {
 
   for (const entry of serviceCatalog.es) {
     lines.push(
-      `- **${entry.name}** — ${entry.intents} → ${site.url}${entry.href}`,
+      `- **${entry.name}** — ${entry.intents} → ${baseUrl}${entry.href}`,
     );
   }
 
@@ -138,9 +143,9 @@ export function buildLlmsTxt(): string {
     "",
     "## Páginas",
     "",
-    `- [Inicio](${site.url}/): diseño, reforma, mobiliario y climatización con un solo equipo`,
-    `- [Preguntas frecuentes](${site.url}/preguntas-frecuentes): plazos, licencias, zona y cómo trabajamos`,
-    `- [Privacidad](${site.url}/legal/privacidad) · [Términos](${site.url}/legal/terminos) · [Cookies](${site.url}/legal/cookies)`,
+    `- [Inicio](${baseUrl}/): diseño, reforma, mobiliario y climatización con un solo equipo`,
+    `- [Preguntas frecuentes](${baseUrl}/preguntas-frecuentes): plazos, licencias, zona y cómo trabajamos`,
+    `- [Privacidad](${baseUrl}/legal/privacidad) · [Términos](${baseUrl}/legal/terminos) · [Cookies](${baseUrl}/legal/cookies)`,
     "",
     "## Resumen para asistentes",
     "",

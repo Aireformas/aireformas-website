@@ -32,7 +32,7 @@ export async function ContactCTA({
       id={id}
       className={
         isLanding
-          ? "bg-slate-accent px-margin-mobile py-12 text-surface md:px-margin md:py-14"
+          ? "bg-slate-deep px-margin-mobile py-12 text-white md:px-margin md:py-14"
           : isDark
             ? "bg-stone px-margin-mobile py-12 text-white md:px-margin md:py-14"
             : "border-t border-outline/15 bg-sand-container px-margin-mobile py-12 text-ink-primary md:px-margin md:py-14"
@@ -43,7 +43,7 @@ export async function ContactCTA({
           <span
             className={
               isLanding
-                ? "mb-2 block text-label-uppercase text-primary-fixed"
+                ? "mb-2 block text-label-uppercase text-white"
                 : "mb-2 block text-label-uppercase text-warm-label"
             }
           >
@@ -53,7 +53,7 @@ export async function ContactCTA({
           <p
             className={
               onColor
-                ? "mb-4 text-body-sm font-light text-surface/90"
+                ? "mb-4 text-body-sm font-light text-white"
                 : "mb-4 text-body-sm text-on-surface-variant"
             }
           >
@@ -62,13 +62,21 @@ export async function ContactCTA({
           <div className="flex flex-wrap gap-x-4 gap-y-2 text-body-sm">
             <a
               href={site.phoneHref}
-              className={onColor ? "hover:text-primary-fixed" : "hover:text-slate-deep"}
+              className={
+                onColor
+                  ? "text-white underline-offset-2 hover:underline"
+                  : "hover:text-slate-deep"
+              }
             >
               {site.phone}
             </a>
             <a
               href={site.emailHref}
-              className={onColor ? "hover:text-primary-fixed" : "hover:text-slate-deep"}
+              className={
+                onColor
+                  ? "text-white underline-offset-2 hover:underline"
+                  : "hover:text-slate-deep"
+              }
             >
               {site.email}
             </a>
@@ -78,8 +86,8 @@ export async function ContactCTA({
               rel="noopener noreferrer"
               className={
                 onColor
-                  ? "inline-flex items-center gap-1.5 hover:text-primary-fixed"
-                  : "inline-flex items-center gap-1.5 hover:text-slate-deep"
+                  ? "inline-flex min-h-11 items-center gap-1.5 text-white underline-offset-2 hover:underline"
+                  : "inline-flex min-h-11 items-center gap-1.5 hover:text-slate-deep"
               }
             >
               <WhatsAppIcon branded className="h-4 w-4" />

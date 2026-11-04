@@ -27,6 +27,20 @@ function syncGtagConsent(): void {
   });
 }
 
+function ensureGtagScript(): void {
+  if (!measurementId || typeof document === "undefined") {
+    return;
+  }
+  const src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+  if (document.querySelector(`script[src="${src}"]`)) {
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = src;
+  script.async = true;
+  document.head.appendChild(script);
+}
+
 function sendPageView(url: string): void {
   if (typeof window.gtag !== "function" || !measurementId || !analyticsAllowed()) {
     return;
@@ -44,7 +58,11 @@ export function GoogleAnalytics() {
   useEffect(() => {
     const sync = () => {
       syncGtagConsent();
-      setTrackPageViews(analyticsAllowed());
+      const allowed = analyticsAllowed();
+      if (allowed) {
+        ensureGtagScript();
+      }
+      setTrackPageViews(allowed);
     };
     sync();
     window.addEventListener(CONSENT_UPDATED_EVENT, sync);

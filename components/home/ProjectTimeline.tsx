@@ -31,8 +31,8 @@ export async function ProjectTimeline() {
                 <span
                   className={`absolute left-4 top-4 rounded-full px-3 py-1 text-label-uppercase ${
                     index === projectTimelineSteps.length - 1
-                      ? "bg-slate-accent text-surface"
-                      : "bg-ink-primary/80 text-surface backdrop-blur-sm"
+                      ? "bg-slate-deep text-white"
+                      : "bg-ink-primary/80 text-white backdrop-blur-sm"
                   }`}
                 >
                   Fase 0{index + 1}
@@ -41,9 +41,9 @@ export async function ProjectTimeline() {
               <span className="mb-1 text-label-uppercase text-warm-label">
                 {step.phase}
               </span>
-              <h4 className="text-headline-sm font-light text-ink-primary">
+              <h3 className="text-headline-sm font-light text-ink-primary">
                 {step.title}
-              </h4>
+              </h3>
             </div>
           ))}
         </div>

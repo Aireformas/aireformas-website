@@ -51,7 +51,7 @@ export function ProcessGridSection({
           <div className="grid grid-cols-1 gap-x-gutter gap-y-12 md:grid-cols-2 lg:grid-cols-3">
             {steps.map((step) => (
               <div key={step.number} className="border-t border-outline/25 pt-6">
-                <span className="text-numeral-display mb-2 block leading-none text-sand-panel">
+                <span className="text-numeral-display mb-2 block leading-none text-slate-deep/75">
                   {step.number}
                 </span>
                 <h3 className="text-headline-sm mb-2 font-light text-ink-primary">

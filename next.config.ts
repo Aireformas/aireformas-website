@@ -28,6 +28,10 @@ const nextConfig: NextConfig = {
         source: "/icons/:path*",
         headers: staticAssetCache,
       },
+      {
+        source: "/llms.txt",
+        headers: staticAssetCache,
+      },
       { source: "/:path*", headers: securityHeaders },
     ];
   },

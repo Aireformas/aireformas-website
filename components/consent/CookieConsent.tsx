@@ -37,7 +37,7 @@ function Toggle({
       disabled={disabled}
       onClick={() => onChange(!checked)}
       className={cn(
-        "relative h-7 w-12 shrink-0 rounded-full border transition-colors",
+        "relative h-11 w-[4.5rem] shrink-0 rounded-full border transition-colors",
         disabled
           ? "cursor-not-allowed border-ink/15 bg-ink/5"
           : "border-ink/20 bg-ink/5 hover:border-ink/35",
@@ -46,8 +46,8 @@ function Toggle({
     >
       <span
         className={cn(
-          "absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-ink shadow-sm transition-transform",
-          checked && "translate-x-5 bg-accent",
+          "absolute top-1 left-1 h-9 w-9 rounded-full bg-ink shadow-sm transition-transform",
+          checked && "translate-x-8 bg-slate-deep",
         )}
       />
     </button>
@@ -114,13 +114,13 @@ export function CookieConsent() {
       <div className="mx-auto max-w-3xl rounded-[var(--radius-card)] border border-ink/10 bg-paper p-5 text-ink shadow-lg md:p-6">
         <p
           id={titleId}
-          className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink/45"
+          className="font-mono text-xs uppercase tracking-[0.28em] text-ink/70"
         >
           {isBanner ? cookieBanner.title : cookiePreferences.title}
         </p>
 
         {isBanner ? (
-          <p className="mt-3 text-sm leading-relaxed text-ink/65">
+          <p className="mt-3 text-sm leading-relaxed text-ink/80">
             {cookieBanner.description}{" "}
             <Link href="/legal/cookies" className="underline underline-offset-2 hover:text-accent">
               {cookieBanner.policyLink}
@@ -135,7 +135,7 @@ export function CookieConsent() {
             <li className="flex gap-4 border-b border-ink/8 pb-4">
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-medium">{cookiePreferences.necessary.title}</p>
-                <p className="mt-1 text-xs leading-relaxed text-ink/50">
+                <p className="mt-1 text-xs leading-relaxed text-ink/70">
                   {cookiePreferences.necessary.description}
                 </p>
               </div>
@@ -149,7 +149,7 @@ export function CookieConsent() {
             <li className="flex gap-4 border-b border-ink/8 pb-4">
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-medium">{cookiePreferences.analytics.title}</p>
-                <p className="mt-1 text-xs leading-relaxed text-ink/50">
+                <p className="mt-1 text-xs leading-relaxed text-ink/70">
                   {cookiePreferences.analytics.description}
                 </p>
               </div>
@@ -162,7 +162,7 @@ export function CookieConsent() {
             <li className="flex gap-4">
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-medium">{cookiePreferences.marketing.title}</p>
-                <p className="mt-1 text-xs leading-relaxed text-ink/50">
+                <p className="mt-1 text-xs leading-relaxed text-ink/70">
                   {cookiePreferences.marketing.description}
                 </p>
               </div>
@@ -181,21 +181,21 @@ export function CookieConsent() {
               <button
                 type="button"
                 onClick={() => applyConsent("all")}
-                className="border border-accent bg-accent px-5 py-2.5 text-sm font-medium text-paper transition-opacity hover:opacity-90"
+                className="min-h-11 border border-slate-deep bg-slate-deep px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
               >
                 {cookieBanner.acceptAll}
               </button>
               <button
                 type="button"
                 onClick={() => applyConsent("necessary")}
-                className="border border-ink/20 px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-ink/40"
+                className="min-h-11 border border-ink/25 px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-ink/40"
               >
                 {cookieBanner.rejectOptional}
               </button>
               <button
                 type="button"
                 onClick={() => setPanel("preferences")}
-                className="px-2 py-2.5 text-sm font-medium text-ink/55 underline-offset-2 hover:text-accent hover:underline"
+                className="inline-flex min-h-11 items-center px-3 text-sm font-medium text-ink/80 underline-offset-2 hover:text-slate-deep hover:underline"
               >
                 {cookieBanner.configure}
               </button>
@@ -207,7 +207,7 @@ export function CookieConsent() {
                 onClick={() =>
                   applyConsent("custom", consentFromChoice("custom", { analytics, marketing }))
                 }
-                className="border border-accent bg-accent px-5 py-2.5 text-sm font-medium text-paper transition-opacity hover:opacity-90"
+                className="min-h-11 border border-slate-deep bg-slate-deep px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
               >
                 {cookiePreferences.save}
               </button>
@@ -220,7 +220,7 @@ export function CookieConsent() {
                     setPanel("banner");
                   }
                 }}
-                className="border border-ink/20 px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-ink/40"
+                className="min-h-11 border border-ink/25 px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-ink/40"
               >
                 {cookiePreferences.close}
               </button>
